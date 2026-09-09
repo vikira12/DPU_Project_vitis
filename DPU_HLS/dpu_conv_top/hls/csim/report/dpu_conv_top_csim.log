@@ -1,0 +1,8 @@
+INFO: [SIM 2] *************** CSIM start ***************
+   Compiling C:/Users/user/Downloads/files/dpu_conv_tb.cpp in release mode
+   Compiling C:/Users/user/Downloads/files/dpu_conv.cpp in release mode
+   Linking obj/dpu_conv.bc into obj/project.bc
+   Lowering obj/project.bc into obj/project.syn.o
+   Generating csim.exe
+INFO: [SIM 1] CSim file generation done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

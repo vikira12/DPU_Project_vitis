@@ -1,0 +1,246 @@
+<ENTRY>
+{
+ "thisFile": "D:/project\\DPU_HLS\\dpu_conv_top\\dpu_conv_top.hlscompile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "09/07/26 20:10:49",
+ "timestampMillis": "1788779449707",
+ "buildStep": {
+  "cmdId": "b7b88e33-3e86-4e9d-80ad-db189738bf16",
+  "name": "v++",
+  "logFile": "D:/project\\DPU_HLS\\dpu_conv_top\\logs\\dpu_conv_top.steps.log",
+  "commandLine": "C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/v++.exe  -c --mode hls --config D:\\project\\DPU_HLS\\hls_config.cfg --work_dir dpu_conv_top ",
+  "args": [
+   "-c",
+   "--mode",
+   "hls",
+   "--config",
+   "D:\\project\\DPU_HLS\\hls_config.cfg",
+   "--work_dir",
+   "dpu_conv_top"
+  ],
+  "iniFiles": [
+   {
+    "path": "D:/project\\DPU_HLS\\hls_config.cfg",
+    "content": "part=xc7z020clg400-1\n\n[hls]\nflow_target=vivado\npackage.output.format=ip_catalog\npackage.output.syn=1\nsyn.top=dpu_conv_top\nsyn.file=C:/Users/user/Downloads/files/dpu_conv.cpp\nsyn.file=C:/Users/user/Downloads/files/dpu_conv.h\ntb.file=C:/Users/user/Downloads/files/dpu_conv_tb.cpp\nsim.O=1\ncsim.clean=1\ncsim.setup=1\ncsim.profile_tripcount=1\nclock=11ns"
+   }
+  ],
+  "cwd": "D:\\project\\DPU_HLS"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "09/07/26 20:10:49",
+ "timestampMillis": "1788779449707",
+ "status": {
+  "cmdId": "b7b88e33-3e86-4e9d-80ad-db189738bf16",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "09/07/26 20:11:20",
+ "timestampMillis": "1788779480241",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "dpu_conv_top",
+     "file": "D:/project\\DPU_HLS\\dpu_conv_top\\dpu_conv_top.zip",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "C:/Users\\user\\Downloads\\files\\dpu_conv.cpp",
+     "C:/Users\\user\\Downloads\\files\\dpu_conv.h"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2025.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "09/07/26 20:11:20",
+ "timestampMillis": "1788779480249",
+ "buildStep": {
+  "cmdId": "4280a530-81cc-4831-88a6-7dd7e6c83488",
+  "name": "",
+  "logFile": "D:/project\\DPU_HLS\\dpu_conv_top\\hls\\hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "D:\\project\\DPU_HLS"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "09/07/26 20:11:20",
+ "timestampMillis": "1788779480251",
+ "status": {
+  "cmdId": "4280a530-81cc-4831-88a6-7dd7e6c83488",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "09/07/26 20:11:20",
+ "timestampMillis": "1788779480252",
+ "report": {
+  "path": "D:/project\\DPU_HLS\\dpu_conv_top\\hls\\hls_data.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "09/07/26 20:11:20",
+ "timestampMillis": "1788779480253",
+ "report": {
+  "path": "D:/project\\DPU_HLS\\dpu_conv_top\\hls\\syn\\report\\csynth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "09/07/26 20:11:20",
+ "timestampMillis": "1788779480255",
+ "report": {
+  "path": "D:/project\\DPU_HLS\\dpu_conv_top\\hls\\syn\\report\\csynth.xml",
+  "name": "",
+  "fileType": "XML",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "09/07/26 20:14:26",
+ "timestampMillis": "1788779666971",
+ "report": {
+  "path": "D:/project\\DPU_HLS\\dpu_conv_top\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_DATAFLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "09/07/26 20:14:26",
+ "timestampMillis": "1788779666974",
+ "report": {
+  "path": "D:/project\\DPU_HLS\\dpu_conv_top\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_FUNCTION_CALL_GRAPH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "09/07/26 20:14:26",
+ "timestampMillis": "1788779666976",
+ "report": {
+  "path": "D:/project\\DPU_HLS\\dpu_conv_top\\hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_SCHEDULE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "09/07/26 20:14:26",
+ "timestampMillis": "1788779666978",
+ "status": {
+  "cmdId": "4280a530-81cc-4831-88a6-7dd7e6c83488",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "09/07/26 20:16:55",
+ "timestampMillis": "1788779815786",
+ "status": {
+  "cmdId": "b7b88e33-3e86-4e9d-80ad-db189738bf16",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "09/07/26 20:16:55",
+ "timestampMillis": "1788779815903",
+ "report": {
+  "path": "D:/project\\DPU_HLS\\dpu_conv_top\\reports\\v++_compile_dpu_conv_top_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "09/07/26 20:16:55",
+ "timestampMillis": "1788779815903",
+ "report": {
+  "path": "D:/project\\DPU_HLS\\dpu_conv_top\\reports\\.db\\v++_compile_dpu_conv_top_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

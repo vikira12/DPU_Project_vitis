@@ -1,0 +1,161 @@
+{
+    "0": {
+        "name": "dpu_conv_top",
+        "file": "dpu_conv.cpp",
+        "fileloc": "128",
+        "instructions": "136",
+        "total_instructions": "2157",
+        "calls": "9 2 8 6",
+        "basicblocks": "1",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "3"
+    },
+    "1": {
+        "name": "copy_passthrough",
+        "file": "C:\/Users\/user\/Downloads\/files\/dpu_conv.cpp",
+        "fileloc": "111",
+        "instructions": "13",
+        "total_instructions": "105",
+        "calls": "3",
+        "basicblocks": "1",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "3"
+    },
+    "2": {
+        "name": "conv3x3_relu",
+        "file": "C:\/Users\/user\/Downloads\/files\/dpu_conv.cpp",
+        "fileloc": "8",
+        "instructions": "88",
+        "total_instructions": "1768",
+        "calls": "7",
+        "basicblocks": "4",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "7",
+        "loads": {
+            "L": "7"
+        },
+        "stores": {
+            "L": "4"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "3": {
+        "name": "copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W",
+        "file": "C:\/Users\/user\/Downloads\/files\/dpu_conv.cpp",
+        "fileloc": "115",
+        "instructions": "92",
+        "total_instructions": "92",
+        "calls": "",
+        "basicblocks": "8",
+        "memory_accesses": "15",
+        "control_depth": "2",
+        "def_use_depth": "2",
+        "loads": {
+            "G": "2",
+            "L": "5"
+        },
+        "stores": {
+            "L": "10"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "4": {
+        "name": "maxpool2x2",
+        "file": "C:\/Users\/user\/Downloads\/files\/dpu_conv.cpp",
+        "fileloc": "81",
+        "instructions": "15",
+        "total_instructions": "121",
+        "calls": "5",
+        "basicblocks": "1",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "4"
+    },
+    "5": {
+        "name": "maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W",
+        "file": "C:\/Users\/user\/Downloads\/files\/dpu_conv.cpp",
+        "fileloc": "85",
+        "instructions": "106",
+        "total_instructions": "106",
+        "calls": "",
+        "basicblocks": "8",
+        "memory_accesses": "17",
+        "control_depth": "2",
+        "def_use_depth": "2",
+        "loads": {
+            "G": "4",
+            "L": "5"
+        },
+        "stores": {
+            "L": "10"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "6": {
+        "name": "Block_entry_proc.2",
+        "file": "C:\/Users\/user\/Downloads\/files\/dpu_conv.cpp",
+        "fileloc": "178",
+        "instructions": "6",
+        "total_instructions": "6",
+        "calls": "",
+        "basicblocks": "1",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "2"
+    },
+    "7": {
+        "name": "conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP",
+        "file": "C:\/Users\/user\/Downloads\/files\/dpu_conv.cpp",
+        "fileloc": "23",
+        "instructions": "1680",
+        "total_instructions": "1680",
+        "calls": "",
+        "basicblocks": "145",
+        "memory_accesses": "308",
+        "control_depth": "3",
+        "def_use_depth": "129",
+        "loads": {
+            "L": "9"
+        },
+        "stores": {
+            "G": "2",
+            "L": "21"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "8": {
+        "name": "Block_entry_proc",
+        "file": "C:\/Users\/user\/Downloads\/files\/dpu_conv.cpp",
+        "fileloc": "169",
+        "instructions": "14",
+        "total_instructions": "240",
+        "calls": "1 4",
+        "basicblocks": "4",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "1"
+    },
+    "9": {
+        "name": "entry_proc",
+        "file": "dpu_conv.cpp",
+        "fileloc": "0",
+        "instructions": "7",
+        "total_instructions": "7",
+        "calls": "",
+        "basicblocks": "1",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "1"
+    }
+}

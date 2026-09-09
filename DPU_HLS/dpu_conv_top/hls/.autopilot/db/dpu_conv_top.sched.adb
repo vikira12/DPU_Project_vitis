@@ -1,0 +1,6438 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="17">
+<syndb class_id="0" tracking_level="0" version="0">
+	<userIPLatency>-1</userIPLatency>
+	<userIPName></userIPName>
+	<cdfg class_id="1" tracking_level="1" version="0" object_id="_0">
+		<name>dpu_conv_top</name>
+		<module_structure>Dataflow</module_structure>
+		<ret_bitwidth>0</ret_bitwidth>
+		<ports class_id="2" tracking_level="0" version="0">
+			<count>43</count>
+			<item_version>0</item_version>
+			<item class_id="3" tracking_level="1" version="0" object_id="_1">
+				<Value class_id="4" tracking_level="0" version="0">
+					<Obj class_id="5" tracking_level="0" version="0">
+						<type>1</type>
+						<id>1</id>
+						<name>gmem0_0</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo class_id="6" tracking_level="0" version="0">
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs class_id="7" tracking_level="0" version="0">
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_2">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>2</id>
+						<name>gmem0_1</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_3">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>3</id>
+						<name>gmem0_2</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_4">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>4</id>
+						<name>gmem0_3</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_5">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>5</id>
+						<name>gmem0_4</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_6">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>6</id>
+						<name>gmem0_5</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_7">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>7</id>
+						<name>gmem0_6</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_8">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>8</id>
+						<name>gmem0_7</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_9">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>9</id>
+						<name>gmem1_0</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_10">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>10</id>
+						<name>gmem1_1</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_11">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>11</id>
+						<name>gmem1_2</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_12">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>12</id>
+						<name>gmem1_3</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_13">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>13</id>
+						<name>gmem1_4</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_14">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>14</id>
+						<name>gmem1_5</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_15">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>15</id>
+						<name>gmem1_6</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_16">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>16</id>
+						<name>gmem1_7</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_17">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>17</id>
+						<name>gmem1</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_18">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>18</id>
+						<name>gmem0</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>1</direction>
+				<if_type>4</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_19">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>19</id>
+						<name>ifmap_0</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>ifmap</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_20">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>20</id>
+						<name>ifmap_1</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>ifmap</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_21">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>21</id>
+						<name>ifmap_2</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>ifmap</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_22">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>22</id>
+						<name>ifmap_3</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>ifmap</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_23">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>23</id>
+						<name>ifmap_4</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>ifmap</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_24">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>24</id>
+						<name>ifmap_5</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>ifmap</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_25">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>25</id>
+						<name>ifmap_6</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>ifmap</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_26">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>26</id>
+						<name>ifmap_7</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>ifmap</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_27">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>27</id>
+						<name>weight_0</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>weight</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_28">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>28</id>
+						<name>weight_1</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>weight</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_29">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>29</id>
+						<name>weight_2</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>weight</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_30">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>30</id>
+						<name>weight_3</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>weight</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_31">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>31</id>
+						<name>weight_4</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>weight</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_32">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>32</id>
+						<name>weight_5</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>weight</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_33">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>33</id>
+						<name>weight_6</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>weight</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_34">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>34</id>
+						<name>weight_7</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>weight</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_35">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>35</id>
+						<name>bias</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>bias</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_36">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>36</id>
+						<name>ofmap</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>ofmap</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_37">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>37</id>
+						<name>in_h</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>in_h</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_38">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>38</id>
+						<name>in_w</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>in_w</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_39">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>39</id>
+						<name>in_ch</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>in_ch</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_40">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>40</id>
+						<name>out_ch</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>out_ch</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_41">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>41</id>
+						<name>do_relu</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>do_relu</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>1</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_42">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>42</id>
+						<name>do_pool</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>do_pool</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>1</bitwidth>
+				</Value>
+				<direction>0</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+			<item class_id_reference="3" object_id="_43">
+				<Value>
+					<Obj>
+						<type>1</type>
+						<id>43</id>
+						<name>perf</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName>perf</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>96</bitwidth>
+				</Value>
+				<direction>1</direction>
+				<if_type>0</if_type>
+				<array_size>0</array_size>
+				<bit_vecs>
+					<count>0</count>
+					<item_version>0</item_version>
+				</bit_vecs>
+			</item>
+		</ports>
+		<nodes class_id="8" tracking_level="0" version="0">
+			<count>36</count>
+			<item_version>0</item_version>
+			<item class_id="9" tracking_level="1" version="0" object_id="_44">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>46</id>
+						<name>do_pool_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id="10" tracking_level="0" version="0">
+								<first></first>
+								<second class_id="11" tracking_level="0" version="0">
+									<count>1</count>
+									<item_version>0</item_version>
+									<item class_id="12" tracking_level="0" version="0">
+										<first class_id="13" tracking_level="0" version="0">
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>1</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>184</item>
+					<item>185</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>1</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_45">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>47</id>
+						<name>do_relu_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>1</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>186</item>
+					<item>187</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>2</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_46">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>48</id>
+						<name>out_ch_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>189</item>
+					<item>190</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>3</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_47">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>49</id>
+						<name>in_ch_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>191</item>
+					<item>192</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>4</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_48">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>50</id>
+						<name>in_w_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>193</item>
+					<item>194</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>5</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_49">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>51</id>
+						<name>in_h_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>195</item>
+					<item>196</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>6</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_50">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>52</id>
+						<name>ofmap_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>198</item>
+					<item>199</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>7</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_51">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>53</id>
+						<name>bias_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>200</item>
+					<item>201</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>8</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_52">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>54</id>
+						<name>weight_7_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>202</item>
+					<item>203</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>9</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_53">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>55</id>
+						<name>weight_6_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>204</item>
+					<item>205</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>10</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_54">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>56</id>
+						<name>weight_5_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>206</item>
+					<item>207</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>11</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_55">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>57</id>
+						<name>weight_4_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>208</item>
+					<item>209</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>12</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_56">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>58</id>
+						<name>weight_3_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>210</item>
+					<item>211</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>13</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_57">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>59</id>
+						<name>weight_2_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>212</item>
+					<item>213</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>14</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_58">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>60</id>
+						<name>weight_1_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>214</item>
+					<item>215</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>15</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_59">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>61</id>
+						<name>weight_0_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>216</item>
+					<item>217</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>16</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_60">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>62</id>
+						<name>ifmap_7_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>218</item>
+					<item>219</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>17</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_61">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>63</id>
+						<name>ifmap_6_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>220</item>
+					<item>221</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>18</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_62">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>64</id>
+						<name>ifmap_5_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>222</item>
+					<item>223</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>19</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_63">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>65</id>
+						<name>ifmap_4_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>224</item>
+					<item>225</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>20</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_64">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>66</id>
+						<name>ifmap_3_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>226</item>
+					<item>227</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>21</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_65">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>67</id>
+						<name>ifmap_2_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>228</item>
+					<item>229</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>22</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_66">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>68</id>
+						<name>ifmap_1_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>230</item>
+					<item>231</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>23</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_67">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>69</id>
+						<name>ifmap_0_read</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>232</item>
+					<item>233</item>
+				</oprand_edges>
+				<opcode>read</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>1.00</m_delay>
+				<m_topoIndex>24</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_68">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>70</id>
+						<name>do_pool_c</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>1</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>235</item>
+				</oprand_edges>
+				<opcode>alloca</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>25</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_69">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>73</id>
+						<name>ofmap_c</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>236</item>
+				</oprand_edges>
+				<opcode>alloca</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>26</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_70">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>172</id>
+						<name>_ln160</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>160</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>160</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>5</count>
+					<item_version>0</item_version>
+					<item>238</item>
+					<item>239</item>
+					<item>240</item>
+					<item>241</item>
+					<item>242</item>
+				</oprand_edges>
+				<opcode>call</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>3.63</m_delay>
+				<m_topoIndex>27</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_71">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>173</id>
+						<name>call_ret</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>165</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>165</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>88</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>44</count>
+					<item_version>0</item_version>
+					<item>244</item>
+					<item>245</item>
+					<item>246</item>
+					<item>247</item>
+					<item>248</item>
+					<item>249</item>
+					<item>250</item>
+					<item>251</item>
+					<item>252</item>
+					<item>253</item>
+					<item>254</item>
+					<item>255</item>
+					<item>256</item>
+					<item>257</item>
+					<item>258</item>
+					<item>259</item>
+					<item>260</item>
+					<item>261</item>
+					<item>262</item>
+					<item>263</item>
+					<item>264</item>
+					<item>265</item>
+					<item>266</item>
+					<item>267</item>
+					<item>268</item>
+					<item>269</item>
+					<item>270</item>
+					<item>271</item>
+					<item>272</item>
+					<item>273</item>
+					<item>274</item>
+					<item>275</item>
+					<item>276</item>
+					<item>277</item>
+					<item>278</item>
+					<item>279</item>
+					<item>280</item>
+					<item>281</item>
+					<item>282</item>
+					<item>283</item>
+					<item>285</item>
+					<item>286</item>
+					<item>307</item>
+					<item>308</item>
+				</oprand_edges>
+				<opcode>call</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>5.63</m_delay>
+				<m_topoIndex>28</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_72">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>174</id>
+						<name>mac_count</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>165</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>165</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName>mac_count</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>287</item>
+				</oprand_edges>
+				<opcode>extractvalue</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>29</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_73">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>175</id>
+						<name>cycle_count</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>165</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>165</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName>cycle_count</originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>288</item>
+				</oprand_edges>
+				<opcode>extractvalue</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>30</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_74">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>176</id>
+						<name>in_h_c_channel</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>165</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>165</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>289</item>
+				</oprand_edges>
+				<opcode>extractvalue</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>31</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_75">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>177</id>
+						<name>in_w_c_channel</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>165</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>165</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>290</item>
+				</oprand_edges>
+				<opcode>extractvalue</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>32</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_76">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>178</id>
+						<name>out_ch_c_channel</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>165</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>165</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>8</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>291</item>
+				</oprand_edges>
+				<opcode>extractvalue</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>33</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_77">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>179</id>
+						<name>_ln169</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>169</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>169</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>12</count>
+					<item_version>0</item_version>
+					<item>293</item>
+					<item>294</item>
+					<item>295</item>
+					<item>296</item>
+					<item>297</item>
+					<item>298</item>
+					<item>299</item>
+					<item>300</item>
+					<item>301</item>
+					<item>1941</item>
+					<item>1942</item>
+					<item>1943</item>
+				</oprand_edges>
+				<opcode>call</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>3.63</m_delay>
+				<m_topoIndex>35</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_78">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>180</id>
+						<name>_ln178</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>178</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>178</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>4</count>
+					<item_version>0</item_version>
+					<item>303</item>
+					<item>304</item>
+					<item>305</item>
+					<item>306</item>
+				</oprand_edges>
+				<opcode>call</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>3.63</m_delay>
+				<m_topoIndex>34</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_79">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>181</id>
+						<name>_ln180</name>
+						<fileName>C:/Users/user/Downloads/files/dpu_conv.cpp</fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>180</lineNumber>
+						<contextFuncName>dpu_conv_top</contextFuncName>
+						<contextNormFuncName>dpu_conv_top</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first></first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>C:/Users/user/Downloads/files/dpu_conv.cpp</first>
+											<second>dpu_conv_top</second>
+										</first>
+										<second>180</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>0</count>
+					<item_version>0</item_version>
+				</oprand_edges>
+				<opcode>ret</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>36</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+		</nodes>
+		<consts class_id="15" tracking_level="0" version="0">
+			<count>6</count>
+			<item_version>0</item_version>
+			<item class_id="16" tracking_level="1" version="0" object_id="_80">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>234</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>64</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>1</content>
+			</item>
+			<item class_id_reference="16" object_id="_81">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>237</id>
+						<name>entry_proc</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<const_type>6</const_type>
+				<content>&lt;constant:entry_proc&gt;</content>
+			</item>
+			<item class_id_reference="16" object_id="_82">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>243</id>
+						<name>conv3x3_relu</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>88</bitwidth>
+				</Value>
+				<const_type>6</const_type>
+				<content>&lt;constant:conv3x3_relu&gt;</content>
+			</item>
+			<item class_id_reference="16" object_id="_83">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>284</id>
+						<name>empty</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>1</bitwidth>
+				</Value>
+				<const_type>0</const_type>
+				<content>0</content>
+			</item>
+			<item class_id_reference="16" object_id="_84">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>292</id>
+						<name>Block_entry_proc</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<const_type>6</const_type>
+				<content>&lt;constant:Block_entry_proc&gt;</content>
+			</item>
+			<item class_id_reference="16" object_id="_85">
+				<Value>
+					<Obj>
+						<type>2</type>
+						<id>302</id>
+						<name>Block_entry_proc_2</name>
+						<fileName></fileName>
+						<fileDirectory></fileDirectory>
+						<lineNumber>0</lineNumber>
+						<contextFuncName></contextFuncName>
+						<contextNormFuncName></contextNormFuncName>
+						<inlineStackInfo>
+							<count>0</count>
+							<item_version>0</item_version>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4294967295</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>0</bitwidth>
+				</Value>
+				<const_type>6</const_type>
+				<content>&lt;constant:Block_entry_proc.2&gt;</content>
+			</item>
+		</consts>
+		<blocks class_id="17" tracking_level="0" version="0">
+			<count>1</count>
+			<item_version>0</item_version>
+			<item class_id="18" tracking_level="1" version="0" object_id="_86">
+				<Obj>
+					<type>3</type>
+					<id>182</id>
+					<name>dpu_conv_top</name>
+					<fileName></fileName>
+					<fileDirectory></fileDirectory>
+					<lineNumber>0</lineNumber>
+					<contextFuncName></contextFuncName>
+					<contextNormFuncName></contextNormFuncName>
+					<inlineStackInfo>
+						<count>0</count>
+						<item_version>0</item_version>
+					</inlineStackInfo>
+					<originalName></originalName>
+					<rtlName></rtlName>
+					<control></control>
+					<opType></opType>
+					<implIndex></implIndex>
+					<coreName></coreName>
+					<isStorage>0</isStorage>
+					<storageDepth>0</storageDepth>
+					<coreId>4294967295</coreId>
+					<rtlModuleName></rtlModuleName>
+				</Obj>
+				<node_objs>
+					<count>36</count>
+					<item_version>0</item_version>
+					<item>46</item>
+					<item>47</item>
+					<item>48</item>
+					<item>49</item>
+					<item>50</item>
+					<item>51</item>
+					<item>52</item>
+					<item>53</item>
+					<item>54</item>
+					<item>55</item>
+					<item>56</item>
+					<item>57</item>
+					<item>58</item>
+					<item>59</item>
+					<item>60</item>
+					<item>61</item>
+					<item>62</item>
+					<item>63</item>
+					<item>64</item>
+					<item>65</item>
+					<item>66</item>
+					<item>67</item>
+					<item>68</item>
+					<item>69</item>
+					<item>70</item>
+					<item>73</item>
+					<item>172</item>
+					<item>173</item>
+					<item>174</item>
+					<item>175</item>
+					<item>176</item>
+					<item>177</item>
+					<item>178</item>
+					<item>179</item>
+					<item>180</item>
+					<item>181</item>
+				</node_objs>
+			</item>
+		</blocks>
+		<edges class_id="19" tracking_level="0" version="0">
+			<count>96</count>
+			<item_version>0</item_version>
+			<item class_id="20" tracking_level="1" version="0" object_id="_87">
+				<id>185</id>
+				<edge_type>1</edge_type>
+				<source_obj>42</source_obj>
+				<sink_obj>46</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_88">
+				<id>187</id>
+				<edge_type>1</edge_type>
+				<source_obj>41</source_obj>
+				<sink_obj>47</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_89">
+				<id>190</id>
+				<edge_type>1</edge_type>
+				<source_obj>40</source_obj>
+				<sink_obj>48</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_90">
+				<id>192</id>
+				<edge_type>1</edge_type>
+				<source_obj>39</source_obj>
+				<sink_obj>49</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_91">
+				<id>194</id>
+				<edge_type>1</edge_type>
+				<source_obj>38</source_obj>
+				<sink_obj>50</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_92">
+				<id>196</id>
+				<edge_type>1</edge_type>
+				<source_obj>37</source_obj>
+				<sink_obj>51</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_93">
+				<id>199</id>
+				<edge_type>1</edge_type>
+				<source_obj>36</source_obj>
+				<sink_obj>52</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_94">
+				<id>201</id>
+				<edge_type>1</edge_type>
+				<source_obj>35</source_obj>
+				<sink_obj>53</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_95">
+				<id>203</id>
+				<edge_type>1</edge_type>
+				<source_obj>34</source_obj>
+				<sink_obj>54</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_96">
+				<id>205</id>
+				<edge_type>1</edge_type>
+				<source_obj>33</source_obj>
+				<sink_obj>55</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_97">
+				<id>207</id>
+				<edge_type>1</edge_type>
+				<source_obj>32</source_obj>
+				<sink_obj>56</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_98">
+				<id>209</id>
+				<edge_type>1</edge_type>
+				<source_obj>31</source_obj>
+				<sink_obj>57</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_99">
+				<id>211</id>
+				<edge_type>1</edge_type>
+				<source_obj>30</source_obj>
+				<sink_obj>58</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_100">
+				<id>213</id>
+				<edge_type>1</edge_type>
+				<source_obj>29</source_obj>
+				<sink_obj>59</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_101">
+				<id>215</id>
+				<edge_type>1</edge_type>
+				<source_obj>28</source_obj>
+				<sink_obj>60</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_102">
+				<id>217</id>
+				<edge_type>1</edge_type>
+				<source_obj>27</source_obj>
+				<sink_obj>61</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_103">
+				<id>219</id>
+				<edge_type>1</edge_type>
+				<source_obj>26</source_obj>
+				<sink_obj>62</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_104">
+				<id>221</id>
+				<edge_type>1</edge_type>
+				<source_obj>25</source_obj>
+				<sink_obj>63</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_105">
+				<id>223</id>
+				<edge_type>1</edge_type>
+				<source_obj>24</source_obj>
+				<sink_obj>64</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_106">
+				<id>225</id>
+				<edge_type>1</edge_type>
+				<source_obj>23</source_obj>
+				<sink_obj>65</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_107">
+				<id>227</id>
+				<edge_type>1</edge_type>
+				<source_obj>22</source_obj>
+				<sink_obj>66</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_108">
+				<id>229</id>
+				<edge_type>1</edge_type>
+				<source_obj>21</source_obj>
+				<sink_obj>67</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_109">
+				<id>231</id>
+				<edge_type>1</edge_type>
+				<source_obj>20</source_obj>
+				<sink_obj>68</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_110">
+				<id>233</id>
+				<edge_type>1</edge_type>
+				<source_obj>19</source_obj>
+				<sink_obj>69</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_111">
+				<id>235</id>
+				<edge_type>1</edge_type>
+				<source_obj>234</source_obj>
+				<sink_obj>70</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_112">
+				<id>236</id>
+				<edge_type>1</edge_type>
+				<source_obj>234</source_obj>
+				<sink_obj>73</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_113">
+				<id>238</id>
+				<edge_type>1</edge_type>
+				<source_obj>237</source_obj>
+				<sink_obj>172</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_114">
+				<id>239</id>
+				<edge_type>1</edge_type>
+				<source_obj>52</source_obj>
+				<sink_obj>172</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_115">
+				<id>240</id>
+				<edge_type>1</edge_type>
+				<source_obj>73</source_obj>
+				<sink_obj>172</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_116">
+				<id>241</id>
+				<edge_type>1</edge_type>
+				<source_obj>46</source_obj>
+				<sink_obj>172</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_117">
+				<id>242</id>
+				<edge_type>1</edge_type>
+				<source_obj>70</source_obj>
+				<sink_obj>172</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_118">
+				<id>244</id>
+				<edge_type>1</edge_type>
+				<source_obj>243</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_119">
+				<id>245</id>
+				<edge_type>1</edge_type>
+				<source_obj>1</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_120">
+				<id>246</id>
+				<edge_type>1</edge_type>
+				<source_obj>69</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_121">
+				<id>247</id>
+				<edge_type>1</edge_type>
+				<source_obj>2</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_122">
+				<id>248</id>
+				<edge_type>1</edge_type>
+				<source_obj>68</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_123">
+				<id>249</id>
+				<edge_type>1</edge_type>
+				<source_obj>3</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_124">
+				<id>250</id>
+				<edge_type>1</edge_type>
+				<source_obj>67</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_125">
+				<id>251</id>
+				<edge_type>1</edge_type>
+				<source_obj>4</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_126">
+				<id>252</id>
+				<edge_type>1</edge_type>
+				<source_obj>66</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_127">
+				<id>253</id>
+				<edge_type>1</edge_type>
+				<source_obj>5</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_128">
+				<id>254</id>
+				<edge_type>1</edge_type>
+				<source_obj>65</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_129">
+				<id>255</id>
+				<edge_type>1</edge_type>
+				<source_obj>6</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_130">
+				<id>256</id>
+				<edge_type>1</edge_type>
+				<source_obj>64</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_131">
+				<id>257</id>
+				<edge_type>1</edge_type>
+				<source_obj>7</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_132">
+				<id>258</id>
+				<edge_type>1</edge_type>
+				<source_obj>63</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_133">
+				<id>259</id>
+				<edge_type>1</edge_type>
+				<source_obj>8</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_134">
+				<id>260</id>
+				<edge_type>1</edge_type>
+				<source_obj>62</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_135">
+				<id>261</id>
+				<edge_type>1</edge_type>
+				<source_obj>9</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_136">
+				<id>262</id>
+				<edge_type>1</edge_type>
+				<source_obj>61</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_137">
+				<id>263</id>
+				<edge_type>1</edge_type>
+				<source_obj>10</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_138">
+				<id>264</id>
+				<edge_type>1</edge_type>
+				<source_obj>60</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_139">
+				<id>265</id>
+				<edge_type>1</edge_type>
+				<source_obj>11</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_140">
+				<id>266</id>
+				<edge_type>1</edge_type>
+				<source_obj>59</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_141">
+				<id>267</id>
+				<edge_type>1</edge_type>
+				<source_obj>12</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_142">
+				<id>268</id>
+				<edge_type>1</edge_type>
+				<source_obj>58</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_143">
+				<id>269</id>
+				<edge_type>1</edge_type>
+				<source_obj>13</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_144">
+				<id>270</id>
+				<edge_type>1</edge_type>
+				<source_obj>57</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_145">
+				<id>271</id>
+				<edge_type>1</edge_type>
+				<source_obj>14</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_146">
+				<id>272</id>
+				<edge_type>1</edge_type>
+				<source_obj>56</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_147">
+				<id>273</id>
+				<edge_type>1</edge_type>
+				<source_obj>15</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_148">
+				<id>274</id>
+				<edge_type>1</edge_type>
+				<source_obj>55</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_149">
+				<id>275</id>
+				<edge_type>1</edge_type>
+				<source_obj>16</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_150">
+				<id>276</id>
+				<edge_type>1</edge_type>
+				<source_obj>54</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_151">
+				<id>277</id>
+				<edge_type>1</edge_type>
+				<source_obj>17</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_152">
+				<id>278</id>
+				<edge_type>1</edge_type>
+				<source_obj>53</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_153">
+				<id>279</id>
+				<edge_type>1</edge_type>
+				<source_obj>51</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_154">
+				<id>280</id>
+				<edge_type>1</edge_type>
+				<source_obj>50</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_155">
+				<id>281</id>
+				<edge_type>1</edge_type>
+				<source_obj>49</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_156">
+				<id>282</id>
+				<edge_type>1</edge_type>
+				<source_obj>48</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_157">
+				<id>283</id>
+				<edge_type>1</edge_type>
+				<source_obj>47</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_158">
+				<id>285</id>
+				<edge_type>1</edge_type>
+				<source_obj>284</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_159">
+				<id>286</id>
+				<edge_type>1</edge_type>
+				<source_obj>284</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_160">
+				<id>287</id>
+				<edge_type>1</edge_type>
+				<source_obj>173</source_obj>
+				<sink_obj>174</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_161">
+				<id>288</id>
+				<edge_type>1</edge_type>
+				<source_obj>173</source_obj>
+				<sink_obj>175</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_162">
+				<id>289</id>
+				<edge_type>1</edge_type>
+				<source_obj>173</source_obj>
+				<sink_obj>176</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_163">
+				<id>290</id>
+				<edge_type>1</edge_type>
+				<source_obj>173</source_obj>
+				<sink_obj>177</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_164">
+				<id>291</id>
+				<edge_type>1</edge_type>
+				<source_obj>173</source_obj>
+				<sink_obj>178</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_165">
+				<id>293</id>
+				<edge_type>1</edge_type>
+				<source_obj>292</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_166">
+				<id>294</id>
+				<edge_type>1</edge_type>
+				<source_obj>70</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_167">
+				<id>295</id>
+				<edge_type>1</edge_type>
+				<source_obj>18</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_168">
+				<id>296</id>
+				<edge_type>1</edge_type>
+				<source_obj>73</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_169">
+				<id>297</id>
+				<edge_type>1</edge_type>
+				<source_obj>176</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_170">
+				<id>298</id>
+				<edge_type>1</edge_type>
+				<source_obj>177</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_171">
+				<id>299</id>
+				<edge_type>1</edge_type>
+				<source_obj>178</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_172">
+				<id>300</id>
+				<edge_type>1</edge_type>
+				<source_obj>44</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_173">
+				<id>301</id>
+				<edge_type>1</edge_type>
+				<source_obj>45</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_174">
+				<id>303</id>
+				<edge_type>1</edge_type>
+				<source_obj>302</source_obj>
+				<sink_obj>180</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_175">
+				<id>304</id>
+				<edge_type>1</edge_type>
+				<source_obj>174</source_obj>
+				<sink_obj>180</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_176">
+				<id>305</id>
+				<edge_type>1</edge_type>
+				<source_obj>175</source_obj>
+				<sink_obj>180</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_177">
+				<id>306</id>
+				<edge_type>1</edge_type>
+				<source_obj>43</source_obj>
+				<sink_obj>180</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_178">
+				<id>307</id>
+				<edge_type>1</edge_type>
+				<source_obj>44</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_179">
+				<id>308</id>
+				<edge_type>1</edge_type>
+				<source_obj>45</source_obj>
+				<sink_obj>173</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_180">
+				<id>1941</id>
+				<edge_type>4</edge_type>
+				<source_obj>173</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_181">
+				<id>1942</id>
+				<edge_type>4</edge_type>
+				<source_obj>172</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+			<item class_id_reference="20" object_id="_182">
+				<id>1943</id>
+				<edge_type>4</edge_type>
+				<source_obj>172</source_obj>
+				<sink_obj>179</sink_obj>
+				<is_back_edge>0</is_back_edge>
+			</item>
+		</edges>
+	</cdfg>
+	<cdfg_regions class_id="21" tracking_level="0" version="0">
+		<count>1</count>
+		<item_version>0</item_version>
+		<item class_id="22" tracking_level="1" version="0" object_id="_183">
+			<mId>1</mId>
+			<mTag>dpu_conv_top</mTag>
+			<mNormTag>dpu_conv_top</mNormTag>
+			<mType>0</mType>
+			<sub_regions>
+				<count>0</count>
+				<item_version>0</item_version>
+			</sub_regions>
+			<basic_blocks>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>182</item>
+			</basic_blocks>
+			<mII>-1</mII>
+			<mDepth>-1</mDepth>
+			<mMinTripCount>-1</mMinTripCount>
+			<mMaxTripCount>-1</mMaxTripCount>
+			<mMinLatency>615</mMinLatency>
+			<mMaxLatency>167578191</mMaxLatency>
+			<mIsDfPipe>1</mIsDfPipe>
+			<mDfPipe class_id="23" tracking_level="1" version="0" object_id="_184">
+				<port_list class_id="24" tracking_level="0" version="0">
+					<count>45</count>
+					<item_version>0</item_version>
+					<item class_id="25" tracking_level="1" version="0" object_id="_185">
+						<name>gmem0_0</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_186">
+						<name>gmem0_1</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_187">
+						<name>gmem0_2</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_188">
+						<name>gmem0_3</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_189">
+						<name>gmem0_4</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_190">
+						<name>gmem0_5</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_191">
+						<name>gmem0_6</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_192">
+						<name>gmem0_7</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_193">
+						<name>gmem1_0</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_194">
+						<name>gmem1_1</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_195">
+						<name>gmem1_2</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_196">
+						<name>gmem1_3</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_197">
+						<name>gmem1_4</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_198">
+						<name>gmem1_5</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_199">
+						<name>gmem1_6</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_200">
+						<name>gmem1_7</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_201">
+						<name>gmem1</name>
+						<dir>0</dir>
+						<type>1</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_202">
+						<name>gmem0</name>
+						<dir>1</dir>
+						<type>1</type>
+						<need_hs>0</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_203">
+						<name>ifmap_0</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_204">
+						<name>ifmap_1</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_205">
+						<name>ifmap_2</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_206">
+						<name>ifmap_3</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_207">
+						<name>ifmap_4</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_208">
+						<name>ifmap_5</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_209">
+						<name>ifmap_6</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_210">
+						<name>ifmap_7</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_211">
+						<name>weight_0</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_212">
+						<name>weight_1</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_213">
+						<name>weight_2</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_214">
+						<name>weight_3</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_215">
+						<name>weight_4</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_216">
+						<name>weight_5</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_217">
+						<name>weight_6</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_218">
+						<name>weight_7</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_219">
+						<name>bias</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_220">
+						<name>ofmap</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_221">
+						<name>in_h</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_222">
+						<name>in_w</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_223">
+						<name>in_ch</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_224">
+						<name>out_ch</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_225">
+						<name>do_relu</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_226">
+						<name>do_pool</name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>1</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_227">
+						<name>perf</name>
+						<dir>1</dir>
+						<type>3</type>
+						<need_hs>0</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_228">
+						<name></name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>0</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+					<item class_id_reference="25" object_id="_229">
+						<name></name>
+						<dir>0</dir>
+						<type>3</type>
+						<need_hs>0</need_hs>
+						<top_port class_id="-1"></top_port>
+						<chan class_id="-1"></chan>
+					</item>
+				</port_list>
+				<process_list class_id="27" tracking_level="0" version="0">
+					<count>4</count>
+					<item_version>0</item_version>
+					<item class_id="28" tracking_level="1" version="0" object_id="_230">
+						<type>0</type>
+						<name>entry_proc_U0</name>
+						<ssdmobj_id>172</ssdmobj_id>
+						<pins class_id="29" tracking_level="0" version="0">
+							<count>2</count>
+							<item_version>0</item_version>
+							<item class_id="30" tracking_level="1" version="0" object_id="_231">
+								<port class_id_reference="25" object_id="_232">
+									<name>ofmap</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_220"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id="31" tracking_level="1" version="0" object_id="_233">
+									<type>0</type>
+									<name>entry_proc_U0</name>
+									<ssdmobj_id>172</ssdmobj_id>
+								</inst>
+							</item>
+							<item class_id_reference="30" object_id="_234">
+								<port class_id_reference="25" object_id="_235">
+									<name>do_pool</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_226"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_233"></inst>
+							</item>
+						</pins>
+						<in_source_fork>1</in_source_fork>
+						<in_sink_join>0</in_sink_join>
+						<flag_in_gui>0</flag_in_gui>
+					</item>
+					<item class_id_reference="28" object_id="_236">
+						<type>0</type>
+						<name>conv3x3_relu_U0</name>
+						<ssdmobj_id>173</ssdmobj_id>
+						<pins>
+							<count>41</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_237">
+								<port class_id_reference="25" object_id="_238">
+									<name>gmem0_0</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_185"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id="_239">
+									<type>0</type>
+									<name>conv3x3_relu_U0</name>
+									<ssdmobj_id>173</ssdmobj_id>
+								</inst>
+							</item>
+							<item class_id_reference="30" object_id="_240">
+								<port class_id_reference="25" object_id="_241">
+									<name>ifmap_0</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_203"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_242">
+								<port class_id_reference="25" object_id="_243">
+									<name>gmem0_1</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_186"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_244">
+								<port class_id_reference="25" object_id="_245">
+									<name>ifmap_1</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_204"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_246">
+								<port class_id_reference="25" object_id="_247">
+									<name>gmem0_2</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_187"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_248">
+								<port class_id_reference="25" object_id="_249">
+									<name>ifmap_2</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_205"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_250">
+								<port class_id_reference="25" object_id="_251">
+									<name>gmem0_3</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_188"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_252">
+								<port class_id_reference="25" object_id="_253">
+									<name>ifmap_3</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_206"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_254">
+								<port class_id_reference="25" object_id="_255">
+									<name>gmem0_4</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_189"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_256">
+								<port class_id_reference="25" object_id="_257">
+									<name>ifmap_4</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_207"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_258">
+								<port class_id_reference="25" object_id="_259">
+									<name>gmem0_5</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_190"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_260">
+								<port class_id_reference="25" object_id="_261">
+									<name>ifmap_5</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_208"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_262">
+								<port class_id_reference="25" object_id="_263">
+									<name>gmem0_6</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_191"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_264">
+								<port class_id_reference="25" object_id="_265">
+									<name>ifmap_6</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_209"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_266">
+								<port class_id_reference="25" object_id="_267">
+									<name>gmem0_7</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_192"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_268">
+								<port class_id_reference="25" object_id="_269">
+									<name>ifmap_7</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_210"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_270">
+								<port class_id_reference="25" object_id="_271">
+									<name>gmem1_0</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_193"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_272">
+								<port class_id_reference="25" object_id="_273">
+									<name>weight_0</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_211"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_274">
+								<port class_id_reference="25" object_id="_275">
+									<name>gmem1_1</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_194"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_276">
+								<port class_id_reference="25" object_id="_277">
+									<name>weight_1</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_212"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_278">
+								<port class_id_reference="25" object_id="_279">
+									<name>gmem1_2</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_195"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_280">
+								<port class_id_reference="25" object_id="_281">
+									<name>weight_2</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_213"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_282">
+								<port class_id_reference="25" object_id="_283">
+									<name>gmem1_3</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_196"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_284">
+								<port class_id_reference="25" object_id="_285">
+									<name>weight_3</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_214"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_286">
+								<port class_id_reference="25" object_id="_287">
+									<name>gmem1_4</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_197"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_288">
+								<port class_id_reference="25" object_id="_289">
+									<name>weight_4</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_215"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_290">
+								<port class_id_reference="25" object_id="_291">
+									<name>gmem1_5</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_198"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_292">
+								<port class_id_reference="25" object_id="_293">
+									<name>weight_5</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_216"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_294">
+								<port class_id_reference="25" object_id="_295">
+									<name>gmem1_6</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_199"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_296">
+								<port class_id_reference="25" object_id="_297">
+									<name>weight_6</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_217"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_298">
+								<port class_id_reference="25" object_id="_299">
+									<name>gmem1_7</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_200"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_300">
+								<port class_id_reference="25" object_id="_301">
+									<name>weight_7</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_218"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_302">
+								<port class_id_reference="25" object_id="_303">
+									<name>gmem1</name>
+									<dir>0</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_201"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_304">
+								<port class_id_reference="25" object_id="_305">
+									<name>bias</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_219"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_306">
+								<port class_id_reference="25" object_id="_307">
+									<name>in_h</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_221"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_308">
+								<port class_id_reference="25" object_id="_309">
+									<name>in_w</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_222"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_310">
+								<port class_id_reference="25" object_id="_311">
+									<name>in_ch</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_223"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_312">
+								<port class_id_reference="25" object_id="_313">
+									<name>out_ch</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_224"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_314">
+								<port class_id_reference="25" object_id="_315">
+									<name>do_relu</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_225"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_316">
+								<port class_id_reference="25" object_id="_317">
+									<name></name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_228"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+							<item class_id_reference="30" object_id="_318">
+								<port class_id_reference="25" object_id="_319">
+									<name></name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_228"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+						</pins>
+						<in_source_fork>1</in_source_fork>
+						<in_sink_join>0</in_sink_join>
+						<flag_in_gui>0</flag_in_gui>
+					</item>
+					<item class_id_reference="28" object_id="_320">
+						<type>0</type>
+						<name>Block_entry_proc_U0</name>
+						<ssdmobj_id>179</ssdmobj_id>
+						<pins>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_321">
+								<port class_id_reference="25" object_id="_322">
+									<name>gmem0</name>
+									<dir>1</dir>
+									<type>1</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_202"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id="_323">
+									<type>0</type>
+									<name>Block_entry_proc_U0</name>
+									<ssdmobj_id>179</ssdmobj_id>
+								</inst>
+							</item>
+						</pins>
+						<in_source_fork>0</in_source_fork>
+						<in_sink_join>1</in_sink_join>
+						<flag_in_gui>0</flag_in_gui>
+					</item>
+					<item class_id_reference="28" object_id="_324">
+						<type>0</type>
+						<name>Block_entry_proc_2_U0</name>
+						<ssdmobj_id>180</ssdmobj_id>
+						<pins>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_325">
+								<port class_id_reference="25" object_id="_326">
+									<name>perf</name>
+									<dir>1</dir>
+									<type>3</type>
+									<need_hs>1</need_hs>
+									<top_port class_id_reference="25" object_id_reference="_227"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id="_327">
+									<type>0</type>
+									<name>Block_entry_proc_2_U0</name>
+									<ssdmobj_id>180</ssdmobj_id>
+								</inst>
+							</item>
+						</pins>
+						<in_source_fork>0</in_source_fork>
+						<in_sink_join>1</in_sink_join>
+						<flag_in_gui>0</flag_in_gui>
+					</item>
+				</process_list>
+				<channel_list class_id="32" tracking_level="0" version="0">
+					<count>9</count>
+					<item_version>0</item_version>
+					<item class_id="26" tracking_level="1" version="0" object_id="_328">
+						<type>1</type>
+						<name>ofmap_c</name>
+						<ssdmobj_id>73</ssdmobj_id>
+						<ctype>0</ctype>
+						<depth>4</depth>
+						<bitwidth>64</bitwidth>
+						<suggested_type>2</suggested_type>
+						<suggested_depth>4</suggested_depth>
+						<source_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_329">
+								<port class_id_reference="25" object_id="_330">
+									<name>in</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_233"></inst>
+							</item>
+						</source_list>
+						<sink_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_331">
+								<port class_id_reference="25" object_id="_332">
+									<name>out</name>
+									<dir>1</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_323"></inst>
+							</item>
+						</sink_list>
+						<bram_cost>0</bram_cost>
+						<uram_cost>0</uram_cost>
+						<storage_size>64 4 1</storage_size>
+					</item>
+					<item class_id_reference="26" object_id="_333">
+						<type>1</type>
+						<name>do_pool_c</name>
+						<ssdmobj_id>70</ssdmobj_id>
+						<ctype>0</ctype>
+						<depth>4</depth>
+						<bitwidth>1</bitwidth>
+						<suggested_type>2</suggested_type>
+						<suggested_depth>4</suggested_depth>
+						<source_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_334">
+								<port class_id_reference="25" object_id="_335">
+									<name>in</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_233"></inst>
+							</item>
+						</source_list>
+						<sink_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_336">
+								<port class_id_reference="25" object_id="_337">
+									<name>out</name>
+									<dir>1</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_323"></inst>
+							</item>
+						</sink_list>
+						<bram_cost>0</bram_cost>
+						<uram_cost>0</uram_cost>
+						<storage_size>1 4 1</storage_size>
+					</item>
+					<item class_id_reference="26" object_id="_338">
+						<type>1</type>
+						<name>dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1</name>
+						<ssdmobj_id>44</ssdmobj_id>
+						<ctype>1</ctype>
+						<depth>2</depth>
+						<bitwidth>0</bitwidth>
+						<suggested_type>0</suggested_type>
+						<suggested_depth>2</suggested_depth>
+						<source_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_339">
+								<port class_id_reference="25" object_id="_340">
+									<name>in</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+						</source_list>
+						<sink_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_341">
+								<port class_id_reference="25" object_id="_342">
+									<name>out</name>
+									<dir>1</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_323"></inst>
+							</item>
+						</sink_list>
+						<bram_cost>0</bram_cost>
+						<uram_cost>0</uram_cost>
+						<storage_size>8 131072 2</storage_size>
+					</item>
+					<item class_id_reference="26" object_id="_343">
+						<type>1</type>
+						<name>dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64</name>
+						<ssdmobj_id>45</ssdmobj_id>
+						<ctype>1</ctype>
+						<depth>2</depth>
+						<bitwidth>0</bitwidth>
+						<suggested_type>0</suggested_type>
+						<suggested_depth>2</suggested_depth>
+						<source_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_344">
+								<port class_id_reference="25" object_id="_345">
+									<name>in</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+						</source_list>
+						<sink_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_346">
+								<port class_id_reference="25" object_id="_347">
+									<name>out</name>
+									<dir>1</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_323"></inst>
+							</item>
+						</sink_list>
+						<bram_cost>0</bram_cost>
+						<uram_cost>0</uram_cost>
+						<storage_size>8 131072 2</storage_size>
+					</item>
+					<item class_id_reference="26" object_id="_348">
+						<type>1</type>
+						<name>mac_count</name>
+						<ssdmobj_id>174</ssdmobj_id>
+						<ctype>0</ctype>
+						<depth>2</depth>
+						<bitwidth>32</bitwidth>
+						<suggested_type>1</suggested_type>
+						<suggested_depth>2</suggested_depth>
+						<source_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_349">
+								<port class_id_reference="25" object_id="_350">
+									<name>in</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+						</source_list>
+						<sink_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_351">
+								<port class_id_reference="25" object_id="_352">
+									<name>out</name>
+									<dir>1</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_327"></inst>
+							</item>
+						</sink_list>
+						<bram_cost>0</bram_cost>
+						<uram_cost>0</uram_cost>
+						<storage_size>32 2 1</storage_size>
+					</item>
+					<item class_id_reference="26" object_id="_353">
+						<type>1</type>
+						<name>cycle_count</name>
+						<ssdmobj_id>175</ssdmobj_id>
+						<ctype>0</ctype>
+						<depth>2</depth>
+						<bitwidth>32</bitwidth>
+						<suggested_type>1</suggested_type>
+						<suggested_depth>2</suggested_depth>
+						<source_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_354">
+								<port class_id_reference="25" object_id="_355">
+									<name>in</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+						</source_list>
+						<sink_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_356">
+								<port class_id_reference="25" object_id="_357">
+									<name>out</name>
+									<dir>1</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_327"></inst>
+							</item>
+						</sink_list>
+						<bram_cost>0</bram_cost>
+						<uram_cost>0</uram_cost>
+						<storage_size>32 2 1</storage_size>
+					</item>
+					<item class_id_reference="26" object_id="_358">
+						<type>1</type>
+						<name>in_h_c_channel</name>
+						<ssdmobj_id>176</ssdmobj_id>
+						<ctype>0</ctype>
+						<depth>2</depth>
+						<bitwidth>8</bitwidth>
+						<suggested_type>1</suggested_type>
+						<suggested_depth>2</suggested_depth>
+						<source_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_359">
+								<port class_id_reference="25" object_id="_360">
+									<name>in</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+						</source_list>
+						<sink_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_361">
+								<port class_id_reference="25" object_id="_362">
+									<name>out</name>
+									<dir>1</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_323"></inst>
+							</item>
+						</sink_list>
+						<bram_cost>0</bram_cost>
+						<uram_cost>0</uram_cost>
+						<storage_size>8 2 1</storage_size>
+					</item>
+					<item class_id_reference="26" object_id="_363">
+						<type>1</type>
+						<name>in_w_c_channel</name>
+						<ssdmobj_id>177</ssdmobj_id>
+						<ctype>0</ctype>
+						<depth>2</depth>
+						<bitwidth>8</bitwidth>
+						<suggested_type>1</suggested_type>
+						<suggested_depth>2</suggested_depth>
+						<source_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_364">
+								<port class_id_reference="25" object_id="_365">
+									<name>in</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+						</source_list>
+						<sink_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_366">
+								<port class_id_reference="25" object_id="_367">
+									<name>out</name>
+									<dir>1</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_323"></inst>
+							</item>
+						</sink_list>
+						<bram_cost>0</bram_cost>
+						<uram_cost>0</uram_cost>
+						<storage_size>8 2 1</storage_size>
+					</item>
+					<item class_id_reference="26" object_id="_368">
+						<type>1</type>
+						<name>out_ch_c_channel</name>
+						<ssdmobj_id>178</ssdmobj_id>
+						<ctype>0</ctype>
+						<depth>2</depth>
+						<bitwidth>8</bitwidth>
+						<suggested_type>1</suggested_type>
+						<suggested_depth>2</suggested_depth>
+						<source_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_369">
+								<port class_id_reference="25" object_id="_370">
+									<name>in</name>
+									<dir>0</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_239"></inst>
+							</item>
+						</source_list>
+						<sink_list>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item class_id_reference="30" object_id="_371">
+								<port class_id_reference="25" object_id="_372">
+									<name>out</name>
+									<dir>1</dir>
+									<type>3</type>
+									<need_hs>0</need_hs>
+									<top_port class_id="-1"></top_port>
+									<chan class_id="-1"></chan>
+								</port>
+								<inst class_id_reference="31" object_id_reference="_323"></inst>
+							</item>
+						</sink_list>
+						<bram_cost>0</bram_cost>
+						<uram_cost>0</uram_cost>
+						<storage_size>8 2 1</storage_size>
+					</item>
+				</channel_list>
+				<net_list class_id="33" tracking_level="0" version="0">
+					<count>0</count>
+					<item_version>0</item_version>
+				</net_list>
+			</mDfPipe>
+		</item>
+	</cdfg_regions>
+	<fsm class_id="-1"></fsm>
+	<res class_id="-1"></res>
+	<node_label_latency class_id="36" tracking_level="0" version="0">
+		<count>36</count>
+		<item_version>0</item_version>
+		<item class_id="37" tracking_level="0" version="0">
+			<first>46</first>
+			<second class_id="38" tracking_level="0" version="0">
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>47</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>48</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>49</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>50</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>51</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>52</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>53</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>54</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>55</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>56</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>57</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>58</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>59</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>60</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>61</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>62</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>63</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>64</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>65</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>66</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>67</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>68</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>69</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>70</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>73</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>172</first>
+			<second>
+				<first>0</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>173</first>
+			<second>
+				<first>0</first>
+				<second>1</second>
+			</second>
+		</item>
+		<item>
+			<first>174</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>175</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>176</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>177</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>178</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>179</first>
+			<second>
+				<first>2</first>
+				<second>1</second>
+			</second>
+		</item>
+		<item>
+			<first>180</first>
+			<second>
+				<first>1</first>
+				<second>0</second>
+			</second>
+		</item>
+		<item>
+			<first>181</first>
+			<second>
+				<first>3</first>
+				<second>0</second>
+			</second>
+		</item>
+	</node_label_latency>
+	<bblk_ent_exit class_id="39" tracking_level="0" version="0">
+		<count>1</count>
+		<item_version>0</item_version>
+		<item class_id="40" tracking_level="0" version="0">
+			<first>182</first>
+			<second class_id="41" tracking_level="0" version="0">
+				<first>0</first>
+				<second>3</second>
+			</second>
+		</item>
+	</bblk_ent_exit>
+	<regions class_id="42" tracking_level="0" version="0">
+		<count>1</count>
+		<item_version>0</item_version>
+		<item class_id="43" tracking_level="1" version="0" object_id="_373">
+			<region_name>dpu_conv_top</region_name>
+			<basic_blocks>
+				<count>1</count>
+				<item_version>0</item_version>
+				<item>182</item>
+			</basic_blocks>
+			<nodes>
+				<count>136</count>
+				<item_version>0</item_version>
+				<item>46</item>
+				<item>47</item>
+				<item>48</item>
+				<item>49</item>
+				<item>50</item>
+				<item>51</item>
+				<item>52</item>
+				<item>53</item>
+				<item>54</item>
+				<item>55</item>
+				<item>56</item>
+				<item>57</item>
+				<item>58</item>
+				<item>59</item>
+				<item>60</item>
+				<item>61</item>
+				<item>62</item>
+				<item>63</item>
+				<item>64</item>
+				<item>65</item>
+				<item>66</item>
+				<item>67</item>
+				<item>68</item>
+				<item>69</item>
+				<item>70</item>
+				<item>71</item>
+				<item>72</item>
+				<item>73</item>
+				<item>74</item>
+				<item>75</item>
+				<item>76</item>
+				<item>77</item>
+				<item>78</item>
+				<item>79</item>
+				<item>80</item>
+				<item>81</item>
+				<item>82</item>
+				<item>83</item>
+				<item>84</item>
+				<item>85</item>
+				<item>86</item>
+				<item>87</item>
+				<item>88</item>
+				<item>89</item>
+				<item>90</item>
+				<item>91</item>
+				<item>92</item>
+				<item>93</item>
+				<item>94</item>
+				<item>95</item>
+				<item>96</item>
+				<item>97</item>
+				<item>98</item>
+				<item>99</item>
+				<item>100</item>
+				<item>101</item>
+				<item>102</item>
+				<item>103</item>
+				<item>104</item>
+				<item>105</item>
+				<item>106</item>
+				<item>107</item>
+				<item>108</item>
+				<item>109</item>
+				<item>110</item>
+				<item>111</item>
+				<item>112</item>
+				<item>113</item>
+				<item>114</item>
+				<item>115</item>
+				<item>116</item>
+				<item>117</item>
+				<item>118</item>
+				<item>119</item>
+				<item>120</item>
+				<item>121</item>
+				<item>122</item>
+				<item>123</item>
+				<item>124</item>
+				<item>125</item>
+				<item>126</item>
+				<item>127</item>
+				<item>128</item>
+				<item>129</item>
+				<item>130</item>
+				<item>131</item>
+				<item>132</item>
+				<item>133</item>
+				<item>134</item>
+				<item>135</item>
+				<item>136</item>
+				<item>137</item>
+				<item>138</item>
+				<item>139</item>
+				<item>140</item>
+				<item>141</item>
+				<item>142</item>
+				<item>143</item>
+				<item>144</item>
+				<item>145</item>
+				<item>146</item>
+				<item>147</item>
+				<item>148</item>
+				<item>149</item>
+				<item>150</item>
+				<item>151</item>
+				<item>152</item>
+				<item>153</item>
+				<item>154</item>
+				<item>155</item>
+				<item>156</item>
+				<item>157</item>
+				<item>158</item>
+				<item>159</item>
+				<item>160</item>
+				<item>161</item>
+				<item>162</item>
+				<item>163</item>
+				<item>164</item>
+				<item>165</item>
+				<item>166</item>
+				<item>167</item>
+				<item>168</item>
+				<item>169</item>
+				<item>170</item>
+				<item>171</item>
+				<item>172</item>
+				<item>173</item>
+				<item>174</item>
+				<item>175</item>
+				<item>176</item>
+				<item>177</item>
+				<item>178</item>
+				<item>179</item>
+				<item>180</item>
+				<item>181</item>
+			</nodes>
+			<anchor_node>-1</anchor_node>
+			<region_type>16</region_type>
+			<interval>0</interval>
+			<pipe_depth>0</pipe_depth>
+			<mDBIIViolationVec class_id="44" tracking_level="0" version="0">
+				<count>0</count>
+				<item_version>0</item_version>
+			</mDBIIViolationVec>
+		</item>
+	</regions>
+	<dp_fu_nodes class_id="45" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>
+	</dp_fu_nodes>
+	<dp_fu_nodes_expression class_id="46" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>
+	</dp_fu_nodes_expression>
+	<dp_fu_nodes_module>
+		<count>0</count>
+		<item_version>0</item_version>
+	</dp_fu_nodes_module>
+	<dp_fu_nodes_io>
+		<count>0</count>
+		<item_version>0</item_version>
+	</dp_fu_nodes_io>
+	<return_ports>
+		<count>0</count>
+		<item_version>0</item_version>
+	</return_ports>
+	<dp_mem_port_nodes class_id="47" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>
+	</dp_mem_port_nodes>
+	<dp_reg_nodes>
+		<count>0</count>
+		<item_version>0</item_version>
+	</dp_reg_nodes>
+	<dp_regname_nodes>
+		<count>0</count>
+		<item_version>0</item_version>
+	</dp_regname_nodes>
+	<dp_reg_phi>
+		<count>0</count>
+		<item_version>0</item_version>
+	</dp_reg_phi>
+	<dp_regname_phi>
+		<count>0</count>
+		<item_version>0</item_version>
+	</dp_regname_phi>
+	<dp_port_io_nodes class_id="48" tracking_level="0" version="0">
+		<count>0</count>
+		<item_version>0</item_version>
+	</dp_port_io_nodes>
+	<port2core>
+		<count>0</count>
+		<item_version>0</item_version>
+	</port2core>
+	<node2core>
+		<count>0</count>
+		<item_version>0</item_version>
+	</node2core>
+	<sched_res class_id="-1"></sched_res>
+</syndb>
+</boost_serialization>
+

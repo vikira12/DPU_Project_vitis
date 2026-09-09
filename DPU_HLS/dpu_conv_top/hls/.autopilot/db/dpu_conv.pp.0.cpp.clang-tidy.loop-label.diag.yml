@@ -1,0 +1,88 @@
+---
+MainSourceFile:  'D:/project/DPU_HLS/dpu_conv_top/hls/.autopilot/db/dpu_conv.pp.0.cpp'
+Diagnostics:
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_676_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      676
+      Replacements:
+        - FilePath:        'D:\project\DPU_HLS\dpu_conv_top\hls\.autopilot\db\dpu_conv.pp.0.cpp'
+          Offset:          280262
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_676_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\project\DPU_HLS'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_690_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      690
+      Replacements:
+        - FilePath:        'D:\project\DPU_HLS\dpu_conv_top\hls\.autopilot\db\dpu_conv.pp.0.cpp'
+          Offset:          280733
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_690_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\project\DPU_HLS'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_704_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_int_ref.h'
+      FileOffset:      704
+      Replacements:
+        - FilePath:        'D:\project\DPU_HLS\dpu_conv_top\hls\.autopilot\db\dpu_conv.pp.0.cpp'
+          Offset:          281205
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_704_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\project\DPU_HLS'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_1251_1:  '
+      FilePath:        'C:\AMDDesignTools\2025.2\Vitis\common\technology\autopilot\etc\ap_fixed_base.h'
+      FileOffset:      1251
+      Replacements:
+        - FilePath:        'D:\project\DPU_HLS\dpu_conv_top\hls\.autopilot\db\dpu_conv.pp.0.cpp'
+          Offset:          626608
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_1251_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\project\DPU_HLS'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_43_1:  '
+      FilePath:        'C:\Users\user\Downloads\files\dpu_conv.cpp'
+      FileOffset:      43
+      Replacements:
+        - FilePath:        'D:\project\DPU_HLS\dpu_conv_top\hls\.autopilot\db\dpu_conv.pp.0.cpp'
+          Offset:          2234409
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_43_1: '
+    Level:           Remark
+    BuildDirectory:  'D:\project\DPU_HLS'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_48_2:  '
+      FilePath:        'C:\Users\user\Downloads\files\dpu_conv.cpp'
+      FileOffset:      48
+      Replacements:
+        - FilePath:        'D:\project\DPU_HLS\dpu_conv_top\hls\.autopilot\db\dpu_conv.pp.0.cpp'
+          Offset:          2234583
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_48_2: '
+    Level:           Remark
+    BuildDirectory:  'D:\project\DPU_HLS'
+  - DiagnosticName:  xilinx-label-all-loops
+    DiagnosticMessage:
+      Message:         'Added loop label VITIS_LOOP_49_3:  '
+      FilePath:        'C:\Users\user\Downloads\files\dpu_conv.cpp'
+      FileOffset:      49
+      Replacements:
+        - FilePath:        'D:\project\DPU_HLS\dpu_conv_top\hls\.autopilot\db\dpu_conv.pp.0.cpp'
+          Offset:          2234644
+          Length:          0
+          ReplacementText: 'VITIS_LOOP_49_3: '
+    Level:           Remark
+    BuildDirectory:  'D:\project\DPU_HLS'
+...

@@ -1,0 +1,27 @@
+[
+  {
+    "directory": "D:\\project\\DPU_Project\\DPU_HLS",
+    "arguments": [
+      "C:\\AMDDesignTools\\2025.2\\Vitis\\win64\\tools\\vcxx\\libexec\\clang++.exe",
+      "--sysroot=C:\\AMDDesignTools\\2025.2\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt",
+      "-fhls",
+      "-hls-syn-headers-dir=C:\\AMDDesignTools\\2025.2\\Vitis\\common\\technology\\autopilot",
+      "-fhlstoplevel=dpu_conv_top",
+      "-c",
+      "C:\\Users\\user\\Downloads\\files\\dpu_conv.cpp"
+    ],
+    "file": "C:\\Users\\user\\Downloads\\files\\dpu_conv.cpp"
+  },
+  {
+    "directory": "D:\\project\\DPU_Project\\DPU_HLS",
+    "arguments": [
+      "C:\\AMDDesignTools\\2025.2\\Vitis\\win64\\tools\\vcxx\\libexec\\clang++.exe",
+      "--sysroot=C:\\AMDDesignTools\\2025.2\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt",
+      "-fhls-tb",
+      "-hls-sim-headers-dir=C:\\AMDDesignTools\\2025.2\\Vitis\\include",
+      "-c",
+      "C:\\Users\\user\\Downloads\\files\\dpu_conv_tb.cpp"
+    ],
+    "file": "C:\\Users\\user\\Downloads\\files\\dpu_conv_tb.cpp"
+  }
+]

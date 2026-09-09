@@ -1,0 +1,157 @@
+<ENTRY>
+{
+ "thisFile": "D:/project\\DPU_HLS\\dpu_conv_top\\dpu_conv_top.hlsrun_csim_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "09/07/26 20:05:10",
+ "timestampMillis": "1788779110615",
+ "buildStep": {
+  "cmdId": "93447e1c-402a-4d8e-b79d-c558d04f0337",
+  "name": "vitis-run",
+  "logFile": "D:/project\\DPU_HLS\\dpu_conv_top\\logs\\dpu_conv_top.steps.log",
+  "commandLine": "C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe  --mode hls --csim --config D:\\project\\DPU_HLS\\hls_config.cfg --work_dir dpu_conv_top ",
+  "args": [
+   "--mode",
+   "hls",
+   "--csim",
+   "--config",
+   "D:\\project\\DPU_HLS\\hls_config.cfg",
+   "--work_dir",
+   "dpu_conv_top"
+  ],
+  "iniFiles": [],
+  "cwd": "D:\\project\\DPU_HLS"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "09/07/26 20:05:10",
+ "timestampMillis": "1788779110615",
+ "status": {
+  "cmdId": "93447e1c-402a-4d8e-b79d-c558d04f0337",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "09/07/26 20:05:24",
+ "timestampMillis": "1788779124876",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_C_SIM",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "dpu_conv_top",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "C:/Users\\user\\Downloads\\files\\dpu_conv.cpp",
+     "C:/Users\\user\\Downloads\\files\\dpu_conv.h"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2025.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "09/07/26 20:05:24",
+ "timestampMillis": "1788779124880",
+ "buildStep": {
+  "cmdId": "4a22abd6-4b76-4968-bd93-b010d6227f86",
+  "name": "",
+  "logFile": "D:/project\\DPU_HLS\\dpu_conv_top\\hls\\hls.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "D:\\project\\DPU_HLS"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "09/07/26 20:05:24",
+ "timestampMillis": "1788779124881",
+ "status": {
+  "cmdId": "4a22abd6-4b76-4968-bd93-b010d6227f86",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "09/07/26 20:05:36",
+ "timestampMillis": "1788779136293",
+ "status": {
+  "cmdId": "4a22abd6-4b76-4968-bd93-b010d6227f86",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "09/07/26 20:05:36",
+ "timestampMillis": "1788779136412",
+ "status": {
+  "cmdId": "93447e1c-402a-4d8e-b79d-c558d04f0337",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "09/07/26 20:05:36",
+ "timestampMillis": "1788779136413",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "09/07/26 20:05:36",
+ "timestampMillis": "1788779136413",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
