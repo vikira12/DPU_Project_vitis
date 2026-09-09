@@ -1,47 +1,26 @@
 # This script segment is generated automatically by AutoPilot
 
+set name dpu_conv_top_mul_8ns_8ns_16_1_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler dpu_conv_top_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_RAM_AUTO_1R1W_memcore BINDTYPE {storage} TYPE {ram} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {auto} LATENCY 0 ALLOW_PRAGMA 1
 }
 
 
+set name dpu_conv_top_mul_7ns_7ns_14_1_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler dpu_conv_top_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_RAM_AUTO_1R1W BINDTYPE {storage} TYPE {ram} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {auto} LATENCY 0 ALLOW_PRAGMA 1
 }
 
 
+set name dpu_conv_top_mul_8ns_16ns_24_1_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler dpu_conv_top_fifo_w64_d4_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {ofmap_c_U}
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {auto} LATENCY 0 ALLOW_PRAGMA 1
 }
 
 
+set name dpu_conv_top_mul_8ns_14ns_22_1_1
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler dpu_conv_top_fifo_w1_d4_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {do_pool_c_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler dpu_conv_top_fifo_w32_d2_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {mac_count_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler dpu_conv_top_fifo_w32_d2_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {cycle_count_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler dpu_conv_top_fifo_w8_d2_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {in_h_c_channel_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler dpu_conv_top_fifo_w8_d2_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {in_w_c_channel_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler dpu_conv_top_fifo_w8_d2_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {out_ch_c_channel_U}
+	::AP::rtl_comp_handler $name BINDTYPE {op} TYPE {mul} IMPL {auto} LATENCY 0 ALLOW_PRAGMA 1
 }
 
 
@@ -131,6 +110,11 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler dpu_conv_top_gmem2_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler dpu_conv_top_gmem0_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
 }
 
@@ -214,7 +198,7 @@ dict set axilite_register_dict CTRL $port_CTRL
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 232 \
+			id 190 \
 			corename dpu_conv_top_CTRL_axilite \
 			name dpu_conv_top_CTRL_s_axi \
 			ports {$port_CTRL} \
@@ -372,13 +356,21 @@ bias {
 	offset 208
 	offset_end 219
 }
-ofmap { 
+conv_scratch { 
 	dir I
 	width 64
 	depth 1
 	mode ap_none
 	offset 220
 	offset_end 231
+}
+ofmap { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 232
+	offset_end 243
 }
 }
 dict set axilite_register_dict control $port_control
@@ -388,7 +380,7 @@ dict set axilite_register_dict control $port_control
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 233 \
+			id 191 \
 			corename dpu_conv_top_control_axilite \
 			name dpu_conv_top_control_s_axi \
 			ports {$port_control} \

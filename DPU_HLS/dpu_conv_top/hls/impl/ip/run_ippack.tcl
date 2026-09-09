@@ -6,8 +6,8 @@
 # 
 # ==============================================================
 source -notrace "C:/AMDDesignTools/2025.2/Vitis/common/scripts/ipxhls.tcl"
-set ip_out_dir "D:/project/DPU_HLS/dpu_conv_top/hls/impl/ip"
-set data_file "D:/project/DPU_HLS/dpu_conv_top/hls/hls_data.json"
+set ip_out_dir "D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/impl/ip"
+set data_file "D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/hls_data.json"
 set src_dir [file dir $data_file]
 set ip_types {vitis sysgen}
 set ippack_opts_dict {}

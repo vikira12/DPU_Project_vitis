@@ -1,4 +1,4 @@
-# 1 "C:/Users/user/Downloads/files/dpu_conv.cpp"
+# 1 "D:/project/DPUv2/dpu_conv.cpp"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 422 "<built-in>" 3
@@ -152,12 +152,12 @@ extern "C" {
 
 }
 # 2 "<built-in>" 2
-# 1 "C:/Users/user/Downloads/files/dpu_conv.cpp" 2
-# 1 "C:/Users/user/Downloads/files/dpu_conv.h" 1
+# 1 "D:/project/DPUv2/dpu_conv.cpp" 2
+# 1 "D:/project/DPUv2/dpu_conv.h" 1
 
 
 
-# 1 "C:/Users/user/Downloads/files/dpu_types.h" 1
+# 1 "D:/project/DPUv2/dpu_types.h" 1
 
 
 
@@ -49468,7 +49468,7 @@ operator/(const complex<ap_ufixed<_AP_W, _AP_I, _AP_Q, _AP_O, _AP_N>> &__x, cons
 }
 # 491 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\ap_fixed.h" 2
 # 440 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\ap_int.h" 2
-# 5 "C:/Users/user/Downloads/files/dpu_types.h" 2
+# 5 "D:/project/DPUv2/dpu_types.h" 2
 # 1 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_stream.h" 1
 # 13 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_stream.h"
 # 1 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot/hls_stream_39.h" 1
@@ -49598,7 +49598,7 @@ class stream : public stream<__STREAM_T__, 0> {
 };
 }
 # 14 "C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\\hls_stream.h" 2
-# 6 "C:/Users/user/Downloads/files/dpu_types.h" 2
+# 6 "D:/project/DPUv2/dpu_types.h" 2
 
 
 
@@ -49606,18 +49606,19 @@ class stream : public stream<__STREAM_T__, 0> {
 typedef ap_int<8> pixel_t;
 typedef ap_int<8> weight_t;
 typedef ap_int<32> acc_t;
-# 31 "C:/Users/user/Downloads/files/dpu_types.h"
+# 31 "D:/project/DPUv2/dpu_types.h"
 struct perf_counters_t {
     ap_uint<32> cycle_count;
     ap_uint<32> mac_count;
     ap_uint<32> invoke_count;
 };
-# 5 "C:/Users/user/Downloads/files/dpu_conv.h" 2
-# 15 "C:/Users/user/Downloads/files/dpu_conv.h"
+# 5 "D:/project/DPUv2/dpu_conv.h" 2
+# 15 "D:/project/DPUv2/dpu_conv.h"
 __attribute__((sdx_kernel("dpu_conv_top", 0))) void dpu_conv_top(
     pixel_t ifmap[64][64][64],
     weight_t weight[64][64][3][3],
     acc_t bias[64],
+    pixel_t conv_scratch[64][64][64],
     pixel_t ofmap[64][64][64],
     ap_uint<8> in_h,
     ap_uint<8> in_w,
@@ -49627,7 +49628,7 @@ __attribute__((sdx_kernel("dpu_conv_top", 0))) void dpu_conv_top(
     ap_uint<1> do_pool,
     perf_counters_t &perf
 );
-# 2 "C:/Users/user/Downloads/files/dpu_conv.cpp" 2
+# 2 "D:/project/DPUv2/dpu_conv.cpp" 2
 
 
 
@@ -49758,6 +49759,7 @@ __attribute__((sdx_kernel("dpu_conv_top", 0))) void dpu_conv_top(
     pixel_t ifmap[64][64][64],
     weight_t weight[64][64][3][3],
     acc_t bias[64],
+    pixel_t conv_scratch[64][64][64],
     pixel_t ofmap[64][64][64],
     ap_uint<8> in_h,
     ap_uint<8> in_w,
@@ -49769,13 +49771,15 @@ __attribute__((sdx_kernel("dpu_conv_top", 0))) void dpu_conv_top(
 ) {
 #line 1 "directive"
 #pragma HLSDIRECTIVE TOP name=dpu_conv_top
-# 140 "C:/Users/user/Downloads/files/dpu_conv.cpp"
+# 141 "D:/project/DPUv2/dpu_conv.cpp"
+
 
 
 
 #pragma HLS INTERFACE m_axi port=ifmap offset=slave bundle=gmem0 depth=262144
 #pragma HLS INTERFACE m_axi port=weight offset=slave bundle=gmem1 depth=36864
 #pragma HLS INTERFACE m_axi port=bias offset=slave bundle=gmem1 depth=64
+#pragma HLS INTERFACE m_axi port=conv_scratch offset=slave bundle=gmem2 depth=262144
 #pragma HLS INTERFACE m_axi port=ofmap offset=slave bundle=gmem0 depth=262144
 
 
@@ -49789,20 +49793,20 @@ __attribute__((sdx_kernel("dpu_conv_top", 0))) void dpu_conv_top(
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
 
 
-    static pixel_t conv_buf[64][64][64];
-#pragma HLS DATAFLOW
+
+
 
     ap_uint<32> mac_count = 0;
     ap_uint<32> cycle_count = 0;
 
-    conv3x3_relu(ifmap, weight, bias, conv_buf,
+    conv3x3_relu(ifmap, weight, bias, conv_scratch,
                  in_h, in_w, in_ch, out_ch, do_relu,
                  mac_count, cycle_count);
 
     if (do_pool) {
-        maxpool2x2(conv_buf, ofmap, in_h, in_w, out_ch);
+        maxpool2x2(conv_scratch, ofmap, in_h, in_w, out_ch);
     } else {
-        copy_passthrough(conv_buf, ofmap, in_h, in_w, out_ch);
+        copy_passthrough(conv_scratch, ofmap, in_h, in_w, out_ch);
     }
 
 

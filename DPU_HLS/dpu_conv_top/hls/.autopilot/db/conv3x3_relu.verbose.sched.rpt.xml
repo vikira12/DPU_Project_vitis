@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'conv3x3_relu'" level="0">
-<item name = "Date">Mon Sep  7 20:12:57 2026
+<item name = "Date">Wed Sep  9 18:58:24 2026
 </item>
 <item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
 <item name = "Project">dpu_conv_top</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">606, 150996801, 6.666 us, 1.661 sec, 606, 150996801, no</column>
+<column name="">612, 150997185, 6.732 us, 1.661 sec, 612, 150997185, no</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- OC_LOOP">605, 150996800, 605 ~ 2359325, -, -, 1 ~ 64, no</column>
+<column name="- OC_LOOP">611, 150997184, 611 ~ 2359331, -, -, 1 ~ 64, no</column>
 </table>
 </item>
 </section>

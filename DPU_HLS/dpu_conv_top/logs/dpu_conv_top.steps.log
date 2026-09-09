@@ -20,10 +20,8 @@ CommonProgramW6432=C:\Program Files\Common Files
 COMPUTERNAME=LAPTOP-MPD8ATBV
 ComSpec=C:\Windows\system32\cmd.exe
 DriverData=C:\Windows\System32\Drivers\DriverData
-EFC_11488_1592913036=1
-EFC_11488_2946480783=1
-EFC_11488_344590478=1
-EFC_11488_4126798990=1
+EFC_10840_1592913036=1
+EFC_10840_4126798990=1
 HDI_APPROOT=C:/AMDDesignTools/2025.2/Vitis
 HDI_PROCESSOR=i686
 HOMEDRIVE=C:
@@ -63,7 +61,7 @@ PUBLIC=C:\Users\Public
 PYTHONPATH=C:/AMDDesignTools/2025.2/Vitis\cli;C:/AMDDesignTools/2025.2/Vitis\cli\python-packages\win64;C:/AMDDesignTools/2025.2/Vitis\cli\python-packages\site-packages;C:/AMDDesignTools/2025.2/Vitis\cli\proto;C:/AMDDesignTools/2025.2/Vitis\scripts\python_pkg;
 python_path=C:/AMDDesignTools/2025.2/Vitis\cli;C:/AMDDesignTools/2025.2/Vitis\cli\python-packages\win64;C:/AMDDesignTools/2025.2/Vitis\cli\python-packages\site-packages;C:/AMDDesignTools/2025.2/Vitis\cli\proto;C:/AMDDesignTools/2025.2/Vitis\scripts\python_pkg;
 RDI_APPROOT=C:/AMDDesignTools/2025.2/Vitis
-RDI_ARGS= --mode hls --csim --config D:\project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top
+RDI_ARGS= --mode hls --csim --config D:\project\DPU_Project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top
 RDI_ARGS_FUNCTION=RDI_EXEC_DEFAULT
 RDI_BASEROOT=C:/AMDDesignTools/2025.2
 RDI_BINDIR=C:/AMDDesignTools/2025.2/Vitis/bin
@@ -86,7 +84,7 @@ RDI_PLATFORM=win64
 RDI_PREPEND_PATH=C:/AMDDesignTools/2025.2/Vitis/bin
 RDI_PROG=C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe
 RDI_PROGNAME=vitis-run.exe
-RDI_SESSION_INFO=C:\AMDDesignTools\2025.2\Vitis\bin:LAPTOP-MPD8ATBV-2026-09-07_19-02-40.20
+RDI_SESSION_INFO=C:\AMDDesignTools\2025.2\Vitis\bin:LAPTOP-MPD8ATBV-2026-09-09_16-53-08.10
 RDI_SHARED_DATA=C:/AMDDesignTools/SharedData/2025.2/data
 RDI_TEMPINSTALL=C:\AMDDesignTools\2025.2
 RDI_TPS_ROOT=C:/AMDDesignTools/2025.2/Vivado/tps/win64
@@ -95,7 +93,7 @@ RDI_VERBOSE=False
 RT_LIBPATH=C:/AMDDesignTools/2025.2/Vitis/scripts/rt/data
 RT_TCL_PATH=C:/AMDDesignTools/2025.2/Vitis/scripts/rt/base_tcl/tcl
 SESSIONNAME=Console
-session_string=D:\project\DPU_HLS:LAPTOP-MPD8ATBV-2026-09-07_20-05-06.02
+session_string=D:\project\DPU_Project\DPU_HLS:LAPTOP-MPD8ATBV-2026-09-09_17-12-17.96
 STM32CubeMX_PATH=D:\Program Files\STMicroelectronics\STM32Cube\STM32CubeMX
 STM32_PRG_PATH=D:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin
 supports_classic_ide=false
@@ -107,7 +105,7 @@ TCMALLOC_LARGE_ALLOC_REPORT_THRESHOLD=4294967296
 TEMP=C:\Users\user\AppData\Local\Temp
 THEIA_APP_PROJECT_PATH=C:\AMDDesignTools\2025.2\Vitis\ide\electron-app\win64\resources\app
 THEIA_DEFAULT_PLUGINS=local-dir:C:\AMDDesignTools\2025.2\Vitis\ide\electron-app\win64\resources\app\plugins
-THEIA_ELECTRON_TOKEN={"value":"cfe4a328-f0e2-4263-a63f-8e4205bcc543"}
+THEIA_ELECTRON_TOKEN={"value":"2df6d3f4-0a59-4b0f-af77-4da462a3f760"}
 THEIA_ELECTRON_VERSION=30.1.2
 THEIA_PLUGINS=local-dir:C:\Users\user\.theia\plugins
 TMP=C:\Users\user\AppData\Local\Temp
@@ -142,20 +140,20 @@ XIL_NO_OVERRIDE=0
 XIL_SUPPRESS_OVERRIDE_WARNINGS=1
 XVREDIST=C:/AMDDesignTools/2025.2/Vitis\tps\win64\xvcredist.exe
 _RDI_BINROOT=C:\AMDDesignTools\2025.2\Vitis\bin
-_RDI_CWD=D:\project\DPU_HLS
+_RDI_CWD=D:\project\DPU_Project\DPU_HLS
 _RDI_DONT_SET_XILINX_AS_PATH=True
 _RDI_VERSION_PROG=vitis-run
 _valid=False
-XILINX_CD_CONNECT_ID=50623
-XILINX_CD_SESSION=373f06bb-f3af-450e-8de2-12fd25137e51
+XILINX_CD_CONNECT_ID=63931
+XILINX_CD_SESSION=63603afa-e7c9-4a7b-89ad-cf30afd19e36
 
 
 VITIS-RUN command line:
 ------------------------------------------
-C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe --mode hls --csim --config D:\project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
+C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe --mode hls --csim --config D:\project\DPU_Project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
 
 FINAL PROGRAM OPTIONS
---config D:\project\DPU_HLS\hls_config.cfg
+--config D:\project\DPU_Project\DPU_HLS\hls_config.cfg
 --csim
 --hls.csim.clean 1
 --hls.csim.profile_tripcount 1
@@ -164,10 +162,10 @@ FINAL PROGRAM OPTIONS
 --hls.package.output.format ip_catalog
 --hls.package.output.syn false
 --hls.sim.O 1
---hls.syn.file C:/Users/user/Downloads/files/dpu_conv.cpp
---hls.syn.file C:/Users/user/Downloads/files/dpu_conv.h
+--hls.syn.file D:/project/DPUv2/dpu_conv.cpp
+--hls.syn.file D:/project/DPUv2/dpu_conv.h
 --hls.syn.top dpu_conv_top
---hls.tb.file C:/Users/user/Downloads/files/dpu_conv_tb.cpp
+--hls.tb.file D:/project/DPUv2/dpu_conv_tb.cpp
 --mode hls
 --part xc7z020clg400-1
 --work_dir dpu_conv_top
@@ -175,19 +173,19 @@ FINAL PROGRAM OPTIONS
 PARSED COMMAND LINE OPTIONS
 --mode hls 
 --csim 
---config D:\project\DPU_HLS\hls_config.cfg 
+--config D:\project\DPU_Project\DPU_HLS\hls_config.cfg 
 --work_dir dpu_conv_top 
 
 PARSED CONFIG FILE (1) OPTIONS
-file: D:\project\DPU_HLS\hls_config.cfg
+file: D:\project\DPU_Project\DPU_HLS\hls_config.cfg
 part xc7z020clg400-1 
 hls.flow_target vivado 
 hls.package.output.format ip_catalog 
 hls.package.output.syn false 
 hls.syn.top dpu_conv_top 
-hls.syn.file C:/Users/user/Downloads/files/dpu_conv.cpp 
-hls.syn.file C:/Users/user/Downloads/files/dpu_conv.h 
-hls.tb.file C:/Users/user/Downloads/files/dpu_conv_tb.cpp 
+hls.syn.file D:/project/DPUv2/dpu_conv.cpp 
+hls.syn.file D:/project/DPUv2/dpu_conv.h 
+hls.tb.file D:/project/DPUv2/dpu_conv_tb.cpp 
 hls.sim.O 1 
 hls.csim.clean 1 
 hls.csim.setup 1 
@@ -196,28 +194,88 @@ hls.csim.profile_tripcount 1
 
 ==========================================
 new:  steps log generated by v++ for new launch 
-timestamp: 07 Sep 2026 20:05:10
+timestamp: 09 Sep 2026 17:12:23
 
 ------------------------------------------
-V++ command line :
+VITIS-RUN command line :
 ------------------------------------------
-C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/v++.exe -c --mode hls --config D:\project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
+C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe --mode hls --csim --config D:\project\DPU_Project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
   Options from -O    : 
   Options from *.ini : 
   Options from Hw Platform : 
 
 ==========================================
 new:  steps log generated by v++ for new launch 
-timestamp: 07 Sep 2026 20:05:51
+timestamp: 09 Sep 2026 17:13:57
 
 ------------------------------------------
-V++ command line :
+VITIS-RUN command line :
 ------------------------------------------
-C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/v++.exe -c --mode hls --config D:\project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
+C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe --mode hls --csim --config D:\project\DPU_Project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
   Options from -O    : 
   Options from *.ini : 
   Options from Hw Platform : 
 
 ==========================================
 new:  steps log generated by v++ for new launch 
-timestamp: 07 Sep 2026 20:10:50
+timestamp: 09 Sep 2026 17:16:37
+
+------------------------------------------
+VITIS-RUN command line :
+------------------------------------------
+C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe --mode hls --csim --config D:\project\DPU_Project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
+  Options from -O    : 
+  Options from *.ini : 
+  Options from Hw Platform : 
+
+==========================================
+new:  steps log generated by v++ for new launch 
+timestamp: 09 Sep 2026 17:19:21
+
+------------------------------------------
+VITIS-RUN command line :
+------------------------------------------
+C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe --mode hls --csim --config D:\project\DPU_Project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
+  Options from -O    : 
+  Options from *.ini : 
+  Options from Hw Platform : 
+
+==========================================
+new:  steps log generated by v++ for new launch 
+timestamp: 09 Sep 2026 17:22:06
+
+------------------------------------------
+VITIS-RUN command line :
+------------------------------------------
+C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe --mode hls --csim --config D:\project\DPU_Project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
+  Options from -O    : 
+  Options from *.ini : 
+  Options from Hw Platform : 
+
+==========================================
+new:  steps log generated by v++ for new launch 
+timestamp: 09 Sep 2026 17:25:16
+
+------------------------------------------
+V++ command line :
+------------------------------------------
+C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/v++.exe -c --mode hls --config D:\project\DPU_Project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
+  Options from -O    : 
+  Options from *.ini : 
+  Options from Hw Platform : 
+
+==========================================
+new:  steps log generated by v++ for new launch 
+timestamp: 09 Sep 2026 17:26:40
+
+------------------------------------------
+V++ command line :
+------------------------------------------
+C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/v++.exe -c --mode hls --config D:\project\DPU_Project\DPU_HLS\hls_config.cfg --work_dir dpu_conv_top 
+  Options from -O    : 
+  Options from *.ini : 
+  Options from Hw Platform : 
+
+==========================================
+new:  steps log generated by v++ for new launch 
+timestamp: 09 Sep 2026 18:56:35

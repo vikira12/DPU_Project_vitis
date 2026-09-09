@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'dpu_conv_top'" level="0">
-<item name = "Date">Mon Sep  7 20:13:00 2026
+<item name = "Date">Wed Sep  9 18:58:25 2026
 </item>
 <item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
 <item name = "Project">dpu_conv_top</item>
@@ -24,17 +24,16 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">615, 167578191, 6.765 us, 1.843 sec, 607, 150996802, dataflow</column>
+<column name="">618, 167578581, 6.798 us, 1.843 sec, 619, 167578582, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="call_ln160_entry_proc_fu_394">entry_proc, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
-<column name="grp_conv3x3_relu_fu_404">conv3x3_relu, 606, 150996801, 6.666 us, 1.661 sec, 606, 150996801, no</column>
-<column name="call_ln178_Block_entry_proc_2_fu_494">Block_entry_proc_2, 0, 0, 0 ns, 0 ns, 0, 0, no</column>
-<column name="grp_Block_entry_proc_fu_502">Block_entry_proc, 8, 16581389, 88.000 ns, 0.182 sec, 8, 16581389, no</column>
+<column name="grp_conv3x3_relu_fu_393">conv3x3_relu, 612, 150997185, 6.732 us, 1.661 sec, 612, 150997185, no</column>
+<column name="grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479">dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W, 4, 16581393, 44.000 ns, 0.182 sec, 0, 0, loop pipeline stp</column>
+<column name="grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493">dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W, 3, 16451598, 33.000 ns, 0.181 sec, 0, 0, loop pipeline stp</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

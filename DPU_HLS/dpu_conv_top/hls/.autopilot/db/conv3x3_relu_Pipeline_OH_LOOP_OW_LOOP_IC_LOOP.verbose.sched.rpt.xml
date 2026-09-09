@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP'" level="0">
-<item name = "Date">Mon Sep  7 20:12:42 2026
+<item name = "Date">Wed Sep  9 18:58:21 2026
 </item>
 <item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
 <item name = "Project">dpu_conv_top</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">592, 2359312, 6.512 us, 25.952 ms, 0, 0, loop pipeline stp</column>
+<column name="">599, 2359319, 6.589 us, 25.953 ms, 0, 0, loop pipeline stp</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- OH_LOOP_OW_LOOP_IC_LOOP">590, 2359310, 87, 72, 1, 8 ~ 32768, yes</column>
+<column name="- OH_LOOP_OW_LOOP_IC_LOOP">597, 2359317, 94, 72, 1, 8 ~ 32768, yes</column>
 </table>
 </item>
 </section>

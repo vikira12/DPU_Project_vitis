@@ -1,113 +1,104 @@
 <xilinx:hls_fe_msgs>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-111" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:159:20" msg_body="Static scalars and arrays declared inside a dataflow region will be treated like local variables"/>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:179:25" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-114" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:160:9" msg_body="Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region"/>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:19:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:19:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="conv3x3_relu" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=ifmap dim=1 cyclic factor=8" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:20:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:20:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="conv3x3_relu" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=weight dim=2 cyclic factor=8" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:26:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:26:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="conv3x3_relu" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=1 max=64 avg=4" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:29:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:29:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="conv3x3_relu" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=1 max=64 avg=16" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:32:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:32:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="conv3x3_relu" ARG_PragmaIsValid="1" ARG_PragmaOptions="min=1 max=64 avg=16" ARG_PragmaType="loop_tripcount" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:40:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:40:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="conv3x3_relu" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:44:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:44:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="conv3x3_relu" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:50:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:50:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="conv3x3_relu" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:90:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:90:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="maxpool2x2" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:120:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:120:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="copy_passthrough" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="directive:1:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="directive" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=dpu_conv_top" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:143:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:145:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=ifmap offset=slave bundle=gmem0 depth=262144" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:144:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:146:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=weight offset=slave bundle=gmem1 depth=36864" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:145:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:147:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=bias offset=slave bundle=gmem1 depth=64" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:146:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:148:1" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=conv_scratch offset=slave bundle=gmem2 depth=262144" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:149:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port=ofmap offset=slave bundle=gmem0 depth=262144" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:149:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:152:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=in_h bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:150:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:153:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=in_w bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:151:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:154:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=in_ch bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:152:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:155:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=out_ch bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:153:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:156:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=do_relu bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:154:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:157:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=do_pool bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:155:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:158:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=perf bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:156:1" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="D:/project/DPUv2/dpu_conv.cpp:159:1" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=return bundle=CTRL" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-6999" msg_severity="WARNING" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:160:1" msg_body="HLS pragma dump">
-        <args ARG_PragmaContext="hls" ARG_PragmaFunction="dpu_conv_top" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-273" msg_severity="WARNING" msg_loc="C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h:530:0" msg_body="In function 'ssdm_int&lt;32, false&gt;::ssdm_int(unsigned int)', INLINE (C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h:530:39) of a non dataflow function into a region with DATAFLOW (C:/Users/user/Downloads/files/dpu_conv.cpp:160:1) may break the canonical form">
-        <args Function="ssdm_int&lt;32, false&gt;::ssdm_int(unsigned int)" Function-DebugLoc="File {C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h} Line 530 Column 0" PragmaLoc="islist {C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h:530:39} C:/Users/user/Downloads/files/dpu_conv.cpp:160:1" PragmaLoc-DebugLoc="islist {File {C:/AMDDesignTools/2025.2/Vitis/common/technology/autopilot\etc/ap_common.h} Line 530 Column 39} {File C:/Users/user/Downloads/files/dpu_conv.cpp Line 160 Column 1}"/>
-    </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:43:38" msg_body="Loop 'VITIS_LOOP_43_1' is marked as complete unroll implied by the pipeline pragma">
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="D:/project/DPUv2/dpu_conv.cpp:43:38" msg_body="Loop 'VITIS_LOOP_43_1' is marked as complete unroll implied by the pipeline pragma">
         <args LoopName="VITIS_LOOP_43_1"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:48:42" msg_body="Loop 'VITIS_LOOP_48_2' is marked as complete unroll implied by the pipeline pragma">
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="D:/project/DPUv2/dpu_conv.cpp:48:42" msg_body="Loop 'VITIS_LOOP_48_2' is marked as complete unroll implied by the pipeline pragma">
         <args LoopName="VITIS_LOOP_48_2"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:49:46" msg_body="Loop 'VITIS_LOOP_49_3' is marked as complete unroll implied by the pipeline pragma">
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="D:/project/DPUv2/dpu_conv.cpp:49:46" msg_body="Loop 'VITIS_LOOP_49_3' is marked as complete unroll implied by the pipeline pragma">
         <args LoopName="VITIS_LOOP_49_3"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:16:0" msg_body="Unrolling loop 'VITIS_LOOP_43_1' (C:/Users/user/Downloads/files/dpu_conv.cpp:43:38) in function 'conv3x3_relu' completely with a factor of 8">
-        <args Factor="8" LoopLoc="C:/Users/user/Downloads/files/dpu_conv.cpp:43:38" LoopName="VITIS_LOOP_43_1"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="D:/project/DPUv2/dpu_conv.cpp:16:0" msg_body="Unrolling loop 'VITIS_LOOP_43_1' (D:/project/DPUv2/dpu_conv.cpp:43:38) in function 'conv3x3_relu' completely with a factor of 8">
+        <args Factor="8" LoopLoc="D:/project/DPUv2/dpu_conv.cpp:43:38" LoopName="VITIS_LOOP_43_1"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:16:0" msg_body="Unrolling loop 'VITIS_LOOP_48_2' (C:/Users/user/Downloads/files/dpu_conv.cpp:48:42) in function 'conv3x3_relu' completely with a factor of 3">
-        <args Factor="3" LoopLoc="C:/Users/user/Downloads/files/dpu_conv.cpp:48:42" LoopName="VITIS_LOOP_48_2"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="D:/project/DPUv2/dpu_conv.cpp:16:0" msg_body="Unrolling loop 'VITIS_LOOP_48_2' (D:/project/DPUv2/dpu_conv.cpp:48:42) in function 'conv3x3_relu' completely with a factor of 3">
+        <args Factor="3" LoopLoc="D:/project/DPUv2/dpu_conv.cpp:48:42" LoopName="VITIS_LOOP_48_2"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:16:0" msg_body="Unrolling loop 'VITIS_LOOP_49_3' (C:/Users/user/Downloads/files/dpu_conv.cpp:49:46) in function 'conv3x3_relu' completely with a factor of 3">
-        <args Factor="3" LoopLoc="C:/Users/user/Downloads/files/dpu_conv.cpp:49:46" LoopName="VITIS_LOOP_49_3"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="D:/project/DPUv2/dpu_conv.cpp:16:0" msg_body="Unrolling loop 'VITIS_LOOP_49_3' (D:/project/DPUv2/dpu_conv.cpp:49:46) in function 'conv3x3_relu' completely with a factor of 3">
+        <args Factor="3" LoopLoc="D:/project/DPUv2/dpu_conv.cpp:49:46" LoopName="VITIS_LOOP_49_3"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:140:0" msg_body="Applying array_partition to 'ifmap': Cyclic partitioning with factor 8 on dimension 1.">
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="D:/project/DPUv2/dpu_conv.cpp:141:0" msg_body="Inlining function 'maxpool2x2(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;)' into 'dpu_conv_top(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][3][3], ap_int&lt;32&gt;*, ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;1&gt;, ap_uint&lt;1&gt;, perf_counters_t&amp;)'">
+        <args Callee="maxpool2x2(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;)" Callee-DebugLoc="File D:/project/DPUv2/dpu_conv.cpp Line 83 Column 0" Caller="dpu_conv_top(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][3][3], ap_int&lt;32&gt;*, ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;1&gt;, ap_uint&lt;1&gt;, perf_counters_t&amp;)" Caller-DebugLoc="File D:/project/DPUv2/dpu_conv.cpp Line 141 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="D:/project/DPUv2/dpu_conv.cpp:141:0" msg_body="Inlining function 'copy_passthrough(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;)' into 'dpu_conv_top(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][3][3], ap_int&lt;32&gt;*, ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;1&gt;, ap_uint&lt;1&gt;, perf_counters_t&amp;)'">
+        <args Callee="copy_passthrough(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;)" Callee-DebugLoc="File D:/project/DPUv2/dpu_conv.cpp Line 113 Column 0" Caller="dpu_conv_top(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][3][3], ap_int&lt;32&gt;*, ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;1&gt;, ap_uint&lt;1&gt;, perf_counters_t&amp;)" Caller-DebugLoc="File D:/project/DPUv2/dpu_conv.cpp Line 141 Column 0"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="D:/project/DPUv2/dpu_conv.cpp:141:0" msg_body="Applying array_partition to 'ifmap': Cyclic partitioning with factor 8 on dimension 1.">
         <args Dim="1" Factor="8" Mode="Cyclic" UOName="ifmap"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:140:0" msg_body="Applying array_partition to 'weight': Cyclic partitioning with factor 8 on dimension 2.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="D:/project/DPUv2/dpu_conv.cpp:141:0" msg_body="Applying array_partition to 'weight': Cyclic partitioning with factor 8 on dimension 2.">
         <args Dim="2" Factor="8" Mode="Cyclic" UOName="weight"/>
-    </msg>
-    <msg msg_groups="AUTOMATION_VERBOSE_PASSED" msg_id="214-335" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:159:0" msg_body="array_partition dim=3 type=cyclic factor=2 variable=dpu_conv_top(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][3][3], ap_int&lt;32&gt;*, ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;1&gt;, ap_uint&lt;1&gt;, perf_counters_t&amp;)::conv_buf 1 dpu_conv_top C:/Users/user/Downloads/files/dpu_conv.cpp:159:0 C:/Users/user/Downloads/files/dpu_conv.cpp:90:1dpu_conv_top(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][3][3], ap_int&lt;32&gt;*, ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;1&gt;, ap_uint&lt;1&gt;, perf_counters_t&amp;)::conv_buf">
-        <args PragmaFunction="dpu_conv_top" PragmaIsAuto="1" PragmaOptions="dim=3 type=cyclic factor=2 variable=dpu_conv_top(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][3][3], ap_int&lt;32&gt;*, ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;1&gt;, ap_uint&lt;1&gt;, perf_counters_t&amp;)::conv_buf" PragmaSrcLoc="C:/Users/user/Downloads/files/dpu_conv.cpp:90:1" PragmaSrcLoc-DebugLoc="File C:/Users/user/Downloads/files/dpu_conv.cpp Line 90 Column 1" PragmaType="array_partition" VarLoc="C:/Users/user/Downloads/files/dpu_conv.cpp:159:0" VarName="dpu_conv_top(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][3][3], ap_int&lt;32&gt;*, ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;1&gt;, ap_uint&lt;1&gt;, perf_counters_t&amp;)::conv_buf"/>
-    </msg>
-    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:90:1" msg_body="Inferring pragma 'array_partition type=cyclic factor=2 dim=3' for array 'dpu_conv_top(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][3][3], ap_int&lt;32&gt;*, ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;1&gt;, ap_uint&lt;1&gt;, perf_counters_t&amp;)::conv_buf' due to pipeline pragma">
-        <args Dim="3" Factor="2" Mode="cyclic" Name="dpu_conv_top(ap_int&lt;8&gt; (*) [64][64], ap_int&lt;8&gt; (*) [64][3][3], ap_int&lt;32&gt;*, ap_int&lt;8&gt; (*) [64][64], ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;8&gt;, ap_uint&lt;1&gt;, ap_uint&lt;1&gt;, perf_counters_t&amp;)::conv_buf" PragmaType="array_partition"/>
-    </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="C:/Users/user/Downloads/files/dpu_conv.cpp:159:0" msg_body="Applying array_partition to '_ZZ12dpu_conv_topPA64_A64_6ap_intILi8EEPA64_A3_A3_S0_PS_ILi32EES3_7ap_uintILi8EESB_SB_SB_SA_ILi1EESC_R15perf_counters_tE8conv_buf': Cyclic partitioning with factor 2 on dimension 3.">
-        <args Dim="3" Factor="2" Mode="Cyclic" UOName="_ZZ12dpu_conv_topPA64_A64_6ap_intILi8EEPA64_A3_A3_S0_PS_ILi32EES3_7ap_uintILi8EESB_SB_SB_SA_ILi1EESC_R15perf_counters_tE8conv_buf"/>
     </msg>
 </xilinx:hls_fe_msgs>

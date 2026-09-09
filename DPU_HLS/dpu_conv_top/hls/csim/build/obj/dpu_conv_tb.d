@@ -1,6 +1,5 @@
-obj/dpu_conv_tb.o: C:\Users\user\Downloads\files\dpu_conv_tb.cpp \
-  C:\Users\user\Downloads\files\dpu_conv.h \
-  C:\Users\user\Downloads\files\dpu_types.h \
+obj/dpu_conv_tb.o: ..\..\..\..\..\..\DPUv2\dpu_conv_tb.cpp \
+  ..\..\..\..\..\..\DPUv2\dpu_conv.h ..\..\..\..\..\..\DPUv2\dpu_types.h \
   C:\AMDDesignTools\2025.2\Vitis\include\ap_int.h \
   C:\AMDDesignTools\2025.2\Vitis\include\etc\ap_common.h \
   C:\AMDDesignTools\2025.2\Vitis\include\etc\ap_decl.h \

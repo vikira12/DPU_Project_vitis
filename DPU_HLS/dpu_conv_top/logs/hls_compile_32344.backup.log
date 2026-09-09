@@ -1,0 +1,429 @@
+  **** HLS Build v2025.2 6295257
+INFO: [HLS 200-2005] Using work_dir D:/project/DPU_Project/DPU_HLS/dpu_conv_top 
+INFO: [HLS 200-2176] Writing Vitis IDE component file D:/project/DPU_Project/DPU_HLS/dpu_conv_top/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'D:/project/DPU_Project/DPU_HLS/dpu_conv_top'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=D:/project/DPUv2/dpu_conv.cpp' from hls_config.cfg(13)
+INFO: [HLS 200-10] Adding design file 'D:/project/DPUv2/dpu_conv.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=D:/project/DPUv2/dpu_conv.h' from hls_config.cfg(14)
+INFO: [HLS 200-10] Adding design file 'D:/project/DPUv2/dpu_conv.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=D:/project/DPUv2/dpu_types.h' from hls_config.cfg(15)
+INFO: [HLS 200-10] Adding design file 'D:/project/DPUv2/dpu_types.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=D:/project/DPUv2/dpu_conv_tb.cpp' from hls_config.cfg(8)
+INFO: [HLS 200-10] Adding test bench file 'D:/project/DPUv2/dpu_conv_tb.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=dpu_conv_top' from hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-1465] Applying config ini 'part=xc7z020clg400-1' from hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1465] Applying config ini 'clock=11ns' from hls_config.cfg(16)
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 11ns.
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from hls_config.cfg(10)
+INFO: [HLS 200-1465] Applying config ini 'csim.profile_tripcount=1' from hls_config.cfg(12)
+INFO: [HLS 200-1465] Applying config ini 'csim.setup=1' from hls_config.cfg(11)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(5)
+INFO: [HLS 200-1465] Applying config ini 'sim.O=1' from hls_config.cfg(9)
+INFO: [HLS 200-2176] Writing Vitis IDE component file D:/project/DPU_Project/DPU_HLS/dpu_conv_top/vitis-comp.json
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 5 seconds. CPU system time: 15 seconds. Elapsed time: 27.286 seconds; current allocated memory: 166.051 MB.
+INFO: [HLS 200-2191] C-Synthesis will use clang-16 as the compiler
+INFO: [HLS 200-10] Analyzing design file 'D:/project/DPUv2/dpu_conv.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 29.508 seconds; current allocated memory: 168.781 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 1,345 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 2,100 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,742 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,305 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,300 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 3,139 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,288 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,440 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,592 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,610 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,306 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,305 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,299 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,299 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,670 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 200-1995] There were 1,626 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details (D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/report/csynth_design_size.rpt:2)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_43_1' is marked as complete unroll implied by the pipeline pragma (D:/project/DPUv2/dpu_conv.cpp:43:38)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_48_2' is marked as complete unroll implied by the pipeline pragma (D:/project/DPUv2/dpu_conv.cpp:48:42)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_49_3' is marked as complete unroll implied by the pipeline pragma (D:/project/DPUv2/dpu_conv.cpp:49:46)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_43_1' (D:/project/DPUv2/dpu_conv.cpp:43:38) in function 'conv3x3_relu' completely with a factor of 8 (D:/project/DPUv2/dpu_conv.cpp:16:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_48_2' (D:/project/DPUv2/dpu_conv.cpp:48:42) in function 'conv3x3_relu' completely with a factor of 3 (D:/project/DPUv2/dpu_conv.cpp:16:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_49_3' (D:/project/DPUv2/dpu_conv.cpp:49:46) in function 'conv3x3_relu' completely with a factor of 3 (D:/project/DPUv2/dpu_conv.cpp:16:0)
+INFO: [HLS 214-178] Inlining function 'maxpool2x2(ap_int<8> (*) [64][64], ap_int<8> (*) [64][64], ap_uint<8>, ap_uint<8>, ap_uint<8>)' into 'dpu_conv_top(ap_int<8> (*) [64][64], ap_int<8> (*) [64][3][3], ap_int<32>*, ap_int<8> (*) [64][64], ap_int<8> (*) [64][64], ap_uint<8>, ap_uint<8>, ap_uint<8>, ap_uint<8>, ap_uint<1>, ap_uint<1>, perf_counters_t&)' (D:/project/DPUv2/dpu_conv.cpp:141:0)
+INFO: [HLS 214-178] Inlining function 'copy_passthrough(ap_int<8> (*) [64][64], ap_int<8> (*) [64][64], ap_uint<8>, ap_uint<8>, ap_uint<8>)' into 'dpu_conv_top(ap_int<8> (*) [64][64], ap_int<8> (*) [64][3][3], ap_int<32>*, ap_int<8> (*) [64][64], ap_int<8> (*) [64][64], ap_uint<8>, ap_uint<8>, ap_uint<8>, ap_uint<8>, ap_uint<1>, ap_uint<1>, perf_counters_t&)' (D:/project/DPUv2/dpu_conv.cpp:141:0)
+INFO: [HLS 214-248] Applying array_partition to 'ifmap': Cyclic partitioning with factor 8 on dimension 1. (D:/project/DPUv2/dpu_conv.cpp:141:0)
+INFO: [HLS 214-248] Applying array_partition to 'weight': Cyclic partitioning with factor 8 on dimension 2. (D:/project/DPUv2/dpu_conv.cpp:141:0)
+INFO: [HLS 214-241] Aggregating maxi variable 'ofmap' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'conv_scratch' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'weight_7' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'weight_6' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'weight_5' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'weight_4' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'weight_3' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'weight_2' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'weight_1' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'weight_0' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'ifmap_7' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'ifmap_6' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'ifmap_5' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'ifmap_4' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'ifmap_3' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'ifmap_2' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'ifmap_1' with compact=none mode in 8-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'ifmap_0' with compact=none mode in 8-bits
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 8 in loop 'OW_LOOP'(D:/project/DPUv2/dpu_conv.cpp:31:13) has been inferred on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (D:/project/DPUv2/dpu_conv.cpp:31:13)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 8 in loop 'POOL_W'(D:/project/DPUv2/dpu_conv.cpp:89:13) has been inferred on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (D:/project/DPUv2/dpu_conv.cpp:89:13)
+INFO: [HLS 214-115] Multiple burst reads of length 2 and bit width 8 has been inferred on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (D:/project/DPUv2/dpu_conv.cpp:91:31)
+INFO: [HLS 214-115] Multiple burst reads of length 2 and bit width 8 has been inferred on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (D:/project/DPUv2/dpu_conv.cpp:93:31)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 8 in loop 'COPY_W'(D:/project/DPUv2/dpu_conv.cpp:119:13) has been inferred on bundle 'gmem2'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (D:/project/DPUv2/dpu_conv.cpp:119:13)
+INFO: [HLS 214-115] Multiple burst writes of variable length and bit width 8 in loop 'COPY_W'(D:/project/DPUv2/dpu_conv.cpp:119:13) has been inferred on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (D:/project/DPUv2/dpu_conv.cpp:119:13)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 8 seconds. CPU system time: 2 seconds. Elapsed time: 32.115 seconds; current allocated memory: 176.430 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.005 seconds; current allocated memory: 176.438 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.325 seconds; current allocated memory: 184.941 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.419 seconds; current allocated memory: 187.738 MB.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 8 for loop 'IC_LOOP' (D:/project/DPUv2/dpu_conv.cpp:33:23) in function 'conv3x3_relu'.
+INFO: [XFORM 203-11] Balancing expressions in function 'dpu_conv_top' (D:/project/DPUv2/dpu_conv.cpp:85:13)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 3 seconds. CPU system time: 0 seconds. Elapsed time: 3.249 seconds; current allocated memory: 216.836 MB.
+INFO: [HLS 200-2061] Successfully converted nested loops 'POOL_H'(D:/project/DPUv2/dpu_conv.cpp:87:9) and 'POOL_W'(D:/project/DPUv2/dpu_conv.cpp:89:13) in function 'dpu_conv_top' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'POOL_OC'(D:/project/DPUv2/dpu_conv.cpp:85:5) and 'POOL_H'(D:/project/DPUv2/dpu_conv.cpp:87:9) in function 'dpu_conv_top' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'COPY_H'(D:/project/DPUv2/dpu_conv.cpp:117:9) and 'COPY_W'(D:/project/DPUv2/dpu_conv.cpp:119:13) in function 'dpu_conv_top' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'OW_LOOP'(D:/project/DPUv2/dpu_conv.cpp:31:13) and 'IC_LOOP'(D:/project/DPUv2/dpu_conv.cpp:36:17) in function 'conv3x3_relu' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'OH_LOOP'(D:/project/DPUv2/dpu_conv.cpp:28:9) and 'OW_LOOP'(D:/project/DPUv2/dpu_conv.cpp:31:13) in function 'conv3x3_relu' into perfectly nested loops.
+INFO: [HLS 200-2061] Successfully converted nested loops 'OC_LOOP'(D:/project/DPUv2/dpu_conv.cpp:23:5) and 'OH_LOOP'(D:/project/DPUv2/dpu_conv.cpp:28:9) in function 'conv3x3_relu' into perfectly nested loops.
+INFO: [XFORM 203-541] Flattening a loop nest 'POOL_H' (D:/project/DPUv2/dpu_conv.cpp:87:9) in function 'dpu_conv_top'.
+INFO: [XFORM 203-541] Flattening a loop nest 'POOL_OC' (D:/project/DPUv2/dpu_conv.cpp:85:5) in function 'dpu_conv_top'.
+INFO: [XFORM 203-541] Flattening a loop nest 'COPY_H' (D:/project/DPUv2/dpu_conv.cpp:117:9) in function 'dpu_conv_top'.
+INFO: [XFORM 203-541] Flattening a loop nest 'COPY_OC' (D:/project/DPUv2/dpu_conv.cpp:115:5) in function 'dpu_conv_top'.
+INFO: [XFORM 203-541] Flattening a loop nest 'OW_LOOP' (D:/project/DPUv2/dpu_conv.cpp:31:13) in function 'conv3x3_relu'.
+INFO: [XFORM 203-541] Flattening a loop nest 'OH_LOOP' (D:/project/DPUv2/dpu_conv.cpp:28:9) in function 'conv3x3_relu'.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 2 seconds. CPU system time: 1 seconds. Elapsed time: 2.124 seconds; current allocated memory: 250.840 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'dpu_conv_top' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=acc_2) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_4) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_9) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_11) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_12) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_14) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_16) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_18) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_19) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_21) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_23) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_25) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_27) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_28) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_30) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_32) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_34) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_36) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_38) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_40) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_42) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_44) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_45) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_47) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_49) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_51) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_53) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_55) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_57) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_59) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_61) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_62) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_64) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_66) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_68) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_70) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_72) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_74) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_76) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_78) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_79) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_81) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_83) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_85) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_87) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_89) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_91) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_93) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_95) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_96) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_98) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_100) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_102) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_104) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_106) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_108) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_110) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_112) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_113) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_115) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_117) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_119) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_121) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_123) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_125) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_127) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_129) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_130) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_132) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_134) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=acc_136) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'OH_LOOP_OW_LOOP_IC_LOOP'.
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem0_0_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_0_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_0_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_0_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_0_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_0_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_0_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_0_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_0_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem0_0' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem1_3_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_3_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_3_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_3_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_3_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_3_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_3_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_3_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_3_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_3' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem1_3' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem1_0_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_0_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_0_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_0_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_0_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_0_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_0_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_0_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_0' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_0_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_0' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem1_0' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem1_2_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_2_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_2_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_2_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_2_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_2_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_2_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_2_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_2_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_2' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem1_2' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem0_1_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_1_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_1_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_1_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_1_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_1_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_1_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_1_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_1_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem0_1' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem1_1_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_1_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_1_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_1_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_1_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_1_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_1_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_1_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_1' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_1_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_1' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem1_1' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem0_2_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_2_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_2_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_2_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_2_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_2_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_2_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_2_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_2_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem0_2' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem0_3_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_3_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_3_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_3_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_3_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_3_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_3_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_3_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_3_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem0_3' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem0_4_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_4_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_4_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_4_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_4_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_4_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_4_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_4_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_4_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_4' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem0_4' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem1_4_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_4_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_4_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_4_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_4_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_4_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_4_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_4_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_4' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_4_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_4' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem1_4' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem0_5_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_5_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_5_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_5_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_5_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_5_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_5_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_5_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_5_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_5' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem0_5' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem1_7_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_7_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_7_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_7_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_7_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_7_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_7_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_7_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_7_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_7' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem1_7' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem1_5_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_5_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_5_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_5_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_5_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_5_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_5_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_5_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_5' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_5_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_5' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem1_5' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem0_6_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_6_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_6_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_6_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_6_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_6_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_6_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_6_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_6_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_6' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem0_6' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem1_6_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_6_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_6_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_6_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_6_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_6_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_6_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_6_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_6' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem1_6_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_6' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem1_6' m_axi read
+WARNING: [HLS 200-448] Lower bound of II is 9 due to multiple bus read operation ('gmem0_7_addr_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_7_addr_1_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_7_addr_2_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_7_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_7_addr_4_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_7_addr_5_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_7_addr_6_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_7_addr_7_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_7' (D:/project/DPUv2/dpu_conv.cpp:55), bus read operation ('gmem0_7_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_7' (D:/project/DPUv2/dpu_conv.cpp:55) accessing 'gmem0_7' m_axi read
+WARNING: [HLS 200-880] The II Violation in module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' (loop 'OH_LOOP_OW_LOOP_IC_LOOP'): Unable to enforce a carried dependence constraint (II = 9, distance = 1, offset = 0) between 'store' operation ('acc_1_write_ln33', D:/project/DPUv2/dpu_conv.cpp:33) of variable 'acc' 32 bit on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33 and 'load' operation 32 bit ('acc_1_load') on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33.
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' (loop 'OH_LOOP_OW_LOOP_IC_LOOP'): Unable to enforce a carried dependence constraint (II = 10, distance = 1, offset = 0) between 'store' operation ('acc_1_write_ln33', D:/project/DPUv2/dpu_conv.cpp:33) of variable 'acc' 32 bit on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33 and 'load' operation 32 bit ('acc_1_load') on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33.
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' (loop 'OH_LOOP_OW_LOOP_IC_LOOP'): Unable to enforce a carried dependence constraint (II = 11, distance = 1, offset = 0) between 'store' operation ('acc_1_write_ln33', D:/project/DPUv2/dpu_conv.cpp:33) of variable 'acc' 32 bit on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33 and 'load' operation 32 bit ('acc_1_load') on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33.
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' (loop 'OH_LOOP_OW_LOOP_IC_LOOP'): Unable to enforce a carried dependence constraint (II = 12, distance = 1, offset = 0) between 'store' operation ('acc_1_write_ln33', D:/project/DPUv2/dpu_conv.cpp:33) of variable 'acc' 32 bit on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33 and 'load' operation 32 bit ('acc_1_load') on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33.
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' (loop 'OH_LOOP_OW_LOOP_IC_LOOP'): Unable to enforce a carried dependence constraint (II = 42, distance = 1, offset = 0) between 'store' operation ('acc_1_write_ln33', D:/project/DPUv2/dpu_conv.cpp:33) of variable 'acc' 32 bit on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33 and 'load' operation 32 bit ('acc_1_load') on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33.
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' (loop 'OH_LOOP_OW_LOOP_IC_LOOP'): Unable to enforce a carried dependence constraint (II = 57, distance = 1, offset = 0) between 'store' operation ('acc_1_write_ln33', D:/project/DPUv2/dpu_conv.cpp:33) of variable 'acc' 32 bit on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33 and 'load' operation 32 bit ('acc_1_load') on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33.
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' (loop 'OH_LOOP_OW_LOOP_IC_LOOP'): Unable to enforce a carried dependence constraint (II = 65, distance = 1, offset = 0) between 'store' operation ('acc_1_write_ln33', D:/project/DPUv2/dpu_conv.cpp:33) of variable 'acc' 32 bit on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33 and 'load' operation 32 bit ('acc_1_load') on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33.
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' (loop 'OH_LOOP_OW_LOOP_IC_LOOP'): Unable to enforce a carried dependence constraint (II = 69, distance = 1, offset = 0) between 'store' operation ('acc_1_write_ln33', D:/project/DPUv2/dpu_conv.cpp:33) of variable 'acc' 32 bit on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33 and 'load' operation 32 bit ('acc_1_load') on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33.
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' (loop 'OH_LOOP_OW_LOOP_IC_LOOP'): Unable to enforce a carried dependence constraint (II = 71, distance = 1, offset = 0) between 'store' operation ('acc_1_write_ln33', D:/project/DPUv2/dpu_conv.cpp:33) of variable 'acc' 32 bit on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33 and 'load' operation 32 bit ('acc_1_load') on local variable 'acc', D:/project/DPUv2/dpu_conv.cpp:33.
+Resolution: For help on HLS 200-880 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-880.html
+WARNING: [HLS 200-887] Cannot meet target clock period from 'add' operation 32 bit of DSP[1760] ('acc', D:/project/DPUv2/dpu_conv.cpp:55) to 'add' operation 32 bit of DSP[236] ('acc', D:/project/DPUv2/dpu_conv.cpp:55) (combination delay: 8.1933 ns) to honor II or Latency constraint in region 'OH_LOOP_OW_LOOP_IC_LOOP'.
+Resolution: For help on HLS 200-887 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-887.html
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 72, Depth = 95, loop 'OH_LOOP_OW_LOOP_IC_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 15 seconds. CPU system time: 0 seconds. Elapsed time: 21.746 seconds; current allocated memory: 299.086 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 3 seconds. CPU system time: 1 seconds. Elapsed time: 3.743 seconds; current allocated memory: 299.086 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'conv3x3_relu' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 2 seconds. CPU system time: 0 seconds. Elapsed time: 2.568 seconds; current allocated memory: 299.086 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 299.086 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'COPY_OC_COPY_H_COPY_W'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 19, loop 'COPY_OC_COPY_H_COPY_W'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.456 seconds; current allocated memory: 299.086 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.156 seconds; current allocated memory: 299.086 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'POOL_OC_POOL_H_POOL_W'.
+WARNING: [HLS 200-448] Lower bound of II is 4 due to multiple bus read operation ('p00', D:/project/DPUv2/dpu_conv.cpp:91->D:/project/DPUv2/dpu_conv.cpp:173) on port 'gmem2' (D:/project/DPUv2/dpu_conv.cpp:91->D:/project/DPUv2/dpu_conv.cpp:173), bus read operation ('p01', D:/project/DPUv2/dpu_conv.cpp:91->D:/project/DPUv2/dpu_conv.cpp:173) on port 'gmem2' (D:/project/DPUv2/dpu_conv.cpp:91->D:/project/DPUv2/dpu_conv.cpp:173), bus read operation ('p10', D:/project/DPUv2/dpu_conv.cpp:93->D:/project/DPUv2/dpu_conv.cpp:173) on port 'gmem2' (D:/project/DPUv2/dpu_conv.cpp:93->D:/project/DPUv2/dpu_conv.cpp:173), bus read operation ('p11', D:/project/DPUv2/dpu_conv.cpp:93->D:/project/DPUv2/dpu_conv.cpp:173) on port 'gmem2' (D:/project/DPUv2/dpu_conv.cpp:93->D:/project/DPUv2/dpu_conv.cpp:173) accessing 'gmem2' m_axi read
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 4, Depth = 22, loop 'POOL_OC_POOL_H_POOL_W'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.276 seconds; current allocated memory: 299.086 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.173 seconds; current allocated memory: 299.086 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dpu_conv_top' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.713 seconds; current allocated memory: 299.086 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 299.086 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' pipeline 'OH_LOOP_OW_LOOP_IC_LOOP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP' is 8714 from HDL expression: ((1'b1 == ap_CS_fsm_pp0_stage3) & (1'b0 == ap_block_pp0_stage3_subdone_grp0_done_reg) & (1'b0 == ap_block_pp0_stage3_11001_grp0))
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_8s_8s_32s_32_4_1': 72 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 6 seconds. CPU system time: 1 seconds. Elapsed time: 6.926 seconds; current allocated memory: 310.164 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'conv3x3_relu' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_11ns_19_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'conv3x3_relu'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 8 seconds. CPU system time: 1 seconds. Elapsed time: 10.971 seconds; current allocated memory: 352.637 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W' pipeline 'COPY_OC_COPY_H_COPY_W' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 1 seconds. Elapsed time: 1.741 seconds; current allocated memory: 352.637 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W' pipeline 'POOL_OC_POOL_H_POOL_W' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.401 seconds; current allocated memory: 352.637 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dpu_conv_top' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem0_0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem0_1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem0_2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem0_3' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem0_4' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem0_5' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem0_6' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem0_7' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem1_0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem1_1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem1_2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem1_3' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem1_4' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem1_5' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem1_6' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem1_7' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/gmem0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/ifmap_0' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/ifmap_1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/ifmap_2' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/ifmap_3' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/ifmap_4' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/ifmap_5' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/ifmap_6' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/ifmap_7' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/weight_0' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/weight_1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/weight_2' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/weight_3' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/weight_4' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/weight_5' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/weight_6' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/weight_7' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/bias' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/conv_scratch' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/ofmap' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/in_h' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/in_w' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/in_ch' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/out_ch' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/do_relu' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/do_pool' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'dpu_conv_top/perf' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'dpu_conv_top' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'in_h', 'in_w', 'in_ch', 'out_ch', 'do_relu', 'do_pool', 'perf' and 'return' to AXI-Lite port CTRL.
+INFO: [RTGEN 206-100] Bundling port 'ifmap_0', 'ifmap_1', 'ifmap_2', 'ifmap_3', 'ifmap_4', 'ifmap_5', 'ifmap_6', 'ifmap_7', 'weight_0', 'weight_1', 'weight_2', 'weight_3', 'weight_4', 'weight_5', 'weight_6', 'weight_7', 'bias', 'conv_scratch' and 'ofmap' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_7ns_7ns_14_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_14ns_22_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_16ns_24_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_8ns_8ns_16_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dpu_conv_top'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 3 seconds. CPU system time: 1 seconds. Elapsed time: 15.956 seconds; current allocated memory: 360.512 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 4 seconds. CPU system time: 3 seconds. Elapsed time: 10.443 seconds; current allocated memory: 369.082 MB.
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO: [HLS 200-2225] Wrote inferred directives to file D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/syn/inferred_directives.ini
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 18 seconds. CPU system time: 4 seconds. Elapsed time: 28.106 seconds; current allocated memory: 395.355 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for dpu_conv_top.
+INFO: [VLOG 209-307] Generating Verilog RTL for dpu_conv_top.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 124.53 MHz
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Wed Sep  9 17:30:35 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: calling package_hls_ip ip_types=vitis sysgen json_file=D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/hls_data.json outdir=D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/impl/ip srcdir=D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls ippack_options_dict= ippack_options_dict=
+INFO: Copied 1 ipmisc file(s) to D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/impl/ip/misc
+INFO: Copied 33 verilog file(s) to D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/impl/ip/hdl/verilog
+INFO: Copied 33 vhdl file(s) to D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/impl/ip/hdl/vhdl
+INFO: Copied 10 swdriver file(s) to D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/impl/ip/drivers
+ipx::create_core: Time (s): cpu = 00:00:26 ; elapsed = 00:00:34 . Memory (MB): peak = 567.227 ; gain = 215.074
+INFO: Import ports from HDL: D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/impl/ip/hdl/vhdl/dpu_conv_top.vhd (dpu_conv_top)
+INFO: Add axi4lite interface s_axi_CTRL
+INFO: Add axi4lite interface s_axi_control
+INFO: Add clock interface ap_clk
+INFO: Add reset interface ap_rst_n
+INFO: Add interrupt interface interrupt
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2025.2/Vivado/data/ip'.
+INFO: Add axi4full interface m_axi_gmem0_0
+INFO: Add axi4full interface m_axi_gmem0_1
+INFO: Add axi4full interface m_axi_gmem0_2
+INFO: Add axi4full interface m_axi_gmem0_3
+INFO: Add axi4full interface m_axi_gmem0_4
+INFO: Add axi4full interface m_axi_gmem0_5
+INFO: Add axi4full interface m_axi_gmem0_6
+INFO: Add axi4full interface m_axi_gmem0_7
+INFO: Add axi4full interface m_axi_gmem1_0
+INFO: Add axi4full interface m_axi_gmem1_1
+INFO: Add axi4full interface m_axi_gmem1_2
+INFO: Add axi4full interface m_axi_gmem1_3
+INFO: Add axi4full interface m_axi_gmem1_4
+INFO: Add axi4full interface m_axi_gmem1_5
+INFO: Add axi4full interface m_axi_gmem1_6
+INFO: Add axi4full interface m_axi_gmem1_7
+INFO: Add axi4full interface m_axi_gmem1
+INFO: Add axi4full interface m_axi_gmem2
+INFO: Add axi4full interface m_axi_gmem0
+INFO: Calling post_process_vitis to specialize IP
+INFO: Calling post_process_sysgen to specialize IP
+Generating sysgen info xml from json file
+INFO: Created IP D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/impl/ip/component.xml
+INFO: Created IP archive D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/impl/ip/xilinx_com_hls_dpu_conv_top_1_0.zip
+INFO: [Common 17-206] Exiting Vivado at Wed Sep  9 17:31:47 2026...
+INFO: [HLS 200-802] Generated output file dpu_conv_top/dpu_conv_top.zip
+INFO: [HLS 200-112] Total CPU user time: 92 seconds. Total CPU system time: 33 seconds. Total elapsed time: 297.159 seconds; peak allocated memory: 406.438 MB.
+INFO: [v++ 60-791] Total elapsed time: 0h 5m 12s

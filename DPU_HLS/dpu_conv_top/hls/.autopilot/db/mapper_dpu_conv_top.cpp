@@ -246,8 +246,8 @@ using hls::sim::Byte;
 struct __cosim_s1__ { char data[1]; };
 struct __cosim_s12__ { char data[12]; };
 struct __cosim_s16__ { char data[16]; };
-extern "C" void dpu_conv_top(Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<4>*, Byte<1>*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __cosim_s1__, __cosim_s1__, __cosim_s1__, __cosim_s1__, __cosim_s1__, __cosim_s1__, volatile void *);
-extern "C" void apatb_dpu_conv_top_hw(volatile void * __xlx_apatb_param_ifmap_0, volatile void * __xlx_apatb_param_ifmap_1, volatile void * __xlx_apatb_param_ifmap_2, volatile void * __xlx_apatb_param_ifmap_3, volatile void * __xlx_apatb_param_ifmap_4, volatile void * __xlx_apatb_param_ifmap_5, volatile void * __xlx_apatb_param_ifmap_6, volatile void * __xlx_apatb_param_ifmap_7, volatile void * __xlx_apatb_param_weight_0, volatile void * __xlx_apatb_param_weight_1, volatile void * __xlx_apatb_param_weight_2, volatile void * __xlx_apatb_param_weight_3, volatile void * __xlx_apatb_param_weight_4, volatile void * __xlx_apatb_param_weight_5, volatile void * __xlx_apatb_param_weight_6, volatile void * __xlx_apatb_param_weight_7, volatile void * __xlx_apatb_param_bias, volatile void * __xlx_apatb_param_ofmap, __cosim_s1__* __xlx_apatb_param_in_h, __cosim_s1__* __xlx_apatb_param_in_w, __cosim_s1__* __xlx_apatb_param_in_ch, __cosim_s1__* __xlx_apatb_param_out_ch, __cosim_s1__* __xlx_apatb_param_do_relu, __cosim_s1__* __xlx_apatb_param_do_pool, volatile void * __xlx_apatb_param_perf) {
+extern "C" void dpu_conv_top(Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<1>*, Byte<4>*, Byte<1>*, Byte<1>*, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int, __cosim_s1__, __cosim_s1__, __cosim_s1__, __cosim_s1__, __cosim_s1__, __cosim_s1__, volatile void *);
+extern "C" void apatb_dpu_conv_top_hw(volatile void * __xlx_apatb_param_ifmap_0, volatile void * __xlx_apatb_param_ifmap_1, volatile void * __xlx_apatb_param_ifmap_2, volatile void * __xlx_apatb_param_ifmap_3, volatile void * __xlx_apatb_param_ifmap_4, volatile void * __xlx_apatb_param_ifmap_5, volatile void * __xlx_apatb_param_ifmap_6, volatile void * __xlx_apatb_param_ifmap_7, volatile void * __xlx_apatb_param_weight_0, volatile void * __xlx_apatb_param_weight_1, volatile void * __xlx_apatb_param_weight_2, volatile void * __xlx_apatb_param_weight_3, volatile void * __xlx_apatb_param_weight_4, volatile void * __xlx_apatb_param_weight_5, volatile void * __xlx_apatb_param_weight_6, volatile void * __xlx_apatb_param_weight_7, volatile void * __xlx_apatb_param_bias, volatile void * __xlx_apatb_param_conv_scratch, volatile void * __xlx_apatb_param_ofmap, __cosim_s1__* __xlx_apatb_param_in_h, __cosim_s1__* __xlx_apatb_param_in_w, __cosim_s1__* __xlx_apatb_param_in_ch, __cosim_s1__* __xlx_apatb_param_out_ch, __cosim_s1__* __xlx_apatb_param_do_relu, __cosim_s1__* __xlx_apatb_param_do_pool, volatile void * __xlx_apatb_param_perf) {
 using hls::sim::createStream;
   // Collect __xlx_ifmap_0__tmp_vec
 std::vector<Byte<1>> __xlx_ifmap_0__tmp_vec;
@@ -385,6 +385,14 @@ __xlx_bias__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_bias)[i]);
   int __xlx_size_param_bias = 64;
   int __xlx_offset_param_bias = 0;
   int __xlx_offset_byte_param_bias = 0*4;
+  // Collect __xlx_conv_scratch__tmp_vec
+std::vector<Byte<1>> __xlx_conv_scratch__tmp_vec;
+for (size_t i = 0; i < 262144; ++i){
+__xlx_conv_scratch__tmp_vec.push_back(((Byte<1>*)__xlx_apatb_param_conv_scratch)[i]);
+}
+  int __xlx_size_param_conv_scratch = 262144;
+  int __xlx_offset_param_conv_scratch = 0;
+  int __xlx_offset_byte_param_conv_scratch = 0*1;
   // Collect __xlx_ofmap__tmp_vec
 std::vector<Byte<1>> __xlx_ofmap__tmp_vec;
 for (size_t i = 0; i < 262144; ++i){
@@ -394,7 +402,7 @@ __xlx_ofmap__tmp_vec.push_back(((Byte<1>*)__xlx_apatb_param_ofmap)[i]);
   int __xlx_offset_param_ofmap = 0;
   int __xlx_offset_byte_param_ofmap = 0*1;
   // DUT call
-  dpu_conv_top(__xlx_ifmap_0__tmp_vec.data(), __xlx_ifmap_1__tmp_vec.data(), __xlx_ifmap_2__tmp_vec.data(), __xlx_ifmap_3__tmp_vec.data(), __xlx_ifmap_4__tmp_vec.data(), __xlx_ifmap_5__tmp_vec.data(), __xlx_ifmap_6__tmp_vec.data(), __xlx_ifmap_7__tmp_vec.data(), __xlx_weight_0__tmp_vec.data(), __xlx_weight_1__tmp_vec.data(), __xlx_weight_2__tmp_vec.data(), __xlx_weight_3__tmp_vec.data(), __xlx_weight_4__tmp_vec.data(), __xlx_weight_5__tmp_vec.data(), __xlx_weight_6__tmp_vec.data(), __xlx_weight_7__tmp_vec.data(), __xlx_bias__tmp_vec.data(), __xlx_ofmap__tmp_vec.data(), __xlx_offset_byte_param_ifmap_0, __xlx_offset_byte_param_ifmap_1, __xlx_offset_byte_param_ifmap_2, __xlx_offset_byte_param_ifmap_3, __xlx_offset_byte_param_ifmap_4, __xlx_offset_byte_param_ifmap_5, __xlx_offset_byte_param_ifmap_6, __xlx_offset_byte_param_ifmap_7, __xlx_offset_byte_param_weight_0, __xlx_offset_byte_param_weight_1, __xlx_offset_byte_param_weight_2, __xlx_offset_byte_param_weight_3, __xlx_offset_byte_param_weight_4, __xlx_offset_byte_param_weight_5, __xlx_offset_byte_param_weight_6, __xlx_offset_byte_param_weight_7, __xlx_offset_byte_param_bias, __xlx_offset_byte_param_ofmap, *__xlx_apatb_param_in_h, *__xlx_apatb_param_in_w, *__xlx_apatb_param_in_ch, *__xlx_apatb_param_out_ch, *__xlx_apatb_param_do_relu, *__xlx_apatb_param_do_pool, __xlx_apatb_param_perf);
+  dpu_conv_top(__xlx_ifmap_0__tmp_vec.data(), __xlx_ifmap_1__tmp_vec.data(), __xlx_ifmap_2__tmp_vec.data(), __xlx_ifmap_3__tmp_vec.data(), __xlx_ifmap_4__tmp_vec.data(), __xlx_ifmap_5__tmp_vec.data(), __xlx_ifmap_6__tmp_vec.data(), __xlx_ifmap_7__tmp_vec.data(), __xlx_weight_0__tmp_vec.data(), __xlx_weight_1__tmp_vec.data(), __xlx_weight_2__tmp_vec.data(), __xlx_weight_3__tmp_vec.data(), __xlx_weight_4__tmp_vec.data(), __xlx_weight_5__tmp_vec.data(), __xlx_weight_6__tmp_vec.data(), __xlx_weight_7__tmp_vec.data(), __xlx_bias__tmp_vec.data(), __xlx_conv_scratch__tmp_vec.data(), __xlx_ofmap__tmp_vec.data(), __xlx_offset_byte_param_ifmap_0, __xlx_offset_byte_param_ifmap_1, __xlx_offset_byte_param_ifmap_2, __xlx_offset_byte_param_ifmap_3, __xlx_offset_byte_param_ifmap_4, __xlx_offset_byte_param_ifmap_5, __xlx_offset_byte_param_ifmap_6, __xlx_offset_byte_param_ifmap_7, __xlx_offset_byte_param_weight_0, __xlx_offset_byte_param_weight_1, __xlx_offset_byte_param_weight_2, __xlx_offset_byte_param_weight_3, __xlx_offset_byte_param_weight_4, __xlx_offset_byte_param_weight_5, __xlx_offset_byte_param_weight_6, __xlx_offset_byte_param_weight_7, __xlx_offset_byte_param_bias, __xlx_offset_byte_param_conv_scratch, __xlx_offset_byte_param_ofmap, *__xlx_apatb_param_in_h, *__xlx_apatb_param_in_w, *__xlx_apatb_param_in_ch, *__xlx_apatb_param_out_ch, *__xlx_apatb_param_do_relu, *__xlx_apatb_param_do_pool, __xlx_apatb_param_perf);
 // print __xlx_apatb_param_ifmap_0
 for (size_t i = 0; i < __xlx_size_param_ifmap_0; ++i) {
 ((Byte<1>*)__xlx_apatb_param_ifmap_0)[i] = __xlx_ifmap_0__tmp_vec[__xlx_offset_param_ifmap_0+i];
@@ -462,6 +470,10 @@ for (size_t i = 0; i < __xlx_size_param_weight_7; ++i) {
 // print __xlx_apatb_param_bias
 for (size_t i = 0; i < __xlx_size_param_bias; ++i) {
 ((Byte<4>*)__xlx_apatb_param_bias)[i] = __xlx_bias__tmp_vec[__xlx_offset_param_bias+i];
+}
+// print __xlx_apatb_param_conv_scratch
+for (size_t i = 0; i < __xlx_size_param_conv_scratch; ++i) {
+((Byte<1>*)__xlx_apatb_param_conv_scratch)[i] = __xlx_conv_scratch__tmp_vec[__xlx_offset_param_conv_scratch+i];
 }
 // print __xlx_apatb_param_ofmap
 for (size_t i = 0; i < __xlx_size_param_ofmap; ++i) {

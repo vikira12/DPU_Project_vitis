@@ -8,9 +8,9 @@
       "-hls-syn-headers-dir=C:\\AMDDesignTools\\2025.2\\Vitis\\common\\technology\\autopilot",
       "-fhlstoplevel=dpu_conv_top",
       "-c",
-      "C:\\Users\\user\\Downloads\\files\\dpu_conv.cpp"
+      "D:\\project\\DPUv2\\dpu_conv.cpp"
     ],
-    "file": "C:\\Users\\user\\Downloads\\files\\dpu_conv.cpp"
+    "file": "D:\\project\\DPUv2\\dpu_conv.cpp"
   },
   {
     "directory": "D:\\project\\DPU_Project\\DPU_HLS",
@@ -20,8 +20,8 @@
       "-fhls-tb",
       "-hls-sim-headers-dir=C:\\AMDDesignTools\\2025.2\\Vitis\\include",
       "-c",
-      "C:\\Users\\user\\Downloads\\files\\dpu_conv_tb.cpp"
+      "D:\\project\\DPUv2\\dpu_conv_tb.cpp"
     ],
-    "file": "C:\\Users\\user\\Downloads\\files\\dpu_conv_tb.cpp"
+    "file": "D:\\project\\DPUv2\\dpu_conv_tb.cpp"
   }
 ]

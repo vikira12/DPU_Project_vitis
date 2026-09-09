@@ -400,6 +400,25 @@ u64 XDpu_conv_top_Get_bias(XDpu_conv_top *InstancePtr) {
     return Data;
 }
 
+void XDpu_conv_top_Set_conv_scratch(XDpu_conv_top *InstancePtr, u64 Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XDpu_conv_top_WriteReg(InstancePtr->Control_BaseAddress, XDPU_CONV_TOP_CONTROL_ADDR_CONV_SCRATCH_DATA, (u32)(Data));
+    XDpu_conv_top_WriteReg(InstancePtr->Control_BaseAddress, XDPU_CONV_TOP_CONTROL_ADDR_CONV_SCRATCH_DATA + 4, (u32)(Data >> 32));
+}
+
+u64 XDpu_conv_top_Get_conv_scratch(XDpu_conv_top *InstancePtr) {
+    u64 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XDpu_conv_top_ReadReg(InstancePtr->Control_BaseAddress, XDPU_CONV_TOP_CONTROL_ADDR_CONV_SCRATCH_DATA);
+    Data += (u64)XDpu_conv_top_ReadReg(InstancePtr->Control_BaseAddress, XDPU_CONV_TOP_CONTROL_ADDR_CONV_SCRATCH_DATA + 4) << 32;
+    return Data;
+}
+
 void XDpu_conv_top_Set_ofmap(XDpu_conv_top *InstancePtr, u64 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);

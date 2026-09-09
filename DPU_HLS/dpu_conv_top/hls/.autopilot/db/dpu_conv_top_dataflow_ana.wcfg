@@ -37,149 +37,69 @@
          <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top//AESL_inst_dpu_conv_top_activity.dataflowTxWaveData.Cycles</obj_property>
          <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top//AESL_inst_dpu_conv_top_activity.dataflowTxWaveData.OutStanding</obj_property>
          <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top//AESL_inst_dpu_conv_top_activity.dataflowTxTooltipData</obj_property>
-         <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/entry_proc_U0_activity">
-            <obj_property name="label">entry_proc_U0_activity</obj_property>
+         <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_fu_393_activity">
+            <obj_property name="label">grp_conv3x3_relu_fu_393_activity</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="UseFullPath">true</obj_property>
-            <obj_property name="ElementShortName">entry_proc_U0_activity</obj_property>
-            <obj_property name="ObjectShortName">entry_proc_U0_activity</obj_property>
+            <obj_property name="ElementShortName">grp_conv3x3_relu_fu_393_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_conv3x3_relu_fu_393_activity</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
             <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
             <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">turquoise</obj_property>
             <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-            <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/entry_proc_U0_activity.dataflowTxWaveData.Cycles</obj_property>
-            <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/entry_proc_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
-            <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/entry_proc_U0_activity.dataflowTxTooltipData</obj_property>
-         </wvobject>
-         <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/conv3x3_relu_U0_activity">
-            <obj_property name="label">conv3x3_relu_U0_activity</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <obj_property name="UseFullPath">true</obj_property>
-            <obj_property name="ElementShortName">conv3x3_relu_U0_activity</obj_property>
-            <obj_property name="ObjectShortName">conv3x3_relu_U0_activity</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
-            <obj_property name="UseCustomSignalColor">true</obj_property>
-            <obj_property name="CustomSignalColor">turquoise</obj_property>
-            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-            <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/conv3x3_relu_U0_activity.dataflowTxWaveData.Cycles</obj_property>
-            <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/conv3x3_relu_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
-            <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/conv3x3_relu_U0_activity.dataflowTxTooltipData</obj_property>
-            <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_activity">
-               <obj_property name="label">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_activity</obj_property>
+            <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_fu_393_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_fu_393_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_fu_393_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_activity">
+               <obj_property name="label">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_activity</obj_property>
                <obj_property name="DisplayName">label</obj_property>
                <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_activity</obj_property>
+               <obj_property name="ElementShortName">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_activity</obj_property>
                <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
                <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
                <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
                <obj_property name="UseCustomSignalColor">true</obj_property>
                <obj_property name="CustomSignalColor">turquoise</obj_property>
                <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_activity.dataflowTxTooltipData</obj_property>
+               <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_activity.dataflowTxTooltipData</obj_property>
             </wvobject>
          </wvobject>
-         <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/Block_entry_proc_U0_activity">
-            <obj_property name="label">Block_entry_proc_U0_activity</obj_property>
+         <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_activity">
+            <obj_property name="label">grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_activity</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="UseFullPath">true</obj_property>
-            <obj_property name="ElementShortName">Block_entry_proc_U0_activity</obj_property>
-            <obj_property name="ObjectShortName">Block_entry_proc_U0_activity</obj_property>
+            <obj_property name="ElementShortName">grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_activity</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
             <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
             <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">turquoise</obj_property>
             <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-            <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/Block_entry_proc_U0_activity.dataflowTxWaveData.Cycles</obj_property>
-            <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/Block_entry_proc_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
-            <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/Block_entry_proc_U0_activity.dataflowTxTooltipData</obj_property>
-            <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_fu_84_activity">
-               <obj_property name="label">grp_copy_passthrough_fu_84_activity</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_copy_passthrough_fu_84_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_copy_passthrough_fu_84_activity</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
-               <obj_property name="UseCustomSignalColor">true</obj_property>
-               <obj_property name="CustomSignalColor">turquoise</obj_property>
-               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_fu_84_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_fu_84_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_fu_84_activity.dataflowTxTooltipData</obj_property>
-               <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_activity">
-                  <obj_property name="label">grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_activity</obj_property>
-                  <obj_property name="DisplayName">label</obj_property>
-                  <obj_property name="UseFullPath">true</obj_property>
-                  <obj_property name="ElementShortName">grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_activity</obj_property>
-                  <obj_property name="ObjectShortName">grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_activity</obj_property>
-                  <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-                  <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-                  <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
-                  <obj_property name="UseCustomSignalColor">true</obj_property>
-                  <obj_property name="CustomSignalColor">turquoise</obj_property>
-                  <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-                  <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_activity.dataflowTxWaveData.Cycles</obj_property>
-                  <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_activity.dataflowTxWaveData.OutStanding</obj_property>
-                  <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_activity.dataflowTxTooltipData</obj_property>
-               </wvobject>
-            </wvobject>
-            <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_fu_98_activity">
-               <obj_property name="label">grp_maxpool2x2_fu_98_activity</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_maxpool2x2_fu_98_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_maxpool2x2_fu_98_activity</obj_property>
-               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
-               <obj_property name="UseCustomSignalColor">true</obj_property>
-               <obj_property name="CustomSignalColor">turquoise</obj_property>
-               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_fu_98_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_fu_98_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_fu_98_activity.dataflowTxTooltipData</obj_property>
-               <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_activity">
-                  <obj_property name="label">grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_activity</obj_property>
-                  <obj_property name="DisplayName">label</obj_property>
-                  <obj_property name="UseFullPath">true</obj_property>
-                  <obj_property name="ElementShortName">grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_activity</obj_property>
-                  <obj_property name="ObjectShortName">grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_activity</obj_property>
-                  <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-                  <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
-                  <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
-                  <obj_property name="UseCustomSignalColor">true</obj_property>
-                  <obj_property name="CustomSignalColor">turquoise</obj_property>
-                  <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-                  <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_activity.dataflowTxWaveData.Cycles</obj_property>
-                  <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_activity.dataflowTxWaveData.OutStanding</obj_property>
-                  <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_activity.dataflowTxTooltipData</obj_property>
-               </wvobject>
-            </wvobject>
+            <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_activity.dataflowTxTooltipData</obj_property>
          </wvobject>
-         <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_2_U0/Block_entry_proc_2_U0_activity">
-            <obj_property name="label">Block_entry_proc_2_U0_activity</obj_property>
+         <wvobject type="group" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_activity">
+            <obj_property name="label">grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_activity</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="UseFullPath">true</obj_property>
-            <obj_property name="ElementShortName">Block_entry_proc_2_U0_activity</obj_property>
-            <obj_property name="ObjectShortName">Block_entry_proc_2_U0_activity</obj_property>
+            <obj_property name="ElementShortName">grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_activity</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
             <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
             <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">turquoise</obj_property>
             <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-            <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_2_U0/Block_entry_proc_2_U0_activity.dataflowTxWaveData.Cycles</obj_property>
-            <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_2_U0/Block_entry_proc_2_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
-            <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_2_U0/Block_entry_proc_2_U0_activity.dataflowTxTooltipData</obj_property>
+            <obj_property name="Render_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_activity.dataflowTxTooltipData</obj_property>
          </wvobject>
       </wvobject>
    </wvobject>
@@ -190,21 +110,17 @@
    <wvobject type="group" fp_name="AESL_inst_dpu_conv_top_group">
       <obj_property name="label">AESL_inst_dpu_conv_top</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/entry_proc_U0_activity">
-         <obj_property name="ElementShortName">entry_proc_U0_activity</obj_property>
-         <obj_property name="ObjectShortName">entry_proc_U0_activity</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_fu_393_activity">
+         <obj_property name="ElementShortName">grp_conv3x3_relu_fu_393_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_conv3x3_relu_fu_393_activity</obj_property>
       </wvobject>
-      <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/conv3x3_relu_U0_activity">
-         <obj_property name="ElementShortName">conv3x3_relu_U0_activity</obj_property>
-         <obj_property name="ObjectShortName">conv3x3_relu_U0_activity</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_activity">
+         <obj_property name="ElementShortName">grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_activity</obj_property>
       </wvobject>
-      <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/Block_entry_proc_U0_activity">
-         <obj_property name="ElementShortName">Block_entry_proc_U0_activity</obj_property>
-         <obj_property name="ObjectShortName">Block_entry_proc_U0_activity</obj_property>
-      </wvobject>
-      <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_2_U0/Block_entry_proc_2_U0_activity">
-         <obj_property name="ElementShortName">Block_entry_proc_2_U0_activity</obj_property>
-         <obj_property name="ObjectShortName">Block_entry_proc_2_U0_activity</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_activity">
+         <obj_property name="ElementShortName">grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_activity</obj_property>
+         <obj_property name="ObjectShortName">grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_activity</obj_property>
       </wvobject>
       <wvobject type="group" fp_name="AESL_inst_dpu_conv_top_Handshake_group">
          <obj_property name="label">Block-level handshake</obj_property>
@@ -222,420 +138,88 @@
             <obj_property name="ObjectShortName">ap_done</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject type="group" fp_name="entry_proc_U0_group">
-         <obj_property name="label">entry_proc_U0</obj_property>
+      <wvobject type="group" fp_name="grp_conv3x3_relu_fu_393_group">
+         <obj_property name="label">grp_conv3x3_relu_fu_393</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="group" fp_name="entry_proc_U0_Input_group">
-            <obj_property name="label">Input Channels</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_activity">
+            <obj_property name="ElementShortName">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_activity</obj_property>
          </wvobject>
-         <wvobject type="group" fp_name="entry_proc_U0_Handshake_group">
+         <wvobject type="group" fp_name="grp_conv3x3_relu_fu_393_Handshake_group">
             <obj_property name="label">Block-level handshake</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/ap_start">
+            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/ap_start">
                <obj_property name="ElementShortName">ap_start</obj_property>
                <obj_property name="ObjectShortName">ap_start</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/ap_ready">
+            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/ap_ready">
                <obj_property name="ElementShortName">ap_ready</obj_property>
                <obj_property name="ObjectShortName">ap_ready</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/ap_done">
+            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/ap_done">
                <obj_property name="ElementShortName">ap_done</obj_property>
                <obj_property name="ObjectShortName">ap_done</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/ap_continue">
-               <obj_property name="ElementShortName">ap_continue</obj_property>
-               <obj_property name="ObjectShortName">ap_continue</obj_property>
-            </wvobject>
          </wvobject>
-         <wvobject type="group" fp_name="entry_proc_U0_Output_group">
-            <obj_property name="label">Output Channels</obj_property>
+         <wvobject type="group" fp_name="grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_group">
+            <obj_property name="label">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="ofmap_c_group">
-               <obj_property name="label">ofmap_c(ofmap_c_U, FIFO)</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/ofmap_c_blk_n">
-                  <obj_property name="ElementShortName">ofmap_c_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">ofmap_c_blk_n</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/ofmap_c_din">
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/ofmap_c_full_n">
-                  <obj_property name="ElementShortName">ofmap_c_full_n</obj_property>
-                  <obj_property name="ObjectShortName">ofmap_c_full_n</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/ofmap_c_write">
-                  <obj_property name="ElementShortName">ofmap_c_write</obj_property>
-                  <obj_property name="ObjectShortName">ofmap_c_write</obj_property>
-               </wvobject>
-            </wvobject>
-            <wvobject type="group" fp_name="do_pool_c_group">
-               <obj_property name="label">do_pool_c(do_pool_c_U, FIFO)</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/do_pool_c_blk_n">
-                  <obj_property name="ElementShortName">do_pool_c_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">do_pool_c_blk_n</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/do_pool_c_din">
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/do_pool_c_full_n">
-                  <obj_property name="ElementShortName">do_pool_c_full_n</obj_property>
-                  <obj_property name="ObjectShortName">do_pool_c_full_n</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/entry_proc_U0/do_pool_c_write">
-                  <obj_property name="ElementShortName">do_pool_c_write</obj_property>
-                  <obj_property name="ObjectShortName">do_pool_c_write</obj_property>
-               </wvobject>
-            </wvobject>
-         </wvobject>
-      </wvobject>
-      <wvobject type="group" fp_name="conv3x3_relu_U0_group">
-         <obj_property name="label">conv3x3_relu_U0</obj_property>
-         <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_activity">
-            <obj_property name="ElementShortName">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_activity</obj_property>
-         </wvobject>
-         <wvobject type="group" fp_name="conv3x3_relu_U0_Input_group">
-            <obj_property name="label">Input Channels</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-         </wvobject>
-         <wvobject type="group" fp_name="conv3x3_relu_U0_Handshake_group">
-            <obj_property name="label">Block-level handshake</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/ap_start">
-               <obj_property name="ElementShortName">ap_start</obj_property>
-               <obj_property name="ObjectShortName">ap_start</obj_property>
-            </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/ap_ready">
-               <obj_property name="ElementShortName">ap_ready</obj_property>
-               <obj_property name="ObjectShortName">ap_ready</obj_property>
-            </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/ap_done">
-               <obj_property name="ElementShortName">ap_done</obj_property>
-               <obj_property name="ObjectShortName">ap_done</obj_property>
-            </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/ap_continue">
-               <obj_property name="ElementShortName">ap_continue</obj_property>
-               <obj_property name="ObjectShortName">ap_continue</obj_property>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="conv3x3_relu_U0_Output_group">
-            <obj_property name="label">Output Channels</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_group">
-               <obj_property name="label">dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1(dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_U, PIPO)</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_address0">
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_d0">
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_ce0">
-                  <obj_property name="ElementShortName">dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_ce0</obj_property>
-                  <obj_property name="ObjectShortName">dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_ce0</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_we0">
-                  <obj_property name="ElementShortName">dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_we0</obj_property>
-                  <obj_property name="ObjectShortName">dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_we0</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/ap_done">
-                  <obj_property name="ElementShortName">ap_done</obj_property>
-                  <obj_property name="ObjectShortName">ap_done</obj_property>
-                  <obj_property name="label">ap_done(i_write)</obj_property>
-                  <obj_property name="DisplayName">label</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/ap_continue">
-                  <obj_property name="ElementShortName">ap_continue</obj_property>
-                  <obj_property name="ObjectShortName">ap_continue</obj_property>
-                  <obj_property name="label">ap_continue(i_full_n)</obj_property>
-                  <obj_property name="DisplayName">label</obj_property>
-               </wvobject>
-            </wvobject>
-            <wvobject type="group" fp_name="dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_group">
-               <obj_property name="label">dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64(dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_U, PIPO)</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_address0">
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_d0">
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_ce0">
-                  <obj_property name="ElementShortName">dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_ce0</obj_property>
-                  <obj_property name="ObjectShortName">dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_ce0</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_we0">
-                  <obj_property name="ElementShortName">dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_we0</obj_property>
-                  <obj_property name="ObjectShortName">dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_we0</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/ap_done">
-                  <obj_property name="ElementShortName">ap_done</obj_property>
-                  <obj_property name="ObjectShortName">ap_done</obj_property>
-                  <obj_property name="label">ap_done(i_write)</obj_property>
-                  <obj_property name="DisplayName">label</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/ap_continue">
-                  <obj_property name="ElementShortName">ap_continue</obj_property>
-                  <obj_property name="ObjectShortName">ap_continue</obj_property>
-                  <obj_property name="label">ap_continue(i_full_n)</obj_property>
-                  <obj_property name="DisplayName">label</obj_property>
-               </wvobject>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_group">
-            <obj_property name="label">grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_Handshake_group">
+            <wvobject type="group" fp_name="grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_Handshake_group">
                <obj_property name="label">Block-level handshake</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378/ap_start">
+               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352/ap_start">
                   <obj_property name="ElementShortName">ap_start</obj_property>
                   <obj_property name="ObjectShortName">ap_start</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378/ap_ready">
+               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352/ap_ready">
                   <obj_property name="ElementShortName">ap_ready</obj_property>
                   <obj_property name="ObjectShortName">ap_ready</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/conv3x3_relu_U0/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378/ap_done">
+               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_conv3x3_relu_fu_393/grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352/ap_done">
                   <obj_property name="ElementShortName">ap_done</obj_property>
                   <obj_property name="ObjectShortName">ap_done</obj_property>
                </wvobject>
             </wvobject>
          </wvobject>
       </wvobject>
-      <wvobject type="group" fp_name="Block_entry_proc_U0_group">
-         <obj_property name="label">Block_entry_proc_U0</obj_property>
+      <wvobject type="group" fp_name="grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_group">
+         <obj_property name="label">grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_fu_84_activity">
-            <obj_property name="ElementShortName">grp_copy_passthrough_fu_84_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_copy_passthrough_fu_84_activity</obj_property>
-         </wvobject>
-         <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_fu_98_activity">
-            <obj_property name="ElementShortName">grp_maxpool2x2_fu_98_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_maxpool2x2_fu_98_activity</obj_property>
-         </wvobject>
-         <wvobject type="group" fp_name="Block_entry_proc_U0_Input_group">
-            <obj_property name="label">Input Channels</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="do_pool_group">
-               <obj_property name="label">do_pool(do_pool_c_U, FIFO)</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/do_pool_blk_n">
-                  <obj_property name="ElementShortName">do_pool_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">do_pool_blk_n</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/do_pool_dout">
-                  <obj_property name="ElementShortName">do_pool_dout[0:0]</obj_property>
-                  <obj_property name="ObjectShortName">do_pool_dout[0:0]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/do_pool_empty_n">
-                  <obj_property name="ElementShortName">do_pool_empty_n</obj_property>
-                  <obj_property name="ObjectShortName">do_pool_empty_n</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/do_pool_read">
-                  <obj_property name="ElementShortName">do_pool_read</obj_property>
-                  <obj_property name="ObjectShortName">do_pool_read</obj_property>
-               </wvobject>
-            </wvobject>
-            <wvobject type="group" fp_name="ofmap_group">
-               <obj_property name="label">ofmap(ofmap_c_U, FIFO)</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/ofmap_blk_n">
-                  <obj_property name="ElementShortName">ofmap_blk_n</obj_property>
-                  <obj_property name="ObjectShortName">ofmap_blk_n</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/ofmap_dout">
-                  <obj_property name="ElementShortName">ofmap_dout[63:0]</obj_property>
-                  <obj_property name="ObjectShortName">ofmap_dout[63:0]</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/ofmap_empty_n">
-                  <obj_property name="ElementShortName">ofmap_empty_n</obj_property>
-                  <obj_property name="ObjectShortName">ofmap_empty_n</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/ofmap_read">
-                  <obj_property name="ElementShortName">ofmap_read</obj_property>
-                  <obj_property name="ObjectShortName">ofmap_read</obj_property>
-               </wvobject>
-            </wvobject>
-            <wvobject type="group" fp_name="dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_group">
-               <obj_property name="label">dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf(dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_U, PIPO)</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_address0">
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_q0">
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_ce0">
-                  <obj_property name="ElementShortName">dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_ce0</obj_property>
-                  <obj_property name="ObjectShortName">dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_ce0</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/ap_ready">
-                  <obj_property name="ElementShortName">ap_ready</obj_property>
-                  <obj_property name="ObjectShortName">ap_ready</obj_property>
-                  <obj_property name="label">ap_ready(t_read)</obj_property>
-                  <obj_property name="DisplayName">label</obj_property>
-               </wvobject>
-            </wvobject>
-            <wvobject type="group" fp_name="dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_1_group">
-               <obj_property name="label">dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_1(dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_U, PIPO)</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_1_address0">
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_1_q0">
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_1_ce0">
-                  <obj_property name="ElementShortName">dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_1_ce0</obj_property>
-                  <obj_property name="ObjectShortName">dpu_conv_top_ap_int_8_64_64_ap_int_8_64_3_3_ap_int_32_ap_int_8_64_64_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_8_ap_uint_1_ap_uint_1_perf_counters_t_conv_buf_1_ce0</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/ap_ready">
-                  <obj_property name="ElementShortName">ap_ready</obj_property>
-                  <obj_property name="ObjectShortName">ap_ready</obj_property>
-                  <obj_property name="label">ap_ready(t_read)</obj_property>
-                  <obj_property name="DisplayName">label</obj_property>
-               </wvobject>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="Block_entry_proc_U0_Handshake_group">
+         <wvobject type="group" fp_name="grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479_Handshake_group">
             <obj_property name="label">Block-level handshake</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/ap_start">
+            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479/ap_start">
                <obj_property name="ElementShortName">ap_start</obj_property>
                <obj_property name="ObjectShortName">ap_start</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/ap_ready">
+            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479/ap_ready">
                <obj_property name="ElementShortName">ap_ready</obj_property>
                <obj_property name="ObjectShortName">ap_ready</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/ap_done">
+            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W_fu_479/ap_done">
                <obj_property name="ElementShortName">ap_done</obj_property>
                <obj_property name="ObjectShortName">ap_done</obj_property>
-            </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/ap_continue">
-               <obj_property name="ElementShortName">ap_continue</obj_property>
-               <obj_property name="ObjectShortName">ap_continue</obj_property>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="Block_entry_proc_U0_Output_group">
-            <obj_property name="label">Output Channels</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-         </wvobject>
-         <wvobject type="group" fp_name="grp_copy_passthrough_fu_84_group">
-            <obj_property name="label">grp_copy_passthrough_fu_84</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_activity">
-               <obj_property name="ElementShortName">grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_activity</obj_property>
-            </wvobject>
-            <wvobject type="group" fp_name="grp_copy_passthrough_fu_84_Handshake_group">
-               <obj_property name="label">Block-level handshake</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/ap_start">
-                  <obj_property name="ElementShortName">ap_start</obj_property>
-                  <obj_property name="ObjectShortName">ap_start</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/ap_ready">
-                  <obj_property name="ElementShortName">ap_ready</obj_property>
-                  <obj_property name="ObjectShortName">ap_ready</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/ap_done">
-                  <obj_property name="ElementShortName">ap_done</obj_property>
-                  <obj_property name="ObjectShortName">ap_done</obj_property>
-               </wvobject>
-            </wvobject>
-            <wvobject type="group" fp_name="grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_group">
-               <obj_property name="label">grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="group" fp_name="grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64_Handshake_group">
-                  <obj_property name="label">Block-level handshake</obj_property>
-                  <obj_property name="DisplayName">label</obj_property>
-                  <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64/ap_start">
-                     <obj_property name="ElementShortName">ap_start</obj_property>
-                     <obj_property name="ObjectShortName">ap_start</obj_property>
-                  </wvobject>
-                  <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64/ap_ready">
-                     <obj_property name="ElementShortName">ap_ready</obj_property>
-                     <obj_property name="ObjectShortName">ap_ready</obj_property>
-                  </wvobject>
-                  <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_copy_passthrough_fu_84/grp_copy_passthrough_Pipeline_COPY_OC_COPY_H_COPY_W_fu_64/ap_done">
-                     <obj_property name="ElementShortName">ap_done</obj_property>
-                     <obj_property name="ObjectShortName">ap_done</obj_property>
-                  </wvobject>
-               </wvobject>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="grp_maxpool2x2_fu_98_group">
-            <obj_property name="label">grp_maxpool2x2_fu_98</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="protoinst" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_activity">
-               <obj_property name="ElementShortName">grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_activity</obj_property>
-            </wvobject>
-            <wvobject type="group" fp_name="grp_maxpool2x2_fu_98_Handshake_group">
-               <obj_property name="label">Block-level handshake</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/ap_start">
-                  <obj_property name="ElementShortName">ap_start</obj_property>
-                  <obj_property name="ObjectShortName">ap_start</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/ap_ready">
-                  <obj_property name="ElementShortName">ap_ready</obj_property>
-                  <obj_property name="ObjectShortName">ap_ready</obj_property>
-               </wvobject>
-               <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/ap_done">
-                  <obj_property name="ElementShortName">ap_done</obj_property>
-                  <obj_property name="ObjectShortName">ap_done</obj_property>
-               </wvobject>
-            </wvobject>
-            <wvobject type="group" fp_name="grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_group">
-               <obj_property name="label">grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68</obj_property>
-               <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="group" fp_name="grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68_Handshake_group">
-                  <obj_property name="label">Block-level handshake</obj_property>
-                  <obj_property name="DisplayName">label</obj_property>
-                  <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68/ap_start">
-                     <obj_property name="ElementShortName">ap_start</obj_property>
-                     <obj_property name="ObjectShortName">ap_start</obj_property>
-                  </wvobject>
-                  <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68/ap_ready">
-                     <obj_property name="ElementShortName">ap_ready</obj_property>
-                     <obj_property name="ObjectShortName">ap_ready</obj_property>
-                  </wvobject>
-                  <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_U0/grp_maxpool2x2_fu_98/grp_maxpool2x2_Pipeline_POOL_OC_POOL_H_POOL_W_fu_68/ap_done">
-                     <obj_property name="ElementShortName">ap_done</obj_property>
-                     <obj_property name="ObjectShortName">ap_done</obj_property>
-                  </wvobject>
-               </wvobject>
             </wvobject>
          </wvobject>
       </wvobject>
-      <wvobject type="group" fp_name="Block_entry_proc_2_U0_group">
-         <obj_property name="label">Block_entry_proc_2_U0</obj_property>
+      <wvobject type="group" fp_name="grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_group">
+         <obj_property name="label">grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="group" fp_name="Block_entry_proc_2_U0_Input_group">
-            <obj_property name="label">Input Channels</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
-         </wvobject>
-         <wvobject type="group" fp_name="Block_entry_proc_2_U0_Handshake_group">
+         <wvobject type="group" fp_name="grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493_Handshake_group">
             <obj_property name="label">Block-level handshake</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_2_U0/ap_start">
+            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493/ap_start">
                <obj_property name="ElementShortName">ap_start</obj_property>
                <obj_property name="ObjectShortName">ap_start</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_2_U0/ap_ready">
+            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493/ap_ready">
                <obj_property name="ElementShortName">ap_ready</obj_property>
                <obj_property name="ObjectShortName">ap_ready</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_2_U0/ap_done">
+            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/grp_dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W_fu_493/ap_done">
                <obj_property name="ElementShortName">ap_done</obj_property>
                <obj_property name="ObjectShortName">ap_done</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_dpu_conv_top_top/AESL_inst_dpu_conv_top/Block_entry_proc_2_U0/ap_continue">
-               <obj_property name="ElementShortName">ap_continue</obj_property>
-               <obj_property name="ObjectShortName">ap_continue</obj_property>
-            </wvobject>
-         </wvobject>
-         <wvobject type="group" fp_name="Block_entry_proc_2_U0_Output_group">
-            <obj_property name="label">Output Channels</obj_property>
-            <obj_property name="DisplayName">label</obj_property>
          </wvobject>
       </wvobject>
    </wvobject>

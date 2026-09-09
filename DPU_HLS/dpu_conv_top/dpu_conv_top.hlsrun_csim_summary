@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "D:/project\\DPU_HLS\\dpu_conv_top\\dpu_conv_top.hlsrun_csim_summary",
+ "thisFile": "D:/project\\DPU_Project\\DPU_HLS\\dpu_conv_top\\dpu_conv_top.hlsrun_csim_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,34 +9,34 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "09/07/26 20:05:10",
- "timestampMillis": "1788779110615",
+ "dateTimestamp": "09/09/26 17:25:16",
+ "timestampMillis": "1788942316276",
  "buildStep": {
-  "cmdId": "93447e1c-402a-4d8e-b79d-c558d04f0337",
+  "cmdId": "dcaf3572-cbde-4226-b27f-3a0d993cf586",
   "name": "vitis-run",
-  "logFile": "D:/project\\DPU_HLS\\dpu_conv_top\\logs\\dpu_conv_top.steps.log",
-  "commandLine": "C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe  --mode hls --csim --config D:\\project\\DPU_HLS\\hls_config.cfg --work_dir dpu_conv_top ",
+  "logFile": "D:/project\\DPU_Project\\DPU_HLS\\dpu_conv_top\\logs\\dpu_conv_top.steps.log",
+  "commandLine": "C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe  --mode hls --csim --config D:\\project\\DPU_Project\\DPU_HLS\\hls_config.cfg --work_dir dpu_conv_top ",
   "args": [
    "--mode",
    "hls",
    "--csim",
    "--config",
-   "D:\\project\\DPU_HLS\\hls_config.cfg",
+   "D:\\project\\DPU_Project\\DPU_HLS\\hls_config.cfg",
    "--work_dir",
    "dpu_conv_top"
   ],
   "iniFiles": [],
-  "cwd": "D:\\project\\DPU_HLS"
+  "cwd": "D:\\project\\DPU_Project\\DPU_HLS"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/07/26 20:05:10",
- "timestampMillis": "1788779110615",
+ "dateTimestamp": "09/09/26 17:25:16",
+ "timestampMillis": "1788942316276",
  "status": {
-  "cmdId": "93447e1c-402a-4d8e-b79d-c558d04f0337",
+  "cmdId": "dcaf3572-cbde-4226-b27f-3a0d993cf586",
   "state": "CS_RUNNING"
  }
 }
@@ -44,8 +44,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "09/07/26 20:05:24",
- "timestampMillis": "1788779124876",
+ "dateTimestamp": "09/09/26 17:25:43",
+ "timestampMillis": "1788942343275",
  "buildSummary": {
   "hardwarePlatform": "",
   "hardwareDsa": "",
@@ -64,8 +64,9 @@
      "uuid": ""
     },
     "sources": [
-     "C:/Users\\user\\Downloads\\files\\dpu_conv.cpp",
-     "C:/Users\\user\\Downloads\\files\\dpu_conv.h"
+     "D:/project\\DPUv2\\dpu_conv.cpp",
+     "D:/project\\DPUv2\\dpu_conv.h",
+     "D:/project\\DPUv2\\dpu_types.h"
     ],
     "psSources": [],
     "cuNames": [],
@@ -81,26 +82,26 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "09/07/26 20:05:24",
- "timestampMillis": "1788779124880",
+ "dateTimestamp": "09/09/26 17:25:43",
+ "timestampMillis": "1788942343278",
  "buildStep": {
-  "cmdId": "4a22abd6-4b76-4968-bd93-b010d6227f86",
+  "cmdId": "93ebf28b-021f-4db3-ae7c-1877742f691f",
   "name": "",
-  "logFile": "D:/project\\DPU_HLS\\dpu_conv_top\\hls\\hls.log",
+  "logFile": "D:/project\\DPU_Project\\DPU_HLS\\dpu_conv_top\\hls\\hls.log",
   "commandLine": "",
   "args": [],
   "iniFiles": [],
-  "cwd": "D:\\project\\DPU_HLS"
+  "cwd": "D:\\project\\DPU_Project\\DPU_HLS"
  }
 }
 </ENTRY>
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/07/26 20:05:24",
- "timestampMillis": "1788779124881",
+ "dateTimestamp": "09/09/26 17:25:43",
+ "timestampMillis": "1788942343279",
  "status": {
-  "cmdId": "4a22abd6-4b76-4968-bd93-b010d6227f86",
+  "cmdId": "93ebf28b-021f-4db3-ae7c-1877742f691f",
   "state": "CS_RUNNING"
  }
 }
@@ -108,10 +109,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/07/26 20:05:36",
- "timestampMillis": "1788779136293",
+ "dateTimestamp": "09/09/26 17:26:07",
+ "timestampMillis": "1788942367975",
  "status": {
-  "cmdId": "4a22abd6-4b76-4968-bd93-b010d6227f86",
+  "cmdId": "93ebf28b-021f-4db3-ae7c-1877742f691f",
   "state": "CS_PASSED"
  }
 }
@@ -119,10 +120,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/07/26 20:05:36",
- "timestampMillis": "1788779136412",
+ "dateTimestamp": "09/09/26 17:26:08",
+ "timestampMillis": "1788942368295",
  "status": {
-  "cmdId": "93447e1c-402a-4d8e-b79d-c558d04f0337",
+  "cmdId": "dcaf3572-cbde-4226-b27f-3a0d993cf586",
   "state": "CS_PASSED"
  }
 }
@@ -130,8 +131,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/07/26 20:05:36",
- "timestampMillis": "1788779136413",
+ "dateTimestamp": "09/09/26 17:26:08",
+ "timestampMillis": "1788942368296",
  "report": {
   "path": "",
   "name": "",
@@ -144,8 +145,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/07/26 20:05:36",
- "timestampMillis": "1788779136413",
+ "dateTimestamp": "09/09/26 17:26:08",
+ "timestampMillis": "1788942368298",
  "report": {
   "path": "",
   "name": "",

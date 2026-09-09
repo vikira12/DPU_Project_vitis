@@ -5,7 +5,7 @@ set ClockList ap_clk
 set AxiliteClockList {}
 set HasVivadoClockPeriod 0
 set CombLogicFlag 0
-set PipelineFlag 1
+set PipelineFlag 0
 set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0
@@ -40,10 +40,10 @@ set SCTraceFileName mytrace
 set SCTraceFileFormat vcd
 set SCTraceOption all
 set TargetInfo xc7z020:-clg400:-1
-set SourceFiles {sc {} c C:/Users/user/Downloads/files/dpu_conv.cpp}
+set SourceFiles {sc {} c D:/project/DPUv2/dpu_conv.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile {}
-set TBFiles {verilog C:/Users/user/Downloads/files/dpu_conv_tb.cpp bc C:/Users/user/Downloads/files/dpu_conv_tb.cpp vhdl C:/Users/user/Downloads/files/dpu_conv_tb.cpp sc C:/Users/user/Downloads/files/dpu_conv_tb.cpp cas C:/Users/user/Downloads/files/dpu_conv_tb.cpp c {}}
+set TBFiles {verilog D:/project/DPUv2/dpu_conv_tb.cpp bc D:/project/DPUv2/dpu_conv_tb.cpp vhdl D:/project/DPUv2/dpu_conv_tb.cpp sc D:/project/DPUv2/dpu_conv_tb.cpp cas D:/project/DPUv2/dpu_conv_tb.cpp c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}
 set TVOutFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

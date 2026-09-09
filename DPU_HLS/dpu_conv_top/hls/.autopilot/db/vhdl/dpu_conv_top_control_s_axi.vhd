@@ -51,6 +51,7 @@ port (
     weight_6              :out  STD_LOGIC_VECTOR(63 downto 0);
     weight_7              :out  STD_LOGIC_VECTOR(63 downto 0);
     bias                  :out  STD_LOGIC_VECTOR(63 downto 0);
+    conv_scratch          :out  STD_LOGIC_VECTOR(63 downto 0);
     ofmap                 :out  STD_LOGIC_VECTOR(63 downto 0)
 );
 end entity dpu_conv_top_control_s_axi;
@@ -147,11 +148,16 @@ end entity dpu_conv_top_control_s_axi;
 -- 0xd4 : Data signal of bias
 --        bit 31~0 - bias[63:32] (Read/Write)
 -- 0xd8 : reserved
--- 0xdc : Data signal of ofmap
---        bit 31~0 - ofmap[31:0] (Read/Write)
--- 0xe0 : Data signal of ofmap
---        bit 31~0 - ofmap[63:32] (Read/Write)
+-- 0xdc : Data signal of conv_scratch
+--        bit 31~0 - conv_scratch[31:0] (Read/Write)
+-- 0xe0 : Data signal of conv_scratch
+--        bit 31~0 - conv_scratch[63:32] (Read/Write)
 -- 0xe4 : reserved
+-- 0xe8 : Data signal of ofmap
+--        bit 31~0 - ofmap[31:0] (Read/Write)
+-- 0xec : Data signal of ofmap
+--        bit 31~0 - ofmap[63:32] (Read/Write)
+-- 0xf0 : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of dpu_conv_top_control_s_axi is
@@ -161,60 +167,63 @@ attribute DowngradeIPIdentifiedWarnings of behave : architecture is "yes";
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_IFMAP_0_DATA_0  : INTEGER := 16#10#;
-    constant ADDR_IFMAP_0_DATA_1  : INTEGER := 16#14#;
-    constant ADDR_IFMAP_0_CTRL    : INTEGER := 16#18#;
-    constant ADDR_IFMAP_1_DATA_0  : INTEGER := 16#1c#;
-    constant ADDR_IFMAP_1_DATA_1  : INTEGER := 16#20#;
-    constant ADDR_IFMAP_1_CTRL    : INTEGER := 16#24#;
-    constant ADDR_IFMAP_2_DATA_0  : INTEGER := 16#28#;
-    constant ADDR_IFMAP_2_DATA_1  : INTEGER := 16#2c#;
-    constant ADDR_IFMAP_2_CTRL    : INTEGER := 16#30#;
-    constant ADDR_IFMAP_3_DATA_0  : INTEGER := 16#34#;
-    constant ADDR_IFMAP_3_DATA_1  : INTEGER := 16#38#;
-    constant ADDR_IFMAP_3_CTRL    : INTEGER := 16#3c#;
-    constant ADDR_IFMAP_4_DATA_0  : INTEGER := 16#40#;
-    constant ADDR_IFMAP_4_DATA_1  : INTEGER := 16#44#;
-    constant ADDR_IFMAP_4_CTRL    : INTEGER := 16#48#;
-    constant ADDR_IFMAP_5_DATA_0  : INTEGER := 16#4c#;
-    constant ADDR_IFMAP_5_DATA_1  : INTEGER := 16#50#;
-    constant ADDR_IFMAP_5_CTRL    : INTEGER := 16#54#;
-    constant ADDR_IFMAP_6_DATA_0  : INTEGER := 16#58#;
-    constant ADDR_IFMAP_6_DATA_1  : INTEGER := 16#5c#;
-    constant ADDR_IFMAP_6_CTRL    : INTEGER := 16#60#;
-    constant ADDR_IFMAP_7_DATA_0  : INTEGER := 16#64#;
-    constant ADDR_IFMAP_7_DATA_1  : INTEGER := 16#68#;
-    constant ADDR_IFMAP_7_CTRL    : INTEGER := 16#6c#;
-    constant ADDR_WEIGHT_0_DATA_0 : INTEGER := 16#70#;
-    constant ADDR_WEIGHT_0_DATA_1 : INTEGER := 16#74#;
-    constant ADDR_WEIGHT_0_CTRL   : INTEGER := 16#78#;
-    constant ADDR_WEIGHT_1_DATA_0 : INTEGER := 16#7c#;
-    constant ADDR_WEIGHT_1_DATA_1 : INTEGER := 16#80#;
-    constant ADDR_WEIGHT_1_CTRL   : INTEGER := 16#84#;
-    constant ADDR_WEIGHT_2_DATA_0 : INTEGER := 16#88#;
-    constant ADDR_WEIGHT_2_DATA_1 : INTEGER := 16#8c#;
-    constant ADDR_WEIGHT_2_CTRL   : INTEGER := 16#90#;
-    constant ADDR_WEIGHT_3_DATA_0 : INTEGER := 16#94#;
-    constant ADDR_WEIGHT_3_DATA_1 : INTEGER := 16#98#;
-    constant ADDR_WEIGHT_3_CTRL   : INTEGER := 16#9c#;
-    constant ADDR_WEIGHT_4_DATA_0 : INTEGER := 16#a0#;
-    constant ADDR_WEIGHT_4_DATA_1 : INTEGER := 16#a4#;
-    constant ADDR_WEIGHT_4_CTRL   : INTEGER := 16#a8#;
-    constant ADDR_WEIGHT_5_DATA_0 : INTEGER := 16#ac#;
-    constant ADDR_WEIGHT_5_DATA_1 : INTEGER := 16#b0#;
-    constant ADDR_WEIGHT_5_CTRL   : INTEGER := 16#b4#;
-    constant ADDR_WEIGHT_6_DATA_0 : INTEGER := 16#b8#;
-    constant ADDR_WEIGHT_6_DATA_1 : INTEGER := 16#bc#;
-    constant ADDR_WEIGHT_6_CTRL   : INTEGER := 16#c0#;
-    constant ADDR_WEIGHT_7_DATA_0 : INTEGER := 16#c4#;
-    constant ADDR_WEIGHT_7_DATA_1 : INTEGER := 16#c8#;
-    constant ADDR_WEIGHT_7_CTRL   : INTEGER := 16#cc#;
-    constant ADDR_BIAS_DATA_0     : INTEGER := 16#d0#;
-    constant ADDR_BIAS_DATA_1     : INTEGER := 16#d4#;
-    constant ADDR_BIAS_CTRL       : INTEGER := 16#d8#;
-    constant ADDR_OFMAP_DATA_0    : INTEGER := 16#dc#;
-    constant ADDR_OFMAP_DATA_1    : INTEGER := 16#e0#;
-    constant ADDR_OFMAP_CTRL      : INTEGER := 16#e4#;
+    constant ADDR_IFMAP_0_DATA_0      : INTEGER := 16#10#;
+    constant ADDR_IFMAP_0_DATA_1      : INTEGER := 16#14#;
+    constant ADDR_IFMAP_0_CTRL        : INTEGER := 16#18#;
+    constant ADDR_IFMAP_1_DATA_0      : INTEGER := 16#1c#;
+    constant ADDR_IFMAP_1_DATA_1      : INTEGER := 16#20#;
+    constant ADDR_IFMAP_1_CTRL        : INTEGER := 16#24#;
+    constant ADDR_IFMAP_2_DATA_0      : INTEGER := 16#28#;
+    constant ADDR_IFMAP_2_DATA_1      : INTEGER := 16#2c#;
+    constant ADDR_IFMAP_2_CTRL        : INTEGER := 16#30#;
+    constant ADDR_IFMAP_3_DATA_0      : INTEGER := 16#34#;
+    constant ADDR_IFMAP_3_DATA_1      : INTEGER := 16#38#;
+    constant ADDR_IFMAP_3_CTRL        : INTEGER := 16#3c#;
+    constant ADDR_IFMAP_4_DATA_0      : INTEGER := 16#40#;
+    constant ADDR_IFMAP_4_DATA_1      : INTEGER := 16#44#;
+    constant ADDR_IFMAP_4_CTRL        : INTEGER := 16#48#;
+    constant ADDR_IFMAP_5_DATA_0      : INTEGER := 16#4c#;
+    constant ADDR_IFMAP_5_DATA_1      : INTEGER := 16#50#;
+    constant ADDR_IFMAP_5_CTRL        : INTEGER := 16#54#;
+    constant ADDR_IFMAP_6_DATA_0      : INTEGER := 16#58#;
+    constant ADDR_IFMAP_6_DATA_1      : INTEGER := 16#5c#;
+    constant ADDR_IFMAP_6_CTRL        : INTEGER := 16#60#;
+    constant ADDR_IFMAP_7_DATA_0      : INTEGER := 16#64#;
+    constant ADDR_IFMAP_7_DATA_1      : INTEGER := 16#68#;
+    constant ADDR_IFMAP_7_CTRL        : INTEGER := 16#6c#;
+    constant ADDR_WEIGHT_0_DATA_0     : INTEGER := 16#70#;
+    constant ADDR_WEIGHT_0_DATA_1     : INTEGER := 16#74#;
+    constant ADDR_WEIGHT_0_CTRL       : INTEGER := 16#78#;
+    constant ADDR_WEIGHT_1_DATA_0     : INTEGER := 16#7c#;
+    constant ADDR_WEIGHT_1_DATA_1     : INTEGER := 16#80#;
+    constant ADDR_WEIGHT_1_CTRL       : INTEGER := 16#84#;
+    constant ADDR_WEIGHT_2_DATA_0     : INTEGER := 16#88#;
+    constant ADDR_WEIGHT_2_DATA_1     : INTEGER := 16#8c#;
+    constant ADDR_WEIGHT_2_CTRL       : INTEGER := 16#90#;
+    constant ADDR_WEIGHT_3_DATA_0     : INTEGER := 16#94#;
+    constant ADDR_WEIGHT_3_DATA_1     : INTEGER := 16#98#;
+    constant ADDR_WEIGHT_3_CTRL       : INTEGER := 16#9c#;
+    constant ADDR_WEIGHT_4_DATA_0     : INTEGER := 16#a0#;
+    constant ADDR_WEIGHT_4_DATA_1     : INTEGER := 16#a4#;
+    constant ADDR_WEIGHT_4_CTRL       : INTEGER := 16#a8#;
+    constant ADDR_WEIGHT_5_DATA_0     : INTEGER := 16#ac#;
+    constant ADDR_WEIGHT_5_DATA_1     : INTEGER := 16#b0#;
+    constant ADDR_WEIGHT_5_CTRL       : INTEGER := 16#b4#;
+    constant ADDR_WEIGHT_6_DATA_0     : INTEGER := 16#b8#;
+    constant ADDR_WEIGHT_6_DATA_1     : INTEGER := 16#bc#;
+    constant ADDR_WEIGHT_6_CTRL       : INTEGER := 16#c0#;
+    constant ADDR_WEIGHT_7_DATA_0     : INTEGER := 16#c4#;
+    constant ADDR_WEIGHT_7_DATA_1     : INTEGER := 16#c8#;
+    constant ADDR_WEIGHT_7_CTRL       : INTEGER := 16#cc#;
+    constant ADDR_BIAS_DATA_0         : INTEGER := 16#d0#;
+    constant ADDR_BIAS_DATA_1         : INTEGER := 16#d4#;
+    constant ADDR_BIAS_CTRL           : INTEGER := 16#d8#;
+    constant ADDR_CONV_SCRATCH_DATA_0 : INTEGER := 16#dc#;
+    constant ADDR_CONV_SCRATCH_DATA_1 : INTEGER := 16#e0#;
+    constant ADDR_CONV_SCRATCH_CTRL   : INTEGER := 16#e4#;
+    constant ADDR_OFMAP_DATA_0        : INTEGER := 16#e8#;
+    constant ADDR_OFMAP_DATA_1        : INTEGER := 16#ec#;
+    constant ADDR_OFMAP_CTRL          : INTEGER := 16#f0#;
     constant ADDR_BITS         : INTEGER := 8;
 
     signal AWREADY_t           : STD_LOGIC;
@@ -247,6 +256,7 @@ attribute DowngradeIPIdentifiedWarnings of behave : architecture is "yes";
     signal int_weight_6        : UNSIGNED(63 downto 0) := (others => '0');
     signal int_weight_7        : UNSIGNED(63 downto 0) := (others => '0');
     signal int_bias            : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_conv_scratch    : UNSIGNED(63 downto 0) := (others => '0');
     signal int_ofmap           : UNSIGNED(63 downto 0) := (others => '0');
 
 
@@ -432,6 +442,10 @@ begin
                         rdata_data <= RESIZE(int_bias(31 downto 0), 32);
                     when ADDR_BIAS_DATA_1 =>
                         rdata_data <= RESIZE(int_bias(63 downto 32), 32);
+                    when ADDR_CONV_SCRATCH_DATA_0 =>
+                        rdata_data <= RESIZE(int_conv_scratch(31 downto 0), 32);
+                    when ADDR_CONV_SCRATCH_DATA_1 =>
+                        rdata_data <= RESIZE(int_conv_scratch(63 downto 32), 32);
                     when ADDR_OFMAP_DATA_0 =>
                         rdata_data <= RESIZE(int_ofmap(31 downto 0), 32);
                     when ADDR_OFMAP_DATA_1 =>
@@ -462,6 +476,7 @@ begin
     weight_6             <= STD_LOGIC_VECTOR(int_weight_6);
     weight_7             <= STD_LOGIC_VECTOR(int_weight_7);
     bias                 <= STD_LOGIC_VECTOR(int_bias);
+    conv_scratch         <= STD_LOGIC_VECTOR(int_conv_scratch);
     ofmap                <= STD_LOGIC_VECTOR(int_ofmap);
 
     process (ACLK)
@@ -901,6 +916,32 @@ begin
             elsif (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_BIAS_DATA_1) then
                     int_bias(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_bias(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_conv_scratch(31 downto 0) <= (others => '0');
+            elsif (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_CONV_SCRATCH_DATA_0) then
+                    int_conv_scratch(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_conv_scratch(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ARESET = '1') then
+                int_conv_scratch(63 downto 32) <= (others => '0');
+            elsif (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_CONV_SCRATCH_DATA_1) then
+                    int_conv_scratch(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_conv_scratch(63 downto 32));
                 end if;
             end if;
         end if;

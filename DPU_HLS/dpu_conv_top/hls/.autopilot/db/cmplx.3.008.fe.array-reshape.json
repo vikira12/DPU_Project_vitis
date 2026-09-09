@@ -1,76 +1,40 @@
 {
   "0": {
-    "basicblocks": 4,
-    "calls": "3 2 1",
+    "basicblocks": 22,
+    "calls": "1",
     "control_depth": 0,
-    "def_use_depth": 1,
+    "def_use_depth": 10,
     "file": "dpu_conv.cpp",
     "fileloc": 128,
-    "instructions": 71,
+    "instructions": 157,
     "loads": {
-      "L": 2
+      "L": 2,
+      "T": 5
     },
-    "memory_accesses": 0,
+    "memory_accesses": 7,
     "name": "dpu_conv_top",
     "stores": {
       "L": 2,
-      "T": 3
+      "T": 5
     },
-    "total_instructions": 1585
+    "total_instructions": 1592
   },
   "1": {
-    "basicblocks": 10,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 9,
-    "file": "dpu_conv.cpp",
-    "fileloc": 79,
-    "instructions": 53,
-    "loads": {
-      "G": 4
-    },
-    "memory_accesses": 5,
-    "name": "maxpool2x2",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 54
-  },
-  "2": {
-    "basicblocks": 10,
-    "calls": "",
-    "control_depth": 0,
-    "def_use_depth": 3,
-    "file": "dpu_conv.cpp",
-    "fileloc": 109,
-    "instructions": 33,
-    "loads": {
-      "G": 1
-    },
-    "memory_accesses": 2,
-    "name": "copy_passthrough",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 34
-  },
-  "3": {
     "basicblocks": 149,
     "calls": "",
     "control_depth": 6,
     "def_use_depth": 140,
     "file": "dpu_conv.cpp",
     "fileloc": 7,
-    "instructions": 1282,
+    "instructions": 1283,
     "loads": {
       "L": 186
     },
     "memory_accesses": 256,
     "name": "conv3x3_relu",
     "stores": {
-      "G": 1,
-      "L": 73
+      "L": 74
     },
-    "total_instructions": 1426
+    "total_instructions": 1428
   }
 }

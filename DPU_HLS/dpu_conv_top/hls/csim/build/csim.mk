@@ -23,7 +23,7 @@ __USE_VCXX_CLANG__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = C:/Users/user/Downloads/files/dpu_conv_tb.cpp C:/Users/user/Downloads/files/dpu_conv.cpp
+HLS_SOURCES = ../../../../../../DPUv2/dpu_conv_tb.cpp ../../../../../../DPUv2/dpu_conv.cpp
 
 override TARGET := csim.exe
 
@@ -98,14 +98,14 @@ all: $(TARGET)
 
 
 
-$(ObjDir)/dpu_conv_tb.o: C:/Users/user/Downloads/files/dpu_conv_tb.cpp $(ObjDir)/.dir csim.mk
-	$(Echo) "   Compiling C:/Users/user/Downloads/files/dpu_conv_tb.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/dpu_conv_tb.o: ../../../../../../DPUv2/dpu_conv_tb.cpp $(ObjDir)/.dir csim.mk
+	$(Echo) "   Compiling ../../../../../../DPUv2/dpu_conv_tb.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CXX) -std=gnu++17 ${CCFLAG} -c -MMD -Wno-unknown-pragmas -Wno-unknown-pragmas  $(IFLAG) $(DFLAG) -DNDEBUG $< -o $@ ; \
 
 -include $(ObjDir)/dpu_conv_tb.d
 
-$(ObjDir)/dpu_conv.bc: C:/Users/user/Downloads/files/dpu_conv.cpp $(ObjDir)/.dir csim.mk
-	$(Echo) "   Compiling C:/Users/user/Downloads/files/dpu_conv.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/dpu_conv.bc: ../../../../../../DPUv2/dpu_conv.cpp $(ObjDir)/.dir csim.mk
+	$(Echo) "   Compiling ../../../../../../DPUv2/dpu_conv.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CXX) -std=gnu++17 ${CCFLAG} -c -MMD  -fhls-csim -fhlstoplevel=dpu_conv_top -Xclang -disable-llvm-passes -emit-llvm -fhls-profile-tripcount  $(IFLAG) $(DFLAG) -DNDEBUG $< -o $@ ; \
 
 -include $(ObjDir)/dpu_conv.d
@@ -116,4 +116,4 @@ $(HLS_PROJECT_BC): $(HLS_BC_OBJECTS) $(ObjDir)/.dir csim.mk
 
 $(HLS_SYN_OBJECT): $(HLS_PROJECT_BC) $(ObjDir)/.dir csim.mk
 	$(Echo) "   Lowering $(HLS_PROJECT_BC) into $(HLS_SYN_OBJECT)" $(AVE_DIR_DLOG)
-	$(Verb)  ${AP_CLANG_PATH}/clang ${CCFLAG} -c -mllvm --profilerOutputDirectory=D:/project/DPU_HLS/dpu_conv_top/hls/csim/profile -fhls-profile-tripcount -x ir $< -o $@; \
+	$(Verb)  ${AP_CLANG_PATH}/clang ${CCFLAG} -c -mllvm --profilerOutputDirectory=D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/csim/profile -fhls-profile-tripcount -x ir $< -o $@; \

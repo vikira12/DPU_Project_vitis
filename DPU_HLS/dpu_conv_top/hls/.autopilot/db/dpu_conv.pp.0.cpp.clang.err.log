@@ -1,73 +1,73 @@
-C:/Users/user/Downloads/files/dpu_conv.cpp:19:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=variable=ifmap dim=1 cyclic factor=8_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:19:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=variable=ifmap dim=1 cyclic factor=8_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS ARRAY_PARTITION variable=ifmap dim=1 cyclic factor=8
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:20:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=variable=weight dim=2 cyclic factor=8_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:20:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=variable=weight dim=2 cyclic factor=8_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS ARRAY_PARTITION variable=weight dim=2 cyclic factor=8
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:26:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=min=1 max=64 avg=4_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:26:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=min=1 max=64 avg=4_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS LOOP_TRIPCOUNT min=1 max=64 avg=4
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:29:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=min=1 max=64 avg=16_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:29:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=min=1 max=64 avg=16_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS LOOP_TRIPCOUNT min=1 max=64 avg=16
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:32:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=min=1 max=64 avg=16_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:32:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=loop_tripcount_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=min=1 max=64 avg=16_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS LOOP_TRIPCOUNT min=1 max=64 avg=16
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:40:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:40:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS PIPELINE II=1
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:44:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:44:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS UNROLL
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:50:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:50:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=conv3x3_relu_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS UNROLL
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:90:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=maxpool2x2_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:90:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=maxpool2x2_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS PIPELINE II=1
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:120:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=copy_passthrough_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:120:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=copy_passthrough_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS PIPELINE II=1
 ^
 directive:1:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=name=dpu_conv_top_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLSDIRECTIVE TOP name=dpu_conv_top
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:143:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=m_axi port=ifmap offset=slave bundle=gmem0 depth=262144_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:145:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=m_axi port=ifmap offset=slave bundle=gmem0 depth=262144_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE m_axi port=ifmap offset=slave bundle=gmem0 depth=262144
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:144:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=m_axi port=weight offset=slave bundle=gmem1 depth=36864_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:146:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=m_axi port=weight offset=slave bundle=gmem1 depth=36864_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE m_axi port=weight offset=slave bundle=gmem1 depth=36864
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:145:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=m_axi port=bias offset=slave bundle=gmem1 depth=64_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:147:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=m_axi port=bias offset=slave bundle=gmem1 depth=64_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE m_axi port=bias offset=slave bundle=gmem1 depth=64
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:146:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=m_axi port=ofmap offset=slave bundle=gmem0 depth=262144_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:148:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=m_axi port=conv_scratch offset=slave bundle=gmem2 depth=262144_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS INTERFACE m_axi port=conv_scratch offset=slave bundle=gmem2 depth=262144
+^
+D:/project/DPUv2/dpu_conv.cpp:149:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=m_axi port=ofmap offset=slave bundle=gmem0 depth=262144_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE m_axi port=ofmap offset=slave bundle=gmem0 depth=262144
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:149:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=in_h bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:152:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=in_h bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port=in_h bundle=CTRL
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:150:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=in_w bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:153:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=in_w bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port=in_w bundle=CTRL
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:151:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=in_ch bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:154:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=in_ch bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port=in_ch bundle=CTRL
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:152:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=out_ch bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:155:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=out_ch bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port=out_ch bundle=CTRL
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:153:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=do_relu bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:156:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=do_relu bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port=do_relu bundle=CTRL
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:154:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=do_pool bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:157:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=do_pool bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port=do_pool bundle=CTRL
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:155:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=perf bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:158:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=perf bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port=perf bundle=CTRL
 ^
-C:/Users/user/Downloads/files/dpu_conv.cpp:156:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=return bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
+D:/project/DPUv2/dpu_conv.cpp:159:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=s_axilite port=return bundle=CTRL_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE s_axilite port=return bundle=CTRL
-^
-C:/Users/user/Downloads/files/dpu_conv.cpp:160:1: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=hls_XLX_SEP_ PragmaFunction=dpu_conv_top_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS DATAFLOW
 ^
 24 warnings generated.

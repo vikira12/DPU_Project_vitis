@@ -55,6 +55,8 @@ using namespace std;
 #define AUTOTB_TVOUT_weight_7 "../tv/cdatafile/c.dpu_conv_top.autotvout_weight_7.dat"
 #define AUTOTB_TVIN_bias "../tv/cdatafile/c.dpu_conv_top.autotvin_bias.dat"
 #define AUTOTB_TVOUT_bias "../tv/cdatafile/c.dpu_conv_top.autotvout_bias.dat"
+#define AUTOTB_TVIN_conv_scratch "../tv/cdatafile/c.dpu_conv_top.autotvin_conv_scratch.dat"
+#define AUTOTB_TVOUT_conv_scratch "../tv/cdatafile/c.dpu_conv_top.autotvout_conv_scratch.dat"
 #define AUTOTB_TVIN_ofmap "../tv/cdatafile/c.dpu_conv_top.autotvin_ofmap.dat"
 #define AUTOTB_TVOUT_ofmap "../tv/cdatafile/c.dpu_conv_top.autotvout_ofmap.dat"
 #define AUTOTB_TVIN_in_h "../tv/cdatafile/c.dpu_conv_top.autotvin_in_h.dat"
@@ -107,6 +109,8 @@ using namespace std;
 #define AUTOTB_TVOUT_gmem1_6 "../tv/cdatafile/c.dpu_conv_top.autotvout_gmem1_6.dat"
 #define AUTOTB_TVIN_gmem1_7 "../tv/cdatafile/c.dpu_conv_top.autotvin_gmem1_7.dat"
 #define AUTOTB_TVOUT_gmem1_7 "../tv/cdatafile/c.dpu_conv_top.autotvout_gmem1_7.dat"
+#define AUTOTB_TVIN_gmem2 "../tv/cdatafile/c.dpu_conv_top.autotvin_gmem2.dat"
+#define AUTOTB_TVOUT_gmem2 "../tv/cdatafile/c.dpu_conv_top.autotvout_gmem2.dat"
 
 
 // tvout file define:
@@ -129,6 +133,7 @@ using namespace std;
 #define AUTOTB_TVOUT_PC_gmem1_5 "../tv/rtldatafile/rtl.dpu_conv_top.autotvout_gmem1_5.dat"
 #define AUTOTB_TVOUT_PC_gmem1_6 "../tv/rtldatafile/rtl.dpu_conv_top.autotvout_gmem1_6.dat"
 #define AUTOTB_TVOUT_PC_gmem1_7 "../tv/rtldatafile/rtl.dpu_conv_top.autotvout_gmem1_7.dat"
+#define AUTOTB_TVOUT_PC_gmem2 "../tv/rtldatafile/rtl.dpu_conv_top.autotvout_gmem2.dat"
 
 
 namespace hls::sim
@@ -1353,10 +1358,10 @@ namespace hls::sim
 
 
 extern "C"
-void dpu_conv_top_hw_stub_wrapper(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, hls::sim::Byte<1>*, hls::sim::Byte<1>*, hls::sim::Byte<1>*, hls::sim::Byte<1>*, hls::sim::Byte<1>*, hls::sim::Byte<1>*, void*);
+void dpu_conv_top_hw_stub_wrapper(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, hls::sim::Byte<1>*, hls::sim::Byte<1>*, hls::sim::Byte<1>*, hls::sim::Byte<1>*, hls::sim::Byte<1>*, hls::sim::Byte<1>*, void*);
 
 extern "C"
-void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_param_ifmap_1, void* __xlx_apatb_param_ifmap_2, void* __xlx_apatb_param_ifmap_3, void* __xlx_apatb_param_ifmap_4, void* __xlx_apatb_param_ifmap_5, void* __xlx_apatb_param_ifmap_6, void* __xlx_apatb_param_ifmap_7, void* __xlx_apatb_param_weight_0, void* __xlx_apatb_param_weight_1, void* __xlx_apatb_param_weight_2, void* __xlx_apatb_param_weight_3, void* __xlx_apatb_param_weight_4, void* __xlx_apatb_param_weight_5, void* __xlx_apatb_param_weight_6, void* __xlx_apatb_param_weight_7, void* __xlx_apatb_param_bias, void* __xlx_apatb_param_ofmap, hls::sim::Byte<1>* __xlx_apatb_param_in_h, hls::sim::Byte<1>* __xlx_apatb_param_in_w, hls::sim::Byte<1>* __xlx_apatb_param_in_ch, hls::sim::Byte<1>* __xlx_apatb_param_out_ch, hls::sim::Byte<1>* __xlx_apatb_param_do_relu, hls::sim::Byte<1>* __xlx_apatb_param_do_pool, void* __xlx_apatb_param_perf)
+void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_param_ifmap_1, void* __xlx_apatb_param_ifmap_2, void* __xlx_apatb_param_ifmap_3, void* __xlx_apatb_param_ifmap_4, void* __xlx_apatb_param_ifmap_5, void* __xlx_apatb_param_ifmap_6, void* __xlx_apatb_param_ifmap_7, void* __xlx_apatb_param_weight_0, void* __xlx_apatb_param_weight_1, void* __xlx_apatb_param_weight_2, void* __xlx_apatb_param_weight_3, void* __xlx_apatb_param_weight_4, void* __xlx_apatb_param_weight_5, void* __xlx_apatb_param_weight_6, void* __xlx_apatb_param_weight_7, void* __xlx_apatb_param_bias, void* __xlx_apatb_param_conv_scratch, void* __xlx_apatb_param_ofmap, hls::sim::Byte<1>* __xlx_apatb_param_in_h, hls::sim::Byte<1>* __xlx_apatb_param_in_w, hls::sim::Byte<1>* __xlx_apatb_param_in_ch, hls::sim::Byte<1>* __xlx_apatb_param_out_ch, hls::sim::Byte<1>* __xlx_apatb_param_do_relu, hls::sim::Byte<1>* __xlx_apatb_param_do_pool, void* __xlx_apatb_param_perf)
 {
   static hls::sim::Byte<4> __xlx_offset_byte_param_ifmap_0;
   static hls::sim::Register port0 {
@@ -1562,8 +1567,20 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
   };
   port16.param = &__xlx_offset_byte_param_bias;
 
-  static hls::sim::Byte<4> __xlx_offset_byte_param_ofmap;
+  static hls::sim::Byte<4> __xlx_offset_byte_param_conv_scratch;
   static hls::sim::Register port17 {
+    .name = "conv_scratch",
+    .width = 32,
+#ifdef POST_CHECK
+#else
+    .owriter = nullptr,
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_conv_scratch),
+#endif
+  };
+  port17.param = &__xlx_offset_byte_param_conv_scratch;
+
+  static hls::sim::Byte<4> __xlx_offset_byte_param_ofmap;
+  static hls::sim::Register port18 {
     .name = "ofmap",
     .width = 32,
 #ifdef POST_CHECK
@@ -1572,9 +1589,9 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_ofmap),
 #endif
   };
-  port17.param = &__xlx_offset_byte_param_ofmap;
+  port18.param = &__xlx_offset_byte_param_ofmap;
 
-  static hls::sim::Register port18 {
+  static hls::sim::Register port19 {
     .name = "in_h",
     .width = 8,
 #ifdef POST_CHECK
@@ -1583,9 +1600,9 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_in_h),
 #endif
   };
-  port18.param = __xlx_apatb_param_in_h;
+  port19.param = __xlx_apatb_param_in_h;
 
-  static hls::sim::Register port19 {
+  static hls::sim::Register port20 {
     .name = "in_w",
     .width = 8,
 #ifdef POST_CHECK
@@ -1594,9 +1611,9 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_in_w),
 #endif
   };
-  port19.param = __xlx_apatb_param_in_w;
+  port20.param = __xlx_apatb_param_in_w;
 
-  static hls::sim::Register port20 {
+  static hls::sim::Register port21 {
     .name = "in_ch",
     .width = 8,
 #ifdef POST_CHECK
@@ -1605,9 +1622,9 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_in_ch),
 #endif
   };
-  port20.param = __xlx_apatb_param_in_ch;
+  port21.param = __xlx_apatb_param_in_ch;
 
-  static hls::sim::Register port21 {
+  static hls::sim::Register port22 {
     .name = "out_ch",
     .width = 8,
 #ifdef POST_CHECK
@@ -1616,9 +1633,9 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_out_ch),
 #endif
   };
-  port21.param = __xlx_apatb_param_out_ch;
+  port22.param = __xlx_apatb_param_out_ch;
 
-  static hls::sim::Register port22 {
+  static hls::sim::Register port23 {
     .name = "do_relu",
     .width = 1,
 #ifdef POST_CHECK
@@ -1627,9 +1644,9 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_do_relu),
 #endif
   };
-  port22.param = __xlx_apatb_param_do_relu;
+  port23.param = __xlx_apatb_param_do_relu;
 
-  static hls::sim::Register port23 {
+  static hls::sim::Register port24 {
     .name = "do_pool",
     .width = 1,
 #ifdef POST_CHECK
@@ -1638,9 +1655,9 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_do_pool),
 #endif
   };
-  port23.param = __xlx_apatb_param_do_pool;
+  port24.param = __xlx_apatb_param_do_pool;
 
-  static hls::sim::Register port24 {
+  static hls::sim::Register port25 {
     .name = "perf",
     .width = 96,
 #ifdef POST_CHECK
@@ -1650,12 +1667,12 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .iwriter = new hls::sim::Writer(AUTOTB_TVIN_perf),
 #endif
   };
-  port24.param = __xlx_apatb_param_perf;
+  port25.param = __xlx_apatb_param_perf;
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port25 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port26 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port25 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port26 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1682,14 +1699,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { true },
     .max_nbytes = { 0 },
   };
-  port25.param = { __xlx_apatb_param_ofmap };
-  port25.mname = { "ofmap" };
-  port25.nbytes = { 262144 };
+  port26.param = { __xlx_apatb_param_ofmap };
+  port26.mname = { "ofmap" };
+  port26.nbytes = { 262144 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port26 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port27 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port26 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port27 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1707,14 +1724,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port26.param = { __xlx_apatb_param_ifmap_0 };
-  port26.mname = { "ifmap_0" };
-  port26.nbytes = { 32768 };
+  port27.param = { __xlx_apatb_param_ifmap_0 };
+  port27.mname = { "ifmap_0" };
+  port27.nbytes = { 32768 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port27 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port28 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port27 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port28 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1732,14 +1749,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port27.param = { __xlx_apatb_param_ifmap_1 };
-  port27.mname = { "ifmap_1" };
-  port27.nbytes = { 32768 };
+  port28.param = { __xlx_apatb_param_ifmap_1 };
+  port28.mname = { "ifmap_1" };
+  port28.nbytes = { 32768 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port28 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port29 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port28 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port29 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1757,14 +1774,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port28.param = { __xlx_apatb_param_ifmap_2 };
-  port28.mname = { "ifmap_2" };
-  port28.nbytes = { 32768 };
+  port29.param = { __xlx_apatb_param_ifmap_2 };
+  port29.mname = { "ifmap_2" };
+  port29.nbytes = { 32768 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port29 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port30 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port29 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port30 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1782,14 +1799,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port29.param = { __xlx_apatb_param_ifmap_3 };
-  port29.mname = { "ifmap_3" };
-  port29.nbytes = { 32768 };
+  port30.param = { __xlx_apatb_param_ifmap_3 };
+  port30.mname = { "ifmap_3" };
+  port30.nbytes = { 32768 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port30 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port31 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port30 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port31 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1807,14 +1824,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port30.param = { __xlx_apatb_param_ifmap_4 };
-  port30.mname = { "ifmap_4" };
-  port30.nbytes = { 32768 };
+  port31.param = { __xlx_apatb_param_ifmap_4 };
+  port31.mname = { "ifmap_4" };
+  port31.nbytes = { 32768 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port31 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port32 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port31 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port32 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1832,14 +1849,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port31.param = { __xlx_apatb_param_ifmap_5 };
-  port31.mname = { "ifmap_5" };
-  port31.nbytes = { 32768 };
+  port32.param = { __xlx_apatb_param_ifmap_5 };
+  port32.mname = { "ifmap_5" };
+  port32.nbytes = { 32768 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port32 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port33 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port32 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port33 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1857,14 +1874,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port32.param = { __xlx_apatb_param_ifmap_6 };
-  port32.mname = { "ifmap_6" };
-  port32.nbytes = { 32768 };
+  port33.param = { __xlx_apatb_param_ifmap_6 };
+  port33.mname = { "ifmap_6" };
+  port33.nbytes = { 32768 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port33 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port34 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port33 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port34 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1882,14 +1899,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port33.param = { __xlx_apatb_param_ifmap_7 };
-  port33.mname = { "ifmap_7" };
-  port33.nbytes = { 32768 };
+  port34.param = { __xlx_apatb_param_ifmap_7 };
+  port34.mname = { "ifmap_7" };
+  port34.nbytes = { 32768 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port34 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port35 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port34 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port35 {
 #endif
     .width = 32,
     .asize = 4,
@@ -1907,14 +1924,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port34.param = { __xlx_apatb_param_bias };
-  port34.mname = { "bias" };
-  port34.nbytes = { 256 };
+  port35.param = { __xlx_apatb_param_bias };
+  port35.mname = { "bias" };
+  port35.nbytes = { 256 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port35 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port36 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port35 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port36 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1932,14 +1949,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port35.param = { __xlx_apatb_param_weight_0 };
-  port35.mname = { "weight_0" };
-  port35.nbytes = { 4608 };
+  port36.param = { __xlx_apatb_param_weight_0 };
+  port36.mname = { "weight_0" };
+  port36.nbytes = { 4608 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port36 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port37 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port36 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port37 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1957,14 +1974,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port36.param = { __xlx_apatb_param_weight_1 };
-  port36.mname = { "weight_1" };
-  port36.nbytes = { 4608 };
+  port37.param = { __xlx_apatb_param_weight_1 };
+  port37.mname = { "weight_1" };
+  port37.nbytes = { 4608 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port37 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port38 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port37 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port38 {
 #endif
     .width = 8,
     .asize = 1,
@@ -1982,14 +1999,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port37.param = { __xlx_apatb_param_weight_2 };
-  port37.mname = { "weight_2" };
-  port37.nbytes = { 4608 };
+  port38.param = { __xlx_apatb_param_weight_2 };
+  port38.mname = { "weight_2" };
+  port38.nbytes = { 4608 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port38 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port39 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port38 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port39 {
 #endif
     .width = 8,
     .asize = 1,
@@ -2007,14 +2024,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port38.param = { __xlx_apatb_param_weight_3 };
-  port38.mname = { "weight_3" };
-  port38.nbytes = { 4608 };
+  port39.param = { __xlx_apatb_param_weight_3 };
+  port39.mname = { "weight_3" };
+  port39.nbytes = { 4608 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port39 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port40 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port39 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port40 {
 #endif
     .width = 8,
     .asize = 1,
@@ -2032,14 +2049,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port39.param = { __xlx_apatb_param_weight_4 };
-  port39.mname = { "weight_4" };
-  port39.nbytes = { 4608 };
+  port40.param = { __xlx_apatb_param_weight_4 };
+  port40.mname = { "weight_4" };
+  port40.nbytes = { 4608 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port40 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port41 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port40 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port41 {
 #endif
     .width = 8,
     .asize = 1,
@@ -2057,14 +2074,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port40.param = { __xlx_apatb_param_weight_5 };
-  port40.mname = { "weight_5" };
-  port40.nbytes = { 4608 };
+  port41.param = { __xlx_apatb_param_weight_5 };
+  port41.mname = { "weight_5" };
+  port41.nbytes = { 4608 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port41 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port42 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port41 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port42 {
 #endif
     .width = 8,
     .asize = 1,
@@ -2082,14 +2099,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port41.param = { __xlx_apatb_param_weight_6 };
-  port41.mname = { "weight_6" };
-  port41.nbytes = { 4608 };
+  port42.param = { __xlx_apatb_param_weight_6 };
+  port42.mname = { "weight_6" };
+  port42.nbytes = { 4608 };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port42 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port43 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port42 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port43 {
 #endif
     .width = 8,
     .asize = 1,
@@ -2107,15 +2124,50 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     .hasWrite = { false },
     .max_nbytes = { 0 },
   };
-  port42.param = { __xlx_apatb_param_weight_7 };
-  port42.mname = { "weight_7" };
-  port42.nbytes = { 4608 };
+  port43.param = { __xlx_apatb_param_weight_7 };
+  port43.mname = { "weight_7" };
+  port43.nbytes = { 4608 };
+
+#ifdef USE_BINARY_TV_FILE
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port44 {
+#else
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port44 {
+#endif
+    .width = 8,
+    .asize = 1,
+    .hbm = false,
+    .name = { "gmem2" },
+#ifdef POST_CHECK
+#ifdef USE_BINARY_TV_FILE
+    .reader = new hls::sim::Input(AUTOTB_TVOUT_PC_gmem2),
+#else
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_gmem2),
+#endif
+#else
+#ifdef USE_BINARY_TV_FILE
+    .owriter = new hls::sim::Output(AUTOTB_TVOUT_gmem2),
+#else
+    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_gmem2),
+#endif
+#ifdef USE_BINARY_TV_FILE
+    .iwriter = new hls::sim::Output(AUTOTB_TVIN_gmem2),
+#else
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_gmem2),
+#endif
+#endif
+    .hasWrite = { true },
+    .max_nbytes = { 0 },
+  };
+  port44.param = { __xlx_apatb_param_conv_scratch };
+  port44.mname = { "conv_scratch" };
+  port44.nbytes = { 262144 };
 
   try {
 #ifdef POST_CHECK
     CodeState = ENTER_WRAPC_PC;
-    check(port24);
     check(port25);
+    check(port26);
+    check(port44);
 #else
     static hls::sim::RefTCL tcl("../tv/cdatafile/ref.tcl");
     tcl.containsVLA = 0;
@@ -2138,7 +2190,7 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     delay_dump(port15, port15.iwriter, tcl.AESL_transaction);
     delay_dump(port16, port16.iwriter, tcl.AESL_transaction);
     delay_dump(port17, port17.iwriter, tcl.AESL_transaction);
-    dump(port18, port18.iwriter, tcl.AESL_transaction);
+    delay_dump(port18, port18.iwriter, tcl.AESL_transaction);
     dump(port19, port19.iwriter, tcl.AESL_transaction);
     dump(port20, port20.iwriter, tcl.AESL_transaction);
     dump(port21, port21.iwriter, tcl.AESL_transaction);
@@ -2163,6 +2215,8 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     dump(port40, port40.iwriter, tcl.AESL_transaction);
     dump(port41, port41.iwriter, tcl.AESL_transaction);
     dump(port42, port42.iwriter, tcl.AESL_transaction);
+    dump(port43, port43.iwriter, tcl.AESL_transaction);
+    dump(port44, port44.iwriter, tcl.AESL_transaction);
     port0.doTCL(tcl);
     port1.doTCL(tcl);
     port2.doTCL(tcl);
@@ -2206,11 +2260,14 @@ void apatb_dpu_conv_top_hw(void* __xlx_apatb_param_ifmap_0, void* __xlx_apatb_pa
     port40.doTCL(tcl);
     port41.doTCL(tcl);
     port42.doTCL(tcl);
+    port43.doTCL(tcl);
+    port44.doTCL(tcl);
     CodeState = CALL_C_DUT;
-    dpu_conv_top_hw_stub_wrapper(__xlx_apatb_param_ifmap_0, __xlx_apatb_param_ifmap_1, __xlx_apatb_param_ifmap_2, __xlx_apatb_param_ifmap_3, __xlx_apatb_param_ifmap_4, __xlx_apatb_param_ifmap_5, __xlx_apatb_param_ifmap_6, __xlx_apatb_param_ifmap_7, __xlx_apatb_param_weight_0, __xlx_apatb_param_weight_1, __xlx_apatb_param_weight_2, __xlx_apatb_param_weight_3, __xlx_apatb_param_weight_4, __xlx_apatb_param_weight_5, __xlx_apatb_param_weight_6, __xlx_apatb_param_weight_7, __xlx_apatb_param_bias, __xlx_apatb_param_ofmap, __xlx_apatb_param_in_h, __xlx_apatb_param_in_w, __xlx_apatb_param_in_ch, __xlx_apatb_param_out_ch, __xlx_apatb_param_do_relu, __xlx_apatb_param_do_pool, __xlx_apatb_param_perf);
+    dpu_conv_top_hw_stub_wrapper(__xlx_apatb_param_ifmap_0, __xlx_apatb_param_ifmap_1, __xlx_apatb_param_ifmap_2, __xlx_apatb_param_ifmap_3, __xlx_apatb_param_ifmap_4, __xlx_apatb_param_ifmap_5, __xlx_apatb_param_ifmap_6, __xlx_apatb_param_ifmap_7, __xlx_apatb_param_weight_0, __xlx_apatb_param_weight_1, __xlx_apatb_param_weight_2, __xlx_apatb_param_weight_3, __xlx_apatb_param_weight_4, __xlx_apatb_param_weight_5, __xlx_apatb_param_weight_6, __xlx_apatb_param_weight_7, __xlx_apatb_param_bias, __xlx_apatb_param_conv_scratch, __xlx_apatb_param_ofmap, __xlx_apatb_param_in_h, __xlx_apatb_param_in_w, __xlx_apatb_param_in_ch, __xlx_apatb_param_out_ch, __xlx_apatb_param_do_relu, __xlx_apatb_param_do_pool, __xlx_apatb_param_perf);
     CodeState = DUMP_OUTPUTS;
-    dump(port24, port24.owriter, tcl.AESL_transaction);
     dump(port25, port25.owriter, tcl.AESL_transaction);
+    dump(port26, port26.owriter, tcl.AESL_transaction);
+    dump(port44, port44.owriter, tcl.AESL_transaction);
     tcl.AESL_transaction++;
 #endif
   } catch (const hls::sim::SimException &e) {

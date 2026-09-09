@@ -141,6 +141,8 @@ void XDpu_conv_top_Set_weight_7(XDpu_conv_top *InstancePtr, u64 Data);
 u64 XDpu_conv_top_Get_weight_7(XDpu_conv_top *InstancePtr);
 void XDpu_conv_top_Set_bias(XDpu_conv_top *InstancePtr, u64 Data);
 u64 XDpu_conv_top_Get_bias(XDpu_conv_top *InstancePtr);
+void XDpu_conv_top_Set_conv_scratch(XDpu_conv_top *InstancePtr, u64 Data);
+u64 XDpu_conv_top_Get_conv_scratch(XDpu_conv_top *InstancePtr);
 void XDpu_conv_top_Set_ofmap(XDpu_conv_top *InstancePtr, u64 Data);
 u64 XDpu_conv_top_Get_ofmap(XDpu_conv_top *InstancePtr);
 void XDpu_conv_top_Set_in_h(XDpu_conv_top *InstancePtr, u32 Data);

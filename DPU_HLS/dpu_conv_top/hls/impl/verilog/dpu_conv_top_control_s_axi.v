@@ -48,6 +48,7 @@
     output wire [63:0]                   weight_6,
     output wire [63:0]                   weight_7,
     output wire [63:0]                   bias,
+    output wire [63:0]                   conv_scratch,
     output wire [63:0]                   ofmap
 );
 //------------------------Address Info-------------------
@@ -142,76 +143,84 @@
 // 0xd4 : Data signal of bias
 //        bit 31~0 - bias[63:32] (Read/Write)
 // 0xd8 : reserved
-// 0xdc : Data signal of ofmap
-//        bit 31~0 - ofmap[31:0] (Read/Write)
-// 0xe0 : Data signal of ofmap
-//        bit 31~0 - ofmap[63:32] (Read/Write)
+// 0xdc : Data signal of conv_scratch
+//        bit 31~0 - conv_scratch[31:0] (Read/Write)
+// 0xe0 : Data signal of conv_scratch
+//        bit 31~0 - conv_scratch[63:32] (Read/Write)
 // 0xe4 : reserved
+// 0xe8 : Data signal of ofmap
+//        bit 31~0 - ofmap[31:0] (Read/Write)
+// 0xec : Data signal of ofmap
+//        bit 31~0 - ofmap[63:32] (Read/Write)
+// 0xf0 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_IFMAP_0_DATA_0  = 8'h10,
-    ADDR_IFMAP_0_DATA_1  = 8'h14,
-    ADDR_IFMAP_0_CTRL    = 8'h18,
-    ADDR_IFMAP_1_DATA_0  = 8'h1c,
-    ADDR_IFMAP_1_DATA_1  = 8'h20,
-    ADDR_IFMAP_1_CTRL    = 8'h24,
-    ADDR_IFMAP_2_DATA_0  = 8'h28,
-    ADDR_IFMAP_2_DATA_1  = 8'h2c,
-    ADDR_IFMAP_2_CTRL    = 8'h30,
-    ADDR_IFMAP_3_DATA_0  = 8'h34,
-    ADDR_IFMAP_3_DATA_1  = 8'h38,
-    ADDR_IFMAP_3_CTRL    = 8'h3c,
-    ADDR_IFMAP_4_DATA_0  = 8'h40,
-    ADDR_IFMAP_4_DATA_1  = 8'h44,
-    ADDR_IFMAP_4_CTRL    = 8'h48,
-    ADDR_IFMAP_5_DATA_0  = 8'h4c,
-    ADDR_IFMAP_5_DATA_1  = 8'h50,
-    ADDR_IFMAP_5_CTRL    = 8'h54,
-    ADDR_IFMAP_6_DATA_0  = 8'h58,
-    ADDR_IFMAP_6_DATA_1  = 8'h5c,
-    ADDR_IFMAP_6_CTRL    = 8'h60,
-    ADDR_IFMAP_7_DATA_0  = 8'h64,
-    ADDR_IFMAP_7_DATA_1  = 8'h68,
-    ADDR_IFMAP_7_CTRL    = 8'h6c,
-    ADDR_WEIGHT_0_DATA_0 = 8'h70,
-    ADDR_WEIGHT_0_DATA_1 = 8'h74,
-    ADDR_WEIGHT_0_CTRL   = 8'h78,
-    ADDR_WEIGHT_1_DATA_0 = 8'h7c,
-    ADDR_WEIGHT_1_DATA_1 = 8'h80,
-    ADDR_WEIGHT_1_CTRL   = 8'h84,
-    ADDR_WEIGHT_2_DATA_0 = 8'h88,
-    ADDR_WEIGHT_2_DATA_1 = 8'h8c,
-    ADDR_WEIGHT_2_CTRL   = 8'h90,
-    ADDR_WEIGHT_3_DATA_0 = 8'h94,
-    ADDR_WEIGHT_3_DATA_1 = 8'h98,
-    ADDR_WEIGHT_3_CTRL   = 8'h9c,
-    ADDR_WEIGHT_4_DATA_0 = 8'ha0,
-    ADDR_WEIGHT_4_DATA_1 = 8'ha4,
-    ADDR_WEIGHT_4_CTRL   = 8'ha8,
-    ADDR_WEIGHT_5_DATA_0 = 8'hac,
-    ADDR_WEIGHT_5_DATA_1 = 8'hb0,
-    ADDR_WEIGHT_5_CTRL   = 8'hb4,
-    ADDR_WEIGHT_6_DATA_0 = 8'hb8,
-    ADDR_WEIGHT_6_DATA_1 = 8'hbc,
-    ADDR_WEIGHT_6_CTRL   = 8'hc0,
-    ADDR_WEIGHT_7_DATA_0 = 8'hc4,
-    ADDR_WEIGHT_7_DATA_1 = 8'hc8,
-    ADDR_WEIGHT_7_CTRL   = 8'hcc,
-    ADDR_BIAS_DATA_0     = 8'hd0,
-    ADDR_BIAS_DATA_1     = 8'hd4,
-    ADDR_BIAS_CTRL       = 8'hd8,
-    ADDR_OFMAP_DATA_0    = 8'hdc,
-    ADDR_OFMAP_DATA_1    = 8'he0,
-    ADDR_OFMAP_CTRL      = 8'he4,
-    WRIDLE               = 2'd0,
-    WRDATA               = 2'd1,
-    WRRESP               = 2'd2,
-    WRRESET              = 2'd3,
-    RDIDLE               = 2'd0,
-    RDDATA               = 2'd1,
-    RDRESET              = 2'd2,
+    ADDR_IFMAP_0_DATA_0      = 8'h10,
+    ADDR_IFMAP_0_DATA_1      = 8'h14,
+    ADDR_IFMAP_0_CTRL        = 8'h18,
+    ADDR_IFMAP_1_DATA_0      = 8'h1c,
+    ADDR_IFMAP_1_DATA_1      = 8'h20,
+    ADDR_IFMAP_1_CTRL        = 8'h24,
+    ADDR_IFMAP_2_DATA_0      = 8'h28,
+    ADDR_IFMAP_2_DATA_1      = 8'h2c,
+    ADDR_IFMAP_2_CTRL        = 8'h30,
+    ADDR_IFMAP_3_DATA_0      = 8'h34,
+    ADDR_IFMAP_3_DATA_1      = 8'h38,
+    ADDR_IFMAP_3_CTRL        = 8'h3c,
+    ADDR_IFMAP_4_DATA_0      = 8'h40,
+    ADDR_IFMAP_4_DATA_1      = 8'h44,
+    ADDR_IFMAP_4_CTRL        = 8'h48,
+    ADDR_IFMAP_5_DATA_0      = 8'h4c,
+    ADDR_IFMAP_5_DATA_1      = 8'h50,
+    ADDR_IFMAP_5_CTRL        = 8'h54,
+    ADDR_IFMAP_6_DATA_0      = 8'h58,
+    ADDR_IFMAP_6_DATA_1      = 8'h5c,
+    ADDR_IFMAP_6_CTRL        = 8'h60,
+    ADDR_IFMAP_7_DATA_0      = 8'h64,
+    ADDR_IFMAP_7_DATA_1      = 8'h68,
+    ADDR_IFMAP_7_CTRL        = 8'h6c,
+    ADDR_WEIGHT_0_DATA_0     = 8'h70,
+    ADDR_WEIGHT_0_DATA_1     = 8'h74,
+    ADDR_WEIGHT_0_CTRL       = 8'h78,
+    ADDR_WEIGHT_1_DATA_0     = 8'h7c,
+    ADDR_WEIGHT_1_DATA_1     = 8'h80,
+    ADDR_WEIGHT_1_CTRL       = 8'h84,
+    ADDR_WEIGHT_2_DATA_0     = 8'h88,
+    ADDR_WEIGHT_2_DATA_1     = 8'h8c,
+    ADDR_WEIGHT_2_CTRL       = 8'h90,
+    ADDR_WEIGHT_3_DATA_0     = 8'h94,
+    ADDR_WEIGHT_3_DATA_1     = 8'h98,
+    ADDR_WEIGHT_3_CTRL       = 8'h9c,
+    ADDR_WEIGHT_4_DATA_0     = 8'ha0,
+    ADDR_WEIGHT_4_DATA_1     = 8'ha4,
+    ADDR_WEIGHT_4_CTRL       = 8'ha8,
+    ADDR_WEIGHT_5_DATA_0     = 8'hac,
+    ADDR_WEIGHT_5_DATA_1     = 8'hb0,
+    ADDR_WEIGHT_5_CTRL       = 8'hb4,
+    ADDR_WEIGHT_6_DATA_0     = 8'hb8,
+    ADDR_WEIGHT_6_DATA_1     = 8'hbc,
+    ADDR_WEIGHT_6_CTRL       = 8'hc0,
+    ADDR_WEIGHT_7_DATA_0     = 8'hc4,
+    ADDR_WEIGHT_7_DATA_1     = 8'hc8,
+    ADDR_WEIGHT_7_CTRL       = 8'hcc,
+    ADDR_BIAS_DATA_0         = 8'hd0,
+    ADDR_BIAS_DATA_1         = 8'hd4,
+    ADDR_BIAS_CTRL           = 8'hd8,
+    ADDR_CONV_SCRATCH_DATA_0 = 8'hdc,
+    ADDR_CONV_SCRATCH_DATA_1 = 8'he0,
+    ADDR_CONV_SCRATCH_CTRL   = 8'he4,
+    ADDR_OFMAP_DATA_0        = 8'he8,
+    ADDR_OFMAP_DATA_1        = 8'hec,
+    ADDR_OFMAP_CTRL          = 8'hf0,
+    WRIDLE                   = 2'd0,
+    WRDATA                   = 2'd1,
+    WRRESP                   = 2'd2,
+    WRRESET                  = 2'd3,
+    RDIDLE                   = 2'd0,
+    RDDATA                   = 2'd1,
+    RDRESET                  = 2'd2,
     ADDR_BITS                = 8;
 
 //------------------------Local signal-------------------
@@ -244,6 +253,7 @@ localparam
     reg  [63:0]                   int_weight_6 = 'b0;
     reg  [63:0]                   int_weight_7 = 'b0;
     reg  [63:0]                   int_bias = 'b0;
+    reg  [63:0]                   int_conv_scratch = 'b0;
     reg  [63:0]                   int_ofmap = 'b0;
 
 //------------------------Instantiation------------------
@@ -439,6 +449,12 @@ always @(posedge ACLK) begin
                 ADDR_BIAS_DATA_1: begin
                     rdata <= int_bias[63:32];
                 end
+                ADDR_CONV_SCRATCH_DATA_0: begin
+                    rdata <= int_conv_scratch[31:0];
+                end
+                ADDR_CONV_SCRATCH_DATA_1: begin
+                    rdata <= int_conv_scratch[63:32];
+                end
                 ADDR_OFMAP_DATA_0: begin
                     rdata <= int_ofmap[31:0];
                 end
@@ -452,24 +468,25 @@ end
 
 
 //------------------------Register logic-----------------
-assign ifmap_0  = int_ifmap_0;
-assign ifmap_1  = int_ifmap_1;
-assign ifmap_2  = int_ifmap_2;
-assign ifmap_3  = int_ifmap_3;
-assign ifmap_4  = int_ifmap_4;
-assign ifmap_5  = int_ifmap_5;
-assign ifmap_6  = int_ifmap_6;
-assign ifmap_7  = int_ifmap_7;
-assign weight_0 = int_weight_0;
-assign weight_1 = int_weight_1;
-assign weight_2 = int_weight_2;
-assign weight_3 = int_weight_3;
-assign weight_4 = int_weight_4;
-assign weight_5 = int_weight_5;
-assign weight_6 = int_weight_6;
-assign weight_7 = int_weight_7;
-assign bias     = int_bias;
-assign ofmap    = int_ofmap;
+assign ifmap_0      = int_ifmap_0;
+assign ifmap_1      = int_ifmap_1;
+assign ifmap_2      = int_ifmap_2;
+assign ifmap_3      = int_ifmap_3;
+assign ifmap_4      = int_ifmap_4;
+assign ifmap_5      = int_ifmap_5;
+assign ifmap_6      = int_ifmap_6;
+assign ifmap_7      = int_ifmap_7;
+assign weight_0     = int_weight_0;
+assign weight_1     = int_weight_1;
+assign weight_2     = int_weight_2;
+assign weight_3     = int_weight_3;
+assign weight_4     = int_weight_4;
+assign weight_5     = int_weight_5;
+assign weight_6     = int_weight_6;
+assign weight_7     = int_weight_7;
+assign bias         = int_bias;
+assign conv_scratch = int_conv_scratch;
+assign ofmap        = int_ofmap;
 // int_ifmap_0[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
@@ -807,6 +824,26 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_BIAS_DATA_1)
             int_bias[63:32] <= (WDATA[31:0] & wmask) | (int_bias[63:32] & ~wmask);
+    end
+end
+
+// int_conv_scratch[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_conv_scratch[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONV_SCRATCH_DATA_0)
+            int_conv_scratch[31:0] <= (WDATA[31:0] & wmask) | (int_conv_scratch[31:0] & ~wmask);
+    end
+end
+
+// int_conv_scratch[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_conv_scratch[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CONV_SCRATCH_DATA_1)
+            int_conv_scratch[63:32] <= (WDATA[31:0] & wmask) | (int_conv_scratch[63:32] & ~wmask);
     end
 end
 

@@ -12,7 +12,6 @@ module dpu_conv_top_conv3x3_relu (
         ap_rst,
         ap_start,
         ap_done,
-        ap_continue,
         ap_idle,
         ap_ready,
         m_axi_gmem0_0_0_AWVALID,
@@ -814,48 +813,80 @@ module dpu_conv_top_conv3x3_relu (
         m_axi_gmem1_0_BID,
         m_axi_gmem1_0_BUSER,
         bias,
+        m_axi_gmem2_0_AWVALID,
+        m_axi_gmem2_0_AWREADY,
+        m_axi_gmem2_0_AWADDR,
+        m_axi_gmem2_0_AWID,
+        m_axi_gmem2_0_AWLEN,
+        m_axi_gmem2_0_AWSIZE,
+        m_axi_gmem2_0_AWBURST,
+        m_axi_gmem2_0_AWLOCK,
+        m_axi_gmem2_0_AWCACHE,
+        m_axi_gmem2_0_AWPROT,
+        m_axi_gmem2_0_AWQOS,
+        m_axi_gmem2_0_AWREGION,
+        m_axi_gmem2_0_AWUSER,
+        m_axi_gmem2_0_WVALID,
+        m_axi_gmem2_0_WREADY,
+        m_axi_gmem2_0_WDATA,
+        m_axi_gmem2_0_WSTRB,
+        m_axi_gmem2_0_WLAST,
+        m_axi_gmem2_0_WID,
+        m_axi_gmem2_0_WUSER,
+        m_axi_gmem2_0_ARVALID,
+        m_axi_gmem2_0_ARREADY,
+        m_axi_gmem2_0_ARADDR,
+        m_axi_gmem2_0_ARID,
+        m_axi_gmem2_0_ARLEN,
+        m_axi_gmem2_0_ARSIZE,
+        m_axi_gmem2_0_ARBURST,
+        m_axi_gmem2_0_ARLOCK,
+        m_axi_gmem2_0_ARCACHE,
+        m_axi_gmem2_0_ARPROT,
+        m_axi_gmem2_0_ARQOS,
+        m_axi_gmem2_0_ARREGION,
+        m_axi_gmem2_0_ARUSER,
+        m_axi_gmem2_0_RVALID,
+        m_axi_gmem2_0_RREADY,
+        m_axi_gmem2_0_RDATA,
+        m_axi_gmem2_0_RLAST,
+        m_axi_gmem2_0_RID,
+        m_axi_gmem2_0_RFIFONUM,
+        m_axi_gmem2_0_RUSER,
+        m_axi_gmem2_0_RRESP,
+        m_axi_gmem2_0_BVALID,
+        m_axi_gmem2_0_BREADY,
+        m_axi_gmem2_0_BRESP,
+        m_axi_gmem2_0_BID,
+        m_axi_gmem2_0_BUSER,
+        conv_buf,
         in_h,
         in_w,
         in_ch,
         out_ch,
         do_relu,
-        p_read,
-        p_read2,
-        dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_address0,
-        dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_ce0,
-        dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_we0,
-        dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_d0,
-        dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_address0,
-        dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_ce0,
-        dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_we0,
-        dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_d0,
         ap_return_0,
-        ap_return_1,
-        ap_return_2,
-        ap_return_3,
-        ap_return_4
+        ap_return_1
 );
 
-parameter    ap_ST_fsm_state1 = 14'd1;
-parameter    ap_ST_fsm_state2 = 14'd2;
-parameter    ap_ST_fsm_state3 = 14'd4;
-parameter    ap_ST_fsm_state4 = 14'd8;
-parameter    ap_ST_fsm_state5 = 14'd16;
-parameter    ap_ST_fsm_state6 = 14'd32;
-parameter    ap_ST_fsm_state7 = 14'd64;
-parameter    ap_ST_fsm_state8 = 14'd128;
-parameter    ap_ST_fsm_state9 = 14'd256;
-parameter    ap_ST_fsm_state10 = 14'd512;
-parameter    ap_ST_fsm_state11 = 14'd1024;
-parameter    ap_ST_fsm_state12 = 14'd2048;
-parameter    ap_ST_fsm_state13 = 14'd4096;
-parameter    ap_ST_fsm_state14 = 14'd8192;
+parameter    ap_ST_fsm_state1 = 13'd1;
+parameter    ap_ST_fsm_state2 = 13'd2;
+parameter    ap_ST_fsm_state3 = 13'd4;
+parameter    ap_ST_fsm_state4 = 13'd8;
+parameter    ap_ST_fsm_state5 = 13'd16;
+parameter    ap_ST_fsm_state6 = 13'd32;
+parameter    ap_ST_fsm_state7 = 13'd64;
+parameter    ap_ST_fsm_state8 = 13'd128;
+parameter    ap_ST_fsm_state9 = 13'd256;
+parameter    ap_ST_fsm_state10 = 13'd512;
+parameter    ap_ST_fsm_state11 = 13'd1024;
+parameter    ap_ST_fsm_state12 = 13'd2048;
+parameter    ap_ST_fsm_state13 = 13'd4096;
 
 input   ap_clk;
 input   ap_rst;
 input   ap_start;
 output   ap_done;
-input   ap_continue;
 output   ap_idle;
 output   ap_ready;
 output   m_axi_gmem0_0_0_AWVALID;
@@ -1657,26 +1688,60 @@ input  [1:0] m_axi_gmem1_0_BRESP;
 input  [0:0] m_axi_gmem1_0_BID;
 input  [0:0] m_axi_gmem1_0_BUSER;
 input  [63:0] bias;
+output   m_axi_gmem2_0_AWVALID;
+input   m_axi_gmem2_0_AWREADY;
+output  [63:0] m_axi_gmem2_0_AWADDR;
+output  [0:0] m_axi_gmem2_0_AWID;
+output  [31:0] m_axi_gmem2_0_AWLEN;
+output  [2:0] m_axi_gmem2_0_AWSIZE;
+output  [1:0] m_axi_gmem2_0_AWBURST;
+output  [1:0] m_axi_gmem2_0_AWLOCK;
+output  [3:0] m_axi_gmem2_0_AWCACHE;
+output  [2:0] m_axi_gmem2_0_AWPROT;
+output  [3:0] m_axi_gmem2_0_AWQOS;
+output  [3:0] m_axi_gmem2_0_AWREGION;
+output  [0:0] m_axi_gmem2_0_AWUSER;
+output   m_axi_gmem2_0_WVALID;
+input   m_axi_gmem2_0_WREADY;
+output  [7:0] m_axi_gmem2_0_WDATA;
+output  [0:0] m_axi_gmem2_0_WSTRB;
+output   m_axi_gmem2_0_WLAST;
+output  [0:0] m_axi_gmem2_0_WID;
+output  [0:0] m_axi_gmem2_0_WUSER;
+output   m_axi_gmem2_0_ARVALID;
+input   m_axi_gmem2_0_ARREADY;
+output  [63:0] m_axi_gmem2_0_ARADDR;
+output  [0:0] m_axi_gmem2_0_ARID;
+output  [31:0] m_axi_gmem2_0_ARLEN;
+output  [2:0] m_axi_gmem2_0_ARSIZE;
+output  [1:0] m_axi_gmem2_0_ARBURST;
+output  [1:0] m_axi_gmem2_0_ARLOCK;
+output  [3:0] m_axi_gmem2_0_ARCACHE;
+output  [2:0] m_axi_gmem2_0_ARPROT;
+output  [3:0] m_axi_gmem2_0_ARQOS;
+output  [3:0] m_axi_gmem2_0_ARREGION;
+output  [0:0] m_axi_gmem2_0_ARUSER;
+input   m_axi_gmem2_0_RVALID;
+output   m_axi_gmem2_0_RREADY;
+input  [7:0] m_axi_gmem2_0_RDATA;
+input   m_axi_gmem2_0_RLAST;
+input  [0:0] m_axi_gmem2_0_RID;
+input  [10:0] m_axi_gmem2_0_RFIFONUM;
+input  [0:0] m_axi_gmem2_0_RUSER;
+input  [1:0] m_axi_gmem2_0_RRESP;
+input   m_axi_gmem2_0_BVALID;
+output   m_axi_gmem2_0_BREADY;
+input  [1:0] m_axi_gmem2_0_BRESP;
+input  [0:0] m_axi_gmem2_0_BID;
+input  [0:0] m_axi_gmem2_0_BUSER;
+input  [63:0] conv_buf;
 input  [7:0] in_h;
 input  [7:0] in_w;
 input  [7:0] in_ch;
 input  [7:0] out_ch;
 input  [0:0] do_relu;
-input  [0:0] p_read;
-input  [0:0] p_read2;
-output  [16:0] dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_address0;
-output   dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_ce0;
-output   dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_we0;
-output  [7:0] dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_d0;
-output  [16:0] dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_address0;
-output   dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_ce0;
-output   dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_we0;
-output  [7:0] dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_d0;
 output  [31:0] ap_return_0;
 output  [31:0] ap_return_1;
-output  [7:0] ap_return_2;
-output  [7:0] ap_return_3;
-output  [7:0] ap_return_4;
 
 reg ap_done;
 reg ap_idle;
@@ -1684,604 +1749,592 @@ reg ap_ready;
 reg m_axi_gmem1_0_ARVALID;
 reg m_axi_gmem1_0_RREADY;
 
-reg    ap_done_reg;
-(* fsm_encoding = "none" *) reg   [13:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [12:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    gmem1_blk_n_AR;
 wire    ap_CS_fsm_state3;
 reg    gmem1_blk_n_R;
 wire    ap_CS_fsm_state11;
-reg   [0:0] do_relu_read_reg_631;
-reg    ap_block_state1;
-reg   [7:0] out_ch_read_reg_636;
-reg   [7:0] in_ch_read_reg_642;
-reg   [7:0] in_w_read_reg_647;
-reg   [7:0] in_h_read_reg_653;
-reg   [63:0] bias_read_reg_659;
-reg   [63:0] weight_7_read_reg_664;
-reg   [63:0] weight_6_read_reg_669;
-reg   [63:0] weight_5_read_reg_674;
-reg   [63:0] weight_4_read_reg_679;
-reg   [63:0] weight_3_read_reg_684;
-reg   [63:0] weight_2_read_reg_689;
-reg   [63:0] weight_1_read_reg_694;
-reg   [63:0] weight_0_read_reg_699;
-reg   [63:0] ifmap_7_read_reg_704;
-reg   [63:0] ifmap_6_read_reg_709;
-reg   [63:0] ifmap_5_read_reg_714;
-reg   [63:0] ifmap_4_read_reg_719;
-reg   [63:0] ifmap_3_read_reg_724;
-reg   [63:0] ifmap_2_read_reg_729;
-reg   [63:0] ifmap_1_read_reg_734;
-reg   [63:0] ifmap_0_read_reg_739;
-wire   [31:0] p_read_cast_fu_463_p1;
-reg   [31:0] p_read_cast_reg_744;
-wire   [10:0] shl_ln_fu_467_p3;
-reg   [10:0] shl_ln_reg_755;
-wire   [18:0] bound4_fu_483_p2;
-reg   [18:0] bound4_reg_761;
-reg   [7:0] oc_3_reg_766;
+wire   [10:0] shl_ln_fu_428_p3;
+reg   [10:0] shl_ln_reg_678;
+wire   [18:0] bound7_fu_444_p2;
+reg   [18:0] bound7_reg_684;
+reg   [7:0] oc_2_reg_689;
 wire    ap_CS_fsm_state2;
-reg   [63:0] gmem1_addr_reg_775;
-reg   [31:0] mac_count_loc_0_i_load_reg_781;
-reg   [31:0] mac_count_new_0_i_load_reg_786;
-reg   [31:0] cycle_count_out_0_load_reg_791;
-reg   [31:0] gmem1_addr_read_reg_796;
-wire   [5:0] trunc_ln23_fu_597_p1;
-reg   [5:0] trunc_ln23_reg_801;
+reg   [63:0] gmem1_addr_reg_698;
+reg   [31:0] cycle_count_0_load_reg_704;
+reg   [31:0] mac_count_0_load_reg_709;
+reg   [31:0] gmem1_addr_read_reg_714;
+wire   [19:0] shl_ln28_1_fu_533_p3;
+reg   [19:0] shl_ln28_1_reg_719;
 wire    ap_CS_fsm_state12;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_start;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_done;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_idle;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_ready;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_BREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WVALID;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WDATA;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WSTRB;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WLAST;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WID;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARVALID;
-wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARADDR;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARID;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARLEN;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARSIZE;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARBURST;
-wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARLOCK;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARCACHE;
-wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARPROT;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARQOS;
-wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARREGION;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARUSER;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_RREADY;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_BREADY;
-wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_flag_3_i_out;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_flag_3_i_out_ap_vld;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_new_3_i_out;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_new_3_i_out_ap_vld;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_loc_3_i_out;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_loc_3_i_out_ap_vld;
-wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_select_ln31_out;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_select_ln31_out_ap_vld;
-wire   [16:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_address0;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_ce0;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_we0;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_d0;
-wire   [16:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_address0;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_ce0;
-wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_we0;
-wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_d0;
-reg   [0:0] mac_count_flag_0_i_reg_366;
-wire    ap_CS_fsm_state14;
-reg    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_start_reg;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_start;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_done;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_idle;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_ready;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_BREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WVALID;
+wire   [7:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WDATA;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WSTRB;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WLAST;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WID;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARVALID;
+wire   [63:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARADDR;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARID;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARLEN;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARSIZE;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARBURST;
+wire   [1:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARLOCK;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARCACHE;
+wire   [2:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARPROT;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARQOS;
+wire   [3:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARREGION;
+wire   [0:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARUSER;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_RREADY;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_BREADY;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_mac_count_3_out;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_mac_count_3_out_ap_vld;
+wire   [31:0] grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_select_ln31_out;
+wire    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_select_ln31_out_ap_vld;
+reg    grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_start_reg;
 wire    ap_CS_fsm_state13;
-reg   [31:0] mac_count_new_0_i_fu_198;
-reg   [31:0] mac_count_loc_0_i_fu_194;
-reg   [31:0] cycle_count_out_0_fu_202;
-wire  signed [63:0] sext_ln33_fu_545_p1;
-wire   [0:0] icmp_ln23_fu_507_p2;
+reg   [31:0] mac_count_0_fu_198;
+reg   [31:0] cycle_count_0_fu_194;
+wire  signed [63:0] sext_ln33_fu_506_p1;
+wire   [0:0] icmp_ln23_fu_468_p2;
 reg   [7:0] oc_fu_190;
-wire   [7:0] add_ln23_fu_512_p2;
-wire   [31:0] p_read2_cast_fu_459_p1;
-wire   [7:0] bound4_fu_483_p0;
-wire   [10:0] bound4_fu_483_p1;
-wire   [9:0] shl_ln1_fu_518_p3;
-wire   [63:0] zext_ln33_fu_526_p1;
-wire   [63:0] add_ln33_fu_530_p2;
-wire   [61:0] trunc_ln_fu_535_p4;
-wire   [31:0] mac_count_out_0_fu_560_p3;
-reg   [13:0] ap_NS_fsm;
+wire   [7:0] add_ln23_fu_473_p2;
+wire   [7:0] bound7_fu_444_p0;
+wire   [10:0] bound7_fu_444_p1;
+wire   [9:0] shl_ln2_fu_479_p3;
+wire   [63:0] zext_ln33_fu_487_p1;
+wire   [63:0] add_ln33_fu_491_p2;
+wire   [61:0] trunc_ln_fu_496_p4;
+reg   [12:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 wire    ap_ST_fsm_state2_blk;
 reg    ap_ST_fsm_state3_blk;
@@ -2295,109 +2348,107 @@ wire    ap_ST_fsm_state10_blk;
 reg    ap_ST_fsm_state11_blk;
 wire    ap_ST_fsm_state12_blk;
 reg    ap_ST_fsm_state13_blk;
-wire    ap_ST_fsm_state14_blk;
-wire   [18:0] bound4_fu_483_p00;
-wire   [18:0] bound4_fu_483_p10;
+wire   [18:0] bound7_fu_444_p00;
+wire   [18:0] bound7_fu_444_p10;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 ap_done_reg = 1'b0;
-#0 ap_CS_fsm = 14'd1;
-#0 grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_start_reg = 1'b0;
-#0 mac_count_loc_0_i_fu_194 = 32'd0;
-#0 cycle_count_out_0_fu_202 = 32'd0;
+#0 ap_CS_fsm = 13'd1;
+#0 grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_start_reg = 1'b0;
+#0 mac_count_0_fu_198 = 32'd0;
+#0 cycle_count_0_fu_194 = 32'd0;
 #0 oc_fu_190 = 8'd0;
 end
 
-dpu_conv_top_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378(
+dpu_conv_top_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_start),
-    .ap_done(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_done),
-    .ap_idle(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_idle),
-    .ap_ready(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_ready),
-    .m_axi_gmem0_0_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWVALID),
-    .m_axi_gmem0_0_0_AWREADY(1'b0),
-    .m_axi_gmem0_0_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWADDR),
-    .m_axi_gmem0_0_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWID),
-    .m_axi_gmem0_0_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWLEN),
-    .m_axi_gmem0_0_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWSIZE),
-    .m_axi_gmem0_0_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWBURST),
-    .m_axi_gmem0_0_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWLOCK),
-    .m_axi_gmem0_0_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWCACHE),
-    .m_axi_gmem0_0_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWPROT),
-    .m_axi_gmem0_0_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWQOS),
-    .m_axi_gmem0_0_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWREGION),
-    .m_axi_gmem0_0_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_AWUSER),
-    .m_axi_gmem0_0_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WVALID),
-    .m_axi_gmem0_0_0_WREADY(1'b0),
-    .m_axi_gmem0_0_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WDATA),
-    .m_axi_gmem0_0_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WSTRB),
-    .m_axi_gmem0_0_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WLAST),
-    .m_axi_gmem0_0_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WID),
-    .m_axi_gmem0_0_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_WUSER),
-    .m_axi_gmem0_0_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARVALID),
-    .m_axi_gmem0_0_0_ARREADY(m_axi_gmem0_0_0_ARREADY),
-    .m_axi_gmem0_0_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARADDR),
-    .m_axi_gmem0_0_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARID),
-    .m_axi_gmem0_0_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARLEN),
-    .m_axi_gmem0_0_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARSIZE),
-    .m_axi_gmem0_0_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARBURST),
-    .m_axi_gmem0_0_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARLOCK),
-    .m_axi_gmem0_0_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARCACHE),
-    .m_axi_gmem0_0_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARPROT),
-    .m_axi_gmem0_0_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARQOS),
-    .m_axi_gmem0_0_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARREGION),
-    .m_axi_gmem0_0_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARUSER),
-    .m_axi_gmem0_0_0_RVALID(m_axi_gmem0_0_0_RVALID),
-    .m_axi_gmem0_0_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_RREADY),
-    .m_axi_gmem0_0_0_RDATA(m_axi_gmem0_0_0_RDATA),
-    .m_axi_gmem0_0_0_RLAST(m_axi_gmem0_0_0_RLAST),
-    .m_axi_gmem0_0_0_RID(m_axi_gmem0_0_0_RID),
-    .m_axi_gmem0_0_0_RFIFONUM(m_axi_gmem0_0_0_RFIFONUM),
-    .m_axi_gmem0_0_0_RUSER(m_axi_gmem0_0_0_RUSER),
-    .m_axi_gmem0_0_0_RRESP(m_axi_gmem0_0_0_RRESP),
-    .m_axi_gmem0_0_0_BVALID(1'b0),
-    .m_axi_gmem0_0_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_BREADY),
-    .m_axi_gmem0_0_0_BRESP(2'd0),
-    .m_axi_gmem0_0_0_BID(1'd0),
-    .m_axi_gmem0_0_0_BUSER(1'd0),
-    .m_axi_gmem1_0_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWVALID),
+    .ap_start(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_start),
+    .ap_done(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_done),
+    .ap_idle(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_idle),
+    .ap_ready(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_ready),
+    .m_axi_gmem2_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWVALID),
+    .m_axi_gmem2_0_AWREADY(m_axi_gmem2_0_AWREADY),
+    .m_axi_gmem2_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWADDR),
+    .m_axi_gmem2_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWID),
+    .m_axi_gmem2_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWLEN),
+    .m_axi_gmem2_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWSIZE),
+    .m_axi_gmem2_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWBURST),
+    .m_axi_gmem2_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWLOCK),
+    .m_axi_gmem2_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWCACHE),
+    .m_axi_gmem2_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWPROT),
+    .m_axi_gmem2_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWQOS),
+    .m_axi_gmem2_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWREGION),
+    .m_axi_gmem2_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWUSER),
+    .m_axi_gmem2_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WVALID),
+    .m_axi_gmem2_0_WREADY(m_axi_gmem2_0_WREADY),
+    .m_axi_gmem2_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WDATA),
+    .m_axi_gmem2_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WSTRB),
+    .m_axi_gmem2_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WLAST),
+    .m_axi_gmem2_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WID),
+    .m_axi_gmem2_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WUSER),
+    .m_axi_gmem2_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARVALID),
+    .m_axi_gmem2_0_ARREADY(1'b0),
+    .m_axi_gmem2_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARADDR),
+    .m_axi_gmem2_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARID),
+    .m_axi_gmem2_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARLEN),
+    .m_axi_gmem2_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARSIZE),
+    .m_axi_gmem2_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARBURST),
+    .m_axi_gmem2_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARLOCK),
+    .m_axi_gmem2_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARCACHE),
+    .m_axi_gmem2_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARPROT),
+    .m_axi_gmem2_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARQOS),
+    .m_axi_gmem2_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARREGION),
+    .m_axi_gmem2_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_ARUSER),
+    .m_axi_gmem2_0_RVALID(1'b0),
+    .m_axi_gmem2_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_RREADY),
+    .m_axi_gmem2_0_RDATA(8'd0),
+    .m_axi_gmem2_0_RLAST(1'b0),
+    .m_axi_gmem2_0_RID(1'd0),
+    .m_axi_gmem2_0_RFIFONUM(11'd0),
+    .m_axi_gmem2_0_RUSER(1'd0),
+    .m_axi_gmem2_0_RRESP(2'd0),
+    .m_axi_gmem2_0_BVALID(m_axi_gmem2_0_BVALID),
+    .m_axi_gmem2_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_BREADY),
+    .m_axi_gmem2_0_BRESP(m_axi_gmem2_0_BRESP),
+    .m_axi_gmem2_0_BID(m_axi_gmem2_0_BID),
+    .m_axi_gmem2_0_BUSER(m_axi_gmem2_0_BUSER),
+    .m_axi_gmem1_0_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWVALID),
     .m_axi_gmem1_0_0_AWREADY(1'b0),
-    .m_axi_gmem1_0_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWADDR),
-    .m_axi_gmem1_0_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWID),
-    .m_axi_gmem1_0_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWLEN),
-    .m_axi_gmem1_0_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWSIZE),
-    .m_axi_gmem1_0_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWBURST),
-    .m_axi_gmem1_0_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWLOCK),
-    .m_axi_gmem1_0_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWCACHE),
-    .m_axi_gmem1_0_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWPROT),
-    .m_axi_gmem1_0_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWQOS),
-    .m_axi_gmem1_0_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWREGION),
-    .m_axi_gmem1_0_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_AWUSER),
-    .m_axi_gmem1_0_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WVALID),
+    .m_axi_gmem1_0_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWADDR),
+    .m_axi_gmem1_0_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWID),
+    .m_axi_gmem1_0_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWLEN),
+    .m_axi_gmem1_0_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWSIZE),
+    .m_axi_gmem1_0_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWBURST),
+    .m_axi_gmem1_0_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWLOCK),
+    .m_axi_gmem1_0_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWCACHE),
+    .m_axi_gmem1_0_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWPROT),
+    .m_axi_gmem1_0_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWQOS),
+    .m_axi_gmem1_0_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWREGION),
+    .m_axi_gmem1_0_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_AWUSER),
+    .m_axi_gmem1_0_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WVALID),
     .m_axi_gmem1_0_0_WREADY(1'b0),
-    .m_axi_gmem1_0_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WDATA),
-    .m_axi_gmem1_0_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WSTRB),
-    .m_axi_gmem1_0_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WLAST),
-    .m_axi_gmem1_0_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WID),
-    .m_axi_gmem1_0_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_WUSER),
-    .m_axi_gmem1_0_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARVALID),
+    .m_axi_gmem1_0_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WDATA),
+    .m_axi_gmem1_0_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WSTRB),
+    .m_axi_gmem1_0_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WLAST),
+    .m_axi_gmem1_0_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WID),
+    .m_axi_gmem1_0_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_WUSER),
+    .m_axi_gmem1_0_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARVALID),
     .m_axi_gmem1_0_0_ARREADY(m_axi_gmem1_0_0_ARREADY),
-    .m_axi_gmem1_0_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARADDR),
-    .m_axi_gmem1_0_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARID),
-    .m_axi_gmem1_0_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARLEN),
-    .m_axi_gmem1_0_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARSIZE),
-    .m_axi_gmem1_0_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARBURST),
-    .m_axi_gmem1_0_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARLOCK),
-    .m_axi_gmem1_0_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARCACHE),
-    .m_axi_gmem1_0_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARPROT),
-    .m_axi_gmem1_0_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARQOS),
-    .m_axi_gmem1_0_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARREGION),
-    .m_axi_gmem1_0_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARUSER),
+    .m_axi_gmem1_0_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARADDR),
+    .m_axi_gmem1_0_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARID),
+    .m_axi_gmem1_0_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARLEN),
+    .m_axi_gmem1_0_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARSIZE),
+    .m_axi_gmem1_0_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARBURST),
+    .m_axi_gmem1_0_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARLOCK),
+    .m_axi_gmem1_0_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARCACHE),
+    .m_axi_gmem1_0_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARPROT),
+    .m_axi_gmem1_0_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARQOS),
+    .m_axi_gmem1_0_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARREGION),
+    .m_axi_gmem1_0_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARUSER),
     .m_axi_gmem1_0_0_RVALID(m_axi_gmem1_0_0_RVALID),
-    .m_axi_gmem1_0_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_RREADY),
+    .m_axi_gmem1_0_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_RREADY),
     .m_axi_gmem1_0_0_RDATA(m_axi_gmem1_0_0_RDATA),
     .m_axi_gmem1_0_0_RLAST(m_axi_gmem1_0_0_RLAST),
     .m_axi_gmem1_0_0_RID(m_axi_gmem1_0_0_RID),
@@ -2405,91 +2456,45 @@ dpu_conv_top_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP grp_conv3x3_relu_Pipe
     .m_axi_gmem1_0_0_RUSER(m_axi_gmem1_0_0_RUSER),
     .m_axi_gmem1_0_0_RRESP(m_axi_gmem1_0_0_RRESP),
     .m_axi_gmem1_0_0_BVALID(1'b0),
-    .m_axi_gmem1_0_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_BREADY),
+    .m_axi_gmem1_0_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_BREADY),
     .m_axi_gmem1_0_0_BRESP(2'd0),
     .m_axi_gmem1_0_0_BID(1'd0),
     .m_axi_gmem1_0_0_BUSER(1'd0),
-    .m_axi_gmem0_1_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWVALID),
-    .m_axi_gmem0_1_0_AWREADY(1'b0),
-    .m_axi_gmem0_1_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWADDR),
-    .m_axi_gmem0_1_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWID),
-    .m_axi_gmem0_1_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWLEN),
-    .m_axi_gmem0_1_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWSIZE),
-    .m_axi_gmem0_1_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWBURST),
-    .m_axi_gmem0_1_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWLOCK),
-    .m_axi_gmem0_1_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWCACHE),
-    .m_axi_gmem0_1_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWPROT),
-    .m_axi_gmem0_1_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWQOS),
-    .m_axi_gmem0_1_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWREGION),
-    .m_axi_gmem0_1_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_AWUSER),
-    .m_axi_gmem0_1_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WVALID),
-    .m_axi_gmem0_1_0_WREADY(1'b0),
-    .m_axi_gmem0_1_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WDATA),
-    .m_axi_gmem0_1_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WSTRB),
-    .m_axi_gmem0_1_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WLAST),
-    .m_axi_gmem0_1_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WID),
-    .m_axi_gmem0_1_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_WUSER),
-    .m_axi_gmem0_1_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARVALID),
-    .m_axi_gmem0_1_0_ARREADY(m_axi_gmem0_1_0_ARREADY),
-    .m_axi_gmem0_1_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARADDR),
-    .m_axi_gmem0_1_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARID),
-    .m_axi_gmem0_1_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARLEN),
-    .m_axi_gmem0_1_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARSIZE),
-    .m_axi_gmem0_1_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARBURST),
-    .m_axi_gmem0_1_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARLOCK),
-    .m_axi_gmem0_1_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARCACHE),
-    .m_axi_gmem0_1_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARPROT),
-    .m_axi_gmem0_1_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARQOS),
-    .m_axi_gmem0_1_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARREGION),
-    .m_axi_gmem0_1_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARUSER),
-    .m_axi_gmem0_1_0_RVALID(m_axi_gmem0_1_0_RVALID),
-    .m_axi_gmem0_1_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_RREADY),
-    .m_axi_gmem0_1_0_RDATA(m_axi_gmem0_1_0_RDATA),
-    .m_axi_gmem0_1_0_RLAST(m_axi_gmem0_1_0_RLAST),
-    .m_axi_gmem0_1_0_RID(m_axi_gmem0_1_0_RID),
-    .m_axi_gmem0_1_0_RFIFONUM(m_axi_gmem0_1_0_RFIFONUM),
-    .m_axi_gmem0_1_0_RUSER(m_axi_gmem0_1_0_RUSER),
-    .m_axi_gmem0_1_0_RRESP(m_axi_gmem0_1_0_RRESP),
-    .m_axi_gmem0_1_0_BVALID(1'b0),
-    .m_axi_gmem0_1_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_BREADY),
-    .m_axi_gmem0_1_0_BRESP(2'd0),
-    .m_axi_gmem0_1_0_BID(1'd0),
-    .m_axi_gmem0_1_0_BUSER(1'd0),
-    .m_axi_gmem1_1_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWVALID),
+    .m_axi_gmem1_1_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWVALID),
     .m_axi_gmem1_1_0_AWREADY(1'b0),
-    .m_axi_gmem1_1_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWADDR),
-    .m_axi_gmem1_1_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWID),
-    .m_axi_gmem1_1_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWLEN),
-    .m_axi_gmem1_1_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWSIZE),
-    .m_axi_gmem1_1_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWBURST),
-    .m_axi_gmem1_1_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWLOCK),
-    .m_axi_gmem1_1_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWCACHE),
-    .m_axi_gmem1_1_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWPROT),
-    .m_axi_gmem1_1_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWQOS),
-    .m_axi_gmem1_1_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWREGION),
-    .m_axi_gmem1_1_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_AWUSER),
-    .m_axi_gmem1_1_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WVALID),
+    .m_axi_gmem1_1_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWADDR),
+    .m_axi_gmem1_1_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWID),
+    .m_axi_gmem1_1_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWLEN),
+    .m_axi_gmem1_1_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWSIZE),
+    .m_axi_gmem1_1_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWBURST),
+    .m_axi_gmem1_1_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWLOCK),
+    .m_axi_gmem1_1_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWCACHE),
+    .m_axi_gmem1_1_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWPROT),
+    .m_axi_gmem1_1_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWQOS),
+    .m_axi_gmem1_1_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWREGION),
+    .m_axi_gmem1_1_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_AWUSER),
+    .m_axi_gmem1_1_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WVALID),
     .m_axi_gmem1_1_0_WREADY(1'b0),
-    .m_axi_gmem1_1_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WDATA),
-    .m_axi_gmem1_1_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WSTRB),
-    .m_axi_gmem1_1_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WLAST),
-    .m_axi_gmem1_1_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WID),
-    .m_axi_gmem1_1_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_WUSER),
-    .m_axi_gmem1_1_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARVALID),
+    .m_axi_gmem1_1_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WDATA),
+    .m_axi_gmem1_1_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WSTRB),
+    .m_axi_gmem1_1_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WLAST),
+    .m_axi_gmem1_1_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WID),
+    .m_axi_gmem1_1_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_WUSER),
+    .m_axi_gmem1_1_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARVALID),
     .m_axi_gmem1_1_0_ARREADY(m_axi_gmem1_1_0_ARREADY),
-    .m_axi_gmem1_1_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARADDR),
-    .m_axi_gmem1_1_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARID),
-    .m_axi_gmem1_1_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARLEN),
-    .m_axi_gmem1_1_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARSIZE),
-    .m_axi_gmem1_1_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARBURST),
-    .m_axi_gmem1_1_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARLOCK),
-    .m_axi_gmem1_1_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARCACHE),
-    .m_axi_gmem1_1_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARPROT),
-    .m_axi_gmem1_1_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARQOS),
-    .m_axi_gmem1_1_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARREGION),
-    .m_axi_gmem1_1_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARUSER),
+    .m_axi_gmem1_1_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARADDR),
+    .m_axi_gmem1_1_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARID),
+    .m_axi_gmem1_1_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARLEN),
+    .m_axi_gmem1_1_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARSIZE),
+    .m_axi_gmem1_1_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARBURST),
+    .m_axi_gmem1_1_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARLOCK),
+    .m_axi_gmem1_1_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARCACHE),
+    .m_axi_gmem1_1_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARPROT),
+    .m_axi_gmem1_1_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARQOS),
+    .m_axi_gmem1_1_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARREGION),
+    .m_axi_gmem1_1_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARUSER),
     .m_axi_gmem1_1_0_RVALID(m_axi_gmem1_1_0_RVALID),
-    .m_axi_gmem1_1_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_RREADY),
+    .m_axi_gmem1_1_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_RREADY),
     .m_axi_gmem1_1_0_RDATA(m_axi_gmem1_1_0_RDATA),
     .m_axi_gmem1_1_0_RLAST(m_axi_gmem1_1_0_RLAST),
     .m_axi_gmem1_1_0_RID(m_axi_gmem1_1_0_RID),
@@ -2497,91 +2502,45 @@ dpu_conv_top_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP grp_conv3x3_relu_Pipe
     .m_axi_gmem1_1_0_RUSER(m_axi_gmem1_1_0_RUSER),
     .m_axi_gmem1_1_0_RRESP(m_axi_gmem1_1_0_RRESP),
     .m_axi_gmem1_1_0_BVALID(1'b0),
-    .m_axi_gmem1_1_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_BREADY),
+    .m_axi_gmem1_1_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_BREADY),
     .m_axi_gmem1_1_0_BRESP(2'd0),
     .m_axi_gmem1_1_0_BID(1'd0),
     .m_axi_gmem1_1_0_BUSER(1'd0),
-    .m_axi_gmem0_2_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWVALID),
-    .m_axi_gmem0_2_0_AWREADY(1'b0),
-    .m_axi_gmem0_2_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWADDR),
-    .m_axi_gmem0_2_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWID),
-    .m_axi_gmem0_2_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWLEN),
-    .m_axi_gmem0_2_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWSIZE),
-    .m_axi_gmem0_2_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWBURST),
-    .m_axi_gmem0_2_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWLOCK),
-    .m_axi_gmem0_2_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWCACHE),
-    .m_axi_gmem0_2_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWPROT),
-    .m_axi_gmem0_2_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWQOS),
-    .m_axi_gmem0_2_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWREGION),
-    .m_axi_gmem0_2_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_AWUSER),
-    .m_axi_gmem0_2_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WVALID),
-    .m_axi_gmem0_2_0_WREADY(1'b0),
-    .m_axi_gmem0_2_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WDATA),
-    .m_axi_gmem0_2_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WSTRB),
-    .m_axi_gmem0_2_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WLAST),
-    .m_axi_gmem0_2_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WID),
-    .m_axi_gmem0_2_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_WUSER),
-    .m_axi_gmem0_2_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARVALID),
-    .m_axi_gmem0_2_0_ARREADY(m_axi_gmem0_2_0_ARREADY),
-    .m_axi_gmem0_2_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARADDR),
-    .m_axi_gmem0_2_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARID),
-    .m_axi_gmem0_2_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARLEN),
-    .m_axi_gmem0_2_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARSIZE),
-    .m_axi_gmem0_2_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARBURST),
-    .m_axi_gmem0_2_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARLOCK),
-    .m_axi_gmem0_2_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARCACHE),
-    .m_axi_gmem0_2_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARPROT),
-    .m_axi_gmem0_2_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARQOS),
-    .m_axi_gmem0_2_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARREGION),
-    .m_axi_gmem0_2_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARUSER),
-    .m_axi_gmem0_2_0_RVALID(m_axi_gmem0_2_0_RVALID),
-    .m_axi_gmem0_2_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_RREADY),
-    .m_axi_gmem0_2_0_RDATA(m_axi_gmem0_2_0_RDATA),
-    .m_axi_gmem0_2_0_RLAST(m_axi_gmem0_2_0_RLAST),
-    .m_axi_gmem0_2_0_RID(m_axi_gmem0_2_0_RID),
-    .m_axi_gmem0_2_0_RFIFONUM(m_axi_gmem0_2_0_RFIFONUM),
-    .m_axi_gmem0_2_0_RUSER(m_axi_gmem0_2_0_RUSER),
-    .m_axi_gmem0_2_0_RRESP(m_axi_gmem0_2_0_RRESP),
-    .m_axi_gmem0_2_0_BVALID(1'b0),
-    .m_axi_gmem0_2_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_BREADY),
-    .m_axi_gmem0_2_0_BRESP(2'd0),
-    .m_axi_gmem0_2_0_BID(1'd0),
-    .m_axi_gmem0_2_0_BUSER(1'd0),
-    .m_axi_gmem1_2_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWVALID),
+    .m_axi_gmem1_2_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWVALID),
     .m_axi_gmem1_2_0_AWREADY(1'b0),
-    .m_axi_gmem1_2_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWADDR),
-    .m_axi_gmem1_2_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWID),
-    .m_axi_gmem1_2_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWLEN),
-    .m_axi_gmem1_2_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWSIZE),
-    .m_axi_gmem1_2_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWBURST),
-    .m_axi_gmem1_2_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWLOCK),
-    .m_axi_gmem1_2_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWCACHE),
-    .m_axi_gmem1_2_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWPROT),
-    .m_axi_gmem1_2_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWQOS),
-    .m_axi_gmem1_2_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWREGION),
-    .m_axi_gmem1_2_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_AWUSER),
-    .m_axi_gmem1_2_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WVALID),
+    .m_axi_gmem1_2_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWADDR),
+    .m_axi_gmem1_2_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWID),
+    .m_axi_gmem1_2_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWLEN),
+    .m_axi_gmem1_2_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWSIZE),
+    .m_axi_gmem1_2_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWBURST),
+    .m_axi_gmem1_2_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWLOCK),
+    .m_axi_gmem1_2_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWCACHE),
+    .m_axi_gmem1_2_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWPROT),
+    .m_axi_gmem1_2_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWQOS),
+    .m_axi_gmem1_2_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWREGION),
+    .m_axi_gmem1_2_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_AWUSER),
+    .m_axi_gmem1_2_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WVALID),
     .m_axi_gmem1_2_0_WREADY(1'b0),
-    .m_axi_gmem1_2_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WDATA),
-    .m_axi_gmem1_2_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WSTRB),
-    .m_axi_gmem1_2_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WLAST),
-    .m_axi_gmem1_2_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WID),
-    .m_axi_gmem1_2_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_WUSER),
-    .m_axi_gmem1_2_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARVALID),
+    .m_axi_gmem1_2_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WDATA),
+    .m_axi_gmem1_2_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WSTRB),
+    .m_axi_gmem1_2_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WLAST),
+    .m_axi_gmem1_2_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WID),
+    .m_axi_gmem1_2_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_WUSER),
+    .m_axi_gmem1_2_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARVALID),
     .m_axi_gmem1_2_0_ARREADY(m_axi_gmem1_2_0_ARREADY),
-    .m_axi_gmem1_2_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARADDR),
-    .m_axi_gmem1_2_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARID),
-    .m_axi_gmem1_2_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARLEN),
-    .m_axi_gmem1_2_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARSIZE),
-    .m_axi_gmem1_2_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARBURST),
-    .m_axi_gmem1_2_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARLOCK),
-    .m_axi_gmem1_2_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARCACHE),
-    .m_axi_gmem1_2_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARPROT),
-    .m_axi_gmem1_2_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARQOS),
-    .m_axi_gmem1_2_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARREGION),
-    .m_axi_gmem1_2_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARUSER),
+    .m_axi_gmem1_2_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARADDR),
+    .m_axi_gmem1_2_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARID),
+    .m_axi_gmem1_2_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARLEN),
+    .m_axi_gmem1_2_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARSIZE),
+    .m_axi_gmem1_2_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARBURST),
+    .m_axi_gmem1_2_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARLOCK),
+    .m_axi_gmem1_2_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARCACHE),
+    .m_axi_gmem1_2_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARPROT),
+    .m_axi_gmem1_2_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARQOS),
+    .m_axi_gmem1_2_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARREGION),
+    .m_axi_gmem1_2_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARUSER),
     .m_axi_gmem1_2_0_RVALID(m_axi_gmem1_2_0_RVALID),
-    .m_axi_gmem1_2_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_RREADY),
+    .m_axi_gmem1_2_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_RREADY),
     .m_axi_gmem1_2_0_RDATA(m_axi_gmem1_2_0_RDATA),
     .m_axi_gmem1_2_0_RLAST(m_axi_gmem1_2_0_RLAST),
     .m_axi_gmem1_2_0_RID(m_axi_gmem1_2_0_RID),
@@ -2589,91 +2548,45 @@ dpu_conv_top_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP grp_conv3x3_relu_Pipe
     .m_axi_gmem1_2_0_RUSER(m_axi_gmem1_2_0_RUSER),
     .m_axi_gmem1_2_0_RRESP(m_axi_gmem1_2_0_RRESP),
     .m_axi_gmem1_2_0_BVALID(1'b0),
-    .m_axi_gmem1_2_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_BREADY),
+    .m_axi_gmem1_2_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_BREADY),
     .m_axi_gmem1_2_0_BRESP(2'd0),
     .m_axi_gmem1_2_0_BID(1'd0),
     .m_axi_gmem1_2_0_BUSER(1'd0),
-    .m_axi_gmem0_3_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWVALID),
-    .m_axi_gmem0_3_0_AWREADY(1'b0),
-    .m_axi_gmem0_3_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWADDR),
-    .m_axi_gmem0_3_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWID),
-    .m_axi_gmem0_3_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWLEN),
-    .m_axi_gmem0_3_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWSIZE),
-    .m_axi_gmem0_3_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWBURST),
-    .m_axi_gmem0_3_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWLOCK),
-    .m_axi_gmem0_3_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWCACHE),
-    .m_axi_gmem0_3_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWPROT),
-    .m_axi_gmem0_3_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWQOS),
-    .m_axi_gmem0_3_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWREGION),
-    .m_axi_gmem0_3_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_AWUSER),
-    .m_axi_gmem0_3_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WVALID),
-    .m_axi_gmem0_3_0_WREADY(1'b0),
-    .m_axi_gmem0_3_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WDATA),
-    .m_axi_gmem0_3_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WSTRB),
-    .m_axi_gmem0_3_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WLAST),
-    .m_axi_gmem0_3_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WID),
-    .m_axi_gmem0_3_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_WUSER),
-    .m_axi_gmem0_3_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARVALID),
-    .m_axi_gmem0_3_0_ARREADY(m_axi_gmem0_3_0_ARREADY),
-    .m_axi_gmem0_3_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARADDR),
-    .m_axi_gmem0_3_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARID),
-    .m_axi_gmem0_3_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARLEN),
-    .m_axi_gmem0_3_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARSIZE),
-    .m_axi_gmem0_3_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARBURST),
-    .m_axi_gmem0_3_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARLOCK),
-    .m_axi_gmem0_3_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARCACHE),
-    .m_axi_gmem0_3_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARPROT),
-    .m_axi_gmem0_3_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARQOS),
-    .m_axi_gmem0_3_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARREGION),
-    .m_axi_gmem0_3_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARUSER),
-    .m_axi_gmem0_3_0_RVALID(m_axi_gmem0_3_0_RVALID),
-    .m_axi_gmem0_3_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_RREADY),
-    .m_axi_gmem0_3_0_RDATA(m_axi_gmem0_3_0_RDATA),
-    .m_axi_gmem0_3_0_RLAST(m_axi_gmem0_3_0_RLAST),
-    .m_axi_gmem0_3_0_RID(m_axi_gmem0_3_0_RID),
-    .m_axi_gmem0_3_0_RFIFONUM(m_axi_gmem0_3_0_RFIFONUM),
-    .m_axi_gmem0_3_0_RUSER(m_axi_gmem0_3_0_RUSER),
-    .m_axi_gmem0_3_0_RRESP(m_axi_gmem0_3_0_RRESP),
-    .m_axi_gmem0_3_0_BVALID(1'b0),
-    .m_axi_gmem0_3_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_BREADY),
-    .m_axi_gmem0_3_0_BRESP(2'd0),
-    .m_axi_gmem0_3_0_BID(1'd0),
-    .m_axi_gmem0_3_0_BUSER(1'd0),
-    .m_axi_gmem1_3_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWVALID),
+    .m_axi_gmem1_3_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWVALID),
     .m_axi_gmem1_3_0_AWREADY(1'b0),
-    .m_axi_gmem1_3_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWADDR),
-    .m_axi_gmem1_3_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWID),
-    .m_axi_gmem1_3_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWLEN),
-    .m_axi_gmem1_3_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWSIZE),
-    .m_axi_gmem1_3_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWBURST),
-    .m_axi_gmem1_3_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWLOCK),
-    .m_axi_gmem1_3_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWCACHE),
-    .m_axi_gmem1_3_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWPROT),
-    .m_axi_gmem1_3_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWQOS),
-    .m_axi_gmem1_3_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWREGION),
-    .m_axi_gmem1_3_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_AWUSER),
-    .m_axi_gmem1_3_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WVALID),
+    .m_axi_gmem1_3_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWADDR),
+    .m_axi_gmem1_3_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWID),
+    .m_axi_gmem1_3_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWLEN),
+    .m_axi_gmem1_3_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWSIZE),
+    .m_axi_gmem1_3_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWBURST),
+    .m_axi_gmem1_3_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWLOCK),
+    .m_axi_gmem1_3_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWCACHE),
+    .m_axi_gmem1_3_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWPROT),
+    .m_axi_gmem1_3_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWQOS),
+    .m_axi_gmem1_3_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWREGION),
+    .m_axi_gmem1_3_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_AWUSER),
+    .m_axi_gmem1_3_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WVALID),
     .m_axi_gmem1_3_0_WREADY(1'b0),
-    .m_axi_gmem1_3_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WDATA),
-    .m_axi_gmem1_3_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WSTRB),
-    .m_axi_gmem1_3_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WLAST),
-    .m_axi_gmem1_3_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WID),
-    .m_axi_gmem1_3_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_WUSER),
-    .m_axi_gmem1_3_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARVALID),
+    .m_axi_gmem1_3_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WDATA),
+    .m_axi_gmem1_3_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WSTRB),
+    .m_axi_gmem1_3_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WLAST),
+    .m_axi_gmem1_3_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WID),
+    .m_axi_gmem1_3_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_WUSER),
+    .m_axi_gmem1_3_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARVALID),
     .m_axi_gmem1_3_0_ARREADY(m_axi_gmem1_3_0_ARREADY),
-    .m_axi_gmem1_3_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARADDR),
-    .m_axi_gmem1_3_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARID),
-    .m_axi_gmem1_3_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARLEN),
-    .m_axi_gmem1_3_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARSIZE),
-    .m_axi_gmem1_3_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARBURST),
-    .m_axi_gmem1_3_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARLOCK),
-    .m_axi_gmem1_3_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARCACHE),
-    .m_axi_gmem1_3_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARPROT),
-    .m_axi_gmem1_3_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARQOS),
-    .m_axi_gmem1_3_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARREGION),
-    .m_axi_gmem1_3_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARUSER),
+    .m_axi_gmem1_3_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARADDR),
+    .m_axi_gmem1_3_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARID),
+    .m_axi_gmem1_3_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARLEN),
+    .m_axi_gmem1_3_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARSIZE),
+    .m_axi_gmem1_3_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARBURST),
+    .m_axi_gmem1_3_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARLOCK),
+    .m_axi_gmem1_3_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARCACHE),
+    .m_axi_gmem1_3_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARPROT),
+    .m_axi_gmem1_3_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARQOS),
+    .m_axi_gmem1_3_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARREGION),
+    .m_axi_gmem1_3_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARUSER),
     .m_axi_gmem1_3_0_RVALID(m_axi_gmem1_3_0_RVALID),
-    .m_axi_gmem1_3_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_RREADY),
+    .m_axi_gmem1_3_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_RREADY),
     .m_axi_gmem1_3_0_RDATA(m_axi_gmem1_3_0_RDATA),
     .m_axi_gmem1_3_0_RLAST(m_axi_gmem1_3_0_RLAST),
     .m_axi_gmem1_3_0_RID(m_axi_gmem1_3_0_RID),
@@ -2681,91 +2594,45 @@ dpu_conv_top_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP grp_conv3x3_relu_Pipe
     .m_axi_gmem1_3_0_RUSER(m_axi_gmem1_3_0_RUSER),
     .m_axi_gmem1_3_0_RRESP(m_axi_gmem1_3_0_RRESP),
     .m_axi_gmem1_3_0_BVALID(1'b0),
-    .m_axi_gmem1_3_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_BREADY),
+    .m_axi_gmem1_3_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_BREADY),
     .m_axi_gmem1_3_0_BRESP(2'd0),
     .m_axi_gmem1_3_0_BID(1'd0),
     .m_axi_gmem1_3_0_BUSER(1'd0),
-    .m_axi_gmem0_4_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWVALID),
-    .m_axi_gmem0_4_0_AWREADY(1'b0),
-    .m_axi_gmem0_4_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWADDR),
-    .m_axi_gmem0_4_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWID),
-    .m_axi_gmem0_4_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWLEN),
-    .m_axi_gmem0_4_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWSIZE),
-    .m_axi_gmem0_4_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWBURST),
-    .m_axi_gmem0_4_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWLOCK),
-    .m_axi_gmem0_4_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWCACHE),
-    .m_axi_gmem0_4_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWPROT),
-    .m_axi_gmem0_4_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWQOS),
-    .m_axi_gmem0_4_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWREGION),
-    .m_axi_gmem0_4_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_AWUSER),
-    .m_axi_gmem0_4_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WVALID),
-    .m_axi_gmem0_4_0_WREADY(1'b0),
-    .m_axi_gmem0_4_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WDATA),
-    .m_axi_gmem0_4_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WSTRB),
-    .m_axi_gmem0_4_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WLAST),
-    .m_axi_gmem0_4_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WID),
-    .m_axi_gmem0_4_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_WUSER),
-    .m_axi_gmem0_4_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARVALID),
-    .m_axi_gmem0_4_0_ARREADY(m_axi_gmem0_4_0_ARREADY),
-    .m_axi_gmem0_4_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARADDR),
-    .m_axi_gmem0_4_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARID),
-    .m_axi_gmem0_4_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARLEN),
-    .m_axi_gmem0_4_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARSIZE),
-    .m_axi_gmem0_4_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARBURST),
-    .m_axi_gmem0_4_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARLOCK),
-    .m_axi_gmem0_4_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARCACHE),
-    .m_axi_gmem0_4_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARPROT),
-    .m_axi_gmem0_4_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARQOS),
-    .m_axi_gmem0_4_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARREGION),
-    .m_axi_gmem0_4_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARUSER),
-    .m_axi_gmem0_4_0_RVALID(m_axi_gmem0_4_0_RVALID),
-    .m_axi_gmem0_4_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_RREADY),
-    .m_axi_gmem0_4_0_RDATA(m_axi_gmem0_4_0_RDATA),
-    .m_axi_gmem0_4_0_RLAST(m_axi_gmem0_4_0_RLAST),
-    .m_axi_gmem0_4_0_RID(m_axi_gmem0_4_0_RID),
-    .m_axi_gmem0_4_0_RFIFONUM(m_axi_gmem0_4_0_RFIFONUM),
-    .m_axi_gmem0_4_0_RUSER(m_axi_gmem0_4_0_RUSER),
-    .m_axi_gmem0_4_0_RRESP(m_axi_gmem0_4_0_RRESP),
-    .m_axi_gmem0_4_0_BVALID(1'b0),
-    .m_axi_gmem0_4_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_BREADY),
-    .m_axi_gmem0_4_0_BRESP(2'd0),
-    .m_axi_gmem0_4_0_BID(1'd0),
-    .m_axi_gmem0_4_0_BUSER(1'd0),
-    .m_axi_gmem1_4_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWVALID),
+    .m_axi_gmem1_4_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWVALID),
     .m_axi_gmem1_4_0_AWREADY(1'b0),
-    .m_axi_gmem1_4_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWADDR),
-    .m_axi_gmem1_4_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWID),
-    .m_axi_gmem1_4_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWLEN),
-    .m_axi_gmem1_4_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWSIZE),
-    .m_axi_gmem1_4_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWBURST),
-    .m_axi_gmem1_4_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWLOCK),
-    .m_axi_gmem1_4_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWCACHE),
-    .m_axi_gmem1_4_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWPROT),
-    .m_axi_gmem1_4_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWQOS),
-    .m_axi_gmem1_4_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWREGION),
-    .m_axi_gmem1_4_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_AWUSER),
-    .m_axi_gmem1_4_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WVALID),
+    .m_axi_gmem1_4_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWADDR),
+    .m_axi_gmem1_4_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWID),
+    .m_axi_gmem1_4_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWLEN),
+    .m_axi_gmem1_4_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWSIZE),
+    .m_axi_gmem1_4_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWBURST),
+    .m_axi_gmem1_4_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWLOCK),
+    .m_axi_gmem1_4_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWCACHE),
+    .m_axi_gmem1_4_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWPROT),
+    .m_axi_gmem1_4_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWQOS),
+    .m_axi_gmem1_4_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWREGION),
+    .m_axi_gmem1_4_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_AWUSER),
+    .m_axi_gmem1_4_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WVALID),
     .m_axi_gmem1_4_0_WREADY(1'b0),
-    .m_axi_gmem1_4_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WDATA),
-    .m_axi_gmem1_4_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WSTRB),
-    .m_axi_gmem1_4_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WLAST),
-    .m_axi_gmem1_4_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WID),
-    .m_axi_gmem1_4_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_WUSER),
-    .m_axi_gmem1_4_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARVALID),
+    .m_axi_gmem1_4_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WDATA),
+    .m_axi_gmem1_4_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WSTRB),
+    .m_axi_gmem1_4_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WLAST),
+    .m_axi_gmem1_4_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WID),
+    .m_axi_gmem1_4_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_WUSER),
+    .m_axi_gmem1_4_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARVALID),
     .m_axi_gmem1_4_0_ARREADY(m_axi_gmem1_4_0_ARREADY),
-    .m_axi_gmem1_4_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARADDR),
-    .m_axi_gmem1_4_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARID),
-    .m_axi_gmem1_4_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARLEN),
-    .m_axi_gmem1_4_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARSIZE),
-    .m_axi_gmem1_4_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARBURST),
-    .m_axi_gmem1_4_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARLOCK),
-    .m_axi_gmem1_4_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARCACHE),
-    .m_axi_gmem1_4_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARPROT),
-    .m_axi_gmem1_4_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARQOS),
-    .m_axi_gmem1_4_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARREGION),
-    .m_axi_gmem1_4_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARUSER),
+    .m_axi_gmem1_4_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARADDR),
+    .m_axi_gmem1_4_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARID),
+    .m_axi_gmem1_4_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARLEN),
+    .m_axi_gmem1_4_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARSIZE),
+    .m_axi_gmem1_4_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARBURST),
+    .m_axi_gmem1_4_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARLOCK),
+    .m_axi_gmem1_4_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARCACHE),
+    .m_axi_gmem1_4_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARPROT),
+    .m_axi_gmem1_4_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARQOS),
+    .m_axi_gmem1_4_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARREGION),
+    .m_axi_gmem1_4_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARUSER),
     .m_axi_gmem1_4_0_RVALID(m_axi_gmem1_4_0_RVALID),
-    .m_axi_gmem1_4_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_RREADY),
+    .m_axi_gmem1_4_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_RREADY),
     .m_axi_gmem1_4_0_RDATA(m_axi_gmem1_4_0_RDATA),
     .m_axi_gmem1_4_0_RLAST(m_axi_gmem1_4_0_RLAST),
     .m_axi_gmem1_4_0_RID(m_axi_gmem1_4_0_RID),
@@ -2773,91 +2640,45 @@ dpu_conv_top_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP grp_conv3x3_relu_Pipe
     .m_axi_gmem1_4_0_RUSER(m_axi_gmem1_4_0_RUSER),
     .m_axi_gmem1_4_0_RRESP(m_axi_gmem1_4_0_RRESP),
     .m_axi_gmem1_4_0_BVALID(1'b0),
-    .m_axi_gmem1_4_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_BREADY),
+    .m_axi_gmem1_4_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_BREADY),
     .m_axi_gmem1_4_0_BRESP(2'd0),
     .m_axi_gmem1_4_0_BID(1'd0),
     .m_axi_gmem1_4_0_BUSER(1'd0),
-    .m_axi_gmem0_5_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWVALID),
-    .m_axi_gmem0_5_0_AWREADY(1'b0),
-    .m_axi_gmem0_5_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWADDR),
-    .m_axi_gmem0_5_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWID),
-    .m_axi_gmem0_5_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWLEN),
-    .m_axi_gmem0_5_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWSIZE),
-    .m_axi_gmem0_5_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWBURST),
-    .m_axi_gmem0_5_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWLOCK),
-    .m_axi_gmem0_5_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWCACHE),
-    .m_axi_gmem0_5_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWPROT),
-    .m_axi_gmem0_5_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWQOS),
-    .m_axi_gmem0_5_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWREGION),
-    .m_axi_gmem0_5_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_AWUSER),
-    .m_axi_gmem0_5_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WVALID),
-    .m_axi_gmem0_5_0_WREADY(1'b0),
-    .m_axi_gmem0_5_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WDATA),
-    .m_axi_gmem0_5_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WSTRB),
-    .m_axi_gmem0_5_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WLAST),
-    .m_axi_gmem0_5_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WID),
-    .m_axi_gmem0_5_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_WUSER),
-    .m_axi_gmem0_5_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARVALID),
-    .m_axi_gmem0_5_0_ARREADY(m_axi_gmem0_5_0_ARREADY),
-    .m_axi_gmem0_5_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARADDR),
-    .m_axi_gmem0_5_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARID),
-    .m_axi_gmem0_5_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARLEN),
-    .m_axi_gmem0_5_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARSIZE),
-    .m_axi_gmem0_5_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARBURST),
-    .m_axi_gmem0_5_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARLOCK),
-    .m_axi_gmem0_5_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARCACHE),
-    .m_axi_gmem0_5_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARPROT),
-    .m_axi_gmem0_5_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARQOS),
-    .m_axi_gmem0_5_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARREGION),
-    .m_axi_gmem0_5_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARUSER),
-    .m_axi_gmem0_5_0_RVALID(m_axi_gmem0_5_0_RVALID),
-    .m_axi_gmem0_5_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_RREADY),
-    .m_axi_gmem0_5_0_RDATA(m_axi_gmem0_5_0_RDATA),
-    .m_axi_gmem0_5_0_RLAST(m_axi_gmem0_5_0_RLAST),
-    .m_axi_gmem0_5_0_RID(m_axi_gmem0_5_0_RID),
-    .m_axi_gmem0_5_0_RFIFONUM(m_axi_gmem0_5_0_RFIFONUM),
-    .m_axi_gmem0_5_0_RUSER(m_axi_gmem0_5_0_RUSER),
-    .m_axi_gmem0_5_0_RRESP(m_axi_gmem0_5_0_RRESP),
-    .m_axi_gmem0_5_0_BVALID(1'b0),
-    .m_axi_gmem0_5_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_BREADY),
-    .m_axi_gmem0_5_0_BRESP(2'd0),
-    .m_axi_gmem0_5_0_BID(1'd0),
-    .m_axi_gmem0_5_0_BUSER(1'd0),
-    .m_axi_gmem1_5_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWVALID),
+    .m_axi_gmem1_5_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWVALID),
     .m_axi_gmem1_5_0_AWREADY(1'b0),
-    .m_axi_gmem1_5_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWADDR),
-    .m_axi_gmem1_5_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWID),
-    .m_axi_gmem1_5_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWLEN),
-    .m_axi_gmem1_5_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWSIZE),
-    .m_axi_gmem1_5_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWBURST),
-    .m_axi_gmem1_5_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWLOCK),
-    .m_axi_gmem1_5_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWCACHE),
-    .m_axi_gmem1_5_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWPROT),
-    .m_axi_gmem1_5_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWQOS),
-    .m_axi_gmem1_5_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWREGION),
-    .m_axi_gmem1_5_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_AWUSER),
-    .m_axi_gmem1_5_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WVALID),
+    .m_axi_gmem1_5_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWADDR),
+    .m_axi_gmem1_5_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWID),
+    .m_axi_gmem1_5_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWLEN),
+    .m_axi_gmem1_5_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWSIZE),
+    .m_axi_gmem1_5_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWBURST),
+    .m_axi_gmem1_5_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWLOCK),
+    .m_axi_gmem1_5_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWCACHE),
+    .m_axi_gmem1_5_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWPROT),
+    .m_axi_gmem1_5_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWQOS),
+    .m_axi_gmem1_5_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWREGION),
+    .m_axi_gmem1_5_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_AWUSER),
+    .m_axi_gmem1_5_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WVALID),
     .m_axi_gmem1_5_0_WREADY(1'b0),
-    .m_axi_gmem1_5_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WDATA),
-    .m_axi_gmem1_5_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WSTRB),
-    .m_axi_gmem1_5_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WLAST),
-    .m_axi_gmem1_5_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WID),
-    .m_axi_gmem1_5_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_WUSER),
-    .m_axi_gmem1_5_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARVALID),
+    .m_axi_gmem1_5_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WDATA),
+    .m_axi_gmem1_5_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WSTRB),
+    .m_axi_gmem1_5_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WLAST),
+    .m_axi_gmem1_5_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WID),
+    .m_axi_gmem1_5_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_WUSER),
+    .m_axi_gmem1_5_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARVALID),
     .m_axi_gmem1_5_0_ARREADY(m_axi_gmem1_5_0_ARREADY),
-    .m_axi_gmem1_5_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARADDR),
-    .m_axi_gmem1_5_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARID),
-    .m_axi_gmem1_5_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARLEN),
-    .m_axi_gmem1_5_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARSIZE),
-    .m_axi_gmem1_5_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARBURST),
-    .m_axi_gmem1_5_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARLOCK),
-    .m_axi_gmem1_5_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARCACHE),
-    .m_axi_gmem1_5_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARPROT),
-    .m_axi_gmem1_5_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARQOS),
-    .m_axi_gmem1_5_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARREGION),
-    .m_axi_gmem1_5_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARUSER),
+    .m_axi_gmem1_5_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARADDR),
+    .m_axi_gmem1_5_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARID),
+    .m_axi_gmem1_5_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARLEN),
+    .m_axi_gmem1_5_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARSIZE),
+    .m_axi_gmem1_5_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARBURST),
+    .m_axi_gmem1_5_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARLOCK),
+    .m_axi_gmem1_5_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARCACHE),
+    .m_axi_gmem1_5_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARPROT),
+    .m_axi_gmem1_5_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARQOS),
+    .m_axi_gmem1_5_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARREGION),
+    .m_axi_gmem1_5_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARUSER),
     .m_axi_gmem1_5_0_RVALID(m_axi_gmem1_5_0_RVALID),
-    .m_axi_gmem1_5_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_RREADY),
+    .m_axi_gmem1_5_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_RREADY),
     .m_axi_gmem1_5_0_RDATA(m_axi_gmem1_5_0_RDATA),
     .m_axi_gmem1_5_0_RLAST(m_axi_gmem1_5_0_RLAST),
     .m_axi_gmem1_5_0_RID(m_axi_gmem1_5_0_RID),
@@ -2865,91 +2686,45 @@ dpu_conv_top_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP grp_conv3x3_relu_Pipe
     .m_axi_gmem1_5_0_RUSER(m_axi_gmem1_5_0_RUSER),
     .m_axi_gmem1_5_0_RRESP(m_axi_gmem1_5_0_RRESP),
     .m_axi_gmem1_5_0_BVALID(1'b0),
-    .m_axi_gmem1_5_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_BREADY),
+    .m_axi_gmem1_5_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_BREADY),
     .m_axi_gmem1_5_0_BRESP(2'd0),
     .m_axi_gmem1_5_0_BID(1'd0),
     .m_axi_gmem1_5_0_BUSER(1'd0),
-    .m_axi_gmem0_6_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWVALID),
-    .m_axi_gmem0_6_0_AWREADY(1'b0),
-    .m_axi_gmem0_6_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWADDR),
-    .m_axi_gmem0_6_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWID),
-    .m_axi_gmem0_6_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWLEN),
-    .m_axi_gmem0_6_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWSIZE),
-    .m_axi_gmem0_6_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWBURST),
-    .m_axi_gmem0_6_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWLOCK),
-    .m_axi_gmem0_6_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWCACHE),
-    .m_axi_gmem0_6_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWPROT),
-    .m_axi_gmem0_6_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWQOS),
-    .m_axi_gmem0_6_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWREGION),
-    .m_axi_gmem0_6_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_AWUSER),
-    .m_axi_gmem0_6_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WVALID),
-    .m_axi_gmem0_6_0_WREADY(1'b0),
-    .m_axi_gmem0_6_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WDATA),
-    .m_axi_gmem0_6_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WSTRB),
-    .m_axi_gmem0_6_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WLAST),
-    .m_axi_gmem0_6_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WID),
-    .m_axi_gmem0_6_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_WUSER),
-    .m_axi_gmem0_6_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARVALID),
-    .m_axi_gmem0_6_0_ARREADY(m_axi_gmem0_6_0_ARREADY),
-    .m_axi_gmem0_6_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARADDR),
-    .m_axi_gmem0_6_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARID),
-    .m_axi_gmem0_6_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARLEN),
-    .m_axi_gmem0_6_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARSIZE),
-    .m_axi_gmem0_6_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARBURST),
-    .m_axi_gmem0_6_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARLOCK),
-    .m_axi_gmem0_6_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARCACHE),
-    .m_axi_gmem0_6_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARPROT),
-    .m_axi_gmem0_6_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARQOS),
-    .m_axi_gmem0_6_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARREGION),
-    .m_axi_gmem0_6_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARUSER),
-    .m_axi_gmem0_6_0_RVALID(m_axi_gmem0_6_0_RVALID),
-    .m_axi_gmem0_6_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_RREADY),
-    .m_axi_gmem0_6_0_RDATA(m_axi_gmem0_6_0_RDATA),
-    .m_axi_gmem0_6_0_RLAST(m_axi_gmem0_6_0_RLAST),
-    .m_axi_gmem0_6_0_RID(m_axi_gmem0_6_0_RID),
-    .m_axi_gmem0_6_0_RFIFONUM(m_axi_gmem0_6_0_RFIFONUM),
-    .m_axi_gmem0_6_0_RUSER(m_axi_gmem0_6_0_RUSER),
-    .m_axi_gmem0_6_0_RRESP(m_axi_gmem0_6_0_RRESP),
-    .m_axi_gmem0_6_0_BVALID(1'b0),
-    .m_axi_gmem0_6_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_BREADY),
-    .m_axi_gmem0_6_0_BRESP(2'd0),
-    .m_axi_gmem0_6_0_BID(1'd0),
-    .m_axi_gmem0_6_0_BUSER(1'd0),
-    .m_axi_gmem1_6_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWVALID),
+    .m_axi_gmem1_6_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWVALID),
     .m_axi_gmem1_6_0_AWREADY(1'b0),
-    .m_axi_gmem1_6_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWADDR),
-    .m_axi_gmem1_6_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWID),
-    .m_axi_gmem1_6_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWLEN),
-    .m_axi_gmem1_6_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWSIZE),
-    .m_axi_gmem1_6_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWBURST),
-    .m_axi_gmem1_6_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWLOCK),
-    .m_axi_gmem1_6_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWCACHE),
-    .m_axi_gmem1_6_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWPROT),
-    .m_axi_gmem1_6_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWQOS),
-    .m_axi_gmem1_6_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWREGION),
-    .m_axi_gmem1_6_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_AWUSER),
-    .m_axi_gmem1_6_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WVALID),
+    .m_axi_gmem1_6_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWADDR),
+    .m_axi_gmem1_6_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWID),
+    .m_axi_gmem1_6_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWLEN),
+    .m_axi_gmem1_6_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWSIZE),
+    .m_axi_gmem1_6_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWBURST),
+    .m_axi_gmem1_6_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWLOCK),
+    .m_axi_gmem1_6_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWCACHE),
+    .m_axi_gmem1_6_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWPROT),
+    .m_axi_gmem1_6_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWQOS),
+    .m_axi_gmem1_6_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWREGION),
+    .m_axi_gmem1_6_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_AWUSER),
+    .m_axi_gmem1_6_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WVALID),
     .m_axi_gmem1_6_0_WREADY(1'b0),
-    .m_axi_gmem1_6_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WDATA),
-    .m_axi_gmem1_6_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WSTRB),
-    .m_axi_gmem1_6_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WLAST),
-    .m_axi_gmem1_6_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WID),
-    .m_axi_gmem1_6_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_WUSER),
-    .m_axi_gmem1_6_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARVALID),
+    .m_axi_gmem1_6_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WDATA),
+    .m_axi_gmem1_6_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WSTRB),
+    .m_axi_gmem1_6_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WLAST),
+    .m_axi_gmem1_6_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WID),
+    .m_axi_gmem1_6_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_WUSER),
+    .m_axi_gmem1_6_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARVALID),
     .m_axi_gmem1_6_0_ARREADY(m_axi_gmem1_6_0_ARREADY),
-    .m_axi_gmem1_6_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARADDR),
-    .m_axi_gmem1_6_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARID),
-    .m_axi_gmem1_6_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARLEN),
-    .m_axi_gmem1_6_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARSIZE),
-    .m_axi_gmem1_6_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARBURST),
-    .m_axi_gmem1_6_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARLOCK),
-    .m_axi_gmem1_6_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARCACHE),
-    .m_axi_gmem1_6_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARPROT),
-    .m_axi_gmem1_6_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARQOS),
-    .m_axi_gmem1_6_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARREGION),
-    .m_axi_gmem1_6_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARUSER),
+    .m_axi_gmem1_6_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARADDR),
+    .m_axi_gmem1_6_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARID),
+    .m_axi_gmem1_6_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARLEN),
+    .m_axi_gmem1_6_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARSIZE),
+    .m_axi_gmem1_6_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARBURST),
+    .m_axi_gmem1_6_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARLOCK),
+    .m_axi_gmem1_6_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARCACHE),
+    .m_axi_gmem1_6_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARPROT),
+    .m_axi_gmem1_6_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARQOS),
+    .m_axi_gmem1_6_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARREGION),
+    .m_axi_gmem1_6_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARUSER),
     .m_axi_gmem1_6_0_RVALID(m_axi_gmem1_6_0_RVALID),
-    .m_axi_gmem1_6_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_RREADY),
+    .m_axi_gmem1_6_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_RREADY),
     .m_axi_gmem1_6_0_RDATA(m_axi_gmem1_6_0_RDATA),
     .m_axi_gmem1_6_0_RLAST(m_axi_gmem1_6_0_RLAST),
     .m_axi_gmem1_6_0_RID(m_axi_gmem1_6_0_RID),
@@ -2957,91 +2732,45 @@ dpu_conv_top_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP grp_conv3x3_relu_Pipe
     .m_axi_gmem1_6_0_RUSER(m_axi_gmem1_6_0_RUSER),
     .m_axi_gmem1_6_0_RRESP(m_axi_gmem1_6_0_RRESP),
     .m_axi_gmem1_6_0_BVALID(1'b0),
-    .m_axi_gmem1_6_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_BREADY),
+    .m_axi_gmem1_6_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_BREADY),
     .m_axi_gmem1_6_0_BRESP(2'd0),
     .m_axi_gmem1_6_0_BID(1'd0),
     .m_axi_gmem1_6_0_BUSER(1'd0),
-    .m_axi_gmem0_7_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWVALID),
-    .m_axi_gmem0_7_0_AWREADY(1'b0),
-    .m_axi_gmem0_7_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWADDR),
-    .m_axi_gmem0_7_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWID),
-    .m_axi_gmem0_7_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWLEN),
-    .m_axi_gmem0_7_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWSIZE),
-    .m_axi_gmem0_7_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWBURST),
-    .m_axi_gmem0_7_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWLOCK),
-    .m_axi_gmem0_7_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWCACHE),
-    .m_axi_gmem0_7_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWPROT),
-    .m_axi_gmem0_7_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWQOS),
-    .m_axi_gmem0_7_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWREGION),
-    .m_axi_gmem0_7_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_AWUSER),
-    .m_axi_gmem0_7_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WVALID),
-    .m_axi_gmem0_7_0_WREADY(1'b0),
-    .m_axi_gmem0_7_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WDATA),
-    .m_axi_gmem0_7_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WSTRB),
-    .m_axi_gmem0_7_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WLAST),
-    .m_axi_gmem0_7_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WID),
-    .m_axi_gmem0_7_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_WUSER),
-    .m_axi_gmem0_7_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARVALID),
-    .m_axi_gmem0_7_0_ARREADY(m_axi_gmem0_7_0_ARREADY),
-    .m_axi_gmem0_7_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARADDR),
-    .m_axi_gmem0_7_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARID),
-    .m_axi_gmem0_7_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARLEN),
-    .m_axi_gmem0_7_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARSIZE),
-    .m_axi_gmem0_7_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARBURST),
-    .m_axi_gmem0_7_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARLOCK),
-    .m_axi_gmem0_7_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARCACHE),
-    .m_axi_gmem0_7_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARPROT),
-    .m_axi_gmem0_7_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARQOS),
-    .m_axi_gmem0_7_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARREGION),
-    .m_axi_gmem0_7_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARUSER),
-    .m_axi_gmem0_7_0_RVALID(m_axi_gmem0_7_0_RVALID),
-    .m_axi_gmem0_7_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_RREADY),
-    .m_axi_gmem0_7_0_RDATA(m_axi_gmem0_7_0_RDATA),
-    .m_axi_gmem0_7_0_RLAST(m_axi_gmem0_7_0_RLAST),
-    .m_axi_gmem0_7_0_RID(m_axi_gmem0_7_0_RID),
-    .m_axi_gmem0_7_0_RFIFONUM(m_axi_gmem0_7_0_RFIFONUM),
-    .m_axi_gmem0_7_0_RUSER(m_axi_gmem0_7_0_RUSER),
-    .m_axi_gmem0_7_0_RRESP(m_axi_gmem0_7_0_RRESP),
-    .m_axi_gmem0_7_0_BVALID(1'b0),
-    .m_axi_gmem0_7_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_BREADY),
-    .m_axi_gmem0_7_0_BRESP(2'd0),
-    .m_axi_gmem0_7_0_BID(1'd0),
-    .m_axi_gmem0_7_0_BUSER(1'd0),
-    .m_axi_gmem1_7_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWVALID),
+    .m_axi_gmem1_7_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWVALID),
     .m_axi_gmem1_7_0_AWREADY(1'b0),
-    .m_axi_gmem1_7_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWADDR),
-    .m_axi_gmem1_7_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWID),
-    .m_axi_gmem1_7_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWLEN),
-    .m_axi_gmem1_7_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWSIZE),
-    .m_axi_gmem1_7_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWBURST),
-    .m_axi_gmem1_7_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWLOCK),
-    .m_axi_gmem1_7_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWCACHE),
-    .m_axi_gmem1_7_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWPROT),
-    .m_axi_gmem1_7_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWQOS),
-    .m_axi_gmem1_7_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWREGION),
-    .m_axi_gmem1_7_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_AWUSER),
-    .m_axi_gmem1_7_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WVALID),
+    .m_axi_gmem1_7_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWADDR),
+    .m_axi_gmem1_7_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWID),
+    .m_axi_gmem1_7_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWLEN),
+    .m_axi_gmem1_7_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWSIZE),
+    .m_axi_gmem1_7_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWBURST),
+    .m_axi_gmem1_7_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWLOCK),
+    .m_axi_gmem1_7_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWCACHE),
+    .m_axi_gmem1_7_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWPROT),
+    .m_axi_gmem1_7_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWQOS),
+    .m_axi_gmem1_7_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWREGION),
+    .m_axi_gmem1_7_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_AWUSER),
+    .m_axi_gmem1_7_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WVALID),
     .m_axi_gmem1_7_0_WREADY(1'b0),
-    .m_axi_gmem1_7_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WDATA),
-    .m_axi_gmem1_7_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WSTRB),
-    .m_axi_gmem1_7_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WLAST),
-    .m_axi_gmem1_7_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WID),
-    .m_axi_gmem1_7_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_WUSER),
-    .m_axi_gmem1_7_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARVALID),
+    .m_axi_gmem1_7_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WDATA),
+    .m_axi_gmem1_7_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WSTRB),
+    .m_axi_gmem1_7_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WLAST),
+    .m_axi_gmem1_7_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WID),
+    .m_axi_gmem1_7_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_WUSER),
+    .m_axi_gmem1_7_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARVALID),
     .m_axi_gmem1_7_0_ARREADY(m_axi_gmem1_7_0_ARREADY),
-    .m_axi_gmem1_7_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARADDR),
-    .m_axi_gmem1_7_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARID),
-    .m_axi_gmem1_7_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARLEN),
-    .m_axi_gmem1_7_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARSIZE),
-    .m_axi_gmem1_7_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARBURST),
-    .m_axi_gmem1_7_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARLOCK),
-    .m_axi_gmem1_7_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARCACHE),
-    .m_axi_gmem1_7_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARPROT),
-    .m_axi_gmem1_7_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARQOS),
-    .m_axi_gmem1_7_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARREGION),
-    .m_axi_gmem1_7_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARUSER),
+    .m_axi_gmem1_7_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARADDR),
+    .m_axi_gmem1_7_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARID),
+    .m_axi_gmem1_7_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARLEN),
+    .m_axi_gmem1_7_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARSIZE),
+    .m_axi_gmem1_7_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARBURST),
+    .m_axi_gmem1_7_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARLOCK),
+    .m_axi_gmem1_7_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARCACHE),
+    .m_axi_gmem1_7_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARPROT),
+    .m_axi_gmem1_7_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARQOS),
+    .m_axi_gmem1_7_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARREGION),
+    .m_axi_gmem1_7_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARUSER),
     .m_axi_gmem1_7_0_RVALID(m_axi_gmem1_7_0_RVALID),
-    .m_axi_gmem1_7_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_RREADY),
+    .m_axi_gmem1_7_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_RREADY),
     .m_axi_gmem1_7_0_RDATA(m_axi_gmem1_7_0_RDATA),
     .m_axi_gmem1_7_0_RLAST(m_axi_gmem1_7_0_RLAST),
     .m_axi_gmem1_7_0_RID(m_axi_gmem1_7_0_RID),
@@ -3049,56 +2778,412 @@ dpu_conv_top_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP grp_conv3x3_relu_Pipe
     .m_axi_gmem1_7_0_RUSER(m_axi_gmem1_7_0_RUSER),
     .m_axi_gmem1_7_0_RRESP(m_axi_gmem1_7_0_RRESP),
     .m_axi_gmem1_7_0_BVALID(1'b0),
-    .m_axi_gmem1_7_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_BREADY),
+    .m_axi_gmem1_7_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_BREADY),
     .m_axi_gmem1_7_0_BRESP(2'd0),
     .m_axi_gmem1_7_0_BID(1'd0),
     .m_axi_gmem1_7_0_BUSER(1'd0),
-    .cycle_count_out_0(cycle_count_out_0_load_reg_791),
-    .mac_count_flag_0_i(mac_count_flag_0_i_reg_366),
-    .mac_count_new_0_i(mac_count_new_0_i_load_reg_786),
-    .mac_count_loc_0_i(mac_count_loc_0_i_load_reg_781),
-    .acc(gmem1_addr_read_reg_796),
-    .in_w(in_w_read_reg_647),
-    .in_h(in_h_read_reg_653),
-    .shl_ln(shl_ln_reg_755),
-    .zext_ln23_1(shl_ln_reg_755),
-    .bound4(bound4_reg_761),
-    .do_relu(do_relu_read_reg_631),
-    .in_ch(in_ch_read_reg_642),
-    .oc(trunc_ln23_reg_801),
-    .zext_ln23_3(oc_3_reg_766),
-    .ifmap_0(ifmap_0_read_reg_739),
-    .weight_0(weight_0_read_reg_699),
-    .ifmap_1(ifmap_1_read_reg_734),
-    .weight_1(weight_1_read_reg_694),
-    .ifmap_2(ifmap_2_read_reg_729),
-    .weight_2(weight_2_read_reg_689),
-    .ifmap_3(ifmap_3_read_reg_724),
-    .weight_3(weight_3_read_reg_684),
-    .ifmap_4(ifmap_4_read_reg_719),
-    .weight_4(weight_4_read_reg_679),
-    .ifmap_5(ifmap_5_read_reg_714),
-    .weight_5(weight_5_read_reg_674),
-    .ifmap_6(ifmap_6_read_reg_709),
-    .weight_6(weight_6_read_reg_669),
-    .ifmap_7(ifmap_7_read_reg_704),
-    .weight_7(weight_7_read_reg_664),
-    .mac_count_flag_3_i_out(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_flag_3_i_out),
-    .mac_count_flag_3_i_out_ap_vld(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_flag_3_i_out_ap_vld),
-    .mac_count_new_3_i_out(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_new_3_i_out),
-    .mac_count_new_3_i_out_ap_vld(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_new_3_i_out_ap_vld),
-    .mac_count_loc_3_i_out(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_loc_3_i_out),
-    .mac_count_loc_3_i_out_ap_vld(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_loc_3_i_out_ap_vld),
-    .select_ln31_out(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_select_ln31_out),
-    .select_ln31_out_ap_vld(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_select_ln31_out_ap_vld),
-    .dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_address0(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_address0),
-    .dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_ce0(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_ce0),
-    .dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_we0(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_we0),
-    .dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_d0(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_d0),
-    .dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_address0(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_address0),
-    .dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_ce0(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_ce0),
-    .dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_we0(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_we0),
-    .dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_d0(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_d0)
+    .m_axi_gmem0_0_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWVALID),
+    .m_axi_gmem0_0_0_AWREADY(1'b0),
+    .m_axi_gmem0_0_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWADDR),
+    .m_axi_gmem0_0_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWID),
+    .m_axi_gmem0_0_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWLEN),
+    .m_axi_gmem0_0_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWSIZE),
+    .m_axi_gmem0_0_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWBURST),
+    .m_axi_gmem0_0_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWLOCK),
+    .m_axi_gmem0_0_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWCACHE),
+    .m_axi_gmem0_0_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWPROT),
+    .m_axi_gmem0_0_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWQOS),
+    .m_axi_gmem0_0_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWREGION),
+    .m_axi_gmem0_0_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_AWUSER),
+    .m_axi_gmem0_0_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WVALID),
+    .m_axi_gmem0_0_0_WREADY(1'b0),
+    .m_axi_gmem0_0_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WDATA),
+    .m_axi_gmem0_0_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WSTRB),
+    .m_axi_gmem0_0_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WLAST),
+    .m_axi_gmem0_0_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WID),
+    .m_axi_gmem0_0_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_WUSER),
+    .m_axi_gmem0_0_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARVALID),
+    .m_axi_gmem0_0_0_ARREADY(m_axi_gmem0_0_0_ARREADY),
+    .m_axi_gmem0_0_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARADDR),
+    .m_axi_gmem0_0_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARID),
+    .m_axi_gmem0_0_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARLEN),
+    .m_axi_gmem0_0_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARSIZE),
+    .m_axi_gmem0_0_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARBURST),
+    .m_axi_gmem0_0_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARLOCK),
+    .m_axi_gmem0_0_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARCACHE),
+    .m_axi_gmem0_0_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARPROT),
+    .m_axi_gmem0_0_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARQOS),
+    .m_axi_gmem0_0_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARREGION),
+    .m_axi_gmem0_0_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARUSER),
+    .m_axi_gmem0_0_0_RVALID(m_axi_gmem0_0_0_RVALID),
+    .m_axi_gmem0_0_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_RREADY),
+    .m_axi_gmem0_0_0_RDATA(m_axi_gmem0_0_0_RDATA),
+    .m_axi_gmem0_0_0_RLAST(m_axi_gmem0_0_0_RLAST),
+    .m_axi_gmem0_0_0_RID(m_axi_gmem0_0_0_RID),
+    .m_axi_gmem0_0_0_RFIFONUM(m_axi_gmem0_0_0_RFIFONUM),
+    .m_axi_gmem0_0_0_RUSER(m_axi_gmem0_0_0_RUSER),
+    .m_axi_gmem0_0_0_RRESP(m_axi_gmem0_0_0_RRESP),
+    .m_axi_gmem0_0_0_BVALID(1'b0),
+    .m_axi_gmem0_0_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_BREADY),
+    .m_axi_gmem0_0_0_BRESP(2'd0),
+    .m_axi_gmem0_0_0_BID(1'd0),
+    .m_axi_gmem0_0_0_BUSER(1'd0),
+    .m_axi_gmem0_1_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWVALID),
+    .m_axi_gmem0_1_0_AWREADY(1'b0),
+    .m_axi_gmem0_1_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWADDR),
+    .m_axi_gmem0_1_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWID),
+    .m_axi_gmem0_1_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWLEN),
+    .m_axi_gmem0_1_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWSIZE),
+    .m_axi_gmem0_1_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWBURST),
+    .m_axi_gmem0_1_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWLOCK),
+    .m_axi_gmem0_1_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWCACHE),
+    .m_axi_gmem0_1_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWPROT),
+    .m_axi_gmem0_1_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWQOS),
+    .m_axi_gmem0_1_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWREGION),
+    .m_axi_gmem0_1_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_AWUSER),
+    .m_axi_gmem0_1_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WVALID),
+    .m_axi_gmem0_1_0_WREADY(1'b0),
+    .m_axi_gmem0_1_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WDATA),
+    .m_axi_gmem0_1_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WSTRB),
+    .m_axi_gmem0_1_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WLAST),
+    .m_axi_gmem0_1_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WID),
+    .m_axi_gmem0_1_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_WUSER),
+    .m_axi_gmem0_1_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARVALID),
+    .m_axi_gmem0_1_0_ARREADY(m_axi_gmem0_1_0_ARREADY),
+    .m_axi_gmem0_1_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARADDR),
+    .m_axi_gmem0_1_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARID),
+    .m_axi_gmem0_1_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARLEN),
+    .m_axi_gmem0_1_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARSIZE),
+    .m_axi_gmem0_1_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARBURST),
+    .m_axi_gmem0_1_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARLOCK),
+    .m_axi_gmem0_1_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARCACHE),
+    .m_axi_gmem0_1_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARPROT),
+    .m_axi_gmem0_1_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARQOS),
+    .m_axi_gmem0_1_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARREGION),
+    .m_axi_gmem0_1_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARUSER),
+    .m_axi_gmem0_1_0_RVALID(m_axi_gmem0_1_0_RVALID),
+    .m_axi_gmem0_1_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_RREADY),
+    .m_axi_gmem0_1_0_RDATA(m_axi_gmem0_1_0_RDATA),
+    .m_axi_gmem0_1_0_RLAST(m_axi_gmem0_1_0_RLAST),
+    .m_axi_gmem0_1_0_RID(m_axi_gmem0_1_0_RID),
+    .m_axi_gmem0_1_0_RFIFONUM(m_axi_gmem0_1_0_RFIFONUM),
+    .m_axi_gmem0_1_0_RUSER(m_axi_gmem0_1_0_RUSER),
+    .m_axi_gmem0_1_0_RRESP(m_axi_gmem0_1_0_RRESP),
+    .m_axi_gmem0_1_0_BVALID(1'b0),
+    .m_axi_gmem0_1_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_BREADY),
+    .m_axi_gmem0_1_0_BRESP(2'd0),
+    .m_axi_gmem0_1_0_BID(1'd0),
+    .m_axi_gmem0_1_0_BUSER(1'd0),
+    .m_axi_gmem0_2_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWVALID),
+    .m_axi_gmem0_2_0_AWREADY(1'b0),
+    .m_axi_gmem0_2_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWADDR),
+    .m_axi_gmem0_2_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWID),
+    .m_axi_gmem0_2_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWLEN),
+    .m_axi_gmem0_2_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWSIZE),
+    .m_axi_gmem0_2_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWBURST),
+    .m_axi_gmem0_2_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWLOCK),
+    .m_axi_gmem0_2_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWCACHE),
+    .m_axi_gmem0_2_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWPROT),
+    .m_axi_gmem0_2_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWQOS),
+    .m_axi_gmem0_2_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWREGION),
+    .m_axi_gmem0_2_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_AWUSER),
+    .m_axi_gmem0_2_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WVALID),
+    .m_axi_gmem0_2_0_WREADY(1'b0),
+    .m_axi_gmem0_2_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WDATA),
+    .m_axi_gmem0_2_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WSTRB),
+    .m_axi_gmem0_2_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WLAST),
+    .m_axi_gmem0_2_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WID),
+    .m_axi_gmem0_2_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_WUSER),
+    .m_axi_gmem0_2_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARVALID),
+    .m_axi_gmem0_2_0_ARREADY(m_axi_gmem0_2_0_ARREADY),
+    .m_axi_gmem0_2_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARADDR),
+    .m_axi_gmem0_2_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARID),
+    .m_axi_gmem0_2_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARLEN),
+    .m_axi_gmem0_2_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARSIZE),
+    .m_axi_gmem0_2_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARBURST),
+    .m_axi_gmem0_2_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARLOCK),
+    .m_axi_gmem0_2_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARCACHE),
+    .m_axi_gmem0_2_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARPROT),
+    .m_axi_gmem0_2_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARQOS),
+    .m_axi_gmem0_2_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARREGION),
+    .m_axi_gmem0_2_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARUSER),
+    .m_axi_gmem0_2_0_RVALID(m_axi_gmem0_2_0_RVALID),
+    .m_axi_gmem0_2_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_RREADY),
+    .m_axi_gmem0_2_0_RDATA(m_axi_gmem0_2_0_RDATA),
+    .m_axi_gmem0_2_0_RLAST(m_axi_gmem0_2_0_RLAST),
+    .m_axi_gmem0_2_0_RID(m_axi_gmem0_2_0_RID),
+    .m_axi_gmem0_2_0_RFIFONUM(m_axi_gmem0_2_0_RFIFONUM),
+    .m_axi_gmem0_2_0_RUSER(m_axi_gmem0_2_0_RUSER),
+    .m_axi_gmem0_2_0_RRESP(m_axi_gmem0_2_0_RRESP),
+    .m_axi_gmem0_2_0_BVALID(1'b0),
+    .m_axi_gmem0_2_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_BREADY),
+    .m_axi_gmem0_2_0_BRESP(2'd0),
+    .m_axi_gmem0_2_0_BID(1'd0),
+    .m_axi_gmem0_2_0_BUSER(1'd0),
+    .m_axi_gmem0_3_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWVALID),
+    .m_axi_gmem0_3_0_AWREADY(1'b0),
+    .m_axi_gmem0_3_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWADDR),
+    .m_axi_gmem0_3_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWID),
+    .m_axi_gmem0_3_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWLEN),
+    .m_axi_gmem0_3_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWSIZE),
+    .m_axi_gmem0_3_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWBURST),
+    .m_axi_gmem0_3_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWLOCK),
+    .m_axi_gmem0_3_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWCACHE),
+    .m_axi_gmem0_3_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWPROT),
+    .m_axi_gmem0_3_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWQOS),
+    .m_axi_gmem0_3_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWREGION),
+    .m_axi_gmem0_3_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_AWUSER),
+    .m_axi_gmem0_3_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WVALID),
+    .m_axi_gmem0_3_0_WREADY(1'b0),
+    .m_axi_gmem0_3_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WDATA),
+    .m_axi_gmem0_3_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WSTRB),
+    .m_axi_gmem0_3_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WLAST),
+    .m_axi_gmem0_3_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WID),
+    .m_axi_gmem0_3_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_WUSER),
+    .m_axi_gmem0_3_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARVALID),
+    .m_axi_gmem0_3_0_ARREADY(m_axi_gmem0_3_0_ARREADY),
+    .m_axi_gmem0_3_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARADDR),
+    .m_axi_gmem0_3_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARID),
+    .m_axi_gmem0_3_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARLEN),
+    .m_axi_gmem0_3_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARSIZE),
+    .m_axi_gmem0_3_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARBURST),
+    .m_axi_gmem0_3_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARLOCK),
+    .m_axi_gmem0_3_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARCACHE),
+    .m_axi_gmem0_3_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARPROT),
+    .m_axi_gmem0_3_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARQOS),
+    .m_axi_gmem0_3_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARREGION),
+    .m_axi_gmem0_3_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARUSER),
+    .m_axi_gmem0_3_0_RVALID(m_axi_gmem0_3_0_RVALID),
+    .m_axi_gmem0_3_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_RREADY),
+    .m_axi_gmem0_3_0_RDATA(m_axi_gmem0_3_0_RDATA),
+    .m_axi_gmem0_3_0_RLAST(m_axi_gmem0_3_0_RLAST),
+    .m_axi_gmem0_3_0_RID(m_axi_gmem0_3_0_RID),
+    .m_axi_gmem0_3_0_RFIFONUM(m_axi_gmem0_3_0_RFIFONUM),
+    .m_axi_gmem0_3_0_RUSER(m_axi_gmem0_3_0_RUSER),
+    .m_axi_gmem0_3_0_RRESP(m_axi_gmem0_3_0_RRESP),
+    .m_axi_gmem0_3_0_BVALID(1'b0),
+    .m_axi_gmem0_3_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_BREADY),
+    .m_axi_gmem0_3_0_BRESP(2'd0),
+    .m_axi_gmem0_3_0_BID(1'd0),
+    .m_axi_gmem0_3_0_BUSER(1'd0),
+    .m_axi_gmem0_4_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWVALID),
+    .m_axi_gmem0_4_0_AWREADY(1'b0),
+    .m_axi_gmem0_4_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWADDR),
+    .m_axi_gmem0_4_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWID),
+    .m_axi_gmem0_4_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWLEN),
+    .m_axi_gmem0_4_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWSIZE),
+    .m_axi_gmem0_4_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWBURST),
+    .m_axi_gmem0_4_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWLOCK),
+    .m_axi_gmem0_4_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWCACHE),
+    .m_axi_gmem0_4_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWPROT),
+    .m_axi_gmem0_4_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWQOS),
+    .m_axi_gmem0_4_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWREGION),
+    .m_axi_gmem0_4_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_AWUSER),
+    .m_axi_gmem0_4_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WVALID),
+    .m_axi_gmem0_4_0_WREADY(1'b0),
+    .m_axi_gmem0_4_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WDATA),
+    .m_axi_gmem0_4_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WSTRB),
+    .m_axi_gmem0_4_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WLAST),
+    .m_axi_gmem0_4_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WID),
+    .m_axi_gmem0_4_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_WUSER),
+    .m_axi_gmem0_4_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARVALID),
+    .m_axi_gmem0_4_0_ARREADY(m_axi_gmem0_4_0_ARREADY),
+    .m_axi_gmem0_4_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARADDR),
+    .m_axi_gmem0_4_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARID),
+    .m_axi_gmem0_4_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARLEN),
+    .m_axi_gmem0_4_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARSIZE),
+    .m_axi_gmem0_4_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARBURST),
+    .m_axi_gmem0_4_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARLOCK),
+    .m_axi_gmem0_4_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARCACHE),
+    .m_axi_gmem0_4_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARPROT),
+    .m_axi_gmem0_4_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARQOS),
+    .m_axi_gmem0_4_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARREGION),
+    .m_axi_gmem0_4_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARUSER),
+    .m_axi_gmem0_4_0_RVALID(m_axi_gmem0_4_0_RVALID),
+    .m_axi_gmem0_4_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_RREADY),
+    .m_axi_gmem0_4_0_RDATA(m_axi_gmem0_4_0_RDATA),
+    .m_axi_gmem0_4_0_RLAST(m_axi_gmem0_4_0_RLAST),
+    .m_axi_gmem0_4_0_RID(m_axi_gmem0_4_0_RID),
+    .m_axi_gmem0_4_0_RFIFONUM(m_axi_gmem0_4_0_RFIFONUM),
+    .m_axi_gmem0_4_0_RUSER(m_axi_gmem0_4_0_RUSER),
+    .m_axi_gmem0_4_0_RRESP(m_axi_gmem0_4_0_RRESP),
+    .m_axi_gmem0_4_0_BVALID(1'b0),
+    .m_axi_gmem0_4_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_BREADY),
+    .m_axi_gmem0_4_0_BRESP(2'd0),
+    .m_axi_gmem0_4_0_BID(1'd0),
+    .m_axi_gmem0_4_0_BUSER(1'd0),
+    .m_axi_gmem0_5_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWVALID),
+    .m_axi_gmem0_5_0_AWREADY(1'b0),
+    .m_axi_gmem0_5_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWADDR),
+    .m_axi_gmem0_5_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWID),
+    .m_axi_gmem0_5_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWLEN),
+    .m_axi_gmem0_5_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWSIZE),
+    .m_axi_gmem0_5_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWBURST),
+    .m_axi_gmem0_5_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWLOCK),
+    .m_axi_gmem0_5_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWCACHE),
+    .m_axi_gmem0_5_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWPROT),
+    .m_axi_gmem0_5_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWQOS),
+    .m_axi_gmem0_5_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWREGION),
+    .m_axi_gmem0_5_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_AWUSER),
+    .m_axi_gmem0_5_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WVALID),
+    .m_axi_gmem0_5_0_WREADY(1'b0),
+    .m_axi_gmem0_5_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WDATA),
+    .m_axi_gmem0_5_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WSTRB),
+    .m_axi_gmem0_5_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WLAST),
+    .m_axi_gmem0_5_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WID),
+    .m_axi_gmem0_5_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_WUSER),
+    .m_axi_gmem0_5_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARVALID),
+    .m_axi_gmem0_5_0_ARREADY(m_axi_gmem0_5_0_ARREADY),
+    .m_axi_gmem0_5_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARADDR),
+    .m_axi_gmem0_5_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARID),
+    .m_axi_gmem0_5_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARLEN),
+    .m_axi_gmem0_5_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARSIZE),
+    .m_axi_gmem0_5_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARBURST),
+    .m_axi_gmem0_5_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARLOCK),
+    .m_axi_gmem0_5_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARCACHE),
+    .m_axi_gmem0_5_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARPROT),
+    .m_axi_gmem0_5_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARQOS),
+    .m_axi_gmem0_5_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARREGION),
+    .m_axi_gmem0_5_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARUSER),
+    .m_axi_gmem0_5_0_RVALID(m_axi_gmem0_5_0_RVALID),
+    .m_axi_gmem0_5_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_RREADY),
+    .m_axi_gmem0_5_0_RDATA(m_axi_gmem0_5_0_RDATA),
+    .m_axi_gmem0_5_0_RLAST(m_axi_gmem0_5_0_RLAST),
+    .m_axi_gmem0_5_0_RID(m_axi_gmem0_5_0_RID),
+    .m_axi_gmem0_5_0_RFIFONUM(m_axi_gmem0_5_0_RFIFONUM),
+    .m_axi_gmem0_5_0_RUSER(m_axi_gmem0_5_0_RUSER),
+    .m_axi_gmem0_5_0_RRESP(m_axi_gmem0_5_0_RRESP),
+    .m_axi_gmem0_5_0_BVALID(1'b0),
+    .m_axi_gmem0_5_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_BREADY),
+    .m_axi_gmem0_5_0_BRESP(2'd0),
+    .m_axi_gmem0_5_0_BID(1'd0),
+    .m_axi_gmem0_5_0_BUSER(1'd0),
+    .m_axi_gmem0_6_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWVALID),
+    .m_axi_gmem0_6_0_AWREADY(1'b0),
+    .m_axi_gmem0_6_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWADDR),
+    .m_axi_gmem0_6_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWID),
+    .m_axi_gmem0_6_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWLEN),
+    .m_axi_gmem0_6_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWSIZE),
+    .m_axi_gmem0_6_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWBURST),
+    .m_axi_gmem0_6_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWLOCK),
+    .m_axi_gmem0_6_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWCACHE),
+    .m_axi_gmem0_6_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWPROT),
+    .m_axi_gmem0_6_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWQOS),
+    .m_axi_gmem0_6_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWREGION),
+    .m_axi_gmem0_6_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_AWUSER),
+    .m_axi_gmem0_6_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WVALID),
+    .m_axi_gmem0_6_0_WREADY(1'b0),
+    .m_axi_gmem0_6_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WDATA),
+    .m_axi_gmem0_6_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WSTRB),
+    .m_axi_gmem0_6_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WLAST),
+    .m_axi_gmem0_6_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WID),
+    .m_axi_gmem0_6_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_WUSER),
+    .m_axi_gmem0_6_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARVALID),
+    .m_axi_gmem0_6_0_ARREADY(m_axi_gmem0_6_0_ARREADY),
+    .m_axi_gmem0_6_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARADDR),
+    .m_axi_gmem0_6_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARID),
+    .m_axi_gmem0_6_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARLEN),
+    .m_axi_gmem0_6_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARSIZE),
+    .m_axi_gmem0_6_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARBURST),
+    .m_axi_gmem0_6_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARLOCK),
+    .m_axi_gmem0_6_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARCACHE),
+    .m_axi_gmem0_6_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARPROT),
+    .m_axi_gmem0_6_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARQOS),
+    .m_axi_gmem0_6_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARREGION),
+    .m_axi_gmem0_6_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARUSER),
+    .m_axi_gmem0_6_0_RVALID(m_axi_gmem0_6_0_RVALID),
+    .m_axi_gmem0_6_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_RREADY),
+    .m_axi_gmem0_6_0_RDATA(m_axi_gmem0_6_0_RDATA),
+    .m_axi_gmem0_6_0_RLAST(m_axi_gmem0_6_0_RLAST),
+    .m_axi_gmem0_6_0_RID(m_axi_gmem0_6_0_RID),
+    .m_axi_gmem0_6_0_RFIFONUM(m_axi_gmem0_6_0_RFIFONUM),
+    .m_axi_gmem0_6_0_RUSER(m_axi_gmem0_6_0_RUSER),
+    .m_axi_gmem0_6_0_RRESP(m_axi_gmem0_6_0_RRESP),
+    .m_axi_gmem0_6_0_BVALID(1'b0),
+    .m_axi_gmem0_6_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_BREADY),
+    .m_axi_gmem0_6_0_BRESP(2'd0),
+    .m_axi_gmem0_6_0_BID(1'd0),
+    .m_axi_gmem0_6_0_BUSER(1'd0),
+    .m_axi_gmem0_7_0_AWVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWVALID),
+    .m_axi_gmem0_7_0_AWREADY(1'b0),
+    .m_axi_gmem0_7_0_AWADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWADDR),
+    .m_axi_gmem0_7_0_AWID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWID),
+    .m_axi_gmem0_7_0_AWLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWLEN),
+    .m_axi_gmem0_7_0_AWSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWSIZE),
+    .m_axi_gmem0_7_0_AWBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWBURST),
+    .m_axi_gmem0_7_0_AWLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWLOCK),
+    .m_axi_gmem0_7_0_AWCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWCACHE),
+    .m_axi_gmem0_7_0_AWPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWPROT),
+    .m_axi_gmem0_7_0_AWQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWQOS),
+    .m_axi_gmem0_7_0_AWREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWREGION),
+    .m_axi_gmem0_7_0_AWUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_AWUSER),
+    .m_axi_gmem0_7_0_WVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WVALID),
+    .m_axi_gmem0_7_0_WREADY(1'b0),
+    .m_axi_gmem0_7_0_WDATA(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WDATA),
+    .m_axi_gmem0_7_0_WSTRB(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WSTRB),
+    .m_axi_gmem0_7_0_WLAST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WLAST),
+    .m_axi_gmem0_7_0_WID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WID),
+    .m_axi_gmem0_7_0_WUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_WUSER),
+    .m_axi_gmem0_7_0_ARVALID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARVALID),
+    .m_axi_gmem0_7_0_ARREADY(m_axi_gmem0_7_0_ARREADY),
+    .m_axi_gmem0_7_0_ARADDR(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARADDR),
+    .m_axi_gmem0_7_0_ARID(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARID),
+    .m_axi_gmem0_7_0_ARLEN(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARLEN),
+    .m_axi_gmem0_7_0_ARSIZE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARSIZE),
+    .m_axi_gmem0_7_0_ARBURST(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARBURST),
+    .m_axi_gmem0_7_0_ARLOCK(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARLOCK),
+    .m_axi_gmem0_7_0_ARCACHE(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARCACHE),
+    .m_axi_gmem0_7_0_ARPROT(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARPROT),
+    .m_axi_gmem0_7_0_ARQOS(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARQOS),
+    .m_axi_gmem0_7_0_ARREGION(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARREGION),
+    .m_axi_gmem0_7_0_ARUSER(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARUSER),
+    .m_axi_gmem0_7_0_RVALID(m_axi_gmem0_7_0_RVALID),
+    .m_axi_gmem0_7_0_RREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_RREADY),
+    .m_axi_gmem0_7_0_RDATA(m_axi_gmem0_7_0_RDATA),
+    .m_axi_gmem0_7_0_RLAST(m_axi_gmem0_7_0_RLAST),
+    .m_axi_gmem0_7_0_RID(m_axi_gmem0_7_0_RID),
+    .m_axi_gmem0_7_0_RFIFONUM(m_axi_gmem0_7_0_RFIFONUM),
+    .m_axi_gmem0_7_0_RUSER(m_axi_gmem0_7_0_RUSER),
+    .m_axi_gmem0_7_0_RRESP(m_axi_gmem0_7_0_RRESP),
+    .m_axi_gmem0_7_0_BVALID(1'b0),
+    .m_axi_gmem0_7_0_BREADY(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_BREADY),
+    .m_axi_gmem0_7_0_BRESP(2'd0),
+    .m_axi_gmem0_7_0_BID(1'd0),
+    .m_axi_gmem0_7_0_BUSER(1'd0),
+    .cycle_count_0(cycle_count_0_load_reg_704),
+    .mac_count_0(mac_count_0_load_reg_709),
+    .acc(gmem1_addr_read_reg_714),
+    .in_w(in_w),
+    .in_h(in_h),
+    .shl_ln(shl_ln_reg_678),
+    .zext_ln23_2(shl_ln_reg_678),
+    .bound7(bound7_reg_684),
+    .do_relu(do_relu),
+    .in_ch(in_ch),
+    .zext_ln23_4(oc_2_reg_689),
+    .zext_ln23(in_w),
+    .conv_buf(conv_buf),
+    .zext_ln33_1(shl_ln28_1_reg_719),
+    .ifmap_0(ifmap_0),
+    .weight_0(weight_0),
+    .ifmap_1(ifmap_1),
+    .weight_1(weight_1),
+    .ifmap_2(ifmap_2),
+    .weight_2(weight_2),
+    .ifmap_3(ifmap_3),
+    .weight_3(weight_3),
+    .ifmap_4(ifmap_4),
+    .weight_4(weight_4),
+    .ifmap_5(ifmap_5),
+    .weight_5(weight_5),
+    .ifmap_6(ifmap_6),
+    .weight_6(weight_6),
+    .ifmap_7(ifmap_7),
+    .weight_7(weight_7),
+    .mac_count_3_out(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_mac_count_3_out),
+    .mac_count_3_out_ap_vld(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_mac_count_3_out_ap_vld),
+    .select_ln31_out(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_select_ln31_out),
+    .select_ln31_out_ap_vld(grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_select_ln31_out_ap_vld)
 );
 
 dpu_conv_top_mul_8ns_11ns_19_1_1 #(
@@ -3107,10 +3192,10 @@ dpu_conv_top_mul_8ns_11ns_19_1_1 #(
     .din0_WIDTH( 8 ),
     .din1_WIDTH( 11 ),
     .dout_WIDTH( 19 ))
-mul_8ns_11ns_19_1_1_U130(
-    .din0(bound4_fu_483_p0),
-    .din1(bound4_fu_483_p1),
-    .dout(bound4_fu_483_p2)
+mul_8ns_11ns_19_1_1_U123(
+    .din0(bound7_fu_444_p0),
+    .din1(bound7_fu_444_p1),
+    .dout(bound7_fu_444_p2)
 );
 
 always @ (posedge ap_clk) begin
@@ -3123,115 +3208,65 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        ap_done_reg <= 1'b0;
-    end else begin
-        if ((ap_continue == 1'b1)) begin
-            ap_done_reg <= 1'b0;
-        end else if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln23_fu_507_p2 == 1'd1))) begin
-            ap_done_reg <= 1'b1;
-        end
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
-        grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_start_reg <= 1'b0;
+        grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state12)) begin
-            grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_start_reg <= 1'b1;
-        end else if ((grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_ready == 1'b1)) begin
-            grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_start_reg <= 1'b0;
+            grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_start_reg <= 1'b1;
+        end else if ((grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_ready == 1'b1)) begin
+            grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state1) & (1'b1 == ap_CS_fsm_state1))) begin
-        cycle_count_out_0_fu_202 <= p_read2_cast_fu_459_p1;
-    end else if (((1'b1 == ap_CS_fsm_state13) & (grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_select_ln31_out_ap_vld == 1'b1))) begin
-        cycle_count_out_0_fu_202 <= grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_select_ln31_out;
+    if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
+        cycle_count_0_fu_194 <= 32'd0;
+    end else if (((1'b1 == ap_CS_fsm_state13) & (grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_select_ln31_out_ap_vld == 1'b1))) begin
+        cycle_count_0_fu_194 <= grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_select_ln31_out;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state14)) begin
-        mac_count_flag_0_i_reg_366 <= grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_flag_3_i_out;
-    end else if (((1'b0 == ap_block_state1) & (1'b1 == ap_CS_fsm_state1))) begin
-        mac_count_flag_0_i_reg_366 <= 1'd0;
+    if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
+        mac_count_0_fu_198 <= 32'd0;
+    end else if (((1'b1 == ap_CS_fsm_state13) & (grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_mac_count_3_out_ap_vld == 1'b1))) begin
+        mac_count_0_fu_198 <= grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_mac_count_3_out;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state1) & (1'b1 == ap_CS_fsm_state1))) begin
-        mac_count_loc_0_i_fu_194 <= p_read_cast_fu_463_p1;
-    end else if (((1'b1 == ap_CS_fsm_state13) & (grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_loc_3_i_out_ap_vld == 1'b1))) begin
-        mac_count_loc_0_i_fu_194 <= grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_loc_3_i_out;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state1) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
         oc_fu_190 <= 8'd0;
-    end else if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln23_fu_507_p2 == 1'd0))) begin
-        oc_fu_190 <= add_ln23_fu_512_p2;
+    end else if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln23_fu_468_p2 == 1'd0))) begin
+        oc_fu_190 <= add_ln23_fu_473_p2;
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state1) & (1'b1 == ap_CS_fsm_state1))) begin
-        bias_read_reg_659 <= bias;
-        bound4_reg_761 <= bound4_fu_483_p2;
-        do_relu_read_reg_631 <= do_relu;
-        ifmap_0_read_reg_739 <= ifmap_0;
-        ifmap_1_read_reg_734 <= ifmap_1;
-        ifmap_2_read_reg_729 <= ifmap_2;
-        ifmap_3_read_reg_724 <= ifmap_3;
-        ifmap_4_read_reg_719 <= ifmap_4;
-        ifmap_5_read_reg_714 <= ifmap_5;
-        ifmap_6_read_reg_709 <= ifmap_6;
-        ifmap_7_read_reg_704 <= ifmap_7;
-        in_ch_read_reg_642 <= in_ch;
-        in_h_read_reg_653 <= in_h;
-        in_w_read_reg_647 <= in_w;
-        out_ch_read_reg_636 <= out_ch;
-        p_read_cast_reg_744[0] <= p_read_cast_fu_463_p1[0];
-        shl_ln_reg_755[10 : 3] <= shl_ln_fu_467_p3[10 : 3];
-        weight_0_read_reg_699 <= weight_0;
-        weight_1_read_reg_694 <= weight_1;
-        weight_2_read_reg_689 <= weight_2;
-        weight_3_read_reg_684 <= weight_3;
-        weight_4_read_reg_679 <= weight_4;
-        weight_5_read_reg_674 <= weight_5;
-        weight_6_read_reg_669 <= weight_6;
-        weight_7_read_reg_664 <= weight_7;
+    if ((1'b1 == ap_CS_fsm_state1)) begin
+        bound7_reg_684 <= bound7_fu_444_p2;
+        shl_ln_reg_678[10 : 3] <= shl_ln_fu_428_p3[10 : 3];
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((m_axi_gmem1_0_RVALID == 1'b1) & (1'b1 == ap_CS_fsm_state11))) begin
-        cycle_count_out_0_load_reg_791 <= cycle_count_out_0_fu_202;
-        gmem1_addr_read_reg_796 <= m_axi_gmem1_0_RDATA;
-        mac_count_loc_0_i_load_reg_781 <= mac_count_loc_0_i_fu_194;
-        mac_count_new_0_i_load_reg_786 <= mac_count_new_0_i_fu_198;
+    if ((1'b1 == ap_CS_fsm_state11)) begin
+        cycle_count_0_load_reg_704 <= cycle_count_0_fu_194;
+        gmem1_addr_read_reg_714 <= m_axi_gmem1_0_RDATA;
+        mac_count_0_load_reg_709 <= mac_count_0_fu_198;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        gmem1_addr_reg_775 <= sext_ln33_fu_545_p1;
-        oc_3_reg_766 <= oc_fu_190;
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((1'b1 == ap_CS_fsm_state13) & (grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_new_3_i_out_ap_vld == 1'b1))) begin
-        mac_count_new_0_i_fu_198 <= grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_mac_count_new_3_i_out;
+        gmem1_addr_reg_698 <= sext_ln33_fu_506_p1;
+        oc_2_reg_689 <= oc_fu_190;
     end
 end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_CS_fsm_state12)) begin
-        trunc_ln23_reg_801 <= trunc_ln23_fu_597_p1;
+        shl_ln28_1_reg_719[19 : 12] <= shl_ln28_1_fu_533_p3[19 : 12];
     end
 end
 
@@ -3248,17 +3283,15 @@ end
 assign ap_ST_fsm_state12_blk = 1'b0;
 
 always @ (*) begin
-    if ((grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_done == 1'b0)) begin
+    if ((grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_done == 1'b0)) begin
         ap_ST_fsm_state13_blk = 1'b1;
     end else begin
         ap_ST_fsm_state13_blk = 1'b0;
     end
 end
 
-assign ap_ST_fsm_state14_blk = 1'b0;
-
 always @ (*) begin
-    if ((1'b1 == ap_block_state1)) begin
+    if ((ap_start == 1'b0)) begin
         ap_ST_fsm_state1_blk = 1'b1;
     end else begin
         ap_ST_fsm_state1_blk = 1'b0;
@@ -3288,10 +3321,10 @@ assign ap_ST_fsm_state8_blk = 1'b0;
 assign ap_ST_fsm_state9_blk = 1'b0;
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln23_fu_507_p2 == 1'd1))) begin
+    if ((((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0)) | ((1'b1 == ap_CS_fsm_state2) & (icmp_ln23_fu_468_p2 == 1'd1)))) begin
         ap_done = 1'b1;
     end else begin
-        ap_done = ap_done_reg;
+        ap_done = 1'b0;
     end
 end
 
@@ -3304,7 +3337,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln23_fu_507_p2 == 1'd1))) begin
+    if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln23_fu_468_p2 == 1'd1))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -3346,14 +3379,14 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if (((1'b0 == ap_block_state1) & (1'b1 == ap_CS_fsm_state1))) begin
+            if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln23_fu_507_p2 == 1'd1))) begin
+            if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln23_fu_468_p2 == 1'd1))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state3;
@@ -3398,14 +3431,11 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state13;
         end
         ap_ST_fsm_state13 : begin
-            if (((1'b1 == ap_CS_fsm_state13) & (grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_done == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state14;
+            if (((1'b1 == ap_CS_fsm_state13) & (grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_done == 1'b1))) begin
+                ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state13;
             end
-        end
-        ap_ST_fsm_state14 : begin
-            ap_NS_fsm = ap_ST_fsm_state2;
         end
         default : begin
             ap_NS_fsm = 'bx;
@@ -3413,9 +3443,9 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln23_fu_512_p2 = (oc_fu_190 + 8'd1);
+assign add_ln23_fu_473_p2 = (oc_fu_190 + 8'd1);
 
-assign add_ln33_fu_530_p2 = (zext_ln33_fu_526_p1 + bias_read_reg_659);
+assign add_ln33_fu_491_p2 = (zext_ln33_fu_487_p1 + bias);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -3425,77 +3455,49 @@ assign ap_CS_fsm_state12 = ap_CS_fsm[32'd11];
 
 assign ap_CS_fsm_state13 = ap_CS_fsm[32'd12];
 
-assign ap_CS_fsm_state14 = ap_CS_fsm[32'd13];
-
 assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
 assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
-always @ (*) begin
-    ap_block_state1 = ((ap_done_reg == 1'b1) | (ap_start == 1'b0));
-end
+assign ap_return_0 = mac_count_0_fu_198;
 
-assign ap_return_0 = mac_count_out_0_fu_560_p3;
+assign ap_return_1 = cycle_count_0_fu_194;
 
-assign ap_return_1 = cycle_count_out_0_fu_202;
+assign bound7_fu_444_p0 = bound7_fu_444_p00;
 
-assign ap_return_2 = in_h_read_reg_653;
+assign bound7_fu_444_p00 = in_h;
 
-assign ap_return_3 = in_w_read_reg_647;
+assign bound7_fu_444_p1 = bound7_fu_444_p10;
 
-assign ap_return_4 = out_ch_read_reg_636;
+assign bound7_fu_444_p10 = shl_ln_fu_428_p3;
 
-assign bound4_fu_483_p0 = bound4_fu_483_p00;
+assign grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_start = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_ap_start_reg;
 
-assign bound4_fu_483_p00 = in_h;
+assign icmp_ln23_fu_468_p2 = ((oc_fu_190 == out_ch) ? 1'b1 : 1'b0);
 
-assign bound4_fu_483_p1 = bound4_fu_483_p10;
+assign m_axi_gmem0_0_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARADDR;
 
-assign bound4_fu_483_p10 = shl_ln_fu_467_p3;
+assign m_axi_gmem0_0_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARBURST;
 
-assign dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_address0 = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_address0;
+assign m_axi_gmem0_0_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARCACHE;
 
-assign dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_ce0 = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_ce0;
+assign m_axi_gmem0_0_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARID;
 
-assign dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_d0 = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_d0;
+assign m_axi_gmem0_0_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARLEN;
 
-assign dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_we0 = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_conv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_1_we0;
+assign m_axi_gmem0_0_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARLOCK;
 
-assign dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_address0 = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_address0;
+assign m_axi_gmem0_0_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARPROT;
 
-assign dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_ce0 = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_ce0;
+assign m_axi_gmem0_0_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARQOS;
 
-assign dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_d0 = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_d0;
+assign m_axi_gmem0_0_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARREGION;
 
-assign dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_we0 = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_dpu_mulmulmulmulconv_top_ap_int_64_64_ap_int_64_3_3_ap_int_ap_int_64_64_we0;
+assign m_axi_gmem0_0_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARSIZE;
 
-assign grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_start = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_ap_start_reg;
+assign m_axi_gmem0_0_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARUSER;
 
-assign icmp_ln23_fu_507_p2 = ((oc_fu_190 == out_ch_read_reg_636) ? 1'b1 : 1'b0);
-
-assign m_axi_gmem0_0_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARADDR;
-
-assign m_axi_gmem0_0_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARBURST;
-
-assign m_axi_gmem0_0_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARCACHE;
-
-assign m_axi_gmem0_0_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARID;
-
-assign m_axi_gmem0_0_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARLEN;
-
-assign m_axi_gmem0_0_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARLOCK;
-
-assign m_axi_gmem0_0_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARPROT;
-
-assign m_axi_gmem0_0_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARQOS;
-
-assign m_axi_gmem0_0_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARREGION;
-
-assign m_axi_gmem0_0_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARSIZE;
-
-assign m_axi_gmem0_0_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARUSER;
-
-assign m_axi_gmem0_0_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_ARVALID;
+assign m_axi_gmem0_0_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_ARVALID;
 
 assign m_axi_gmem0_0_0_AWADDR = 64'd0;
 
@@ -3523,7 +3525,7 @@ assign m_axi_gmem0_0_0_AWVALID = 1'b0;
 
 assign m_axi_gmem0_0_0_BREADY = 1'b0;
 
-assign m_axi_gmem0_0_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_0_0_RREADY;
+assign m_axi_gmem0_0_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_0_0_RREADY;
 
 assign m_axi_gmem0_0_0_WDATA = 8'd0;
 
@@ -3537,29 +3539,29 @@ assign m_axi_gmem0_0_0_WUSER = 1'd0;
 
 assign m_axi_gmem0_0_0_WVALID = 1'b0;
 
-assign m_axi_gmem0_1_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARADDR;
+assign m_axi_gmem0_1_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARADDR;
 
-assign m_axi_gmem0_1_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARBURST;
+assign m_axi_gmem0_1_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARBURST;
 
-assign m_axi_gmem0_1_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARCACHE;
+assign m_axi_gmem0_1_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARCACHE;
 
-assign m_axi_gmem0_1_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARID;
+assign m_axi_gmem0_1_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARID;
 
-assign m_axi_gmem0_1_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARLEN;
+assign m_axi_gmem0_1_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARLEN;
 
-assign m_axi_gmem0_1_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARLOCK;
+assign m_axi_gmem0_1_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARLOCK;
 
-assign m_axi_gmem0_1_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARPROT;
+assign m_axi_gmem0_1_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARPROT;
 
-assign m_axi_gmem0_1_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARQOS;
+assign m_axi_gmem0_1_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARQOS;
 
-assign m_axi_gmem0_1_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARREGION;
+assign m_axi_gmem0_1_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARREGION;
 
-assign m_axi_gmem0_1_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARSIZE;
+assign m_axi_gmem0_1_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARSIZE;
 
-assign m_axi_gmem0_1_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARUSER;
+assign m_axi_gmem0_1_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARUSER;
 
-assign m_axi_gmem0_1_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_ARVALID;
+assign m_axi_gmem0_1_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_ARVALID;
 
 assign m_axi_gmem0_1_0_AWADDR = 64'd0;
 
@@ -3587,7 +3589,7 @@ assign m_axi_gmem0_1_0_AWVALID = 1'b0;
 
 assign m_axi_gmem0_1_0_BREADY = 1'b0;
 
-assign m_axi_gmem0_1_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_1_0_RREADY;
+assign m_axi_gmem0_1_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_1_0_RREADY;
 
 assign m_axi_gmem0_1_0_WDATA = 8'd0;
 
@@ -3601,29 +3603,29 @@ assign m_axi_gmem0_1_0_WUSER = 1'd0;
 
 assign m_axi_gmem0_1_0_WVALID = 1'b0;
 
-assign m_axi_gmem0_2_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARADDR;
+assign m_axi_gmem0_2_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARADDR;
 
-assign m_axi_gmem0_2_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARBURST;
+assign m_axi_gmem0_2_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARBURST;
 
-assign m_axi_gmem0_2_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARCACHE;
+assign m_axi_gmem0_2_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARCACHE;
 
-assign m_axi_gmem0_2_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARID;
+assign m_axi_gmem0_2_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARID;
 
-assign m_axi_gmem0_2_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARLEN;
+assign m_axi_gmem0_2_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARLEN;
 
-assign m_axi_gmem0_2_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARLOCK;
+assign m_axi_gmem0_2_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARLOCK;
 
-assign m_axi_gmem0_2_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARPROT;
+assign m_axi_gmem0_2_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARPROT;
 
-assign m_axi_gmem0_2_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARQOS;
+assign m_axi_gmem0_2_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARQOS;
 
-assign m_axi_gmem0_2_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARREGION;
+assign m_axi_gmem0_2_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARREGION;
 
-assign m_axi_gmem0_2_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARSIZE;
+assign m_axi_gmem0_2_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARSIZE;
 
-assign m_axi_gmem0_2_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARUSER;
+assign m_axi_gmem0_2_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARUSER;
 
-assign m_axi_gmem0_2_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_ARVALID;
+assign m_axi_gmem0_2_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_ARVALID;
 
 assign m_axi_gmem0_2_0_AWADDR = 64'd0;
 
@@ -3651,7 +3653,7 @@ assign m_axi_gmem0_2_0_AWVALID = 1'b0;
 
 assign m_axi_gmem0_2_0_BREADY = 1'b0;
 
-assign m_axi_gmem0_2_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_2_0_RREADY;
+assign m_axi_gmem0_2_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_2_0_RREADY;
 
 assign m_axi_gmem0_2_0_WDATA = 8'd0;
 
@@ -3665,29 +3667,29 @@ assign m_axi_gmem0_2_0_WUSER = 1'd0;
 
 assign m_axi_gmem0_2_0_WVALID = 1'b0;
 
-assign m_axi_gmem0_3_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARADDR;
+assign m_axi_gmem0_3_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARADDR;
 
-assign m_axi_gmem0_3_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARBURST;
+assign m_axi_gmem0_3_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARBURST;
 
-assign m_axi_gmem0_3_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARCACHE;
+assign m_axi_gmem0_3_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARCACHE;
 
-assign m_axi_gmem0_3_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARID;
+assign m_axi_gmem0_3_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARID;
 
-assign m_axi_gmem0_3_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARLEN;
+assign m_axi_gmem0_3_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARLEN;
 
-assign m_axi_gmem0_3_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARLOCK;
+assign m_axi_gmem0_3_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARLOCK;
 
-assign m_axi_gmem0_3_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARPROT;
+assign m_axi_gmem0_3_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARPROT;
 
-assign m_axi_gmem0_3_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARQOS;
+assign m_axi_gmem0_3_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARQOS;
 
-assign m_axi_gmem0_3_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARREGION;
+assign m_axi_gmem0_3_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARREGION;
 
-assign m_axi_gmem0_3_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARSIZE;
+assign m_axi_gmem0_3_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARSIZE;
 
-assign m_axi_gmem0_3_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARUSER;
+assign m_axi_gmem0_3_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARUSER;
 
-assign m_axi_gmem0_3_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_ARVALID;
+assign m_axi_gmem0_3_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_ARVALID;
 
 assign m_axi_gmem0_3_0_AWADDR = 64'd0;
 
@@ -3715,7 +3717,7 @@ assign m_axi_gmem0_3_0_AWVALID = 1'b0;
 
 assign m_axi_gmem0_3_0_BREADY = 1'b0;
 
-assign m_axi_gmem0_3_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_3_0_RREADY;
+assign m_axi_gmem0_3_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_3_0_RREADY;
 
 assign m_axi_gmem0_3_0_WDATA = 8'd0;
 
@@ -3729,29 +3731,29 @@ assign m_axi_gmem0_3_0_WUSER = 1'd0;
 
 assign m_axi_gmem0_3_0_WVALID = 1'b0;
 
-assign m_axi_gmem0_4_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARADDR;
+assign m_axi_gmem0_4_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARADDR;
 
-assign m_axi_gmem0_4_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARBURST;
+assign m_axi_gmem0_4_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARBURST;
 
-assign m_axi_gmem0_4_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARCACHE;
+assign m_axi_gmem0_4_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARCACHE;
 
-assign m_axi_gmem0_4_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARID;
+assign m_axi_gmem0_4_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARID;
 
-assign m_axi_gmem0_4_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARLEN;
+assign m_axi_gmem0_4_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARLEN;
 
-assign m_axi_gmem0_4_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARLOCK;
+assign m_axi_gmem0_4_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARLOCK;
 
-assign m_axi_gmem0_4_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARPROT;
+assign m_axi_gmem0_4_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARPROT;
 
-assign m_axi_gmem0_4_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARQOS;
+assign m_axi_gmem0_4_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARQOS;
 
-assign m_axi_gmem0_4_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARREGION;
+assign m_axi_gmem0_4_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARREGION;
 
-assign m_axi_gmem0_4_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARSIZE;
+assign m_axi_gmem0_4_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARSIZE;
 
-assign m_axi_gmem0_4_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARUSER;
+assign m_axi_gmem0_4_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARUSER;
 
-assign m_axi_gmem0_4_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_ARVALID;
+assign m_axi_gmem0_4_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_ARVALID;
 
 assign m_axi_gmem0_4_0_AWADDR = 64'd0;
 
@@ -3779,7 +3781,7 @@ assign m_axi_gmem0_4_0_AWVALID = 1'b0;
 
 assign m_axi_gmem0_4_0_BREADY = 1'b0;
 
-assign m_axi_gmem0_4_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_4_0_RREADY;
+assign m_axi_gmem0_4_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_4_0_RREADY;
 
 assign m_axi_gmem0_4_0_WDATA = 8'd0;
 
@@ -3793,29 +3795,29 @@ assign m_axi_gmem0_4_0_WUSER = 1'd0;
 
 assign m_axi_gmem0_4_0_WVALID = 1'b0;
 
-assign m_axi_gmem0_5_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARADDR;
+assign m_axi_gmem0_5_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARADDR;
 
-assign m_axi_gmem0_5_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARBURST;
+assign m_axi_gmem0_5_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARBURST;
 
-assign m_axi_gmem0_5_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARCACHE;
+assign m_axi_gmem0_5_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARCACHE;
 
-assign m_axi_gmem0_5_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARID;
+assign m_axi_gmem0_5_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARID;
 
-assign m_axi_gmem0_5_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARLEN;
+assign m_axi_gmem0_5_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARLEN;
 
-assign m_axi_gmem0_5_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARLOCK;
+assign m_axi_gmem0_5_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARLOCK;
 
-assign m_axi_gmem0_5_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARPROT;
+assign m_axi_gmem0_5_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARPROT;
 
-assign m_axi_gmem0_5_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARQOS;
+assign m_axi_gmem0_5_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARQOS;
 
-assign m_axi_gmem0_5_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARREGION;
+assign m_axi_gmem0_5_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARREGION;
 
-assign m_axi_gmem0_5_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARSIZE;
+assign m_axi_gmem0_5_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARSIZE;
 
-assign m_axi_gmem0_5_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARUSER;
+assign m_axi_gmem0_5_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARUSER;
 
-assign m_axi_gmem0_5_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_ARVALID;
+assign m_axi_gmem0_5_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_ARVALID;
 
 assign m_axi_gmem0_5_0_AWADDR = 64'd0;
 
@@ -3843,7 +3845,7 @@ assign m_axi_gmem0_5_0_AWVALID = 1'b0;
 
 assign m_axi_gmem0_5_0_BREADY = 1'b0;
 
-assign m_axi_gmem0_5_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_5_0_RREADY;
+assign m_axi_gmem0_5_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_5_0_RREADY;
 
 assign m_axi_gmem0_5_0_WDATA = 8'd0;
 
@@ -3857,29 +3859,29 @@ assign m_axi_gmem0_5_0_WUSER = 1'd0;
 
 assign m_axi_gmem0_5_0_WVALID = 1'b0;
 
-assign m_axi_gmem0_6_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARADDR;
+assign m_axi_gmem0_6_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARADDR;
 
-assign m_axi_gmem0_6_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARBURST;
+assign m_axi_gmem0_6_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARBURST;
 
-assign m_axi_gmem0_6_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARCACHE;
+assign m_axi_gmem0_6_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARCACHE;
 
-assign m_axi_gmem0_6_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARID;
+assign m_axi_gmem0_6_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARID;
 
-assign m_axi_gmem0_6_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARLEN;
+assign m_axi_gmem0_6_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARLEN;
 
-assign m_axi_gmem0_6_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARLOCK;
+assign m_axi_gmem0_6_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARLOCK;
 
-assign m_axi_gmem0_6_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARPROT;
+assign m_axi_gmem0_6_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARPROT;
 
-assign m_axi_gmem0_6_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARQOS;
+assign m_axi_gmem0_6_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARQOS;
 
-assign m_axi_gmem0_6_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARREGION;
+assign m_axi_gmem0_6_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARREGION;
 
-assign m_axi_gmem0_6_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARSIZE;
+assign m_axi_gmem0_6_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARSIZE;
 
-assign m_axi_gmem0_6_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARUSER;
+assign m_axi_gmem0_6_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARUSER;
 
-assign m_axi_gmem0_6_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_ARVALID;
+assign m_axi_gmem0_6_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_ARVALID;
 
 assign m_axi_gmem0_6_0_AWADDR = 64'd0;
 
@@ -3907,7 +3909,7 @@ assign m_axi_gmem0_6_0_AWVALID = 1'b0;
 
 assign m_axi_gmem0_6_0_BREADY = 1'b0;
 
-assign m_axi_gmem0_6_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_6_0_RREADY;
+assign m_axi_gmem0_6_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_6_0_RREADY;
 
 assign m_axi_gmem0_6_0_WDATA = 8'd0;
 
@@ -3921,29 +3923,29 @@ assign m_axi_gmem0_6_0_WUSER = 1'd0;
 
 assign m_axi_gmem0_6_0_WVALID = 1'b0;
 
-assign m_axi_gmem0_7_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARADDR;
+assign m_axi_gmem0_7_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARADDR;
 
-assign m_axi_gmem0_7_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARBURST;
+assign m_axi_gmem0_7_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARBURST;
 
-assign m_axi_gmem0_7_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARCACHE;
+assign m_axi_gmem0_7_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARCACHE;
 
-assign m_axi_gmem0_7_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARID;
+assign m_axi_gmem0_7_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARID;
 
-assign m_axi_gmem0_7_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARLEN;
+assign m_axi_gmem0_7_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARLEN;
 
-assign m_axi_gmem0_7_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARLOCK;
+assign m_axi_gmem0_7_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARLOCK;
 
-assign m_axi_gmem0_7_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARPROT;
+assign m_axi_gmem0_7_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARPROT;
 
-assign m_axi_gmem0_7_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARQOS;
+assign m_axi_gmem0_7_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARQOS;
 
-assign m_axi_gmem0_7_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARREGION;
+assign m_axi_gmem0_7_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARREGION;
 
-assign m_axi_gmem0_7_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARSIZE;
+assign m_axi_gmem0_7_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARSIZE;
 
-assign m_axi_gmem0_7_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARUSER;
+assign m_axi_gmem0_7_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARUSER;
 
-assign m_axi_gmem0_7_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_ARVALID;
+assign m_axi_gmem0_7_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_ARVALID;
 
 assign m_axi_gmem0_7_0_AWADDR = 64'd0;
 
@@ -3971,7 +3973,7 @@ assign m_axi_gmem0_7_0_AWVALID = 1'b0;
 
 assign m_axi_gmem0_7_0_BREADY = 1'b0;
 
-assign m_axi_gmem0_7_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem0_7_0_RREADY;
+assign m_axi_gmem0_7_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem0_7_0_RREADY;
 
 assign m_axi_gmem0_7_0_WDATA = 8'd0;
 
@@ -3985,29 +3987,29 @@ assign m_axi_gmem0_7_0_WUSER = 1'd0;
 
 assign m_axi_gmem0_7_0_WVALID = 1'b0;
 
-assign m_axi_gmem1_0_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARADDR;
+assign m_axi_gmem1_0_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARADDR;
 
-assign m_axi_gmem1_0_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARBURST;
+assign m_axi_gmem1_0_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARBURST;
 
-assign m_axi_gmem1_0_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARCACHE;
+assign m_axi_gmem1_0_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARCACHE;
 
-assign m_axi_gmem1_0_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARID;
+assign m_axi_gmem1_0_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARID;
 
-assign m_axi_gmem1_0_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARLEN;
+assign m_axi_gmem1_0_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARLEN;
 
-assign m_axi_gmem1_0_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARLOCK;
+assign m_axi_gmem1_0_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARLOCK;
 
-assign m_axi_gmem1_0_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARPROT;
+assign m_axi_gmem1_0_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARPROT;
 
-assign m_axi_gmem1_0_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARQOS;
+assign m_axi_gmem1_0_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARQOS;
 
-assign m_axi_gmem1_0_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARREGION;
+assign m_axi_gmem1_0_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARREGION;
 
-assign m_axi_gmem1_0_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARSIZE;
+assign m_axi_gmem1_0_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARSIZE;
 
-assign m_axi_gmem1_0_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARUSER;
+assign m_axi_gmem1_0_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARUSER;
 
-assign m_axi_gmem1_0_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_ARVALID;
+assign m_axi_gmem1_0_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_ARVALID;
 
 assign m_axi_gmem1_0_0_AWADDR = 64'd0;
 
@@ -4035,7 +4037,7 @@ assign m_axi_gmem1_0_0_AWVALID = 1'b0;
 
 assign m_axi_gmem1_0_0_BREADY = 1'b0;
 
-assign m_axi_gmem1_0_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_0_0_RREADY;
+assign m_axi_gmem1_0_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_0_0_RREADY;
 
 assign m_axi_gmem1_0_0_WDATA = 8'd0;
 
@@ -4049,7 +4051,7 @@ assign m_axi_gmem1_0_0_WUSER = 1'd0;
 
 assign m_axi_gmem1_0_0_WVALID = 1'b0;
 
-assign m_axi_gmem1_0_ARADDR = gmem1_addr_reg_775;
+assign m_axi_gmem1_0_ARADDR = gmem1_addr_reg_698;
 
 assign m_axi_gmem1_0_ARBURST = 2'd0;
 
@@ -4109,29 +4111,29 @@ assign m_axi_gmem1_0_WUSER = 1'd0;
 
 assign m_axi_gmem1_0_WVALID = 1'b0;
 
-assign m_axi_gmem1_1_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARADDR;
+assign m_axi_gmem1_1_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARADDR;
 
-assign m_axi_gmem1_1_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARBURST;
+assign m_axi_gmem1_1_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARBURST;
 
-assign m_axi_gmem1_1_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARCACHE;
+assign m_axi_gmem1_1_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARCACHE;
 
-assign m_axi_gmem1_1_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARID;
+assign m_axi_gmem1_1_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARID;
 
-assign m_axi_gmem1_1_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARLEN;
+assign m_axi_gmem1_1_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARLEN;
 
-assign m_axi_gmem1_1_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARLOCK;
+assign m_axi_gmem1_1_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARLOCK;
 
-assign m_axi_gmem1_1_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARPROT;
+assign m_axi_gmem1_1_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARPROT;
 
-assign m_axi_gmem1_1_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARQOS;
+assign m_axi_gmem1_1_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARQOS;
 
-assign m_axi_gmem1_1_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARREGION;
+assign m_axi_gmem1_1_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARREGION;
 
-assign m_axi_gmem1_1_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARSIZE;
+assign m_axi_gmem1_1_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARSIZE;
 
-assign m_axi_gmem1_1_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARUSER;
+assign m_axi_gmem1_1_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARUSER;
 
-assign m_axi_gmem1_1_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_ARVALID;
+assign m_axi_gmem1_1_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_ARVALID;
 
 assign m_axi_gmem1_1_0_AWADDR = 64'd0;
 
@@ -4159,7 +4161,7 @@ assign m_axi_gmem1_1_0_AWVALID = 1'b0;
 
 assign m_axi_gmem1_1_0_BREADY = 1'b0;
 
-assign m_axi_gmem1_1_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_1_0_RREADY;
+assign m_axi_gmem1_1_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_1_0_RREADY;
 
 assign m_axi_gmem1_1_0_WDATA = 8'd0;
 
@@ -4173,29 +4175,29 @@ assign m_axi_gmem1_1_0_WUSER = 1'd0;
 
 assign m_axi_gmem1_1_0_WVALID = 1'b0;
 
-assign m_axi_gmem1_2_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARADDR;
+assign m_axi_gmem1_2_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARADDR;
 
-assign m_axi_gmem1_2_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARBURST;
+assign m_axi_gmem1_2_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARBURST;
 
-assign m_axi_gmem1_2_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARCACHE;
+assign m_axi_gmem1_2_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARCACHE;
 
-assign m_axi_gmem1_2_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARID;
+assign m_axi_gmem1_2_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARID;
 
-assign m_axi_gmem1_2_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARLEN;
+assign m_axi_gmem1_2_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARLEN;
 
-assign m_axi_gmem1_2_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARLOCK;
+assign m_axi_gmem1_2_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARLOCK;
 
-assign m_axi_gmem1_2_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARPROT;
+assign m_axi_gmem1_2_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARPROT;
 
-assign m_axi_gmem1_2_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARQOS;
+assign m_axi_gmem1_2_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARQOS;
 
-assign m_axi_gmem1_2_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARREGION;
+assign m_axi_gmem1_2_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARREGION;
 
-assign m_axi_gmem1_2_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARSIZE;
+assign m_axi_gmem1_2_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARSIZE;
 
-assign m_axi_gmem1_2_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARUSER;
+assign m_axi_gmem1_2_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARUSER;
 
-assign m_axi_gmem1_2_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_ARVALID;
+assign m_axi_gmem1_2_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_ARVALID;
 
 assign m_axi_gmem1_2_0_AWADDR = 64'd0;
 
@@ -4223,7 +4225,7 @@ assign m_axi_gmem1_2_0_AWVALID = 1'b0;
 
 assign m_axi_gmem1_2_0_BREADY = 1'b0;
 
-assign m_axi_gmem1_2_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_2_0_RREADY;
+assign m_axi_gmem1_2_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_2_0_RREADY;
 
 assign m_axi_gmem1_2_0_WDATA = 8'd0;
 
@@ -4237,29 +4239,29 @@ assign m_axi_gmem1_2_0_WUSER = 1'd0;
 
 assign m_axi_gmem1_2_0_WVALID = 1'b0;
 
-assign m_axi_gmem1_3_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARADDR;
+assign m_axi_gmem1_3_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARADDR;
 
-assign m_axi_gmem1_3_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARBURST;
+assign m_axi_gmem1_3_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARBURST;
 
-assign m_axi_gmem1_3_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARCACHE;
+assign m_axi_gmem1_3_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARCACHE;
 
-assign m_axi_gmem1_3_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARID;
+assign m_axi_gmem1_3_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARID;
 
-assign m_axi_gmem1_3_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARLEN;
+assign m_axi_gmem1_3_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARLEN;
 
-assign m_axi_gmem1_3_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARLOCK;
+assign m_axi_gmem1_3_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARLOCK;
 
-assign m_axi_gmem1_3_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARPROT;
+assign m_axi_gmem1_3_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARPROT;
 
-assign m_axi_gmem1_3_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARQOS;
+assign m_axi_gmem1_3_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARQOS;
 
-assign m_axi_gmem1_3_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARREGION;
+assign m_axi_gmem1_3_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARREGION;
 
-assign m_axi_gmem1_3_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARSIZE;
+assign m_axi_gmem1_3_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARSIZE;
 
-assign m_axi_gmem1_3_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARUSER;
+assign m_axi_gmem1_3_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARUSER;
 
-assign m_axi_gmem1_3_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_ARVALID;
+assign m_axi_gmem1_3_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_ARVALID;
 
 assign m_axi_gmem1_3_0_AWADDR = 64'd0;
 
@@ -4287,7 +4289,7 @@ assign m_axi_gmem1_3_0_AWVALID = 1'b0;
 
 assign m_axi_gmem1_3_0_BREADY = 1'b0;
 
-assign m_axi_gmem1_3_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_3_0_RREADY;
+assign m_axi_gmem1_3_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_3_0_RREADY;
 
 assign m_axi_gmem1_3_0_WDATA = 8'd0;
 
@@ -4301,29 +4303,29 @@ assign m_axi_gmem1_3_0_WUSER = 1'd0;
 
 assign m_axi_gmem1_3_0_WVALID = 1'b0;
 
-assign m_axi_gmem1_4_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARADDR;
+assign m_axi_gmem1_4_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARADDR;
 
-assign m_axi_gmem1_4_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARBURST;
+assign m_axi_gmem1_4_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARBURST;
 
-assign m_axi_gmem1_4_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARCACHE;
+assign m_axi_gmem1_4_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARCACHE;
 
-assign m_axi_gmem1_4_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARID;
+assign m_axi_gmem1_4_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARID;
 
-assign m_axi_gmem1_4_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARLEN;
+assign m_axi_gmem1_4_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARLEN;
 
-assign m_axi_gmem1_4_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARLOCK;
+assign m_axi_gmem1_4_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARLOCK;
 
-assign m_axi_gmem1_4_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARPROT;
+assign m_axi_gmem1_4_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARPROT;
 
-assign m_axi_gmem1_4_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARQOS;
+assign m_axi_gmem1_4_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARQOS;
 
-assign m_axi_gmem1_4_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARREGION;
+assign m_axi_gmem1_4_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARREGION;
 
-assign m_axi_gmem1_4_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARSIZE;
+assign m_axi_gmem1_4_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARSIZE;
 
-assign m_axi_gmem1_4_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARUSER;
+assign m_axi_gmem1_4_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARUSER;
 
-assign m_axi_gmem1_4_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_ARVALID;
+assign m_axi_gmem1_4_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_ARVALID;
 
 assign m_axi_gmem1_4_0_AWADDR = 64'd0;
 
@@ -4351,7 +4353,7 @@ assign m_axi_gmem1_4_0_AWVALID = 1'b0;
 
 assign m_axi_gmem1_4_0_BREADY = 1'b0;
 
-assign m_axi_gmem1_4_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_4_0_RREADY;
+assign m_axi_gmem1_4_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_4_0_RREADY;
 
 assign m_axi_gmem1_4_0_WDATA = 8'd0;
 
@@ -4365,29 +4367,29 @@ assign m_axi_gmem1_4_0_WUSER = 1'd0;
 
 assign m_axi_gmem1_4_0_WVALID = 1'b0;
 
-assign m_axi_gmem1_5_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARADDR;
+assign m_axi_gmem1_5_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARADDR;
 
-assign m_axi_gmem1_5_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARBURST;
+assign m_axi_gmem1_5_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARBURST;
 
-assign m_axi_gmem1_5_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARCACHE;
+assign m_axi_gmem1_5_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARCACHE;
 
-assign m_axi_gmem1_5_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARID;
+assign m_axi_gmem1_5_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARID;
 
-assign m_axi_gmem1_5_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARLEN;
+assign m_axi_gmem1_5_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARLEN;
 
-assign m_axi_gmem1_5_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARLOCK;
+assign m_axi_gmem1_5_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARLOCK;
 
-assign m_axi_gmem1_5_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARPROT;
+assign m_axi_gmem1_5_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARPROT;
 
-assign m_axi_gmem1_5_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARQOS;
+assign m_axi_gmem1_5_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARQOS;
 
-assign m_axi_gmem1_5_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARREGION;
+assign m_axi_gmem1_5_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARREGION;
 
-assign m_axi_gmem1_5_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARSIZE;
+assign m_axi_gmem1_5_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARSIZE;
 
-assign m_axi_gmem1_5_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARUSER;
+assign m_axi_gmem1_5_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARUSER;
 
-assign m_axi_gmem1_5_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_ARVALID;
+assign m_axi_gmem1_5_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_ARVALID;
 
 assign m_axi_gmem1_5_0_AWADDR = 64'd0;
 
@@ -4415,7 +4417,7 @@ assign m_axi_gmem1_5_0_AWVALID = 1'b0;
 
 assign m_axi_gmem1_5_0_BREADY = 1'b0;
 
-assign m_axi_gmem1_5_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_5_0_RREADY;
+assign m_axi_gmem1_5_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_5_0_RREADY;
 
 assign m_axi_gmem1_5_0_WDATA = 8'd0;
 
@@ -4429,29 +4431,29 @@ assign m_axi_gmem1_5_0_WUSER = 1'd0;
 
 assign m_axi_gmem1_5_0_WVALID = 1'b0;
 
-assign m_axi_gmem1_6_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARADDR;
+assign m_axi_gmem1_6_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARADDR;
 
-assign m_axi_gmem1_6_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARBURST;
+assign m_axi_gmem1_6_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARBURST;
 
-assign m_axi_gmem1_6_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARCACHE;
+assign m_axi_gmem1_6_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARCACHE;
 
-assign m_axi_gmem1_6_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARID;
+assign m_axi_gmem1_6_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARID;
 
-assign m_axi_gmem1_6_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARLEN;
+assign m_axi_gmem1_6_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARLEN;
 
-assign m_axi_gmem1_6_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARLOCK;
+assign m_axi_gmem1_6_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARLOCK;
 
-assign m_axi_gmem1_6_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARPROT;
+assign m_axi_gmem1_6_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARPROT;
 
-assign m_axi_gmem1_6_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARQOS;
+assign m_axi_gmem1_6_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARQOS;
 
-assign m_axi_gmem1_6_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARREGION;
+assign m_axi_gmem1_6_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARREGION;
 
-assign m_axi_gmem1_6_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARSIZE;
+assign m_axi_gmem1_6_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARSIZE;
 
-assign m_axi_gmem1_6_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARUSER;
+assign m_axi_gmem1_6_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARUSER;
 
-assign m_axi_gmem1_6_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_ARVALID;
+assign m_axi_gmem1_6_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_ARVALID;
 
 assign m_axi_gmem1_6_0_AWADDR = 64'd0;
 
@@ -4479,7 +4481,7 @@ assign m_axi_gmem1_6_0_AWVALID = 1'b0;
 
 assign m_axi_gmem1_6_0_BREADY = 1'b0;
 
-assign m_axi_gmem1_6_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_6_0_RREADY;
+assign m_axi_gmem1_6_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_6_0_RREADY;
 
 assign m_axi_gmem1_6_0_WDATA = 8'd0;
 
@@ -4493,29 +4495,29 @@ assign m_axi_gmem1_6_0_WUSER = 1'd0;
 
 assign m_axi_gmem1_6_0_WVALID = 1'b0;
 
-assign m_axi_gmem1_7_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARADDR;
+assign m_axi_gmem1_7_0_ARADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARADDR;
 
-assign m_axi_gmem1_7_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARBURST;
+assign m_axi_gmem1_7_0_ARBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARBURST;
 
-assign m_axi_gmem1_7_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARCACHE;
+assign m_axi_gmem1_7_0_ARCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARCACHE;
 
-assign m_axi_gmem1_7_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARID;
+assign m_axi_gmem1_7_0_ARID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARID;
 
-assign m_axi_gmem1_7_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARLEN;
+assign m_axi_gmem1_7_0_ARLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARLEN;
 
-assign m_axi_gmem1_7_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARLOCK;
+assign m_axi_gmem1_7_0_ARLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARLOCK;
 
-assign m_axi_gmem1_7_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARPROT;
+assign m_axi_gmem1_7_0_ARPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARPROT;
 
-assign m_axi_gmem1_7_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARQOS;
+assign m_axi_gmem1_7_0_ARQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARQOS;
 
-assign m_axi_gmem1_7_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARREGION;
+assign m_axi_gmem1_7_0_ARREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARREGION;
 
-assign m_axi_gmem1_7_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARSIZE;
+assign m_axi_gmem1_7_0_ARSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARSIZE;
 
-assign m_axi_gmem1_7_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARUSER;
+assign m_axi_gmem1_7_0_ARUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARUSER;
 
-assign m_axi_gmem1_7_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_ARVALID;
+assign m_axi_gmem1_7_0_ARVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_ARVALID;
 
 assign m_axi_gmem1_7_0_AWADDR = 64'd0;
 
@@ -4543,7 +4545,7 @@ assign m_axi_gmem1_7_0_AWVALID = 1'b0;
 
 assign m_axi_gmem1_7_0_BREADY = 1'b0;
 
-assign m_axi_gmem1_7_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_378_m_axi_gmem1_7_0_RREADY;
+assign m_axi_gmem1_7_0_RREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem1_7_0_RREADY;
 
 assign m_axi_gmem1_7_0_WDATA = 8'd0;
 
@@ -4557,27 +4559,85 @@ assign m_axi_gmem1_7_0_WUSER = 1'd0;
 
 assign m_axi_gmem1_7_0_WVALID = 1'b0;
 
-assign mac_count_out_0_fu_560_p3 = ((mac_count_flag_0_i_reg_366[0:0] == 1'b1) ? mac_count_new_0_i_fu_198 : p_read_cast_reg_744);
+assign m_axi_gmem2_0_ARADDR = 64'd0;
 
-assign p_read2_cast_fu_459_p1 = p_read2;
+assign m_axi_gmem2_0_ARBURST = 2'd0;
 
-assign p_read_cast_fu_463_p1 = p_read;
+assign m_axi_gmem2_0_ARCACHE = 4'd0;
 
-assign sext_ln33_fu_545_p1 = $signed(trunc_ln_fu_535_p4);
+assign m_axi_gmem2_0_ARID = 1'd0;
 
-assign shl_ln1_fu_518_p3 = {{oc_fu_190}, {2'd0}};
+assign m_axi_gmem2_0_ARLEN = 32'd0;
 
-assign shl_ln_fu_467_p3 = {{in_w}, {3'd0}};
+assign m_axi_gmem2_0_ARLOCK = 2'd0;
 
-assign trunc_ln23_fu_597_p1 = oc_3_reg_766[5:0];
+assign m_axi_gmem2_0_ARPROT = 3'd0;
 
-assign trunc_ln_fu_535_p4 = {{add_ln33_fu_530_p2[63:2]}};
+assign m_axi_gmem2_0_ARQOS = 4'd0;
 
-assign zext_ln33_fu_526_p1 = shl_ln1_fu_518_p3;
+assign m_axi_gmem2_0_ARREGION = 4'd0;
+
+assign m_axi_gmem2_0_ARSIZE = 3'd0;
+
+assign m_axi_gmem2_0_ARUSER = 1'd0;
+
+assign m_axi_gmem2_0_ARVALID = 1'b0;
+
+assign m_axi_gmem2_0_AWADDR = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWADDR;
+
+assign m_axi_gmem2_0_AWBURST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWBURST;
+
+assign m_axi_gmem2_0_AWCACHE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWCACHE;
+
+assign m_axi_gmem2_0_AWID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWID;
+
+assign m_axi_gmem2_0_AWLEN = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWLEN;
+
+assign m_axi_gmem2_0_AWLOCK = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWLOCK;
+
+assign m_axi_gmem2_0_AWPROT = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWPROT;
+
+assign m_axi_gmem2_0_AWQOS = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWQOS;
+
+assign m_axi_gmem2_0_AWREGION = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWREGION;
+
+assign m_axi_gmem2_0_AWSIZE = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWSIZE;
+
+assign m_axi_gmem2_0_AWUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWUSER;
+
+assign m_axi_gmem2_0_AWVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_AWVALID;
+
+assign m_axi_gmem2_0_BREADY = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_BREADY;
+
+assign m_axi_gmem2_0_RREADY = 1'b0;
+
+assign m_axi_gmem2_0_WDATA = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WDATA;
+
+assign m_axi_gmem2_0_WID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WID;
+
+assign m_axi_gmem2_0_WLAST = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WLAST;
+
+assign m_axi_gmem2_0_WSTRB = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WSTRB;
+
+assign m_axi_gmem2_0_WUSER = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WUSER;
+
+assign m_axi_gmem2_0_WVALID = grp_conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP_fu_352_m_axi_gmem2_0_WVALID;
+
+assign sext_ln33_fu_506_p1 = $signed(trunc_ln_fu_496_p4);
+
+assign shl_ln28_1_fu_533_p3 = {{oc_2_reg_689}, {12'd0}};
+
+assign shl_ln2_fu_479_p3 = {{oc_fu_190}, {2'd0}};
+
+assign shl_ln_fu_428_p3 = {{in_w}, {3'd0}};
+
+assign trunc_ln_fu_496_p4 = {{add_ln33_fu_491_p2[63:2]}};
+
+assign zext_ln33_fu_487_p1 = shl_ln2_fu_479_p3;
 
 always @ (posedge ap_clk) begin
-    p_read_cast_reg_744[31:1] <= 31'b0000000000000000000000000000000;
-    shl_ln_reg_755[2:0] <= 3'b000;
+    shl_ln_reg_678[2:0] <= 3'b000;
+    shl_ln28_1_reg_719[11:0] <= 12'b000000000000;
 end
 
 endmodule //dpu_conv_top_conv3x3_relu

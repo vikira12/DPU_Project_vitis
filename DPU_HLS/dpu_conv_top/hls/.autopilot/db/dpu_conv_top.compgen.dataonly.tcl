@@ -205,13 +205,21 @@ bias {
 	offset 208
 	offset_end 219
 }
-ofmap { 
+conv_scratch { 
 	dir I
 	width 64
 	depth 1
 	mode ap_none
 	offset 220
 	offset_end 231
+}
+ofmap { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 232
+	offset_end 243
 }
 }
 dict set axilite_register_dict control $port_control
