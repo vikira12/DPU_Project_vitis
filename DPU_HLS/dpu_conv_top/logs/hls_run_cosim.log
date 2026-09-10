@@ -2,6 +2,7 @@
 INFO: [HLS 200-2005] Using work_dir D:/project/DPU_Project_vitis/DPU_HLS/dpu_conv_top 
 INFO: [HLS 200-2176] Writing Vitis IDE component file D:/project/DPU_Project_vitis/DPU_HLS/dpu_conv_top/vitis-comp.json
 INFO: [HLS 200-10] Creating and opening component 'D:/project/DPU_Project_vitis/DPU_HLS/dpu_conv_top'.
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
 INFO: [HLS 200-1505] Using default flow_target 'vivado'
 Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
 INFO: [HLS 200-2174] Applying component config ini file hls_config.cfg
@@ -18,7 +19,6 @@ INFO: [HLS 200-1465] Applying config ini 'flow_target=vivado' from hls_config.cf
 INFO: [HLS 200-1505] Using flow_target 'vivado'
 Resolution: For help on HLS 200-1505 see docs.amd.com/access/sources/dita/topic?Doc_Version=2025.2%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
 INFO: [HLS 200-1465] Applying config ini 'part=xc7z020clg400-1' from hls_config.cfg(1)
-INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
 INFO: [HLS 200-1465] Applying config ini 'clock=11ns' from hls_config.cfg(16)
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 11ns.
 INFO: [HLS 200-1465] Applying config ini 'cosim.disable_deadlock_detection=1' from hls_config.cfg(17)
@@ -33,50 +33,24 @@ INFO: [HLS 200-1465] Applying config ini 'csim.setup=1' from hls_config.cfg(11)
 INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from hls_config.cfg(5)
 INFO: [HLS 200-1465] Applying config ini 'sim.O=1' from hls_config.cfg(9)
 INFO: [HLS 200-2176] Writing Vitis IDE component file D:/project/DPU_Project_vitis/DPU_HLS/dpu_conv_top/vitis-comp.json
-INFO: [SIM 211-2] *************** CSIM start ***************
-INFO: [HLS 200-2191] C-Simulation will use clang-16 as the compiler
-INFO: [HLS 200-2036] Building optimized C Simulation binaries
-   Compiling ../../../../../../DPUv2/dpu_conv_tb.cpp in release mode
-   Compiling ../../../../../../DPUv2/dpu_conv.cpp in release mode
-   Linking obj/dpu_conv.bc into obj/project.bc
-   Lowering obj/project.bc into obj/project.syn.o
-   Generating csim.exe
-In file included from ../../../../../../DPUv2/dpu_conv_tb.cpp:1:
-In file included from ../../../../../../DPUv2/dpu_conv.h:4:
-In file included from ../../../../../../DPUv2/dpu_types.h:4:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include\ap_int.h:10:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include\etc/ap_common.h:668:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include\etc/ap_private.h:68:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include\hls_half.h:26:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include/etc/hls_half_fpo.h:19:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include\hls_fpo.h:140:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
-C:/AMDDesignTools/2025.2/Vitis/include\gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
-#define __GMP_LIBGMP_DLL  0
-        ^
-C:/AMDDesignTools/2025.2/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
-#define __GMP_LIBGMP_DLL 1
-        ^
-1 warning generated.
-In file included from ../../../../../../DPUv2/dpu_conv.cpp:1:
-In file included from ../../../../../../DPUv2/dpu_conv.h:4:
-In file included from ../../../../../../DPUv2/dpu_types.h:4:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include\ap_int.h:10:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include\etc/ap_common.h:668:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include\etc/ap_private.h:68:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include\hls_half.h:26:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include/etc/hls_half_fpo.h:19:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include\hls_fpo.h:140:
-In file included from C:/AMDDesignTools/2025.2/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:150:
-C:/AMDDesignTools/2025.2/Vitis/include\gmp.h:58:9: warning: '__GMP_LIBGMP_DLL' macro redefined [-Wmacro-redefined]
-#define __GMP_LIBGMP_DLL  0
-        ^
-C:/AMDDesignTools/2025.2/Vitis/include/floating_point_v7_1_bitacc_cmodel.h:142:9: note: previous definition is here
-#define __GMP_LIBGMP_DLL 1
-        ^
-1 warning generated.
-INFO: [HLS 200-2035] Skipping execution of C Simulation due to 'setup' option
-INFO: [SIM 211-1] CSim file generation done with 0 errors.
-INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-112] Total CPU user time: 4 seconds. Total CPU system time: 12 seconds. Total elapsed time: 35.847 seconds; peak allocated memory: 166.195 MB.
-INFO: [vitis-run 60-791] Total elapsed time: 0h 0m 48s
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "C:/AMDDesignTools/2025.2/Vitis/win64/tools/clang-16/bin/clang++"
+   Compiling apatb_dpu_conv_top.cpp
+   Compiling dpu_conv.cpp_pre.cpp.tb.cpp
+   Compiling dpu_conv_tb.cpp_pre.cpp.tb.cpp
+   Compiling apatb_dpu_conv_top_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+cycle_count  = 8192
+mac_count    = 67712
+invoke_count = 1
+ofmap[0][0][0..3] = 0 0 0 0 
+TEST PASSED
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+find not read role field
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+INFO: [HLS 200-112] Total CPU user time: 69 seconds. Total CPU system time: 27 seconds. Total elapsed time: 282.331 seconds; peak allocated memory: 251.703 MB.
+INFO: [vitis-run 60-791] Total elapsed time: 0h 5m 10s

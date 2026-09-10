@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP'
 ================================================================
-* Date:           Wed Sep  9 18:58:21 2026
+* Date:           Thu Sep 10 17:28:16 2026
 
 * Version:        2025.2 (Build 6295257 on Nov 14 2025)
 * Project:        dpu_conv_top
@@ -3274,31 +3274,31 @@ The critical path consists of the following:
 
  <State 11>: 8.030ns
 The critical path consists of the following:
-	bus request operation ('gmem1_1_load_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_1' (D:/project/DPUv2/dpu_conv.cpp:55) [426]  (8.030 ns)
+	bus request operation ('gmem1_6_load_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem1_6' (D:/project/DPUv2/dpu_conv.cpp:55) [1401]  (8.030 ns)
 
  <State 12>: 8.030ns
 The critical path consists of the following:
-	bus request operation ('gmem0_0_load_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55) [227]  (8.030 ns)
+	bus request operation ('gmem0_1_load_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55) [422]  (8.030 ns)
 
  <State 13>: 8.030ns
 The critical path consists of the following:
-	bus request operation ('gmem0_3_load_1_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55) [832]  (8.030 ns)
+	bus request operation ('gmem0_0_load_1_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55) [247]  (8.030 ns)
 
  <State 14>: 8.030ns
 The critical path consists of the following:
-	bus request operation ('gmem0_2_load_2_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55) [659]  (8.030 ns)
+	bus request operation ('gmem0_0_load_2_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55) [268]  (8.030 ns)
 
  <State 15>: 8.030ns
 The critical path consists of the following:
-	bus request operation ('gmem0_0_load_3_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55) [289]  (8.030 ns)
+	bus request operation ('gmem0_1_load_3_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55) [484]  (8.030 ns)
 
  <State 16>: 8.030ns
 The critical path consists of the following:
-	bus read operation ('gmem0_6_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_6' (D:/project/DPUv2/dpu_conv.cpp:55) [1460]  (8.030 ns)
+	bus read operation ('gmem0_0_addr_3_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55) [290]  (8.030 ns)
 
  <State 17>: 8.030ns
 The critical path consists of the following:
-	bus request operation ('gmem0_2_load_5_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_2' (D:/project/DPUv2/dpu_conv.cpp:55) [714]  (8.030 ns)
+	bus request operation ('gmem0_1_load_5_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55) [518]  (8.030 ns)
 
  <State 18>: 8.030ns
 The critical path consists of the following:
@@ -3306,15 +3306,15 @@ The critical path consists of the following:
 
  <State 19>: 8.030ns
 The critical path consists of the following:
-	bus request operation ('gmem0_4_load_7_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_4' (D:/project/DPUv2/dpu_conv.cpp:55) [1146]  (8.030 ns)
+	bus request operation ('gmem0_3_load_7_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_3' (D:/project/DPUv2/dpu_conv.cpp:55) [950]  (8.030 ns)
 
  <State 20>: 8.030ns
 The critical path consists of the following:
-	bus request operation ('gmem0_7_load_8_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_7' (D:/project/DPUv2/dpu_conv.cpp:55) [1750]  (8.030 ns)
+	bus request operation ('gmem0_1_load_8_req', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_1' (D:/project/DPUv2/dpu_conv.cpp:55) [581]  (8.030 ns)
 
  <State 21>: 8.030ns
 The critical path consists of the following:
-	bus read operation ('gmem0_0_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_0' (D:/project/DPUv2/dpu_conv.cpp:55) [387]  (8.030 ns)
+	bus read operation ('gmem0_5_addr_8_read', D:/project/DPUv2/dpu_conv.cpp:55) on port 'gmem0_5' (D:/project/DPUv2/dpu_conv.cpp:55) [1363]  (8.030 ns)
 
  <State 22>: 4.200ns
 The critical path consists of the following:

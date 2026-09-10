@@ -116,4 +116,4 @@ $(HLS_PROJECT_BC): $(HLS_BC_OBJECTS) $(ObjDir)/.dir csim.mk
 
 $(HLS_SYN_OBJECT): $(HLS_PROJECT_BC) $(ObjDir)/.dir csim.mk
 	$(Echo) "   Lowering $(HLS_PROJECT_BC) into $(HLS_SYN_OBJECT)" $(AVE_DIR_DLOG)
-	$(Verb)  ${AP_CLANG_PATH}/clang ${CCFLAG} -c -mllvm --profilerOutputDirectory=D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/csim/profile -fhls-profile-tripcount -x ir $< -o $@; \
+	$(Verb)  ${AP_CLANG_PATH}/clang ${CCFLAG} -c -mllvm --profilerOutputDirectory=D:/project/DPU_Project_vitis/DPU_HLS/dpu_conv_top/hls/csim/profile -fhls-profile-tripcount -x ir $< -o $@; \

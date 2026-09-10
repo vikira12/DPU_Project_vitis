@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W'" level="0">
-<item name = "Date">Wed Sep  9 18:58:35 2026
+<item name = "Date">Thu Sep 10 17:29:07 2026
 </item>
 <item name = "Version">2025.2 (Build 6295257 on Nov 14 2025)</item>
 <item name = "Project">dpu_conv_top</item>

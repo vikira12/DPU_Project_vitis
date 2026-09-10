@@ -11676,6 +11676,7 @@
     </ModuleInformation>
     <FIFOInformation/>
     <UserConfigCommands>
+        <config_cosim disable_deadlock_detection="1" enable_dataflow_profiling="1" enable_fifo_sizing="1" random_stall="1" setup="1" wave_debug="1"/>
         <config_csim clean="1" profile_tripcount="1" setup="1"/>
         <config_sim O="1"/>
     </UserConfigCommands>

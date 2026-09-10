@@ -1,6 +1,6 @@
 [
   {
-    "directory": "D:\\project\\DPU_Project\\DPU_HLS",
+    "directory": "D:\\project\\DPU_Project_vitis\\DPU_HLS",
     "arguments": [
       "C:\\AMDDesignTools\\2025.2\\Vitis\\win64\\tools\\vcxx\\libexec\\clang++.exe",
       "--sysroot=C:\\AMDDesignTools\\2025.2\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt",
@@ -13,7 +13,7 @@
     "file": "D:\\project\\DPUv2\\dpu_conv.cpp"
   },
   {
-    "directory": "D:\\project\\DPU_Project\\DPU_HLS",
+    "directory": "D:\\project\\DPU_Project_vitis\\DPU_HLS",
     "arguments": [
       "C:\\AMDDesignTools\\2025.2\\Vitis\\win64\\tools\\vcxx\\libexec\\clang++.exe",
       "--sysroot=C:\\AMDDesignTools\\2025.2\\Vitis\\tps\\mingw\\10.0.0\\win64.o\\nt",

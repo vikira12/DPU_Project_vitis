@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'dpu_conv_top'
 ================================================================
 + General Information: 
-    * Date:           Wed Sep  9 18:58:41 2026
+    * Date:           Thu Sep 10 17:29:21 2026
     * Version:        2025.2 (Build 6295257 on Nov 14 2025)
     * Project:        dpu_conv_top
     * Solution:       hls (Vivado IP Flow Target)

@@ -1,26 +1,5 @@
 {
     "1": {
-        "name": "conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP",
-        "file": "D:\/project\/DPUv2\/dpu_conv.cpp",
-        "fileloc": "23",
-        "instructions": "1609",
-        "total_instructions": "1609",
-        "calls": "",
-        "basicblocks": "148",
-        "memory_accesses": "307",
-        "control_depth": "3",
-        "def_use_depth": "129",
-        "loads": {
-            "L": "8"
-        },
-        "stores": {
-            "L": "18"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "2": {
         "name": "dpu_conv_top_Pipeline_POOL_OC_POOL_H_POOL_W",
         "file": "D:\/project\/DPUv2\/dpu_conv.cpp",
         "fileloc": "173",
@@ -41,13 +20,46 @@
             "L": "1"
         }
     },
+    "2": {
+        "name": "conv3x3_relu_Pipeline_OH_LOOP_OW_LOOP_IC_LOOP",
+        "file": "D:\/project\/DPUv2\/dpu_conv.cpp",
+        "fileloc": "23",
+        "instructions": "1609",
+        "total_instructions": "1609",
+        "calls": "",
+        "basicblocks": "148",
+        "memory_accesses": "307",
+        "control_depth": "3",
+        "def_use_depth": "129",
+        "loads": {
+            "L": "8"
+        },
+        "stores": {
+            "L": "18"
+        },
+        "loops": {
+            "L": "1"
+        }
+    },
+    "0": {
+        "name": "dpu_conv_top",
+        "file": "dpu_conv.cpp",
+        "fileloc": "128",
+        "instructions": "150",
+        "total_instructions": "2036",
+        "calls": "3 4 1",
+        "basicblocks": "4",
+        "memory_accesses": "0",
+        "control_depth": "0",
+        "def_use_depth": "3"
+    },
     "3": {
         "name": "conv3x3_relu",
         "file": "D:\/project\/DPUv2\/dpu_conv.cpp",
         "fileloc": "8",
         "instructions": "77",
         "total_instructions": "1686",
-        "calls": "1",
+        "calls": "2",
         "basicblocks": "4",
         "memory_accesses": "0",
         "control_depth": "0",
@@ -61,18 +73,6 @@
         "loops": {
             "L": "1"
         }
-    },
-    "0": {
-        "name": "dpu_conv_top",
-        "file": "dpu_conv.cpp",
-        "fileloc": "128",
-        "instructions": "150",
-        "total_instructions": "2036",
-        "calls": "3 4 2",
-        "basicblocks": "4",
-        "memory_accesses": "0",
-        "control_depth": "0",
-        "def_use_depth": "3"
     },
     "4": {
         "name": "dpu_conv_top_Pipeline_COPY_OC_COPY_H_COPY_W",

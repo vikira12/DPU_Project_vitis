@@ -1,0 +1,5 @@
+cycle_count  = 8192
+mac_count    = 67712
+invoke_count = 1
+ofmap[0][0][0..3] = 0 0 0 0 
+TEST PASSED

@@ -1,6 +1,6 @@
 <dict>
   <key>main-file</key>
-  <string>D:/project/DPU_Project/DPU_HLS/dpu_conv_top/hls/.autopilot/db/dpu_conv.pp.0.cpp</string>
+  <string>D:/project/DPU_Project_vitis/DPU_HLS/dpu_conv_top/hls/.autopilot/db/dpu_conv.pp.0.cpp</string>
   <key>diagnostics</key>
   <array>
     <dict>

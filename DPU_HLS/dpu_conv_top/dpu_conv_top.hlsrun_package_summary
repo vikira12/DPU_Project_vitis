@@ -1,6 +1,6 @@
 <ENTRY>
 {
- "thisFile": "D:/project\\DPU_Project_vitis\\DPU_HLS\\dpu_conv_top\\dpu_conv_top.hlsrun_csim_summary",
+ "thisFile": "D:/project\\DPU_Project_vitis\\DPU_HLS\\dpu_conv_top\\dpu_conv_top.hlsrun_package_summary",
  "connectId": "",
  "serverToken": "",
  "timestamp": "0"
@@ -9,17 +9,17 @@
 <ENTRY>
 {
  "type": "ET_CmdStep",
- "dateTimestamp": "09/10/26 17:01:18",
- "timestampMillis": "1789027278875",
+ "dateTimestamp": "09/10/26 17:02:36",
+ "timestampMillis": "1789027356083",
  "buildStep": {
-  "cmdId": "ef9858b6-145a-468b-ba33-8c11faf5e4ad",
+  "cmdId": "2bbf0758-46f4-4b4f-876a-ff40b6d7a94d",
   "name": "vitis-run",
   "logFile": "D:/project\\DPU_Project_vitis\\DPU_HLS\\dpu_conv_top\\logs\\dpu_conv_top.steps.log",
-  "commandLine": "C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe  --mode hls --csim --config D:\\project\\DPU_Project_vitis\\DPU_HLS\\hls_config.cfg --work_dir dpu_conv_top ",
+  "commandLine": "C:/AMDDesignTools/2025.2/Vitis/bin/unwrapped/win64.o/vitis-run.exe  --mode hls --package --config D:\\project\\DPU_Project_vitis\\DPU_HLS\\hls_config.cfg --work_dir dpu_conv_top ",
   "args": [
    "--mode",
    "hls",
-   "--csim",
+   "--package",
    "--config",
    "D:\\project\\DPU_Project_vitis\\DPU_HLS\\hls_config.cfg",
    "--work_dir",
@@ -33,10 +33,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/10/26 17:01:18",
- "timestampMillis": "1789027278875",
+ "dateTimestamp": "09/10/26 17:02:36",
+ "timestampMillis": "1789027356084",
  "status": {
-  "cmdId": "ef9858b6-145a-468b-ba33-8c11faf5e4ad",
+  "cmdId": "2bbf0758-46f4-4b4f-876a-ff40b6d7a94d",
   "state": "CS_RUNNING"
  }
 }
@@ -44,8 +44,8 @@
 <ENTRY>
 {
  "type": "ET_FlowMetaData",
- "dateTimestamp": "09/10/26 17:01:47",
- "timestampMillis": "1789027307147",
+ "dateTimestamp": "09/10/26 17:03:29",
+ "timestampMillis": "1789027409361",
  "buildSummary": {
   "hardwarePlatform": "",
   "hardwareDsa": "",
@@ -53,13 +53,13 @@
   "runtime": "",
   "systemConfig": "",
   "flow": "BF_RUN",
-  "target": "TT_HLS_C_SIM",
+  "target": "TT_HLS_IP",
   "kernels": [
    {
     "base": {
      "type": "KERNEL",
      "name": "dpu_conv_top",
-     "file": "",
+     "file": "D:/project\\DPU_Project_vitis\\DPU_HLS\\dpu_conv_top\\dpu_conv_top.zip",
      "reports": [],
      "uuid": ""
     },
@@ -82,10 +82,10 @@
 <ENTRY>
 {
  "type": "ET_SubCmdStep",
- "dateTimestamp": "09/10/26 17:01:47",
- "timestampMillis": "1789027307149",
+ "dateTimestamp": "09/10/26 17:03:29",
+ "timestampMillis": "1789027409367",
  "buildStep": {
-  "cmdId": "74061cce-6187-45d4-8b0b-ebaa7796a081",
+  "cmdId": "7da479ec-e53e-4003-997f-a81929e639a7",
   "name": "",
   "logFile": "D:/project\\DPU_Project_vitis\\DPU_HLS\\dpu_conv_top\\hls\\hls.log",
   "commandLine": "",
@@ -98,10 +98,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/10/26 17:01:47",
- "timestampMillis": "1789027307151",
+ "dateTimestamp": "09/10/26 17:03:29",
+ "timestampMillis": "1789027409369",
  "status": {
-  "cmdId": "74061cce-6187-45d4-8b0b-ebaa7796a081",
+  "cmdId": "7da479ec-e53e-4003-997f-a81929e639a7",
   "state": "CS_RUNNING"
  }
 }
@@ -109,10 +109,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/10/26 17:02:04",
- "timestampMillis": "1789027324953",
+ "dateTimestamp": "09/10/26 17:04:57",
+ "timestampMillis": "1789027497327",
  "status": {
-  "cmdId": "74061cce-6187-45d4-8b0b-ebaa7796a081",
+  "cmdId": "7da479ec-e53e-4003-997f-a81929e639a7",
   "state": "CS_PASSED"
  }
 }
@@ -120,10 +120,10 @@
 <ENTRY>
 {
  "type": "ET_Status",
- "dateTimestamp": "09/10/26 17:02:05",
- "timestampMillis": "1789027325355",
+ "dateTimestamp": "09/10/26 17:04:57",
+ "timestampMillis": "1789027497531",
  "status": {
-  "cmdId": "ef9858b6-145a-468b-ba33-8c11faf5e4ad",
+  "cmdId": "2bbf0758-46f4-4b4f-876a-ff40b6d7a94d",
   "state": "CS_PASSED"
  }
 }
@@ -131,8 +131,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/10/26 17:02:05",
- "timestampMillis": "1789027325357",
+ "dateTimestamp": "09/10/26 17:04:57",
+ "timestampMillis": "1789027497532",
  "report": {
   "path": "",
   "name": "",
@@ -145,8 +145,8 @@
 <ENTRY>
 {
  "type": "ET_Report",
- "dateTimestamp": "09/10/26 17:02:05",
- "timestampMillis": "1789027325357",
+ "dateTimestamp": "09/10/26 17:04:57",
+ "timestampMillis": "1789027497533",
  "report": {
   "path": "",
   "name": "",
